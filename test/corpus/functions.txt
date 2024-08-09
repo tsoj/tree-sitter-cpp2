@@ -1,0 +1,58 @@
+===========================================================
+Return
+===========================================================
+
+main : () -> int = {
+    return 1;
+}
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (type
+      (function_type
+        (type
+          (basic_type))))
+    (definition
+      (block
+        (statement
+          (return_statement
+            (expression
+              (number))))))))
+
+===========================================================
+declaration
+===========================================================
+
+hello: (a: B, b: D) = {
+    e: int = 1;
+}
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (type
+      (function_type
+        (parameters
+          (parameter
+            (identifier)
+            (type
+              (basic_type)))
+          (parameter
+            (identifier)
+            (type
+              (basic_type))))))
+    (definition
+      (block
+        (statement
+          (declaration
+            (identifier)
+            (type
+              (basic_type))
+            (definition
+              (expression
+                (number)))))))))
