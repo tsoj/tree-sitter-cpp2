@@ -69,6 +69,9 @@ stdio
 
 _main2: () -> ::std::hello::int = {
     s: std::string = "Fred";
+    myfile := fopen("xyzzy", "w");
+    _ = myfile.fprintf( "Hello %s with UFCS!", s.c_str() );
+    _ = myfile.fclose();
 }
 
 -----------------------------------------------------------
@@ -99,4 +102,58 @@ _main2: () -> ::std::hello::int = {
             (definition
               (expression
                 (literal
-                  (string))))))))))
+                  (string))))))
+        (statement
+          (declaration
+            (identifier)
+            (definition
+              (expression
+                (function_call
+                  (any_identifier
+                    (identifier))
+                  (arguments
+                    (expression
+                      (literal
+                        (string)))
+                    (expression
+                      (literal
+                        (string)))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (method_call
+                (any_identifier
+                  (identifier))
+                (any_identifier
+                  (identifier))
+                (arguments
+                  (expression
+                    (literal
+                      (string)))
+                  (expression
+                    (method_call
+                      (any_identifier
+                        (identifier))
+                      (any_identifier
+                        (identifier)))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (method_call
+                (any_identifier
+                  (identifier))
+                (any_identifier
+                  (identifier))))))))))
+
+===========================================================
+global
+===========================================================
+
+a := 5;
+b: type = hello();
+
+-----------------------------------------------------------
