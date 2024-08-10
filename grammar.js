@@ -106,7 +106,6 @@ module.exports = grammar({
             $.expression,
             choice(
               "*",
-              // "**",
               "/",
               "%",
               "+",
@@ -123,7 +122,7 @@ module.exports = grammar({
               "&",
               "^",
               "|",
-              // "&&",
+              "&&",
               "||",
             ),
             $.expression,
