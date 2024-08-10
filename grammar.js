@@ -75,19 +75,57 @@ module.exports = grammar({
         $.function_call,
         $.method_call,
         $.unary_expression,
+        $.binary_expression,
+        $.parenthese_expression,
       ),
 
     unary_expression: ($) =>
       choice($.unary_prefix_expression, $.unary_postfix_expression),
 
     unary_postfix_expression: ($) =>
-      prec(1, seq($.expression, choice("++", "--", "*", "&", "~", "$", "..."))),
+      prec(2, seq($.expression, choice("++", "--", "*", "&", "~", "$", "..."))),
 
     unary_prefix_expression: ($) =>
-      prec(2, seq(choice("-", "+", "!"), $.expression)),
+      // semantically the prefix operator should have have higher precedence
+      // but it is easier to create a parse this way
+      prec(1, seq(choice("-", "+", "!"), $.expression)),
 
-    function_call: ($) =>
-      prec(0, seq($.expression, "(", optional($.arguments), ")")),
+    binary_expression: ($) =>
+      prec(
+        3,
+        prec.left(
+          seq(
+            $.expression,
+            choice(
+              "*",
+              // "**",
+              "/",
+              "%",
+              "+",
+              "-",
+              "<<",
+              ">>",
+              "<=>",
+              "<",
+              ">",
+              "<=",
+              ">=",
+              "==",
+              "!=",
+              "&",
+              "^",
+              "|",
+              // "&&",
+              "||",
+            ),
+            $.expression,
+          ),
+        ),
+      ),
+
+    parenthese_expression: ($) => seq("(", $.expression, ")"),
+
+    function_call: ($) => seq($.expression, "(", optional($.arguments), ")"),
 
     method_call: ($) =>
       seq(
