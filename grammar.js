@@ -83,7 +83,15 @@ module.exports = grammar({
       choice($.unary_prefix_expression, $.unary_postfix_expression),
 
     unary_postfix_expression: ($) =>
-      prec(2, seq($.expression, choice("++", "--", "*", "&", "~", "$", "..."))),
+      prec(
+        2,
+        seq(
+          $.expression,
+          // the reason we have &&  additionally to & is for issues
+          // with conflicting tokenization with the binary operator &&
+          choice("++", "--", "*", "&", "&&", "~", "$", "..."),
+        ),
+      ),
 
     unary_prefix_expression: ($) =>
       // semantically the prefix operator should have have higher precedence
