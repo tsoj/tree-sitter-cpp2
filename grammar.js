@@ -6,7 +6,7 @@ module.exports = grammar({
 
   rules: {
     // TODO make ";" only optional when the declaration has a block at the end
-    source_file: ($) => repeat(seq($.declaration, optional(";"))),
+    source_file: ($) => repeat(choice($.declaration, ";")),
 
     declaration: ($) =>
       seq(
@@ -54,12 +54,11 @@ module.exports = grammar({
     expression: ($) =>
       choice($.literal, $.any_identifier, $.function_call, $.method_call),
 
-    function_call: ($) =>
-      seq($.any_identifier, "(", optional($.arguments), ")"),
+    function_call: ($) => seq($.expression, "(", optional($.arguments), ")"),
 
     method_call: ($) =>
       seq(
-        $.any_identifier,
+        $.expression,
         choice(".", ".."),
         $.any_identifier,
         "(",

@@ -109,8 +109,9 @@ _main2: () -> ::std::hello::int = {
             (definition
               (expression
                 (function_call
-                  (any_identifier
-                    (identifier))
+                  (expression
+                    (any_identifier
+                      (identifier)))
                   (arguments
                     (expression
                       (literal
@@ -124,8 +125,9 @@ _main2: () -> ::std::hello::int = {
               (identifier))
             (expression
               (method_call
-                (any_identifier
-                  (identifier))
+                (expression
+                  (any_identifier
+                    (identifier)))
                 (any_identifier
                   (identifier))
                 (arguments
@@ -134,8 +136,9 @@ _main2: () -> ::std::hello::int = {
                       (string)))
                   (expression
                     (method_call
-                      (any_identifier
-                        (identifier))
+                      (expression
+                        (any_identifier
+                          (identifier)))
                       (any_identifier
                         (identifier)))))))))
         (statement
@@ -144,8 +147,9 @@ _main2: () -> ::std::hello::int = {
               (identifier))
             (expression
               (method_call
-                (any_identifier
-                  (identifier))
+                (expression
+                  (any_identifier
+                    (identifier)))
                 (any_identifier
                   (identifier))))))))))
 
@@ -153,7 +157,146 @@ _main2: () -> ::std::hello::int = {
 global
 ===========================================================
 
+;
 a := 5;
+a := 5
 b: type = hello();
+;;;
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (literal
+          (number)))))
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (literal
+          (number)))))
+  (declaration
+    (identifier)
+    (type
+      (any_identifier
+        (identifier)))
+    (definition
+      (expression
+        (function_call
+          (expression
+            (any_identifier
+              (identifier))))))))
+
+===========================================================
+repeated calls
+===========================================================
+
+f0 : () -> _ = { return 42; }
+f1 : () -> _ = { return f0; }
+f2 : () -> _ = { return f1; }
+f3 : () -> _ = { return f2; }
+f4 : () -> _ = { return f3; }
+
+main: () -> int = {
+    return f4()()()()();
+}
 
 -----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (type
+      (function_type
+        (type
+          (any_identifier
+            (identifier)))))
+    (definition
+      (block
+        (statement
+          (return_statement
+            (expression
+              (literal
+                (number))))))))
+  (declaration
+    (identifier)
+    (type
+      (function_type
+        (type
+          (any_identifier
+            (identifier)))))
+    (definition
+      (block
+        (statement
+          (return_statement
+            (expression
+              (any_identifier
+                (identifier))))))))
+  (declaration
+    (identifier)
+    (type
+      (function_type
+        (type
+          (any_identifier
+            (identifier)))))
+    (definition
+      (block
+        (statement
+          (return_statement
+            (expression
+              (any_identifier
+                (identifier))))))))
+  (declaration
+    (identifier)
+    (type
+      (function_type
+        (type
+          (any_identifier
+            (identifier)))))
+    (definition
+      (block
+        (statement
+          (return_statement
+            (expression
+              (any_identifier
+                (identifier))))))))
+  (declaration
+    (identifier)
+    (type
+      (function_type
+        (type
+          (any_identifier
+            (identifier)))))
+    (definition
+      (block
+        (statement
+          (return_statement
+            (expression
+              (any_identifier
+                (identifier))))))))
+  (declaration
+    (identifier)
+    (type
+      (function_type
+        (type
+          (any_identifier
+            (identifier)))))
+    (definition
+      (block
+        (statement
+          (return_statement
+            (expression
+              (function_call
+                (expression
+                  (function_call
+                    (expression
+                      (function_call
+                        (expression
+                          (function_call
+                            (expression
+                              (function_call
+                                (expression
+                                  (any_identifier
+                                    (identifier)))))))))))))))))))
