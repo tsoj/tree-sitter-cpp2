@@ -17,7 +17,24 @@ module.exports = grammar({
         ),
       ),
 
-    assignment: ($) => seq($.any_identifier, "=", $.expression),
+    assignment: ($) =>
+      seq(
+        $.any_identifier,
+        choice(
+          "=",
+          "*=",
+          "/=",
+          "%=",
+          "+=",
+          "-=",
+          ">>=",
+          "<<=",
+          "&=",
+          "^=",
+          "|=",
+        ),
+        $.expression,
+      ),
 
     any_identifier: ($) => choice($.namespaced_identifier, $.identifier),
 
