@@ -52,9 +52,25 @@ module.exports = grammar({
     discard: ($) => seq("_", "=", $.definition),
 
     expression: ($) =>
-      choice($.literal, $.any_identifier, $.function_call, $.method_call),
+      choice(
+        $.literal,
+        $.any_identifier,
+        $.function_call,
+        $.method_call,
+        $.unary_expression,
+      ),
 
-    function_call: ($) => seq($.expression, "(", optional($.arguments), ")"),
+    unary_expression: ($) =>
+      choice($.unary_prefix_expression, $.unary_postfix_expression),
+
+    unary_postfix_expression: ($) =>
+      prec(1, seq($.expression, choice("++", "--", "*", "&", "~", "$", "..."))),
+
+    unary_prefix_expression: ($) =>
+      prec(2, seq(choice("-", "+", "!"), $.expression)),
+
+    function_call: ($) =>
+      prec(0, seq($.expression, "(", optional($.arguments), ")")),
 
     method_call: ($) =>
       seq(
