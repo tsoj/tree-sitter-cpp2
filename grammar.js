@@ -5,10 +5,19 @@ module.exports = grammar({
   name: "cpp2",
 
   rules: {
-    source_file: ($) => repeat($.declaration),
+    // TODO make ";" only optional when the declaration has a block at the end
+    source_file: ($) => repeat(seq($.declaration, optional(";"))),
 
     declaration: ($) =>
-      seq($.identifier, ":", $.type, optional(seq("=", $.definition))),
+      seq(
+        $.identifier,
+        choice(
+          seq(":", $.type, optional(seq("=", $.definition))),
+          seq(":=", $.definition),
+        ),
+      ),
+
+    assignment: ($) => seq($.any_identifier, "=", $.expression),
 
     any_identifier: ($) => choice($.namespaced_identifier, $.identifier),
 
@@ -35,7 +44,10 @@ module.exports = grammar({
     block: ($) => seq("{", repeat($.statement), "}"),
 
     statement: ($) =>
-      seq(optional(choice($.declaration, $.return_statement)), ";"),
+      seq(
+        optional(choice($.declaration, $.return_statement, $.assignment)),
+        ";",
+      ),
 
     discard: ($) => seq("_", "=", $.definition),
 

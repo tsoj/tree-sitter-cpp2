@@ -36,3 +36,7 @@ dist/
 *.wasm
 *.obj
 *.o
+
+
+# my own stuff
+example-file.txt
