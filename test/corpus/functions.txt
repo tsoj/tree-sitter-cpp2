@@ -419,10 +419,10 @@ k := -x++;
     (definition
       (expression
         (unary_expression
-          (unary_postfix_expression
+          (unary_prefix_expression
             (expression
               (unary_expression
-                (unary_prefix_expression
+                (unary_postfix_expression
                   (expression
                     (any_identifier
                       (identifier))))))))))))
@@ -561,10 +561,17 @@ main: () = {
               (identifier))
             (expression
               (unary_expression
-                (unary_postfix_expression
+                (unary_prefix_expression
                   (expression
                     (unary_expression
-                      (unary_prefix_expression
+                      (unary_postfix_expression
                         (expression
                           (any_identifier
                             (identifier)))))))))))))))
+
+===========================================================
+binary operators
+===========================================================
+
+a := b&&;
+-----------------------------------------------------------
