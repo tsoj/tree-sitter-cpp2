@@ -14,13 +14,15 @@ main : () -> int = {
     (type
       (function_type
         (type
-          (basic_type))))
+          (any_identifier
+            (identifier)))))
     (definition
       (block
         (statement
           (return_statement
             (expression
-              (number))))))))
+              (literal
+                (number)))))))))
 
 ===========================================================
 declaration
@@ -41,18 +43,60 @@ hello: (a: B, b: D) = {
           (parameter
             (identifier)
             (type
-              (basic_type)))
+              (any_identifier
+                (identifier))))
           (parameter
             (identifier)
             (type
-              (basic_type))))))
+              (any_identifier
+                (identifier)))))))
     (definition
       (block
         (statement
           (declaration
             (identifier)
             (type
-              (basic_type))
+              (any_identifier
+                (identifier)))
             (definition
               (expression
-                (number)))))))))
+                (literal
+                  (number))))))))))
+
+===========================================================
+stdio
+===========================================================
+
+_main2: () -> ::std::hello::int = {
+    s: std::string = "Fred";
+}
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (type
+      (function_type
+        (type
+          (any_identifier
+            (namespaced_identifier
+              (namespaced_identifier
+                (identifier)
+                (namespaced_identifier
+                  (identifier)
+                  (identifier))))))))
+    (definition
+      (block
+        (statement
+          (declaration
+            (identifier)
+            (type
+              (any_identifier
+                (namespaced_identifier
+                  (identifier)
+                  (identifier))))
+            (definition
+              (expression
+                (literal
+                  (string))))))))))
