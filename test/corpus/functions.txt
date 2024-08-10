@@ -426,3 +426,145 @@ k := -x++;
                   (expression
                     (any_identifier
                       (identifier))))))))))))
+
+===========================================================
+assignment
+===========================================================
+main: () = {
+    a = -x;
+    b += !x();
+    c -= +x;
+    d *= x++();
+    e /= x--;
+    f %= x*;
+    g <<= x&;
+    h >>= x~;
+    i &= x$;
+    j ^= x...;
+    k |= -x++;
+}
+-----------------------------------------------------------
+(source_file
+  (declaration
+    (identifier)
+    (type
+      (function_type))
+    (definition
+      (block
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (unary_expression
+                (unary_prefix_expression
+                  (expression
+                    (any_identifier
+                      (identifier))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (function_call
+                (expression
+                  (unary_expression
+                    (unary_prefix_expression
+                      (expression
+                        (any_identifier
+                          (identifier))))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (unary_expression
+                (unary_prefix_expression
+                  (expression
+                    (any_identifier
+                      (identifier))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (function_call
+                (expression
+                  (unary_expression
+                    (unary_postfix_expression
+                      (expression
+                        (any_identifier
+                          (identifier))))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (unary_expression
+                (unary_postfix_expression
+                  (expression
+                    (any_identifier
+                      (identifier))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (unary_expression
+                (unary_postfix_expression
+                  (expression
+                    (any_identifier
+                      (identifier))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (unary_expression
+                (unary_postfix_expression
+                  (expression
+                    (any_identifier
+                      (identifier))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (unary_expression
+                (unary_postfix_expression
+                  (expression
+                    (any_identifier
+                      (identifier))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (unary_expression
+                (unary_postfix_expression
+                  (expression
+                    (any_identifier
+                      (identifier))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (unary_expression
+                (unary_postfix_expression
+                  (expression
+                    (any_identifier
+                      (identifier))))))))
+        (statement
+          (assignment
+            (any_identifier
+              (identifier))
+            (expression
+              (unary_expression
+                (unary_postfix_expression
+                  (expression
+                    (unary_expression
+                      (unary_prefix_expression
+                        (expression
+                          (any_identifier
+                            (identifier)))))))))))))))
