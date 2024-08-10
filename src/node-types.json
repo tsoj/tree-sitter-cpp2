@@ -150,11 +150,11 @@
       "required": true,
       "types": [
         {
-          "type": "any_identifier",
+          "type": "arguments",
           "named": true
         },
         {
-          "type": "arguments",
+          "type": "expression",
           "named": true
         }
       ]
@@ -220,6 +220,10 @@
         },
         {
           "type": "arguments",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         }
       ]

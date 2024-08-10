@@ -4,23 +4,15 @@
     "source_file": {
       "type": "REPEAT",
       "content": {
-        "type": "SEQ",
+        "type": "CHOICE",
         "members": [
           {
             "type": "SYMBOL",
             "name": "declaration"
           },
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ";"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "STRING",
+            "value": ";"
           }
         ]
       }
@@ -365,7 +357,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "any_identifier"
+          "name": "expression"
         },
         {
           "type": "STRING",
@@ -394,7 +386,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "any_identifier"
+          "name": "expression"
         },
         {
           "type": "CHOICE",
