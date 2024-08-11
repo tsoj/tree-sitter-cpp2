@@ -189,7 +189,7 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "declaration",
           "named": true
         }
       ]
@@ -372,6 +372,10 @@
         },
         {
           "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         },
         {

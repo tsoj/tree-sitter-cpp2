@@ -309,6 +309,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "assignment"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
                 }
               ]
             },
@@ -759,7 +763,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "expression"
+          "name": "declaration"
         }
       ]
     },
