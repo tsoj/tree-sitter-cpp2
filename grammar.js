@@ -12,27 +12,13 @@ module.exports = grammar({
       seq($.identifier, choice(seq(":", $.type), $.definition)),
 
     definition: ($) =>
-      choice(
-        seq(choice(":=", seq(":", $.type, "=")), choice($.block, $.expression)),
-      ),
-
-    assignment: ($) =>
-      seq(
-        $.any_identifier,
+      prec.right(
         choice(
-          "=",
-          "*=",
-          "/=",
-          "%=",
-          "+=",
-          "-=",
-          ">>=",
-          "<<=",
-          "&=",
-          "^=",
-          "|=",
+          seq(
+            choice(":=", seq(":", $.type, "=")),
+            choice($.block, $.expression),
+          ),
         ),
-        $.expression,
       ),
 
     any_identifier: ($) => choice($.namespaced_identifier, $.identifier),
@@ -76,7 +62,6 @@ module.exports = grammar({
         $.binary_expression,
         $.parenthese_expression,
         $.definition,
-        $.assignment,
       ),
 
     unary_expression: ($) =>
@@ -84,7 +69,7 @@ module.exports = grammar({
 
     unary_postfix_expression: ($) =>
       prec(
-        2,
+        3,
         seq(
           $.expression,
           // the reason we have &&  additionally to & is for issues
@@ -96,12 +81,12 @@ module.exports = grammar({
     unary_prefix_expression: ($) =>
       // semantically the prefix operator should have have higher precedence
       // but it is easier to create a parse this way
-      prec(1, seq(choice("-", "+", "!"), $.expression)),
+      prec(2, seq(choice("-", "+", "!"), $.expression)),
 
     binary_expression: ($) =>
       prec(
-        3,
-        prec.left(
+        4,
+        prec.right(
           seq(
             $.expression,
             choice(
@@ -124,6 +109,18 @@ module.exports = grammar({
               "|",
               "&&",
               "||",
+              // assignment operators
+              "=",
+              "*=",
+              "/=",
+              "%=",
+              "+=",
+              "-=",
+              ">>=",
+              "<<=",
+              "&=",
+              "^=",
+              "|=",
             ),
             $.expression,
           ),
@@ -135,11 +132,11 @@ module.exports = grammar({
     pass_parameters: ($) => seq($.expression, repeat(seq(",", $.expression))),
 
     function_call: ($) =>
-      prec(-1, seq($.expression, "(", optional($.pass_parameters), ")")),
+      prec(5, seq($.expression, "(", optional($.pass_parameters), ")")),
 
     method_call: ($) =>
       prec(
-        -1,
+        5,
         seq(
           $.expression,
           choice(".", ".."),

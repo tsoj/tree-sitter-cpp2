@@ -23,6 +23,7 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
         (function_type
           (function_declaration_arguments
             (function_declaration_argument
+              (passing_style)
               (declaration
                 (identifier)
                 (type
@@ -31,6 +32,7 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                       (identifier)
                       (identifier))))))
             (function_declaration_argument
+              (passing_style)
               (declaration
                 (identifier)
                 (type
@@ -39,6 +41,7 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                       (identifier)
                       (identifier))))))
             (function_declaration_argument
+              (passing_style)
               (declaration
                 (identifier)
                 (type
@@ -82,6 +85,7 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
         (function_type
           (function_declaration_arguments
             (function_declaration_argument
+              (passing_style)
               (declaration
                 (identifier)
                 (definition
@@ -89,12 +93,14 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                     (literal
                       (number))))))
             (function_declaration_argument
+              (passing_style)
               (declaration
                 (identifier)
                 (type
                   (any_identifier
                     (identifier)))))
             (function_declaration_argument
+              (passing_style)
               (declaration
                 (identifier)
                 (definition
@@ -154,12 +160,14 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                   (any_identifier
                     (identifier)))))))
         (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (literal
-                (string)))))))))
+          (expression
+            (assignment
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (literal
+                  (string))))))))))
 
 ===========================================================
 function type ids
@@ -174,3 +182,155 @@ g_move : (move  s: std::string) = std::cout << "I hear you've moving, (s)$?\n";
 h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout (s)$ ... "; return s; }
 
 -----------------------------------------------------------
+
+    (source_file
+      (declaration
+        (identifier)
+        (definition
+          (type
+            (function_type))
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier))))
+              (expression
+                (literal
+                  (string)))))))
+      (declaration
+        (identifier)
+        (definition
+          (type
+            (function_type
+              (function_declaration_arguments
+                (function_declaration_argument
+                  (declaration
+                    (identifier)
+                    (type
+                      (any_identifier
+                        (namespaced_identifier
+                          (identifier)
+                          (identifier)))))))))
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier))))
+              (expression
+                (literal
+                  (string)))))))
+      (declaration
+        (identifier)
+        (definition
+          (type
+            (function_type
+              (function_declaration_arguments
+                (function_declaration_argument
+                  (passing_style)
+                  (declaration
+                    (identifier)
+                    (type
+                      (any_identifier
+                        (namespaced_identifier
+                          (identifier)
+                          (identifier)))))))))
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier))))
+              (expression
+                (literal
+                  (string)))))))
+      (declaration
+        (identifier)
+        (definition
+          (type
+            (function_type
+              (function_declaration_arguments
+                (function_declaration_argument
+                  (passing_style)
+                  (declaration
+                    (identifier)
+                    (type
+                      (any_identifier
+                        (namespaced_identifier
+                          (identifier)
+                          (identifier)))))))))
+          (expression
+            (assignment
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (literal
+                  (string)))))))
+      (declaration
+        (identifier)
+        (definition
+          (type
+            (function_type
+              (function_declaration_arguments
+                (function_declaration_argument
+                  (passing_style)
+                  (declaration
+                    (identifier)
+                    (type
+                      (any_identifier
+                        (namespaced_identifier
+                          (identifier)
+                          (identifier)))))))))
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier))))
+              (expression
+                (literal
+                  (string)))))))
+      (declaration
+        (identifier)
+        (definition
+          (type
+            (function_type
+              (function_declaration_arguments
+                (function_declaration_argument
+                  (passing_style)
+                  (declaration
+                    (identifier)
+                    (type
+                      (any_identifier
+                        (namespaced_identifier
+                          (identifier)
+                          (identifier)))))))
+              (passing_style)
+              (type
+                (any_identifier
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier))))))
+          (block
+            (statement
+              (expression
+                (binary_expression
+                  (expression
+                    (any_identifier
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier))))
+                  (expression
+                    (literal
+                      (string))))))
+            (statement
+              (return_statement
+                (expression
+                  (any_identifier
+                    (identifier)))))))))

@@ -140,87 +140,96 @@ _main2: () -> ::std::hello::int = {
     s: std::string = "Fred";
     myfile := fopen("xyzzy", "w");
     _ = myfile.fprintf( "Hello %s with UFCS!", s.c_str() );
-    _ = myfile.fclose();
+    _ = 1 == myfile.fclose();
 }
 
 -----------------------------------------------------------
 
-(source_file
-  (declaration
-    (identifier)
-    (definition
-      (type
-        (function_type
+    (source_file
+      (declaration
+        (identifier)
+        (definition
           (type
-            (any_identifier
-              (namespaced_identifier
-                (namespaced_identifier
-                  (identifier)
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))))))
-      (block
-        (statement
-          (declaration
-            (identifier)
-            (definition
+            (function_type
               (type
                 (any_identifier
                   (namespaced_identifier
-                    (identifier)
-                    (identifier))))
+                    (namespaced_identifier
+                      (identifier)
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier))))))))
+          (block
+            (statement
+              (declaration
+                (identifier)
+                (definition
+                  (type
+                    (any_identifier
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier))))
+                  (expression
+                    (literal
+                      (string))))))
+            (statement
+              (declaration
+                (identifier)
+                (definition
+                  (expression
+                    (function_call
+                      (expression
+                        (any_identifier
+                          (identifier)))
+                      (pass_parameters
+                        (expression
+                          (literal
+                            (string)))
+                        (expression
+                          (literal
+                            (string)))))))))
+            (statement
               (expression
-                (literal
-                  (string))))))
-        (statement
-          (declaration
-            (identifier)
-            (definition
-              (expression
-                (function_call
+                (binary_expression
                   (expression
                     (any_identifier
                       (identifier)))
-                  (pass_parameters
-                    (expression
-                      (literal
-                        (string)))
-                    (expression
-                      (literal
-                        (string)))))))))
-        (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (method_call
-                (expression
-                  (any_identifier
-                    (identifier)))
-                (any_identifier
-                  (identifier))
-                (pass_parameters
-                  (expression
-                    (literal
-                      (string)))
                   (expression
                     (method_call
                       (expression
                         (any_identifier
                           (identifier)))
                       (any_identifier
-                        (identifier)))))))))
-        (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (method_call
-                (expression
-                  (any_identifier
-                    (identifier)))
-                (any_identifier
-                  (identifier))))))))))
+                        (identifier))
+                      (pass_parameters
+                        (expression
+                          (literal
+                            (string)))
+                        (expression
+                          (method_call
+                            (expression
+                              (any_identifier
+                                (identifier)))
+                            (any_identifier
+                              (identifier))))))))))
+            (statement
+              (expression
+                (binary_expression
+                  (expression
+                    (any_identifier
+                      (identifier)))
+                  (expression
+                    (binary_expression
+                      (expression
+                        (literal
+                          (number)))
+                      (expression
+                        (method_call
+                          (expression
+                            (any_identifier
+                              (identifier)))
+                          (any_identifier
+                            (identifier)))))))))))))
 
 ===========================================================
 global
@@ -402,10 +411,10 @@ k := -x++;
     (identifier)
     (definition
       (expression
-        (function_call
-          (expression
-            (unary_expression
-              (unary_prefix_expression
+        (unary_expression
+          (unary_prefix_expression
+            (expression
+              (function_call
                 (expression
                   (any_identifier
                     (identifier))))))))))
@@ -497,7 +506,7 @@ k := -x++;
                       (identifier))))))))))))
 
 ===========================================================
-assignment
+binary_expression
 ===========================================================
 main: () = {
     a = -x;
@@ -513,6 +522,7 @@ main: () = {
     k |= -x++;
 }
 -----------------------------------------------------------
+
 (source_file
   (declaration
     (identifier)
@@ -521,122 +531,144 @@ main: () = {
         (function_type))
       (block
         (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (unary_expression
-                (unary_prefix_expression
-                  (expression
-                    (any_identifier
-                      (identifier))))))))
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (unary_expression
+                  (unary_prefix_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))))))))
         (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (function_call
-                (expression
-                  (unary_expression
-                    (unary_prefix_expression
-                      (expression
-                        (any_identifier
-                          (identifier))))))))))
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (unary_expression
+                  (unary_prefix_expression
+                    (expression
+                      (function_call
+                        (expression
+                          (any_identifier
+                            (identifier)))))))))))
         (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (unary_expression
-                (unary_prefix_expression
-                  (expression
-                    (any_identifier
-                      (identifier))))))))
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (unary_expression
+                  (unary_prefix_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))))))))
         (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (function_call
-                (expression
-                  (unary_expression
-                    (unary_postfix_expression
-                      (expression
-                        (any_identifier
-                          (identifier))))))))))
-        (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (unary_expression
-                (unary_postfix_expression
-                  (expression
-                    (any_identifier
-                      (identifier))))))))
-        (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (unary_expression
-                (unary_postfix_expression
-                  (expression
-                    (any_identifier
-                      (identifier))))))))
-        (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (unary_expression
-                (unary_postfix_expression
-                  (expression
-                    (any_identifier
-                      (identifier))))))))
-        (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (unary_expression
-                (unary_postfix_expression
-                  (expression
-                    (any_identifier
-                      (identifier))))))))
-        (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (unary_expression
-                (unary_postfix_expression
-                  (expression
-                    (any_identifier
-                      (identifier))))))))
-        (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (unary_expression
-                (unary_postfix_expression
-                  (expression
-                    (any_identifier
-                      (identifier))))))))
-        (statement
-          (assignment
-            (any_identifier
-              (identifier))
-            (expression
-              (unary_expression
-                (unary_prefix_expression
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (function_call
                   (expression
                     (unary_expression
                       (unary_postfix_expression
                         (expression
                           (any_identifier
-                            (identifier)))))))))))))))
+                            (identifier)))))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (unary_expression
+                  (unary_prefix_expression
+                    (expression
+                      (unary_expression
+                        (unary_postfix_expression
+                          (expression
+                            (any_identifier
+                              (identifier))))))))))))))))
 
 ===========================================================
 binary operators
