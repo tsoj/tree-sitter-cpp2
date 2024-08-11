@@ -9,12 +9,11 @@ module.exports = grammar({
     source_file: ($) => repeat(choice($.declaration, ";")),
 
     declaration: ($) =>
-      seq(
-        $.identifier,
-        choice(
-          seq(":", $.type, optional(seq("=", $.definition))),
-          seq(":=", $.definition),
-        ),
+      seq($.identifier, choice(seq(":", $.type), $.definition)),
+
+    definition: ($) =>
+      choice(
+        seq(choice(":=", seq(":", $.type, "=")), choice($.block, $.expression)),
       ),
 
     assignment: ($) =>
@@ -56,8 +55,6 @@ module.exports = grammar({
 
     parameter: ($) => seq($.identifier, ":", $.type),
 
-    definition: ($) => choice($.block, $.expression),
-
     block: ($) => seq("{", repeat($.statement), "}"),
 
     statement: ($) =>
@@ -66,7 +63,7 @@ module.exports = grammar({
         ";",
       ),
 
-    discard: ($) => seq("_", "=", $.definition),
+    // discard: ($) => seq("_", "=", $.definition),
 
     expression: ($) =>
       choice(
@@ -77,6 +74,7 @@ module.exports = grammar({
         $.unary_expression,
         $.binary_expression,
         $.parenthese_expression,
+        $.definition,
       ),
 
     unary_expression: ($) =>
@@ -132,16 +130,20 @@ module.exports = grammar({
 
     parenthese_expression: ($) => seq("(", $.expression, ")"),
 
-    function_call: ($) => seq($.expression, "(", optional($.arguments), ")"),
+    function_call: ($) =>
+      prec(-1, seq($.expression, "(", optional($.arguments), ")")),
 
     method_call: ($) =>
-      seq(
-        $.expression,
-        choice(".", ".."),
-        $.any_identifier,
-        "(",
-        optional($.arguments),
-        ")",
+      prec(
+        -1,
+        seq(
+          $.expression,
+          choice(".", ".."),
+          $.any_identifier,
+          "(",
+          optional($.arguments),
+          ")",
+        ),
       ),
 
     arguments: ($) => seq($.expression, repeat(seq(",", $.expression))),
