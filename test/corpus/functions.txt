@@ -11,12 +11,12 @@ main : () -> int = {
 (source_file
   (declaration
     (identifier)
-    (type
-      (function_type
-        (type
-          (any_identifier
-            (identifier)))))
     (definition
+      (type
+        (function_type
+          (type
+            (any_identifier
+              (identifier)))))
       (block
         (statement
           (return_statement
@@ -28,6 +28,12 @@ main : () -> int = {
 declaration
 ===========================================================
 
+a: int;
+a: int = c;
+a := c;
+a := (:B = c);
+a := (:= c);
+
 hello: (a: B, b: D) = {
     e: int = 1;
 }
@@ -37,28 +43,71 @@ hello: (a: B, b: D) = {
 (source_file
   (declaration
     (identifier)
-    (type
-      (function_type
-        (parameters
-          (parameter
-            (identifier)
-            (type
-              (any_identifier
-                (identifier))))
-          (parameter
-            (identifier)
-            (type
-              (any_identifier
-                (identifier)))))))
+      (type
+        (any_identifier
+          (identifier))))
+  (declaration
+    (identifier)
     (definition
+      (type
+        (any_identifier
+          (identifier)))
+      (expression
+        (any_identifier
+          (identifier)))))
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (any_identifier
+          (identifier)))))
+      (declaration
+        (identifier)
+    (definition
+      (expression
+        (parenthese_expression
+          (expression
+            (definition
+              (type
+                (any_identifier
+                  (identifier)))
+              (expression
+                (any_identifier
+                  (identifier)))))))))
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (parenthese_expression
+          (expression
+            (definition
+              (expression
+                (any_identifier
+                  (identifier)))))))))
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type
+          (parameters
+            (parameter
+              (identifier)
+              (type
+                (any_identifier
+                  (identifier))))
+            (parameter
+              (identifier)
+              (type
+                (any_identifier
+                  (identifier)))))))
       (block
         (statement
           (declaration
             (identifier)
-            (type
-              (any_identifier
-                (identifier)))
             (definition
+              (type
+                (any_identifier
+                  (identifier)))
               (expression
                 (literal
                   (number))))))))))
@@ -79,27 +128,27 @@ _main2: () -> ::std::hello::int = {
 (source_file
   (declaration
     (identifier)
-    (type
-      (function_type
-        (type
-          (any_identifier
-            (namespaced_identifier
+    (definition
+      (type
+        (function_type
+          (type
+            (any_identifier
               (namespaced_identifier
-                (identifier)
                 (namespaced_identifier
                   (identifier)
-                  (identifier))))))))
-    (definition
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier))))))))
       (block
         (statement
           (declaration
             (identifier)
-            (type
-              (any_identifier
-                (namespaced_identifier
-                  (identifier)
-                  (identifier))))
             (definition
+              (type
+                (any_identifier
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier))))
               (expression
                 (literal
                   (string))))))
@@ -179,10 +228,10 @@ b: type = hello();
           (number)))))
   (declaration
     (identifier)
-    (type
-      (any_identifier
-        (identifier)))
     (definition
+      (type
+        (any_identifier
+          (identifier)))
       (expression
         (function_call
           (expression
@@ -208,12 +257,12 @@ main: () -> int = {
 (source_file
   (declaration
     (identifier)
-    (type
-      (function_type
-        (type
-          (any_identifier
-            (identifier)))))
     (definition
+      (type
+        (function_type
+          (type
+            (any_identifier
+              (identifier)))))
       (block
         (statement
           (return_statement
@@ -222,12 +271,12 @@ main: () -> int = {
                 (number))))))))
   (declaration
     (identifier)
-    (type
-      (function_type
-        (type
-          (any_identifier
-            (identifier)))))
     (definition
+      (type
+        (function_type
+          (type
+            (any_identifier
+              (identifier)))))
       (block
         (statement
           (return_statement
@@ -236,12 +285,12 @@ main: () -> int = {
                 (identifier))))))))
   (declaration
     (identifier)
-    (type
-      (function_type
-        (type
-          (any_identifier
-            (identifier)))))
     (definition
+      (type
+        (function_type
+          (type
+            (any_identifier
+              (identifier)))))
       (block
         (statement
           (return_statement
@@ -250,12 +299,12 @@ main: () -> int = {
                 (identifier))))))))
   (declaration
     (identifier)
-    (type
-      (function_type
-        (type
-          (any_identifier
-            (identifier)))))
     (definition
+      (type
+        (function_type
+          (type
+            (any_identifier
+              (identifier)))))
       (block
         (statement
           (return_statement
@@ -264,12 +313,12 @@ main: () -> int = {
                 (identifier))))))))
   (declaration
     (identifier)
-    (type
-      (function_type
-        (type
-          (any_identifier
-            (identifier)))))
     (definition
+      (type
+        (function_type
+          (type
+            (any_identifier
+              (identifier)))))
       (block
         (statement
           (return_statement
@@ -278,12 +327,12 @@ main: () -> int = {
                 (identifier))))))))
   (declaration
     (identifier)
-    (type
-      (function_type
-        (type
-          (any_identifier
-            (identifier)))))
     (definition
+      (type
+        (function_type
+          (type
+            (any_identifier
+              (identifier)))))
       (block
         (statement
           (return_statement
@@ -447,9 +496,9 @@ main: () = {
 (source_file
   (declaration
     (identifier)
-    (type
-      (function_type))
     (definition
+      (type
+        (function_type))
       (block
         (statement
           (assignment

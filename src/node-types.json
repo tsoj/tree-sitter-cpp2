@@ -115,7 +115,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -124,6 +124,10 @@
         },
         {
           "type": "expression",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -143,6 +147,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "definition",
           "named": true
         },
         {
@@ -611,10 +619,6 @@
   },
   {
     "type": "^=",
-    "named": false
-  },
-  {
-    "type": "_",
     "named": false
   },
   {
