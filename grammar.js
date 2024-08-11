@@ -60,7 +60,9 @@ module.exports = grammar({
 
     statement: ($) =>
       seq(
-        optional(choice($.declaration, $.return_statement, $.assignment)),
+        optional(
+          choice($.declaration, $.return_statement, $.assignment, $.expression),
+        ),
         ";",
       ),
 
@@ -159,7 +161,7 @@ module.exports = grammar({
     function_declaration_argument: ($) =>
       seq(
         optional(choice("in", "copy", "inout", "out", "move", "forward")),
-        $.expression,
+        $.declaration,
       ),
 
     return_statement: ($) => seq("return", $.expression),

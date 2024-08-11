@@ -38,6 +38,8 @@ hello: (a: B, b: D) = {
     e: int = 1;
 }
 
+a := hello(x, "hello");
+
 -----------------------------------------------------------
 
 (source_file
@@ -89,17 +91,19 @@ hello: (a: B, b: D) = {
     (definition
       (type
         (function_type
-          (parameters
-            (parameter
-              (identifier)
-              (type
-                (any_identifier
-                  (identifier))))
-            (parameter
-              (identifier)
-              (type
-                (any_identifier
-                  (identifier)))))))
+          (function_declaration_arguments
+            (function_declaration_argument
+              (declaration
+                (identifier)
+                (type
+                  (any_identifier
+                    (identifier)))))
+            (function_declaration_argument
+              (declaration
+                (identifier)
+                (type
+                  (any_identifier
+                    (identifier))))))))
       (block
         (statement
           (declaration
@@ -110,7 +114,23 @@ hello: (a: B, b: D) = {
                   (identifier)))
               (expression
                 (literal
-                  (number))))))))))
+                  (number)))))))))
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (function_call
+          (expression
+            (any_identifier
+              (identifier)))
+          (pass_parameters
+            (expression
+              (any_identifier
+                (identifier)))
+            (expression
+              (literal
+                (string)))))))))
+
 
 ===========================================================
 stdio
@@ -161,7 +181,7 @@ _main2: () -> ::std::hello::int = {
                   (expression
                     (any_identifier
                       (identifier)))
-                  (arguments
+                  (pass_parameters
                     (expression
                       (literal
                         (string)))
@@ -179,7 +199,7 @@ _main2: () -> ::std::hello::int = {
                     (identifier)))
                 (any_identifier
                   (identifier))
-                (arguments
+                (pass_parameters
                   (expression
                     (literal
                       (string)))
