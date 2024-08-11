@@ -257,6 +257,18 @@
                   "value": "->"
                 },
                 {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "passing_style"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
                   "type": "SYMBOL",
                   "name": "type"
                 }
@@ -305,10 +317,6 @@
                 {
                   "type": "SYMBOL",
                   "name": "return_statement"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "assignment"
                 },
                 {
                   "type": "SYMBOL",
@@ -361,6 +369,10 @@
         {
           "type": "SYMBOL",
           "name": "definition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assignment"
         }
       ]
     },
@@ -728,33 +740,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "in"
-                },
-                {
-                  "type": "STRING",
-                  "value": "copy"
-                },
-                {
-                  "type": "STRING",
-                  "value": "inout"
-                },
-                {
-                  "type": "STRING",
-                  "value": "out"
-                },
-                {
-                  "type": "STRING",
-                  "value": "move"
-                },
-                {
-                  "type": "STRING",
-                  "value": "forward"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "passing_style"
             },
             {
               "type": "BLANK"
@@ -764,6 +751,35 @@
         {
           "type": "SYMBOL",
           "name": "declaration"
+        }
+      ]
+    },
+    "passing_style": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "STRING",
+          "value": "copy"
+        },
+        {
+          "type": "STRING",
+          "value": "inout"
+        },
+        {
+          "type": "STRING",
+          "value": "out"
+        },
+        {
+          "type": "STRING",
+          "value": "move"
+        },
+        {
+          "type": "STRING",
+          "value": "forward"
         }
       ]
     },

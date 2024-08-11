@@ -53,16 +53,14 @@ module.exports = grammar({
         "(",
         optional($.function_declaration_arguments),
         ")",
-        optional(seq("->", $.type)),
+        optional(seq("->", optional($.passing_style), $.type)),
       ),
 
     block: ($) => seq("{", repeat($.statement), "}"),
 
     statement: ($) =>
       seq(
-        optional(
-          choice($.declaration, $.return_statement, $.assignment, $.expression),
-        ),
+        optional(choice($.declaration, $.return_statement, $.expression)),
         ";",
       ),
 
@@ -78,6 +76,7 @@ module.exports = grammar({
         $.binary_expression,
         $.parenthese_expression,
         $.definition,
+        $.assignment,
       ),
 
     unary_expression: ($) =>
@@ -159,10 +158,10 @@ module.exports = grammar({
       ),
 
     function_declaration_argument: ($) =>
-      seq(
-        optional(choice("in", "copy", "inout", "out", "move", "forward")),
-        $.declaration,
-      ),
+      seq(optional($.passing_style), $.declaration),
+
+    passing_style: ($) =>
+      choice("in", "copy", "inout", "out", "move", "forward"),
 
     return_statement: ($) => seq("return", $.expression),
 
