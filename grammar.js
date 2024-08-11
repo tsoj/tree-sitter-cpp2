@@ -81,11 +81,11 @@ module.exports = grammar({
     unary_prefix_expression: ($) =>
       // semantically the prefix operator should have have higher precedence
       // but it is easier to create a parse this way
-      prec(2, seq(choice("-", "+", "!"), $.expression)),
+      prec(4, seq(choice("-", "+", "!"), $.expression)),
 
     binary_expression: ($) =>
       prec(
-        4,
+        2,
         prec.right(
           seq(
             $.expression,
