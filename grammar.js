@@ -49,11 +49,12 @@ module.exports = grammar({
     type: ($) => choice($.function_type, $.any_identifier),
 
     function_type: ($) =>
-      seq("(", optional($.parameters), ")", optional(seq("->", $.type))),
-
-    parameters: ($) => seq($.parameter, repeat(seq(",", $.parameter))),
-
-    parameter: ($) => seq($.identifier, ":", $.type),
+      seq(
+        "(",
+        optional($.function_declaration_arguments),
+        ")",
+        optional(seq("->", $.type)),
+      ),
 
     block: ($) => seq("{", repeat($.statement), "}"),
 
@@ -130,8 +131,10 @@ module.exports = grammar({
 
     parenthese_expression: ($) => seq("(", $.expression, ")"),
 
+    pass_parameters: ($) => seq($.expression, repeat(seq(",", $.expression))),
+
     function_call: ($) =>
-      prec(-1, seq($.expression, "(", optional($.arguments), ")")),
+      prec(-1, seq($.expression, "(", optional($.pass_parameters), ")")),
 
     method_call: ($) =>
       prec(
@@ -141,12 +144,23 @@ module.exports = grammar({
           choice(".", ".."),
           $.any_identifier,
           "(",
-          optional($.arguments),
+          optional($.pass_parameters),
           ")",
         ),
       ),
 
-    arguments: ($) => seq($.expression, repeat(seq(",", $.expression))),
+    function_declaration_arguments: ($) =>
+      seq(
+        $.function_declaration_argument,
+        repeat(seq(",", $.function_declaration_argument)),
+        optional(","),
+      ),
+
+    function_declaration_argument: ($) =>
+      seq(
+        optional(choice("in", "copy", "inout", "out", "move", "forward")),
+        $.expression,
+      ),
 
     return_statement: ($) => seq("return", $.expression),
 
