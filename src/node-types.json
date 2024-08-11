@@ -19,25 +19,6 @@
     }
   },
   {
-    "type": "assignment",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "any_identifier",
-          "named": true
-        },
-        {
-          "type": "expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "binary_expression",
     "named": true,
     "fields": {},
@@ -128,10 +109,6 @@
       "types": [
         {
           "type": "any_identifier",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
