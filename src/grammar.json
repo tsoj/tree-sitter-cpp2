@@ -235,7 +235,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "parameters"
+              "name": "function_declaration_arguments"
             },
             {
               "type": "BLANK"
@@ -266,48 +266,6 @@
               "type": "BLANK"
             }
           ]
-        }
-      ]
-    },
-    "parameters": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "parameter"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "parameter"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "parameter": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "STRING",
-          "value": ":"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "type"
         }
       ]
     },
@@ -614,6 +572,31 @@
         }
       ]
     },
+    "pass_parameters": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
+          }
+        }
+      ]
+    },
     "function_call": {
       "type": "PREC",
       "value": -1,
@@ -633,7 +616,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "arguments"
+                "name": "pass_parameters"
               },
               {
                 "type": "BLANK"
@@ -683,7 +666,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "arguments"
+                "name": "pass_parameters"
               },
               {
                 "type": "BLANK"
@@ -697,12 +680,12 @@
         ]
       }
     },
-    "arguments": {
+    "function_declaration_arguments": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "expression"
+          "name": "function_declaration_argument"
         },
         {
           "type": "REPEAT",
@@ -715,10 +698,68 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "expression"
+                "name": "function_declaration_argument"
               }
             ]
           }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "function_declaration_argument": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "in"
+                },
+                {
+                  "type": "STRING",
+                  "value": "copy"
+                },
+                {
+                  "type": "STRING",
+                  "value": "inout"
+                },
+                {
+                  "type": "STRING",
+                  "value": "out"
+                },
+                {
+                  "type": "STRING",
+                  "value": "move"
+                },
+                {
+                  "type": "STRING",
+                  "value": "forward"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
         }
       ]
     },
