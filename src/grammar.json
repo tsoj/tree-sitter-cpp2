@@ -178,21 +178,16 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "identifier"
+              "type": "STRING",
+              "value": " ::"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "BLANK"
             }
           ]
         },
         {
-          "type": "STRING",
-          "value": "::"
-        },
-        {
-          "type": "REPEAT",
+          "type": "REPEAT1",
           "content": {
             "type": "SEQ",
             "members": [

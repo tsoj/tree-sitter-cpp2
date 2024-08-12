@@ -153,11 +153,9 @@ _main2: () -> ::std::hello::int = {
           (type
             (any_identifier
               (namespaced_identifier
-                (namespaced_identifier
-                  (identifier)
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))))))
+                (identifier)
+                (identifier)
+                (identifier))))))
       (block
         (statement
           (declaration
@@ -258,8 +256,7 @@ b: type = hello();
     (identifier)
     (definition
       (type
-        (any_identifier
-          (identifier)))
+        (type_type))
       (expression
         (function_call
           (expression
