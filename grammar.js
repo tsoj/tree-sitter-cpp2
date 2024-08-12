@@ -38,12 +38,7 @@ module.exports = grammar({
     any_identifier: ($) => choice($.namespaced_identifier, $.identifier),
 
     namespaced_identifier: ($) =>
-      seq(
-        choice($.identifier, " "),
-        "::",
-        repeat(seq($.identifier, "::")),
-        $.identifier,
-      ),
+      seq(optional(" ::"), repeat1(seq($.identifier, "::")), $.identifier),
 
     identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
