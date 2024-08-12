@@ -45,9 +45,9 @@ a := hello(x, "hello");
 (source_file
   (declaration
     (identifier)
-      (type
-        (any_identifier
-          (identifier))))
+    (type
+      (any_identifier
+        (identifier))))
   (declaration
     (identifier)
     (definition
@@ -63,8 +63,8 @@ a := hello(x, "hello");
       (expression
         (any_identifier
           (identifier)))))
-      (declaration
-        (identifier)
+  (declaration
+    (identifier)
     (definition
       (expression
         (parenthese_expression
@@ -131,7 +131,6 @@ a := hello(x, "hello");
               (literal
                 (string)))))))))
 
-
 ===========================================================
 stdio
 ===========================================================
@@ -145,91 +144,91 @@ _main2: () -> ::std::hello::int = {
 
 -----------------------------------------------------------
 
-    (source_file
-      (declaration
-        (identifier)
-        (definition
+(source_file
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type
           (type
-            (function_type
+            (any_identifier
+              (namespaced_identifier
+                (namespaced_identifier
+                  (identifier)
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier))))))))
+      (block
+        (statement
+          (declaration
+            (identifier)
+            (definition
               (type
                 (any_identifier
                   (namespaced_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (namespaced_identifier
-                        (identifier)
-                        (identifier))))))))
-          (block
-            (statement
-              (declaration
-                (identifier)
-                (definition
-                  (type
-                    (any_identifier
-                      (namespaced_identifier
-                        (identifier)
-                        (identifier))))
-                  (expression
-                    (literal
-                      (string))))))
-            (statement
-              (declaration
-                (identifier)
-                (definition
-                  (expression
-                    (function_call
-                      (expression
-                        (any_identifier
-                          (identifier)))
-                      (pass_parameters
-                        (expression
-                          (literal
-                            (string)))
-                        (expression
-                          (literal
-                            (string)))))))))
-            (statement
+                    (identifier)
+                    (identifier))))
               (expression
-                (binary_expression
+                (literal
+                  (string))))))
+        (statement
+          (declaration
+            (identifier)
+            (definition
+              (expression
+                (function_call
                   (expression
                     (any_identifier
                       (identifier)))
+                  (pass_parameters
+                    (expression
+                      (literal
+                        (string)))
+                    (expression
+                      (literal
+                        (string)))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (method_call
+                  (expression
+                    (any_identifier
+                      (identifier)))
+                  (any_identifier
+                    (identifier))
+                  (pass_parameters
+                    (expression
+                      (literal
+                        (string)))
+                    (expression
+                      (method_call
+                        (expression
+                          (any_identifier
+                            (identifier)))
+                        (any_identifier
+                          (identifier))))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (identifier)))
+              (expression
+                (binary_expression
+                  (expression
+                    (literal
+                      (number)))
                   (expression
                     (method_call
                       (expression
                         (any_identifier
                           (identifier)))
                       (any_identifier
-                        (identifier))
-                      (pass_parameters
-                        (expression
-                          (literal
-                            (string)))
-                        (expression
-                          (method_call
-                            (expression
-                              (any_identifier
-                                (identifier)))
-                            (any_identifier
-                              (identifier))))))))))
-            (statement
-              (expression
-                (binary_expression
-                  (expression
-                    (any_identifier
-                      (identifier)))
-                  (expression
-                    (binary_expression
-                      (expression
-                        (literal
-                          (number)))
-                      (expression
-                        (method_call
-                          (expression
-                            (any_identifier
-                              (identifier)))
-                          (any_identifier
-                            (identifier)))))))))))))
+                        (identifier)))))))))))))
 
 ===========================================================
 global
@@ -497,10 +496,10 @@ k := -x++;
     (definition
       (expression
         (unary_expression
-          (unary_prefix_expression
+          (unary_postfix_expression
             (expression
               (unary_expression
-                (unary_postfix_expression
+                (unary_prefix_expression
                   (expression
                     (any_identifier
                       (identifier))))))))))))
@@ -570,102 +569,102 @@ main: () = {
                         (identifier)))))))))
         (statement
           (expression
-            (binary_expression
+            (function_call
               (expression
-                (any_identifier
-                  (identifier)))
-              (expression
-                (function_call
-                  (expression
-                    (unary_expression
-                      (unary_postfix_expression
+                (unary_expression
+                  (unary_postfix_expression
+                    (expression
+                      (binary_expression
+                        (expression
+                          (any_identifier
+                            (identifier)))
                         (expression
                           (any_identifier
                             (identifier)))))))))))
         (statement
           (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (identifier)))
-              (expression
-                (unary_expression
-                  (unary_postfix_expression
+            (unary_expression
+              (unary_postfix_expression
+                (expression
+                  (binary_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))
                     (expression
                       (any_identifier
                         (identifier)))))))))
         (statement
           (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (identifier)))
-              (expression
-                (unary_expression
-                  (unary_postfix_expression
+            (unary_expression
+              (unary_postfix_expression
+                (expression
+                  (binary_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))
                     (expression
                       (any_identifier
                         (identifier)))))))))
         (statement
           (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (identifier)))
-              (expression
-                (unary_expression
-                  (unary_postfix_expression
+            (unary_expression
+              (unary_postfix_expression
+                (expression
+                  (binary_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))
                     (expression
                       (any_identifier
                         (identifier)))))))))
         (statement
           (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (identifier)))
-              (expression
-                (unary_expression
-                  (unary_postfix_expression
+            (unary_expression
+              (unary_postfix_expression
+                (expression
+                  (binary_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))
                     (expression
                       (any_identifier
                         (identifier)))))))))
         (statement
           (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (identifier)))
-              (expression
-                (unary_expression
-                  (unary_postfix_expression
+            (unary_expression
+              (unary_postfix_expression
+                (expression
+                  (binary_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))
                     (expression
                       (any_identifier
                         (identifier)))))))))
         (statement
           (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (identifier)))
-              (expression
-                (unary_expression
-                  (unary_postfix_expression
+            (unary_expression
+              (unary_postfix_expression
+                (expression
+                  (binary_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))
                     (expression
                       (any_identifier
                         (identifier)))))))))
         (statement
           (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (identifier)))
-              (expression
-                (unary_expression
-                  (unary_prefix_expression
+            (unary_expression
+              (unary_postfix_expression
+                (expression
+                  (binary_expression
+                    (expression
+                      (any_identifier
+                        (identifier)))
                     (expression
                       (unary_expression
-                        (unary_postfix_expression
+                        (unary_prefix_expression
                           (expression
                             (any_identifier
                               (identifier))))))))))))))))

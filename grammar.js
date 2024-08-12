@@ -15,24 +15,41 @@ module.exports = grammar({
       prec.right(
         choice(
           seq(
-            choice(":=", seq(":", $.type, "=")),
+            choice(
+              ":=",
+              seq(
+                ":",
+                optional($.metafunction_arguments),
+                optional($.template_declaration_arguments),
+                $.type,
+                "=",
+              ),
+            ),
             choice($.block, $.expression),
           ),
         ),
       ),
 
+    metafunction_arguments: ($) => repeat1(seq("@", $.any_identifier)),
+
+    template_declaration_arguments: ($) =>
+      seq("<", $.function_declaration_arguments, ">"),
+
     any_identifier: ($) => choice($.namespaced_identifier, $.identifier),
 
     namespaced_identifier: ($) =>
       seq(
-        optional($.identifier),
+        choice($.identifier, " "),
         "::",
-        choice($.namespaced_identifier, $.identifier),
+        repeat(seq($.identifier, "::")),
+        $.identifier,
       ),
 
     identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
-    type: ($) => choice($.function_type, $.any_identifier),
+    type: ($) => choice($.function_type, $.any_identifier, $.type_type),
+
+    type_type: ($) => "type",
 
     function_type: ($) =>
       seq(
@@ -69,7 +86,7 @@ module.exports = grammar({
 
     unary_postfix_expression: ($) =>
       prec(
-        3,
+        2,
         seq(
           $.expression,
           // the reason we have &&  additionally to & is for issues
@@ -85,7 +102,7 @@ module.exports = grammar({
 
     binary_expression: ($) =>
       prec(
-        2,
+        3,
         prec.right(
           seq(
             $.expression,
