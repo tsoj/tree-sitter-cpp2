@@ -54,30 +54,30 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
           (expression
             (binary_expression
               (expression
+                (any_identifier
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier))))
+              (expression
                 (binary_expression
                   (expression
+                    (any_identifier
+                      (identifier)))
+                  (expression
                     (binary_expression
+                      (expression
+                        (any_identifier
+                          (identifier)))
                       (expression
                         (binary_expression
                           (expression
                             (any_identifier
-                              (namespaced_identifier
-                                (identifier)
-                                (identifier))))
+                              (identifier)))
                           (expression
                             (any_identifier
-                              (identifier)))))
-                      (expression
-                        (any_identifier
-                          (identifier)))))
-                  (expression
-                    (any_identifier
-                      (identifier)))))
-              (expression
-                (any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))))))))
+                              (namespaced_identifier
+                                (identifier)
+                                (identifier))))))))))))))))
   (declaration
     (identifier)
     (definition
@@ -161,7 +161,7 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                     (identifier)))))))
         (statement
           (expression
-            (assignment
+            (binary_expression
               (expression
                 (any_identifier
                   (identifier)))
@@ -183,154 +183,168 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
 
 -----------------------------------------------------------
 
-    (source_file
-      (declaration
-        (identifier)
-        (definition
-          (type
-            (function_type))
+(source_file
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type))
+      (expression
+        (binary_expression
           (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))
-              (expression
-                (literal
-                  (string)))))))
-      (declaration
-        (identifier)
-        (definition
-          (type
-            (function_type
-              (function_declaration_arguments
-                (function_declaration_argument
-                  (declaration
-                    (identifier)
-                    (type
-                      (any_identifier
-                        (namespaced_identifier
-                          (identifier)
-                          (identifier)))))))))
+            (any_identifier
+              (namespaced_identifier
+                (identifier)
+                (identifier))))
           (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))
-              (expression
-                (literal
-                  (string)))))))
-      (declaration
-        (identifier)
-        (definition
-          (type
-            (function_type
-              (function_declaration_arguments
-                (function_declaration_argument
-                  (passing_style)
-                  (declaration
-                    (identifier)
-                    (type
-                      (any_identifier
-                        (namespaced_identifier
-                          (identifier)
-                          (identifier)))))))))
-          (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))
-              (expression
-                (literal
-                  (string)))))))
-      (declaration
-        (identifier)
-        (definition
-          (type
-            (function_type
-              (function_declaration_arguments
-                (function_declaration_argument
-                  (passing_style)
-                  (declaration
-                    (identifier)
-                    (type
-                      (any_identifier
-                        (namespaced_identifier
-                          (identifier)
-                          (identifier)))))))))
-          (expression
-            (assignment
-              (expression
-                (any_identifier
-                  (identifier)))
-              (expression
-                (literal
-                  (string)))))))
-      (declaration
-        (identifier)
-        (definition
-          (type
-            (function_type
-              (function_declaration_arguments
-                (function_declaration_argument
-                  (passing_style)
-                  (declaration
-                    (identifier)
-                    (type
-                      (any_identifier
-                        (namespaced_identifier
-                          (identifier)
-                          (identifier)))))))))
-          (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))
-              (expression
-                (literal
-                  (string)))))))
-      (declaration
-        (identifier)
-        (definition
-          (type
-            (function_type
-              (function_declaration_arguments
-                (function_declaration_argument
-                  (passing_style)
-                  (declaration
-                    (identifier)
-                    (type
-                      (any_identifier
-                        (namespaced_identifier
-                          (identifier)
-                          (identifier)))))))
-              (passing_style)
-              (type
-                (any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))))
-          (block
-            (statement
-              (expression
-                (binary_expression
-                  (expression
-                    (any_identifier
-                      (namespaced_identifier
-                        (identifier)
-                        (identifier))))
-                  (expression
-                    (literal
-                      (string))))))
-            (statement
-              (return_statement
-                (expression
+            (literal
+              (string)))))))
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type
+          (function_declaration_arguments
+            (function_declaration_argument
+              (declaration
+                (identifier)
+                (type
                   (any_identifier
-                    (identifier)))))))))
+                    (namespaced_identifier
+                      (identifier)
+                      (identifier)))))))))
+      (expression
+        (binary_expression
+          (expression
+            (any_identifier
+              (namespaced_identifier
+                (identifier)
+                (identifier))))
+          (expression
+            (literal
+              (string)))))))
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type
+          (function_declaration_arguments
+            (function_declaration_argument
+              (passing_style)
+              (declaration
+                (identifier)
+                (type
+                  (any_identifier
+                    (namespaced_identifier
+                      (identifier)
+                      (identifier)))))))))
+      (expression
+        (binary_expression
+          (expression
+            (any_identifier
+              (namespaced_identifier
+                (identifier)
+                (identifier))))
+          (expression
+            (literal
+              (string)))))))
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type
+          (function_declaration_arguments
+            (function_declaration_argument
+              (passing_style)
+              (declaration
+                (identifier)
+                (type
+                  (any_identifier
+                    (namespaced_identifier
+                      (identifier)
+                      (identifier)))))))))
+      (expression
+        (binary_expression
+          (expression
+            (any_identifier
+              (identifier)))
+          (expression
+            (literal
+              (string)))))))
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type
+          (function_declaration_arguments
+            (function_declaration_argument
+              (passing_style)
+              (declaration
+                (identifier)
+                (type
+                  (any_identifier
+                    (namespaced_identifier
+                      (identifier)
+                      (identifier)))))))))
+      (expression
+        (binary_expression
+          (expression
+            (any_identifier
+              (namespaced_identifier
+                (identifier)
+                (identifier))))
+          (expression
+            (literal
+              (string)))))))
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type
+          (function_declaration_arguments
+            (function_declaration_argument
+              (passing_style)
+              (declaration
+                (identifier)
+                (type
+                  (any_identifier
+                    (namespaced_identifier
+                      (identifier)
+                      (identifier)))))))
+          (passing_style)
+          (type
+            (any_identifier
+              (namespaced_identifier
+                (identifier)
+                (identifier))))))
+      (block
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier))))
+              (expression
+                (literal
+                  (string))))))
+        (statement
+          (return_statement
+            (expression
+              (any_identifier
+                (identifier)))))))))
+
+===========================================================
+templates
+===========================================================
+
+do_stuff: <a: int, A: type> (b: A) = {
+   std::cout << a << b << std::endl;
+}
+
+TypeStuff: <a: int, A: type> type = {
+    x: std::string;
+}
+
+-----------------------------------------------------------
