@@ -4,7 +4,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -13,6 +13,10 @@
         },
         {
           "type": "namespaced_identifier",
+          "named": true
+        },
+        {
+          "type": "template_pass_parameters",
           "named": true
         }
       ]
@@ -404,6 +408,21 @@
       "types": [
         {
           "type": "function_declaration_arguments",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "template_pass_parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "pass_parameters",
           "named": true
         }
       ]

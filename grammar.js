@@ -33,9 +33,18 @@ module.exports = grammar({
     metafunction_arguments: ($) => repeat1(seq("@", $.any_identifier)),
 
     template_declaration_arguments: ($) =>
-      seq("<", $.function_declaration_arguments, ">"),
+      prec(5, seq("<", $.function_declaration_arguments, ">")),
 
-    any_identifier: ($) => choice($.namespaced_identifier, $.identifier),
+    template_pass_parameters: ($) =>
+      prec.right(5, seq("<", $.pass_parameters, ">")),
+
+    any_identifier: ($) =>
+      prec.left(
+        seq(
+          choice($.namespaced_identifier, $.identifier),
+          optional($.template_pass_parameters),
+        ),
+      ),
 
     namespaced_identifier: ($) =>
       seq(optional(" ::"), repeat1(seq($.identifier, "::")), $.identifier),
