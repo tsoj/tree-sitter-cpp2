@@ -467,3 +467,13 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                 (namespaced_identifier
                   (identifier)
                   (identifier))))))))))
+
+===========================================================
+calling templates
+===========================================================
+
+main: () = {
+    a := hello<a>;
+}
+
+-----------------------------------------------------------
