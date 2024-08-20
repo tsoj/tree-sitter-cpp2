@@ -162,7 +162,7 @@
         ]
       }
     },
-    "template_pass_parameters": {
+    "template_comma_seperated_expressions": {
       "type": "PREC_RIGHT",
       "value": 5,
       "content": {
@@ -174,7 +174,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "pass_parameters"
+            "name": "comma_seperated_expressions"
           },
           {
             "type": "STRING",
@@ -184,7 +184,7 @@
       }
     },
     "any_identifier": {
-      "type": "PREC_LEFT",
+      "type": "PREC_RIGHT",
       "value": 0,
       "content": {
         "type": "SEQ",
@@ -207,7 +207,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "template_pass_parameters"
+                "name": "template_comma_seperated_expressions"
               },
               {
                 "type": "BLANK"
@@ -684,30 +684,42 @@
         }
       ]
     },
-    "pass_parameters": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
+    "comma_seperated_expressions": {
+      "type": "PREC",
+      "value": 6,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "CHOICE",
             "members": [
               {
-                "type": "STRING",
-                "value": ","
+                "type": "REPEAT",
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "expression"
+                    }
+                  ]
+                }
               },
               {
-                "type": "SYMBOL",
-                "name": "expression"
+                "type": "BLANK"
               }
             ]
           }
-        }
-      ]
+        ]
+      }
     },
     "function_call": {
       "type": "PREC",
@@ -728,7 +740,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "pass_parameters"
+                "name": "comma_seperated_expressions"
               },
               {
                 "type": "BLANK"
@@ -778,7 +790,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "pass_parameters"
+                "name": "comma_seperated_expressions"
               },
               {
                 "type": "BLANK"

@@ -16,7 +16,7 @@
           "named": true
         },
         {
-          "type": "template_pass_parameters",
+          "type": "template_comma_seperated_expressions",
           "named": true
         }
       ]
@@ -56,6 +56,21 @@
     "type": "boolean",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "comma_seperated_expressions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "declaration",
@@ -163,11 +178,11 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "comma_seperated_expressions",
           "named": true
         },
         {
-          "type": "pass_parameters",
+          "type": "expression",
           "named": true
         }
       ]
@@ -285,11 +300,11 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "comma_seperated_expressions",
           "named": true
         },
         {
-          "type": "pass_parameters",
+          "type": "expression",
           "named": true
         }
       ]
@@ -316,21 +331,6 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "pass_parameters",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
       "required": true,
       "types": [
         {
@@ -399,6 +399,21 @@
     }
   },
   {
+    "type": "template_comma_seperated_expressions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_seperated_expressions",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "template_declaration_arguments",
     "named": true,
     "fields": {},
@@ -408,21 +423,6 @@
       "types": [
         {
           "type": "function_declaration_arguments",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "template_pass_parameters",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "pass_parameters",
           "named": true
         }
       ]
