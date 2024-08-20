@@ -28,56 +28,64 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                 (identifier)
                 (type
                   (any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier))))))
+                    (non_template_any_identifier
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier)))))))
             (function_declaration_argument
               (passing_style)
               (declaration
                 (identifier)
                 (type
                   (any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier))))))
+                    (non_template_any_identifier
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier)))))))
             (function_declaration_argument
               (passing_style)
               (declaration
                 (identifier)
                 (type
                   (any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier)))))))))
+                    (non_template_any_identifier
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier))))))))))
       (block
         (statement
           (expression
             (binary_expression
               (expression
                 (any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))
+                  (non_template_any_identifier
+                    (namespaced_identifier
+                      (identifier)
+                      (identifier)))))
               (expression
                 (binary_expression
                   (expression
                     (any_identifier
-                      (identifier)))
+                      (non_template_any_identifier
+                        (identifier))))
                   (expression
                     (binary_expression
                       (expression
                         (any_identifier
-                          (identifier)))
+                          (non_template_any_identifier
+                            (identifier))))
                       (expression
                         (binary_expression
                           (expression
                             (any_identifier
-                              (identifier)))
+                              (non_template_any_identifier
+                                (identifier))))
                           (expression
                             (any_identifier
-                              (namespaced_identifier
-                                (identifier)
-                                (identifier))))))))))))))))
+                              (non_template_any_identifier
+                                (namespaced_identifier
+                                  (identifier)
+                                  (identifier)))))))))))))))))
   (declaration
     (identifier)
     (definition
@@ -98,7 +106,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                 (identifier)
                 (type
                   (any_identifier
-                    (identifier)))))
+                    (non_template_any_identifier
+                      (identifier))))))
             (function_declaration_argument
               (passing_style)
               (declaration
@@ -106,7 +115,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                 (definition
                   (type
                     (any_identifier
-                      (identifier)))
+                      (non_template_any_identifier
+                        (identifier))))
                   (expression
                     (literal
                       (float)))))))))
@@ -117,9 +127,10 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
             (definition
               (type
                 (any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))
+                  (non_template_any_identifier
+                    (namespaced_identifier
+                      (identifier)
+                      (identifier)))))
               (expression
                 (literal
                   (string))))))
@@ -129,9 +140,10 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
             (definition
               (type
                 (any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))
+                  (non_template_any_identifier
+                    (namespaced_identifier
+                      (identifier)
+                      (identifier)))))
               (expression
                 (literal
                   (string))))))
@@ -140,31 +152,36 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
             (function_call
               (expression
                 (any_identifier
-                  (identifier)))
-              (pass_parameters
+                  (non_template_any_identifier
+                    (identifier))))
+              (comma_seperated_expressions
                 (expression
                   (function_call
                     (expression
                       (any_identifier
-                        (namespaced_identifier
-                          (identifier)
-                          (identifier))))
-                    (pass_parameters
+                        (non_template_any_identifier
+                          (namespaced_identifier
+                            (identifier)
+                            (identifier)))))
+                    (comma_seperated_expressions
                       (expression
                         (literal
                           (string))))))
                 (expression
                   (any_identifier
-                    (identifier)))
+                    (non_template_any_identifier
+                      (identifier))))
                 (expression
                   (any_identifier
-                    (identifier)))))))
+                    (non_template_any_identifier
+                      (identifier))))))))
         (statement
           (expression
             (binary_expression
               (expression
                 (any_identifier
-                  (identifier)))
+                  (non_template_any_identifier
+                    (identifier))))
               (expression
                 (literal
                   (string))))))))))
@@ -193,9 +210,10 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
         (binary_expression
           (expression
             (any_identifier
-              (namespaced_identifier
-                (identifier)
-                (identifier))))
+              (non_template_any_identifier
+                (namespaced_identifier
+                  (identifier)
+                  (identifier)))))
           (expression
             (literal
               (string)))))))
@@ -210,41 +228,18 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                 (identifier)
                 (type
                   (any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier)))))))))
+                    (non_template_any_identifier
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier))))))))))
       (expression
         (binary_expression
           (expression
             (any_identifier
-              (namespaced_identifier
-                (identifier)
-                (identifier))))
-          (expression
-            (literal
-              (string)))))))
-  (declaration
-    (identifier)
-    (definition
-      (type
-        (function_type
-          (function_declaration_arguments
-            (function_declaration_argument
-              (passing_style)
-              (declaration
-                (identifier)
-                (type
-                  (any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier)))))))))
-      (expression
-        (binary_expression
-          (expression
-            (any_identifier
-              (namespaced_identifier
-                (identifier)
-                (identifier))))
+              (non_template_any_identifier
+                (namespaced_identifier
+                  (identifier)
+                  (identifier)))))
           (expression
             (literal
               (string)))))))
@@ -260,14 +255,18 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                 (identifier)
                 (type
                   (any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier)))))))))
+                    (non_template_any_identifier
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier))))))))))
       (expression
         (binary_expression
           (expression
             (any_identifier
-              (identifier)))
+              (non_template_any_identifier
+                (namespaced_identifier
+                  (identifier)
+                  (identifier)))))
           (expression
             (literal
               (string)))))))
@@ -283,15 +282,15 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                 (identifier)
                 (type
                   (any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier)))))))))
+                    (non_template_any_identifier
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier))))))))))
       (expression
         (binary_expression
           (expression
             (any_identifier
-              (namespaced_identifier
-                (identifier)
+              (non_template_any_identifier
                 (identifier))))
           (expression
             (literal
@@ -308,24 +307,54 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                 (identifier)
                 (type
                   (any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier)))))))
+                    (non_template_any_identifier
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier))))))))))
+      (expression
+        (binary_expression
+          (expression
+            (any_identifier
+              (non_template_any_identifier
+                (namespaced_identifier
+                  (identifier)
+                  (identifier)))))
+          (expression
+            (literal
+              (string)))))))
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type
+          (function_declaration_arguments
+            (function_declaration_argument
+              (passing_style)
+              (declaration
+                (identifier)
+                (type
+                  (any_identifier
+                    (non_template_any_identifier
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier))))))))
           (passing_style)
           (type
             (any_identifier
-              (namespaced_identifier
-                (identifier)
-                (identifier))))))
+              (non_template_any_identifier
+                (namespaced_identifier
+                  (identifier)
+                  (identifier)))))))
       (block
         (statement
           (expression
             (binary_expression
               (expression
                 (any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))
+                  (non_template_any_identifier
+                    (namespaced_identifier
+                      (identifier)
+                      (identifier)))))
               (expression
                 (literal
                   (string))))))
@@ -333,7 +362,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
           (return_statement
             (expression
               (any_identifier
-                (identifier)))))))))
+                (non_template_any_identifier
+                  (identifier))))))))))
 
 ===========================================================
 templates
@@ -364,7 +394,8 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
               (identifier)
               (type
                 (any_identifier
-                  (identifier)))))
+                  (non_template_any_identifier
+                    (identifier))))))
           (function_declaration_argument
             (declaration
               (identifier)
@@ -378,31 +409,36 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                 (identifier)
                 (type
                   (any_identifier
-                    (identifier))))))))
+                    (non_template_any_identifier
+                      (identifier)))))))))
       (block
         (statement
           (expression
             (binary_expression
               (expression
                 (any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))
+                  (non_template_any_identifier
+                    (namespaced_identifier
+                      (identifier)
+                      (identifier)))))
               (expression
                 (binary_expression
                   (expression
                     (any_identifier
-                      (identifier)))
+                      (non_template_any_identifier
+                        (identifier))))
                   (expression
                     (binary_expression
                       (expression
                         (any_identifier
-                          (identifier)))
+                          (non_template_any_identifier
+                            (identifier))))
                       (expression
                         (any_identifier
-                          (namespaced_identifier
-                            (identifier)
-                            (identifier))))))))))))))
+                          (non_template_any_identifier
+                            (namespaced_identifier
+                              (identifier)
+                              (identifier)))))))))))))))
   (declaration
     (identifier)
     (definition
@@ -413,7 +449,8 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
               (identifier)
               (type
                 (any_identifier
-                  (identifier)))))
+                  (non_template_any_identifier
+                    (identifier))))))
           (function_declaration_argument
             (declaration
               (identifier)
@@ -427,21 +464,22 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
             (identifier)
             (type
               (any_identifier
-                (namespaced_identifier
-                  (identifier)
-                  (identifier)))))))))
+                (non_template_any_identifier
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier))))))))))
   (declaration
     (identifier)
     (definition
       (metafunction_arguments
-        (any_identifier
+        (non_template_any_identifier
           (identifier))
-        (any_identifier
+        (non_template_any_identifier
           (namespaced_identifier
             (identifier)
             (identifier)
             (identifier)))
-        (any_identifier
+        (non_template_any_identifier
           (identifier)))
       (template_declaration_arguments
         (function_declaration_arguments
@@ -450,7 +488,8 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
               (identifier)
               (type
                 (any_identifier
-                  (identifier)))))
+                  (non_template_any_identifier
+                    (identifier))))))
           (function_declaration_argument
             (declaration
               (identifier)
@@ -464,9 +503,10 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
             (identifier)
             (type
               (any_identifier
-                (namespaced_identifier
-                  (identifier)
-                  (identifier))))))))))
+                (non_template_any_identifier
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier)))))))))))
 
 ===========================================================
 calling templates
@@ -477,3 +517,25 @@ main: () = {
 }
 
 -----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type))
+      (block
+        (statement
+          (declaration
+            (identifier)
+            (definition
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))
+                  (template_comma_seperated_expressions
+                    (comma_seperated_expressions
+                      (expression
+                        (any_identifier
+                          (non_template_any_identifier
+                            (identifier)))))))))))))))
