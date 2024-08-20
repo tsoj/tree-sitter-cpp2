@@ -136,7 +136,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "any_identifier"
+            "name": "non_template_any_identifier"
           }
         ]
       }
@@ -190,17 +190,8 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "namespaced_identifier"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "identifier"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "non_template_any_identifier"
           },
           {
             "type": "CHOICE",
@@ -216,6 +207,19 @@
           }
         ]
       }
+    },
+    "non_template_any_identifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "namespaced_identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
     },
     "namespaced_identifier": {
       "type": "SEQ",
@@ -695,23 +699,27 @@
             "name": "expression"
           },
           {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            }
+          },
+          {
             "type": "CHOICE",
             "members": [
               {
-                "type": "REPEAT",
-                "content": {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": ","
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "expression"
-                    }
-                  ]
-                }
+                "type": "STRING",
+                "value": ","
               },
               {
                 "type": "BLANK"

@@ -30,7 +30,8 @@ module.exports = grammar({
         ),
       ),
 
-    metafunction_arguments: ($) => repeat1(seq("@", $.any_identifier)),
+    metafunction_arguments: ($) =>
+      repeat1(seq("@", $.non_template_any_identifier)),
 
     template_declaration_arguments: ($) =>
       prec(5, seq("<", $.function_declaration_arguments, ">")),
@@ -41,10 +42,13 @@ module.exports = grammar({
     any_identifier: ($) =>
       prec.right(
         seq(
-          choice($.namespaced_identifier, $.identifier),
+          $.non_template_any_identifier,
           optional($.template_comma_seperated_expressions),
         ),
       ),
+
+    non_template_any_identifier: ($) =>
+      choice($.namespaced_identifier, $.identifier),
 
     namespaced_identifier: ($) =>
       seq(optional(" ::"), repeat1(seq($.identifier, "::")), $.identifier),
@@ -151,7 +155,7 @@ module.exports = grammar({
     parenthese_expression: ($) => seq("(", $.expression, ")"),
 
     comma_seperated_expressions: ($) =>
-      prec(6, seq($.expression, optional(repeat(seq(",", $.expression))))),
+      prec(6, seq($.expression, repeat(seq(",", $.expression)), optional(","))),
 
     function_call: ($) =>
       prec(
