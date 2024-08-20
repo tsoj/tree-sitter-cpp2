@@ -35,14 +35,14 @@ module.exports = grammar({
     template_declaration_arguments: ($) =>
       prec(5, seq("<", $.function_declaration_arguments, ">")),
 
-    template_pass_parameters: ($) =>
-      prec.right(5, seq("<", $.pass_parameters, ">")),
+    template_comma_seperated_expressions: ($) =>
+      prec.right(5, seq("<", $.comma_seperated_expressions, ">")),
 
     any_identifier: ($) =>
-      prec.left(
+      prec.right(
         seq(
           choice($.namespaced_identifier, $.identifier),
-          optional($.template_pass_parameters),
+          optional($.template_comma_seperated_expressions),
         ),
       ),
 
@@ -150,10 +150,14 @@ module.exports = grammar({
 
     parenthese_expression: ($) => seq("(", $.expression, ")"),
 
-    pass_parameters: ($) => seq($.expression, repeat(seq(",", $.expression))),
+    comma_seperated_expressions: ($) =>
+      prec(6, seq($.expression, optional(repeat(seq(",", $.expression))))),
 
     function_call: ($) =>
-      prec(5, seq($.expression, "(", optional($.pass_parameters), ")")),
+      prec(
+        5,
+        seq($.expression, "(", optional($.comma_seperated_expressions), ")"),
+      ),
 
     method_call: ($) =>
       prec(
@@ -163,7 +167,7 @@ module.exports = grammar({
           choice(".", ".."),
           $.any_identifier,
           "(",
-          optional($.pass_parameters),
+          optional($.comma_seperated_expressions),
           ")",
         ),
       ),
