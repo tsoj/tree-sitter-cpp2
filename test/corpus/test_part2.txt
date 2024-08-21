@@ -594,6 +594,34 @@ main: () = {
 ===========================================================
 more calling templates
 ===========================================================
-a := hello<a, b>;
+a := hello<b, c>;
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (any_identifier
+          (non_template_any_identifier
+            (identifier))
+          (template_comma_seperated_expressions
+            (comma_seperated_expressions
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier)))))))))))
+
+
+
+===========================================================
+binary op order
+===========================================================
+a := a * b + c;
 
 -----------------------------------------------------------

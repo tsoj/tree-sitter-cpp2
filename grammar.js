@@ -7,6 +7,15 @@ module.exports = grammar({
     [$.any_identifier],
     [$.binary_expression, $.comma_seperated_expressions],
   ],
+  precedences: ($) => [
+    [
+      "function_call",
+      "unary_prefix_expression",
+      "binary_expression",
+      "unary_postfix_expression",
+    ],
+    [],
+  ],
   rules: {
     // TODO make ";" only optional when the declaration has a block at the end
     source_file: ($) => repeat(choice($.declaration, ";")),
@@ -37,10 +46,10 @@ module.exports = grammar({
       repeat1(seq("@", $.non_template_any_identifier)),
 
     template_declaration_arguments: ($) =>
-      prec(5, seq("<", $.function_declaration_arguments, ">")),
+      seq("<", $.function_declaration_arguments, ">"),
 
     template_comma_seperated_expressions: ($) =>
-      prec.right(5, seq("<", $.comma_seperated_expressions, ">")),
+      prec.right(seq("<", $.comma_seperated_expressions, ">")),
 
     any_identifier: ($) =>
       seq(
@@ -84,7 +93,7 @@ module.exports = grammar({
         $.any_identifier,
         $.function_call,
         $.method_call,
-        $.unary_expression,
+        // $.unary_expression,
         $.binary_expression,
         $.parenthese_expression,
         $.definition,
@@ -95,7 +104,7 @@ module.exports = grammar({
 
     unary_postfix_expression: ($) =>
       prec(
-        2,
+        "unary_postfix_expression",
         seq(
           $.expression,
           // the reason we have &&  additionally to & is for issues
@@ -107,66 +116,79 @@ module.exports = grammar({
     unary_prefix_expression: ($) =>
       // semantically the prefix operator should have have higher precedence
       // but it is easier to create a parse this way
-      prec(4, seq(choice("-", "+", "!"), $.expression)),
+      prec("unary_prefix_expression", seq(choice("-", "+", "!"), $.expression)),
 
-    binary_expression: ($) =>
-      prec(
-        3,
-        prec.right(
-          seq(
-            $.expression,
-            choice(
-              "*",
-              "/",
-              "%",
-              "+",
-              "-",
-              "<<",
-              ">>",
-              "<=>",
-              "<",
-              ">",
-              "<=",
-              ">=",
-              "==",
-              "!=",
-              "&",
-              "^",
-              "|",
-              "&&",
-              "||",
-              // assignment operators
-              "=",
-              "*=",
-              "/=",
-              "%=",
-              "+=",
-              "-=",
-              ">>=",
-              "<<=",
-              "&=",
-              "^=",
-              "|=",
-            ),
-            $.expression,
-          ),
-        ),
-      ),
+    binary_expression: ($) => {
+      const table = [
+        // assignment operators
+        "=",
+        "*=",
+        "/=",
+        "%=",
+        "+=",
+        "-=",
+        ">>=",
+        "<<=",
+        "&=",
+        "^=",
+        "|=",
+        "*",
+        "/",
+        "%",
+        "+",
+        "-",
+        "<<",
+        ">>",
+        "<=>",
+        "<",
+        ">",
+        "<=",
+        ">=",
+        "==",
+        "!=",
+        "&",
+        "^",
+        "|",
+        "&&",
+        "||",
+      ];
+
+      return choice(
+        ...table.map((operator, precedence) => {
+          return prec.right(
+            -precedence,
+            seq($.expression, operator, $.expression),
+          );
+        }),
+      );
+
+      // return prec(
+      //   "binary_expression",
+      //   prec.right(seq($.expression, choice(), $.expression)),
+      // );
+    },
 
     parenthese_expression: ($) => seq("(", $.expression, ")"),
 
     comma_seperated_expressions: ($) =>
-      prec(3, seq($.expression, repeat(seq(",", $.expression)), optional(","))),
+      prec(
+        "binary_expression",
+        seq(
+          $.expression,
+          repeat(prec("binary_expression", seq(",", $.expression))),
+          optional(","),
+        ),
+      ),
 
     function_call: ($) =>
       prec(
-        5,
+        "function_call",
         seq($.expression, "(", optional($.comma_seperated_expressions), ")"),
       ),
 
     method_call: ($) =>
       prec(
-        5,
+        "function_call",
         seq(
           $.expression,
           choice(".", ".."),
