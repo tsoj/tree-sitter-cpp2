@@ -96,8 +96,16 @@
                         ]
                       },
                       {
-                        "type": "SYMBOL",
-                        "name": "type"
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "type"
+                          },
+                          {
+                            "type": "BLANK"
+                          }
+                        ]
                       },
                       {
                         "type": "STRING",
