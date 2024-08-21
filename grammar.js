@@ -3,7 +3,7 @@
 
 module.exports = grammar({
   name: "cpp2",
-
+  conflicts: ($) => [[$.any_identifier]],
   rules: {
     // TODO make ";" only optional when the declaration has a block at the end
     source_file: ($) => repeat(choice($.declaration, ";")),
@@ -40,11 +40,9 @@ module.exports = grammar({
       prec.right(5, seq("<", $.comma_seperated_expressions, ">")),
 
     any_identifier: ($) =>
-      prec.right(
-        seq(
-          $.non_template_any_identifier,
-          optional($.template_comma_seperated_expressions),
-        ),
+      seq(
+        $.non_template_any_identifier,
+        optional($.template_comma_seperated_expressions),
       ),
 
     non_template_any_identifier: ($) =>
