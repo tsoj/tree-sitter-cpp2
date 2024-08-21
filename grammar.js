@@ -3,7 +3,10 @@
 
 module.exports = grammar({
   name: "cpp2",
-  conflicts: ($) => [[$.any_identifier]],
+  conflicts: ($) => [
+    [$.any_identifier],
+    [$.binary_expression, $.comma_seperated_expressions],
+  ],
   rules: {
     // TODO make ";" only optional when the declaration has a block at the end
     source_file: ($) => repeat(choice($.declaration, ";")),
@@ -153,7 +156,7 @@ module.exports = grammar({
     parenthese_expression: ($) => seq("(", $.expression, ")"),
 
     comma_seperated_expressions: ($) =>
-      prec(6, seq($.expression, repeat(seq(",", $.expression)), optional(","))),
+      prec(3, seq($.expression, repeat(seq(",", $.expression)), optional(","))),
 
     function_call: ($) =>
       prec(
