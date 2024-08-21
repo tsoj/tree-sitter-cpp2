@@ -54,6 +54,25 @@
     "fields": {}
   },
   {
+    "type": "bracket_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_seperated_expressions",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "comma_seperated_expressions",
     "named": true,
     "fields": {},
@@ -139,6 +158,10 @@
           "named": true
         },
         {
+          "type": "bracket_call",
+          "named": true
+        },
+        {
           "type": "definition",
           "named": true
         },
@@ -148,6 +171,10 @@
         },
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_access",
           "named": true
         },
         {
@@ -263,6 +290,25 @@
         },
         {
           "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "member_access",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "any_identifier",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         }
       ]
@@ -684,11 +730,23 @@
     "named": false
   },
   {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
     "type": "^",
     "named": false
   },
   {
     "type": "^=",
+    "named": false
+  },
+  {
+    "type": "const",
     "named": false
   },
   {

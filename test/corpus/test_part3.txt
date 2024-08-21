@@ -1,0 +1,76 @@
+===========================================================
+using type qualifiers
+===========================================================
+p: const * * const i32;
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (type
+      (any_identifier
+        (non_template_any_identifier
+          (identifier))))))
+
+===========================================================
+bracket call and member access
+===========================================================
+
+address := tokens*[pos + num]&;
+is_void := u**.identifier* == "void";
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (unary_expression
+          (unary_postfix_expression
+            (expression
+              (bracket_call
+                (expression
+                  (unary_expression
+                    (unary_postfix_expression
+                      (expression
+                        (any_identifier
+                          (non_template_any_identifier
+                            (identifier)))))))
+                (comma_seperated_expressions
+                  (expression
+                    (binary_expression
+                      (expression
+                        (any_identifier
+                          (non_template_any_identifier
+                            (identifier))))
+                      (expression
+                        (any_identifier
+                          (non_template_any_identifier
+                            (identifier))))))))))))))
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (binary_expression
+          (expression
+            (unary_expression
+              (unary_postfix_expression
+                (expression
+                  (member_access
+                    (expression
+                      (unary_expression
+                        (unary_postfix_expression
+                          (expression
+                            (unary_expression
+                              (unary_postfix_expression
+                                (expression
+                                  (any_identifier
+                                    (non_template_any_identifier
+                                      (identifier))))))))))
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier))))))))
+          (expression
+            (literal
+              (string))))))))
