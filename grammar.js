@@ -53,7 +53,6 @@ module.exports = grammar({
     binary_operators,
   ],
   rules: {
-    // TODO make ";" only optional when the declaration has a block at the end
     source_file: ($) => repeat(choice($.declaration, ";")),
 
     declaration: ($) =>
@@ -121,8 +120,6 @@ module.exports = grammar({
         ";",
       ),
 
-    // discard: ($) => seq("_", "=", $.definition),
-
     expression: ($) =>
       choice(
         $.literal,
@@ -146,10 +143,7 @@ module.exports = grammar({
         choice("++", "--", "*", "&", "&&", "~", "$", "..."),
       ),
 
-    unary_prefix_expression: ($) =>
-      // semantically the prefix operator should have have higher precedence
-      // but it is easier to create a parse this way
-      seq(choice("-", "+", "!"), $.expression),
+    unary_prefix_expression: ($) => seq(choice("-", "+", "!"), $.expression),
 
     binary_expression: ($) => {
       return choice(
@@ -160,11 +154,6 @@ module.exports = grammar({
           );
         }),
       );
-
-      // return prec(
-      //   "binary_expression",
-      //   prec.right(seq($.expression, choice(), $.expression)),
-      // );
     },
 
     parenthese_expression: ($) => seq("(", $.expression, ")"),
