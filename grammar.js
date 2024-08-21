@@ -1,20 +1,57 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
+const binary_operators = [
+  // assignment operators
+  "=",
+  "*=",
+  "/=",
+  "%=",
+  "+=",
+  "-=",
+  ">>=",
+  "<<=",
+  "&=",
+  "^=",
+  "|=",
+  "*",
+  "/",
+  "%",
+  "+",
+  "-",
+  "<<",
+  ">>",
+  "<=>",
+  "<",
+  ">",
+  "<=",
+  ">=",
+  "==",
+  "!=",
+  "&",
+  "^",
+  "|",
+  "&&",
+  "||",
+];
 
 module.exports = grammar({
   name: "cpp2",
   conflicts: ($) => [
     [$.any_identifier],
     [$.binary_expression, $.comma_seperated_expressions],
+    [$.unary_postfix_expression, $.binary_expression],
   ],
+
   precedences: ($) => [
     [
-      "function_call",
-      "unary_prefix_expression",
-      "binary_expression",
-      "unary_postfix_expression",
+      $.method_call,
+      $.function_call,
+      $.unary_prefix_expression,
+      $.binary_expression,
+      // ...binary_operators,
+      $.unary_postfix_expression,
     ],
-    [],
+    binary_operators,
   ],
   rules: {
     // TODO make ";" only optional when the declaration has a block at the end
@@ -103,61 +140,24 @@ module.exports = grammar({
       choice($.unary_prefix_expression, $.unary_postfix_expression),
 
     unary_postfix_expression: ($) =>
-      prec(
-        "unary_postfix_expression",
-        seq(
-          $.expression,
-          // the reason we have &&  additionally to & is for issues
-          // with conflicting tokenization with the binary operator &&
-          choice("++", "--", "*", "&", "&&", "~", "$", "..."),
-        ),
+      seq(
+        $.expression,
+        // the reason we have &&  additionally to & is for issues
+        // with conflicting tokenization with the binary operator &&
+        choice("++", "--", "*", "&", "&&", "~", "$", "..."),
       ),
 
     unary_prefix_expression: ($) =>
       // semantically the prefix operator should have have higher precedence
       // but it is easier to create a parse this way
-      prec("unary_prefix_expression", seq(choice("-", "+", "!"), $.expression)),
+      seq(choice("-", "+", "!"), $.expression),
 
     binary_expression: ($) => {
-      const table = [
-        // assignment operators
-        "=",
-        "*=",
-        "/=",
-        "%=",
-        "+=",
-        "-=",
-        ">>=",
-        "<<=",
-        "&=",
-        "^=",
-        "|=",
-        "*",
-        "/",
-        "%",
-        "+",
-        "-",
-        "<<",
-        ">>",
-        "<=>",
-        "<",
-        ">",
-        "<=",
-        ">=",
-        "==",
-        "!=",
-        "&",
-        "^",
-        "|",
-        "&&",
-        "||",
-      ];
-
       return choice(
-        ...table.map((operator, precedence) => {
-          return prec(
-            "binary_expression",
-            prec.right(-precedence, seq($.expression, operator, $.expression)),
+        ...binary_operators.map((operator) => {
+          return prec.right(
+            operator,
+            seq($.expression, operator, $.expression),
           );
         }),
       );
@@ -174,22 +174,16 @@ module.exports = grammar({
       seq($.expression, repeat(seq(",", $.expression)), optional(",")),
 
     function_call: ($) =>
-      prec(
-        "function_call",
-        seq($.expression, "(", optional($.comma_seperated_expressions), ")"),
-      ),
+      seq($.expression, "(", optional($.comma_seperated_expressions), ")"),
 
     method_call: ($) =>
-      prec(
-        "function_call",
-        seq(
-          $.expression,
-          choice(".", ".."),
-          $.any_identifier,
-          "(",
-          optional($.comma_seperated_expressions),
-          ")",
-        ),
+      seq(
+        $.expression,
+        choice(".", ".."),
+        $.any_identifier,
+        "(",
+        optional($.comma_seperated_expressions),
+        ")",
       ),
 
     function_declaration_arguments: ($) =>
