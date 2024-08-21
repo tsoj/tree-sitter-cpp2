@@ -93,7 +93,7 @@ module.exports = grammar({
         $.any_identifier,
         $.function_call,
         $.method_call,
-        // $.unary_expression,
+        $.unary_expression,
         $.binary_expression,
         $.parenthese_expression,
         $.definition,
@@ -155,9 +155,9 @@ module.exports = grammar({
 
       return choice(
         ...table.map((operator, precedence) => {
-          return prec.right(
-            -precedence,
-            seq($.expression, operator, $.expression),
+          return prec(
+            "binary_expression",
+            prec.right(-precedence, seq($.expression, operator, $.expression)),
           );
         }),
       );
@@ -171,14 +171,7 @@ module.exports = grammar({
     parenthese_expression: ($) => seq("(", $.expression, ")"),
 
     comma_seperated_expressions: ($) =>
-      prec(
-        "binary_expression",
-        seq(
-          $.expression,
-          repeat(prec("binary_expression", seq(",", $.expression))),
-          optional(","),
-        ),
-      ),
+      seq($.expression, repeat(seq(",", $.expression)), optional(",")),
 
     function_call: ($) =>
       prec(
