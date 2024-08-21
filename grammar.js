@@ -1,18 +1,6 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 const binary_operators = [
-  // assignment operators
-  "=",
-  "*=",
-  "/=",
-  "%=",
-  "+=",
-  "-=",
-  ">>=",
-  "<<=",
-  "&=",
-  "^=",
-  "|=",
   "*",
   "/",
   "%",
@@ -32,6 +20,18 @@ const binary_operators = [
   "|",
   "&&",
   "||",
+  // assignment operators
+  "=",
+  "*=",
+  "/=",
+  "%=",
+  "+=",
+  "-=",
+  ">>=",
+  "<<=",
+  "&=",
+  "^=",
+  "|=",
 ];
 
 module.exports = grammar({
@@ -40,16 +40,17 @@ module.exports = grammar({
     [$.any_identifier],
     [$.binary_expression, $.comma_seperated_expressions],
     [$.unary_postfix_expression, $.binary_expression],
+    [$.unary_prefix_expression, $.binary_expression],
   ],
 
   precedences: ($) => [
     [
       $.method_call,
       $.function_call,
-      $.unary_prefix_expression,
-      $.binary_expression,
-      // ...binary_operators,
       $.unary_postfix_expression,
+      $.unary_prefix_expression,
+      // $.binary_expression,
+      // ...binary_operators,
     ],
     binary_operators,
   ],
