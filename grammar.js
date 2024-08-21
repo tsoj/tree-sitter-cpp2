@@ -46,7 +46,9 @@ module.exports = grammar({
   precedences: ($) => [
     [
       $.method_call,
+      $.member_access,
       $.function_call,
+      $.bracket_call,
       $.unary_postfix_expression,
       $.unary_prefix_expression,
     ],
@@ -100,7 +102,12 @@ module.exports = grammar({
 
     identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
-    type: ($) => choice($.function_type, $.any_identifier, $.type_type),
+    type: ($) =>
+      choice(
+        $.function_type,
+        seq(repeat(choice("const", "*")), $.any_identifier),
+        $.type_type,
+      ),
 
     type_type: ($) => "type",
 
@@ -126,6 +133,8 @@ module.exports = grammar({
         $.any_identifier,
         $.function_call,
         $.method_call,
+        $.member_access,
+        $.bracket_call,
         $.unary_expression,
         $.binary_expression,
         $.parenthese_expression,
@@ -164,6 +173,9 @@ module.exports = grammar({
     function_call: ($) =>
       seq($.expression, "(", optional($.comma_seperated_expressions), ")"),
 
+    bracket_call: ($) =>
+      seq($.expression, "[", optional($.comma_seperated_expressions), "]"),
+
     method_call: ($) =>
       seq(
         $.expression,
@@ -173,6 +185,9 @@ module.exports = grammar({
         optional($.comma_seperated_expressions),
         ")",
       ),
+
+    member_access: ($) =>
+      seq($.expression, choice(".", ".."), $.any_identifier),
 
     function_declaration_arguments: ($) =>
       seq(
