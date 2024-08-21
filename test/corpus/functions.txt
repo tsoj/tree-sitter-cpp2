@@ -539,10 +539,10 @@ k := -x++;
     (definition
       (expression
         (unary_expression
-          (unary_postfix_expression
+          (unary_prefix_expression
             (expression
               (unary_expression
-                (unary_prefix_expression
+                (unary_postfix_expression
                   (expression
                     (any_identifier
                       (non_template_any_identifier
@@ -619,117 +619,117 @@ main: () = {
                           (identifier))))))))))
         (statement
           (expression
-            (function_call
+            (binary_expression
               (expression
-                (unary_expression
-                  (unary_postfix_expression
-                    (expression
-                      (binary_expression
-                        (expression
-                          (any_identifier
-                            (non_template_any_identifier
-                              (identifier))))
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (function_call
+                  (expression
+                    (unary_expression
+                      (unary_postfix_expression
                         (expression
                           (any_identifier
                             (non_template_any_identifier
                               (identifier))))))))))))
         (statement
           (expression
-            (unary_expression
-              (unary_postfix_expression
-                (expression
-                  (binary_expression
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier))))
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier))))))))))
-        (statement
-          (expression
-            (unary_expression
-              (unary_postfix_expression
-                (expression
-                  (binary_expression
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier))))
+            (binary_expression
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
                     (expression
                       (any_identifier
                         (non_template_any_identifier
                           (identifier))))))))))
         (statement
           (expression
-            (unary_expression
-              (unary_postfix_expression
-                (expression
-                  (binary_expression
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier))))
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier))))))))))
-        (statement
-          (expression
-            (unary_expression
-              (unary_postfix_expression
-                (expression
-                  (binary_expression
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier))))
+            (binary_expression
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
                     (expression
                       (any_identifier
                         (non_template_any_identifier
                           (identifier))))))))))
         (statement
           (expression
-            (unary_expression
-              (unary_postfix_expression
-                (expression
-                  (binary_expression
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier))))
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier))))))))))
-        (statement
-          (expression
-            (unary_expression
-              (unary_postfix_expression
-                (expression
-                  (binary_expression
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier))))
+            (binary_expression
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
                     (expression
                       (any_identifier
                         (non_template_any_identifier
                           (identifier))))))))))
         (statement
           (expression
-            (unary_expression
-              (unary_postfix_expression
-                (expression
-                  (binary_expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
                     (expression
                       (any_identifier
                         (non_template_any_identifier
-                          (identifier))))
+                          (identifier))))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
+                    (expression
+                      (any_identifier
+                        (non_template_any_identifier
+                          (identifier))))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (unary_expression
+                  (unary_postfix_expression
+                    (expression
+                      (any_identifier
+                        (non_template_any_identifier
+                          (identifier))))))))))
+        (statement
+          (expression
+            (binary_expression
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (unary_expression
+                  (unary_prefix_expression
                     (expression
                       (unary_expression
-                        (unary_prefix_expression
+                        (unary_postfix_expression
                           (expression
                             (any_identifier
                               (non_template_any_identifier
