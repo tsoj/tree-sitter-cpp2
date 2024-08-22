@@ -66,15 +66,12 @@ module.exports = grammar({
       prec.right(
         choice(
           seq(
-            choice(
-              ":=",
-              seq(
-                ":",
-                optional($.metafunction_arguments),
-                optional($.template_declaration_arguments),
-                optional($.type),
-                "=",
-              ),
+            seq(
+              ":",
+              optional($.metafunction_arguments),
+              optional($.template_declaration_arguments),
+              optional($.type),
+              choice("=", "=="),
             ),
             choice($.block, $.expression),
           ),

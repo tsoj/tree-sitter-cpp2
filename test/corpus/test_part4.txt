@@ -1,0 +1,69 @@
+===========================================================
+const definition
+===========================================================
+p: const * * const i32 == hello;
+a :== 1.4;
+b: string == "what";
+c: (i: int) -> float == 100.100;
+c :== {
+    return true;
+};
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (any_identifier
+          (non_template_any_identifier
+            (identifier))))
+      (expression
+        (any_identifier
+          (non_template_any_identifier
+            (identifier))))))
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (literal
+          (float)))))
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (any_identifier
+          (non_template_any_identifier
+            (identifier))))
+      (expression
+        (literal
+          (string)))))
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type
+          (function_declaration_arguments
+            (function_declaration_argument
+              (declaration
+                (identifier)
+                (type
+                  (any_identifier
+                    (non_template_any_identifier
+                      (identifier)))))))
+          (type
+            (any_identifier
+              (non_template_any_identifier
+                (identifier))))))
+      (expression
+        (literal
+          (float)))))
+  (declaration
+    (identifier)
+    (definition
+      (block
+        (statement
+          (return_statement
+            (expression
+              (literal
+                (boolean)))))))))
