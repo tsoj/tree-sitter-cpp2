@@ -15,9 +15,10 @@ c :== {
     (identifier)
     (definition
       (type
-        (any_identifier
-          (non_template_any_identifier
-            (identifier))))
+        (expression
+          (any_identifier
+            (non_template_any_identifier
+              (identifier)))))
       (expression
         (any_identifier
           (non_template_any_identifier
@@ -32,9 +33,10 @@ c :== {
     (identifier)
     (definition
       (type
-        (any_identifier
-          (non_template_any_identifier
-            (identifier))))
+        (expression
+          (any_identifier
+            (non_template_any_identifier
+              (identifier)))))
       (expression
         (literal
           (string)))))
@@ -43,18 +45,21 @@ c :== {
     (definition
       (type
         (function_type
-          (function_declaration_arguments
-            (function_declaration_argument
-              (declaration
-                (identifier)
-                (type
-                  (any_identifier
-                    (non_template_any_identifier
-                      (identifier)))))))
+          (function_type_without_return_type
+            (function_declaration_arguments
+              (function_declaration_argument
+                (declaration
+                  (identifier)
+                  (type
+                    (expression
+                      (any_identifier
+                        (non_template_any_identifier
+                          (identifier)))))))))
           (type
-            (any_identifier
-              (non_template_any_identifier
-                (identifier))))))
+            (expression
+              (any_identifier
+                (non_template_any_identifier
+                  (identifier)))))))
       (expression
         (literal
           (float)))))

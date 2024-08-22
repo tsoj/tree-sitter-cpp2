@@ -14,10 +14,12 @@ main : () -> int = {
     (definition
       (type
         (function_type
+          (function_type_without_return_type)
           (type
-            (any_identifier
-              (non_template_any_identifier
-                (identifier))))))
+            (expression
+              (any_identifier
+                (non_template_any_identifier
+                  (identifier)))))))
       (block
         (statement
           (return_statement
@@ -47,16 +49,18 @@ a := hello(x, "hello");
   (declaration
     (identifier)
     (type
-      (any_identifier
-        (non_template_any_identifier
-          (identifier)))))
+      (expression
+        (any_identifier
+          (non_template_any_identifier
+            (identifier))))))
   (declaration
     (identifier)
     (definition
       (type
-        (any_identifier
-          (non_template_any_identifier
-            (identifier))))
+        (expression
+          (any_identifier
+            (non_template_any_identifier
+              (identifier)))))
       (expression
         (any_identifier
           (non_template_any_identifier
@@ -76,9 +80,10 @@ a := hello(x, "hello");
           (expression
             (definition
               (type
-                (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))
+                (expression
+                  (any_identifier
+                    (non_template_any_identifier
+                      (identifier)))))
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -99,30 +104,34 @@ a := hello(x, "hello");
     (definition
       (type
         (function_type
-          (function_declaration_arguments
-            (function_declaration_argument
-              (declaration
-                (identifier)
-                (type
-                  (any_identifier
-                    (non_template_any_identifier
-                      (identifier))))))
-            (function_declaration_argument
-              (declaration
-                (identifier)
-                (type
-                  (any_identifier
-                    (non_template_any_identifier
-                      (identifier)))))))))
+          (function_type_without_return_type
+            (function_declaration_arguments
+              (function_declaration_argument
+                (declaration
+                  (identifier)
+                  (type
+                    (expression
+                      (any_identifier
+                        (non_template_any_identifier
+                          (identifier)))))))
+              (function_declaration_argument
+                (declaration
+                  (identifier)
+                  (type
+                    (expression
+                      (any_identifier
+                        (non_template_any_identifier
+                          (identifier)))))))))))
       (block
         (statement
           (declaration
             (identifier)
             (definition
               (type
-                (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))
+                (expression
+                  (any_identifier
+                    (non_template_any_identifier
+                      (identifier)))))
               (expression
                 (literal
                   (number)))))))))
@@ -163,24 +172,27 @@ _main2: () -> ::std::hello::int = {
     (definition
       (type
         (function_type
+          (function_type_without_return_type)
           (type
-            (any_identifier
-              (non_template_any_identifier
-                (namespaced_identifier
-                  (identifier)
-                  (identifier)
-                  (identifier)))))))
+            (expression
+              (any_identifier
+                (non_template_any_identifier
+                  (namespaced_identifier
+                    (identifier)
+                    (identifier)
+                    (identifier))))))))
       (block
         (statement
           (declaration
             (identifier)
             (definition
               (type
-                (any_identifier
-                  (non_template_any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier)))))
+                (expression
+                  (any_identifier
+                    (non_template_any_identifier
+                      (namespaced_identifier
+                        (identifier)
+                        (identifier))))))
               (expression
                 (literal
                   (string))))))
@@ -310,10 +322,12 @@ main: () -> int = {
     (definition
       (type
         (function_type
+          (function_type_without_return_type)
           (type
-            (any_identifier
-              (non_template_any_identifier
-                (identifier))))))
+            (expression
+              (any_identifier
+                (non_template_any_identifier
+                  (identifier)))))))
       (block
         (statement
           (return_statement
@@ -325,10 +339,12 @@ main: () -> int = {
     (definition
       (type
         (function_type
+          (function_type_without_return_type)
           (type
-            (any_identifier
-              (non_template_any_identifier
-                (identifier))))))
+            (expression
+              (any_identifier
+                (non_template_any_identifier
+                  (identifier)))))))
       (block
         (statement
           (return_statement
@@ -341,10 +357,12 @@ main: () -> int = {
     (definition
       (type
         (function_type
+          (function_type_without_return_type)
           (type
-            (any_identifier
-              (non_template_any_identifier
-                (identifier))))))
+            (expression
+              (any_identifier
+                (non_template_any_identifier
+                  (identifier)))))))
       (block
         (statement
           (return_statement
@@ -357,10 +375,12 @@ main: () -> int = {
     (definition
       (type
         (function_type
+          (function_type_without_return_type)
           (type
-            (any_identifier
-              (non_template_any_identifier
-                (identifier))))))
+            (expression
+              (any_identifier
+                (non_template_any_identifier
+                  (identifier)))))))
       (block
         (statement
           (return_statement
@@ -373,10 +393,12 @@ main: () -> int = {
     (definition
       (type
         (function_type
+          (function_type_without_return_type)
           (type
-            (any_identifier
-              (non_template_any_identifier
-                (identifier))))))
+            (expression
+              (any_identifier
+                (non_template_any_identifier
+                  (identifier)))))))
       (block
         (statement
           (return_statement
@@ -389,10 +411,12 @@ main: () -> int = {
     (definition
       (type
         (function_type
+          (function_type_without_return_type)
           (type
-            (any_identifier
-              (non_template_any_identifier
-                (identifier))))))
+            (expression
+              (any_identifier
+                (non_template_any_identifier
+                  (identifier)))))))
       (block
         (statement
           (return_statement
@@ -571,7 +595,8 @@ main: () = {
     (identifier)
     (definition
       (type
-        (function_type))
+        (function_type
+          (function_type_without_return_type)))
       (block
         (statement
           (expression

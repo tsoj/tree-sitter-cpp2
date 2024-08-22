@@ -43,6 +43,8 @@ module.exports = grammar({
     [$.binary_expression, $.comma_seperated_expressions],
     [$.unary_postfix_expression, $.binary_expression],
     [$.unary_prefix_expression, $.binary_expression],
+    // [$.type, $.binary_expression],
+    // [$.binary_expression, $.function_declaration_argument],
   ],
 
   precedences: ($) => [
@@ -54,6 +56,13 @@ module.exports = grammar({
       $.unary_postfix_expression,
       $.unary_prefix_expression,
     ],
+    [$.definition, $.function_type],
+    [$.type, $.binary_expression],
+    [$.expression, $.function_declaration_argument],
+    // [$.definition, $.type],
+    // [$.definition, $.function_type],
+    // [$.type, $.expression],
+    // [$.non_binary_expression, $.expression],
     binary_operators,
   ],
   rules: {
@@ -70,8 +79,10 @@ module.exports = grammar({
               ":",
               optional($.metafunction_arguments),
               optional($.template_declaration_arguments),
-              optional($.type),
-              choice("=", "=="),
+              choice(
+                seq(optional($.type), choice("=", "==")),
+                $.function_type_without_return_type,
+              ),
             ),
             choice($.block, $.expression),
           ),
@@ -104,17 +115,18 @@ module.exports = grammar({
     type: ($) =>
       choice(
         $.function_type,
-        seq(repeat(choice("const", "*")), $.any_identifier),
+        seq(repeat(choice("const", "*")), $.expression),
         $.type_type,
       ),
 
     type_type: ($) => "type",
 
+    function_type_without_return_type: ($) =>
+      seq("(", optional($.function_declaration_arguments), ")"),
+
     function_type: ($) =>
       seq(
-        "(",
-        optional($.function_declaration_arguments),
-        ")",
+        $.function_type_without_return_type,
         optional(seq("->", optional($.passing_style), $.type)),
       ),
 
@@ -196,7 +208,7 @@ module.exports = grammar({
       ),
 
     function_declaration_argument: ($) =>
-      seq(optional($.passing_style), $.declaration),
+      seq(optional($.passing_style), choice($.declaration, $.any_identifier)),
 
     passing_style: ($) =>
       choice("in", "copy", "inout", "out", "move", "forward"),
