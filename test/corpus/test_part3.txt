@@ -74,3 +74,105 @@ is_void := u**.identifier* == "void";
           (expression
             (literal
               (string))))))))
+
+===========================================================
+range operators, triple dot, and double member access
+===========================================================
+
+a := b<A>..<c<A>;
+a := b..c;
+a := b..c<A>;
+a := b..c<A>();
+a := b... * 3;
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (binary_expression
+          (expression
+            (any_identifier
+              (non_template_any_identifier
+                (identifier))
+              (template_comma_seperated_expressions
+                (comma_seperated_expressions
+                  (expression
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier))))))))
+          (expression
+            (any_identifier
+              (non_template_any_identifier
+                (identifier))
+              (template_comma_seperated_expressions
+                (comma_seperated_expressions
+                  (expression
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier))))))))))))
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (member_access
+          (expression
+            (any_identifier
+              (non_template_any_identifier
+                (identifier))))
+          (any_identifier
+            (non_template_any_identifier
+              (identifier)))))))
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (member_access
+          (expression
+            (any_identifier
+              (non_template_any_identifier
+                (identifier))))
+          (any_identifier
+            (non_template_any_identifier
+              (identifier))
+            (template_comma_seperated_expressions
+              (comma_seperated_expressions
+                (expression
+                  (any_identifier
+                    (non_template_any_identifier
+                      (identifier)))))))))))
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (method_call
+          (expression
+            (any_identifier
+              (non_template_any_identifier
+                (identifier))))
+          (any_identifier
+            (non_template_any_identifier
+              (identifier))
+            (template_comma_seperated_expressions
+              (comma_seperated_expressions
+                (expression
+                  (any_identifier
+                    (non_template_any_identifier
+                      (identifier)))))))))))
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (binary_expression
+          (expression
+            (unary_expression
+              (unary_postfix_expression
+                (expression
+                  (any_identifier
+                    (non_template_any_identifier
+                      (identifier)))))))
+          (expression
+            (literal
+              (number))))))))
