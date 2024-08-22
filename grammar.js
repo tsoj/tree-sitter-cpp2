@@ -20,6 +20,8 @@ const binary_operators = [
   "|",
   "&&",
   "||",
+  "..<",
+  "..=",
   // assignment operators
   "=",
   "*=",
