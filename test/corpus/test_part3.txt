@@ -161,7 +161,8 @@ a := b... * 3;
                 (expression
                   (any_identifier
                     (non_template_any_identifier
-                      (identifier)))))))))))
+                      (identifier)))))))
+          (comma_seperated_expressions_in_paratheses)))))
   (declaration
     (identifier)
     (definition

@@ -46,7 +46,7 @@ c :== {
       (type
         (function_type
           (function_type_without_return_type
-            (function_declaration_arguments
+            (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
                   (identifier)

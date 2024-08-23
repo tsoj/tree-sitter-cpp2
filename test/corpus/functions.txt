@@ -76,7 +76,7 @@ a := hello(x, "hello");
     (identifier)
     (definition
       (expression
-        (parenthese_expression
+        (parentheses_expression
           (expression
             (definition
               (type
@@ -92,7 +92,7 @@ a := hello(x, "hello");
     (identifier)
     (definition
       (expression
-        (parenthese_expression
+        (parentheses_expression
           (expression
             (definition
               (expression
@@ -105,7 +105,7 @@ a := hello(x, "hello");
       (type
         (function_type
           (function_type_without_return_type
-            (function_declaration_arguments
+            (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
                   (identifier)
@@ -144,14 +144,15 @@ a := hello(x, "hello");
             (any_identifier
               (non_template_any_identifier
                 (identifier))))
-          (comma_seperated_expressions
-            (expression
-              (any_identifier
-                (non_template_any_identifier
-                  (identifier))))
-            (expression
-              (literal
-                (string)))))))))
+          (comma_seperated_expressions_in_paratheses
+            (comma_seperated_expressions
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (literal
+                  (string))))))))))
 
 ===========================================================
 stdio
@@ -206,13 +207,14 @@ _main2: () -> ::std::hello::int = {
                     (any_identifier
                       (non_template_any_identifier
                         (identifier))))
-                  (comma_seperated_expressions
-                    (expression
-                      (literal
-                        (string)))
-                    (expression
-                      (literal
-                        (string)))))))))
+                  (comma_seperated_expressions_in_paratheses
+                    (comma_seperated_expressions
+                      (expression
+                        (literal
+                          (string)))
+                      (expression
+                        (literal
+                          (string))))))))))
         (statement
           (expression
             (binary_expression
@@ -229,19 +231,21 @@ _main2: () -> ::std::hello::int = {
                   (any_identifier
                     (non_template_any_identifier
                       (identifier)))
-                  (comma_seperated_expressions
-                    (expression
-                      (literal
-                        (string)))
-                    (expression
-                      (method_call
-                        (expression
+                  (comma_seperated_expressions_in_paratheses
+                    (comma_seperated_expressions
+                      (expression
+                        (literal
+                          (string)))
+                      (expression
+                        (method_call
+                          (expression
+                            (any_identifier
+                              (non_template_any_identifier
+                                (identifier))))
                           (any_identifier
                             (non_template_any_identifier
-                              (identifier))))
-                        (any_identifier
-                          (non_template_any_identifier
-                            (identifier)))))))))))
+                              (identifier)))
+                          (comma_seperated_expressions_in_paratheses))))))))))
         (statement
           (expression
             (binary_expression
@@ -262,7 +266,8 @@ _main2: () -> ::std::hello::int = {
                             (identifier))))
                       (any_identifier
                         (non_template_any_identifier
-                          (identifier))))))))))))))
+                          (identifier)))
+                      (comma_seperated_expressions_in_paratheses))))))))))))
 
 ===========================================================
 global
@@ -298,7 +303,8 @@ b: type = hello();
           (expression
             (any_identifier
               (non_template_any_identifier
-                (identifier)))))))))
+                (identifier))))
+          (comma_seperated_expressions_in_paratheses))))))
 
 ===========================================================
 repeated calls
@@ -433,7 +439,12 @@ main: () -> int = {
                                 (expression
                                   (any_identifier
                                     (non_template_any_identifier
-                                      (identifier))))))))))))))))))))
+                                      (identifier))))
+                                (comma_seperated_expressions_in_paratheses)))
+                            (comma_seperated_expressions_in_paratheses)))
+                        (comma_seperated_expressions_in_paratheses)))
+                    (comma_seperated_expressions_in_paratheses)))
+                (comma_seperated_expressions_in_paratheses)))))))))
 
 ===========================================================
 unary operators
@@ -475,7 +486,8 @@ k := -x++;
                 (expression
                   (any_identifier
                     (non_template_any_identifier
-                      (identifier)))))))))))
+                      (identifier))))
+                (comma_seperated_expressions_in_paratheses))))))))
   (declaration
     (identifier)
     (definition
@@ -497,7 +509,8 @@ k := -x++;
                 (expression
                   (any_identifier
                     (non_template_any_identifier
-                      (identifier)))))))))))
+                      (identifier)))))))
+          (comma_seperated_expressions_in_paratheses)))))
   (declaration
     (identifier)
     (definition
@@ -627,7 +640,8 @@ main: () = {
                         (expression
                           (any_identifier
                             (non_template_any_identifier
-                              (identifier))))))))))))
+                              (identifier))))
+                        (comma_seperated_expressions_in_paratheses)))))))))
         (statement
           (expression
             (binary_expression
@@ -657,7 +671,8 @@ main: () = {
                         (expression
                           (any_identifier
                             (non_template_any_identifier
-                              (identifier))))))))))))
+                              (identifier)))))))
+                  (comma_seperated_expressions_in_paratheses))))))
         (statement
           (expression
             (binary_expression
@@ -1099,7 +1114,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1120,7 +1135,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1141,7 +1156,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1162,7 +1177,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1180,12 +1195,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1203,12 +1218,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1226,12 +1241,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1249,12 +1264,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1282,7 +1297,7 @@ a := ((A &) &) &(A)
                           (non_template_any_identifier
                             (identifier))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1303,7 +1318,7 @@ a := ((A &) &) &(A)
                           (non_template_any_identifier
                             (identifier))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1324,7 +1339,7 @@ a := ((A &) &) &(A)
                           (non_template_any_identifier
                             (identifier))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1345,7 +1360,7 @@ a := ((A &) &) &(A)
                           (non_template_any_identifier
                             (identifier))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1359,7 +1374,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1368,7 +1383,7 @@ a := ((A &) &) &(A)
                               (non_template_any_identifier
                                 (identifier))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1382,7 +1397,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1391,7 +1406,7 @@ a := ((A &) &) &(A)
                               (non_template_any_identifier
                                 (identifier))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1405,7 +1420,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1414,7 +1429,7 @@ a := ((A &) &) &(A)
                               (non_template_any_identifier
                                 (identifier))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1428,7 +1443,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1437,7 +1452,7 @@ a := ((A &) &) &(A)
                               (non_template_any_identifier
                                 (identifier))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1448,12 +1463,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1462,7 +1477,7 @@ a := ((A &) &) &(A)
                                   (non_template_any_identifier
                                     (identifier))))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1473,12 +1488,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1487,7 +1502,7 @@ a := ((A &) &) &(A)
                                   (non_template_any_identifier
                                     (identifier))))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1498,12 +1513,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1512,7 +1527,7 @@ a := ((A &) &) &(A)
                                   (non_template_any_identifier
                                     (identifier))))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1523,12 +1538,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1537,7 +1552,7 @@ a := ((A &) &) &(A)
                                   (non_template_any_identifier
                                     (identifier))))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1618,7 +1633,7 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
@@ -1639,7 +1654,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1660,7 +1675,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1681,7 +1696,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1699,12 +1714,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1722,12 +1737,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1745,12 +1760,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1768,12 +1783,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1798,7 +1813,7 @@ a := ((A &) &) &(A)
                     (non_template_any_identifier
                       (identifier)))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1816,7 +1831,7 @@ a := ((A &) &) &(A)
                     (non_template_any_identifier
                       (identifier)))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1837,7 +1852,7 @@ a := ((A &) &) &(A)
                           (non_template_any_identifier
                             (identifier))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1858,7 +1873,7 @@ a := ((A &) &) &(A)
                           (non_template_any_identifier
                             (identifier))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1869,7 +1884,7 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
@@ -1878,7 +1893,7 @@ a := ((A &) &) &(A)
                         (non_template_any_identifier
                           (identifier)))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1892,7 +1907,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1901,7 +1916,7 @@ a := ((A &) &) &(A)
                               (non_template_any_identifier
                                 (identifier))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1915,7 +1930,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1924,7 +1939,7 @@ a := ((A &) &) &(A)
                               (non_template_any_identifier
                                 (identifier))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1938,7 +1953,7 @@ a := ((A &) &) &(A)
             (unary_expression
               (unary_postfix_expression
                 (expression
-                  (parenthese_expression
+                  (parentheses_expression
                     (expression
                       (unary_expression
                         (unary_postfix_expression
@@ -1947,7 +1962,7 @@ a := ((A &) &) &(A)
                               (non_template_any_identifier
                                 (identifier))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1958,12 +1973,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1972,7 +1987,7 @@ a := ((A &) &) &(A)
                                   (non_template_any_identifier
                                     (identifier))))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -1983,12 +1998,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -1997,7 +2012,7 @@ a := ((A &) &) &(A)
                                   (non_template_any_identifier
                                     (identifier))))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -2008,12 +2023,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -2022,7 +2037,7 @@ a := ((A &) &) &(A)
                                   (non_template_any_identifier
                                     (identifier))))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier
@@ -2033,12 +2048,12 @@ a := ((A &) &) &(A)
       (expression
         (binary_expression
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (unary_expression
                   (unary_postfix_expression
                     (expression
-                      (parenthese_expression
+                      (parentheses_expression
                         (expression
                           (unary_expression
                             (unary_postfix_expression
@@ -2047,7 +2062,7 @@ a := ((A &) &) &(A)
                                   (non_template_any_identifier
                                     (identifier))))))))))))))
           (expression
-            (parenthese_expression
+            (parentheses_expression
               (expression
                 (any_identifier
                   (non_template_any_identifier

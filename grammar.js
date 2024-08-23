@@ -43,8 +43,6 @@ module.exports = grammar({
     [$.binary_expression, $.comma_seperated_expressions],
     [$.unary_postfix_expression, $.binary_expression],
     [$.unary_prefix_expression, $.binary_expression],
-    // [$.type, $.binary_expression],
-    // [$.binary_expression, $.function_declaration_argument],
   ],
 
   precedences: ($) => [
@@ -59,10 +57,11 @@ module.exports = grammar({
     [$.definition, $.function_type],
     [$.type, $.binary_expression],
     [$.expression, $.function_declaration_argument],
-    // [$.definition, $.type],
-    // [$.definition, $.function_type],
-    // [$.type, $.expression],
-    // [$.non_binary_expression, $.expression],
+    // [
+    //   $.function_type_without_return_type,
+    //   $.comma_seperated_expressions_in_paratheses,
+    // ],
+    // [$.comma_seperated_expressions, $.parentheses_expression],
     binary_operators,
   ],
   rules: {
@@ -93,7 +92,7 @@ module.exports = grammar({
       repeat1(seq("@", $.non_template_any_identifier)),
 
     template_declaration_arguments: ($) =>
-      seq("<", $.function_declaration_arguments, ">"),
+      seq("<", $.comma_seperated_declarations, ">"),
 
     template_comma_seperated_expressions: ($) =>
       prec.right(seq("<", $.comma_seperated_expressions, ">")),
@@ -122,7 +121,7 @@ module.exports = grammar({
     type_type: ($) => "type",
 
     function_type_without_return_type: ($) =>
-      seq("(", optional($.function_declaration_arguments), ")"),
+      seq("(", optional($.comma_seperated_declarations), ")"),
 
     function_type: ($) =>
       seq(
@@ -148,8 +147,9 @@ module.exports = grammar({
         $.bracket_call,
         $.unary_expression,
         $.binary_expression,
-        $.parenthese_expression,
+        $.parentheses_expression,
         $.definition,
+        // $.comma_seperated_expressions_in_paratheses,
       ),
 
     unary_expression: ($) =>
@@ -176,13 +176,16 @@ module.exports = grammar({
       );
     },
 
-    parenthese_expression: ($) => seq("(", $.expression, ")"),
+    parentheses_expression: ($) => seq("(", $.expression, ")"),
 
     comma_seperated_expressions: ($) =>
       seq($.expression, repeat(seq(",", $.expression)), optional(",")),
 
+    comma_seperated_expressions_in_paratheses: ($) =>
+      seq("(", optional($.comma_seperated_expressions), ")"),
+
     function_call: ($) =>
-      seq($.expression, "(", optional($.comma_seperated_expressions), ")"),
+      seq($.expression, $.comma_seperated_expressions_in_paratheses),
 
     bracket_call: ($) =>
       seq($.expression, "[", optional($.comma_seperated_expressions), "]"),
@@ -192,15 +195,13 @@ module.exports = grammar({
         $.expression,
         choice(".", ".."),
         $.any_identifier,
-        "(",
-        optional($.comma_seperated_expressions),
-        ")",
+        $.comma_seperated_expressions_in_paratheses,
       ),
 
     member_access: ($) =>
       seq($.expression, choice(".", ".."), $.any_identifier),
 
-    function_declaration_arguments: ($) =>
+    comma_seperated_declarations: ($) =>
       seq(
         $.function_declaration_argument,
         repeat(seq(",", $.function_declaration_argument)),

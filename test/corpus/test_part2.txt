@@ -22,7 +22,7 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
       (type
         (function_type
           (function_type_without_return_type
-            (function_declaration_arguments
+            (comma_seperated_declarations
               (function_declaration_argument
                 (passing_style)
                 (declaration
@@ -96,7 +96,7 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
       (type
         (function_type
           (function_type_without_return_type
-            (function_declaration_arguments
+            (comma_seperated_declarations
               (function_declaration_argument
                 (passing_style)
                 (declaration
@@ -163,27 +163,29 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                 (any_identifier
                   (non_template_any_identifier
                     (identifier))))
-              (comma_seperated_expressions
-                (expression
-                  (function_call
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (namespaced_identifier
-                            (identifier)
-                            (identifier)))))
-                    (comma_seperated_expressions
+              (comma_seperated_expressions_in_paratheses
+                (comma_seperated_expressions
+                  (expression
+                    (function_call
                       (expression
-                        (literal
-                          (string))))))
-                (expression
-                  (any_identifier
-                    (non_template_any_identifier
-                      (identifier))))
-                (expression
-                  (any_identifier
-                    (non_template_any_identifier
-                      (identifier))))))))
+                        (any_identifier
+                          (non_template_any_identifier
+                            (namespaced_identifier
+                              (identifier)
+                              (identifier)))))
+                      (comma_seperated_expressions_in_paratheses
+                        (comma_seperated_expressions
+                          (expression
+                            (literal
+                              (string)))))))
+                  (expression
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier))))
+                  (expression
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier)))))))))
         (statement
           (expression
             (binary_expression
@@ -233,7 +235,7 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
       (type
         (function_type
           (function_type_without_return_type
-            (function_declaration_arguments
+            (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
                   (identifier)
@@ -261,7 +263,7 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
       (type
         (function_type
           (function_type_without_return_type
-            (function_declaration_arguments
+            (comma_seperated_declarations
               (function_declaration_argument
                 (passing_style)
                 (declaration
@@ -290,7 +292,7 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
       (type
         (function_type
           (function_type_without_return_type
-            (function_declaration_arguments
+            (comma_seperated_declarations
               (function_declaration_argument
                 (passing_style)
                 (declaration
@@ -317,7 +319,7 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
       (type
         (function_type
           (function_type_without_return_type
-            (function_declaration_arguments
+            (comma_seperated_declarations
               (function_declaration_argument
                 (passing_style)
                 (declaration
@@ -346,7 +348,7 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
       (type
         (function_type
           (function_type_without_return_type
-            (function_declaration_arguments
+            (comma_seperated_declarations
               (function_declaration_argument
                 (passing_style)
                 (declaration
@@ -409,7 +411,7 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
     (identifier)
     (definition
       (template_declaration_arguments
-        (function_declaration_arguments
+        (comma_seperated_declarations
           (function_declaration_argument
             (declaration
               (identifier)
@@ -426,7 +428,7 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
       (type
         (function_type
           (function_type_without_return_type
-            (function_declaration_arguments
+            (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
                   (identifier)
@@ -467,7 +469,7 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
     (identifier)
     (definition
       (template_declaration_arguments
-        (function_declaration_arguments
+        (comma_seperated_declarations
           (function_declaration_argument
             (declaration
               (identifier)
@@ -508,7 +510,7 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
         (non_template_any_identifier
           (identifier)))
       (template_declaration_arguments
-        (function_declaration_arguments
+        (comma_seperated_declarations
           (function_declaration_argument
             (declaration
               (identifier)
@@ -799,16 +801,17 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, d>b, T>(hello, i
                     (any_identifier
                       (non_template_any_identifier
                         (identifier))))))))
-          (comma_seperated_expressions
-            (expression
-              (any_identifier
-                (non_template_any_identifier
-                  (identifier)))))))))
+          (comma_seperated_expressions_in_paratheses
+            (comma_seperated_expressions
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))))))))
   (declaration
     (identifier)
     (definition
       (template_declaration_arguments
-        (function_declaration_arguments
+        (comma_seperated_declarations
           (function_declaration_argument
             (declaration
               (identifier)
@@ -846,20 +849,21 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, d>b, T>(hello, i
                     (any_identifier
                       (non_template_any_identifier
                         (identifier))))))))
-          (comma_seperated_expressions
-            (expression
-              (any_identifier
-                (non_template_any_identifier
-                  (identifier))))
-            (expression
-              (any_identifier
-                (non_template_any_identifier
-                  (identifier)))))))))
+          (comma_seperated_expressions_in_paratheses
+            (comma_seperated_expressions
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))))))))
   (declaration
     (identifier)
     (definition
       (template_declaration_arguments
-        (function_declaration_arguments
+        (comma_seperated_declarations
           (function_declaration_argument
             (declaration
               (identifier)
@@ -915,20 +919,21 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, d>b, T>(hello, i
                     (any_identifier
                       (non_template_any_identifier
                         (identifier))))))))
-          (comma_seperated_expressions
-            (expression
-              (any_identifier
-                (non_template_any_identifier
-                  (identifier))))
-            (expression
-              (any_identifier
-                (non_template_any_identifier
-                  (identifier)))))))))
+          (comma_seperated_expressions_in_paratheses
+            (comma_seperated_expressions
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))))))))
   (declaration
     (identifier)
     (definition
       (template_declaration_arguments
-        (function_declaration_arguments
+        (comma_seperated_declarations
           (function_declaration_argument
             (declaration
               (identifier)
@@ -998,12 +1003,13 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, d>b, T>(hello, i
                     (any_identifier
                       (non_template_any_identifier
                         (identifier))))))))
-          (comma_seperated_expressions
-            (expression
-              (any_identifier
-                (non_template_any_identifier
-                  (identifier))))
-            (expression
-              (any_identifier
-                (non_template_any_identifier
-                  (identifier))))))))))
+          (comma_seperated_expressions_in_paratheses
+            (comma_seperated_expressions
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier)))))))))))
