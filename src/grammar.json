@@ -172,7 +172,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "function_declaration_arguments"
+          "name": "comma_seperated_declarations"
         },
         {
           "type": "STRING",
@@ -330,7 +330,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "function_declaration_arguments"
+              "name": "comma_seperated_declarations"
             },
             {
               "type": "BLANK"
@@ -476,7 +476,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "parenthese_expression"
+          "name": "parentheses_expression"
         },
         {
           "type": "SYMBOL",
@@ -1246,7 +1246,7 @@
         }
       ]
     },
-    "parenthese_expression": {
+    "parentheses_expression": {
       "type": "SEQ",
       "members": [
         {
@@ -1300,13 +1300,9 @@
         }
       ]
     },
-    "function_call": {
+    "comma_seperated_expressions_in_paratheses": {
       "type": "SEQ",
       "members": [
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
         {
           "type": "STRING",
           "value": "("
@@ -1326,6 +1322,19 @@
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "function_call": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comma_seperated_expressions_in_paratheses"
         }
       ]
     },
@@ -1383,24 +1392,8 @@
           "name": "any_identifier"
         },
         {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "comma_seperated_expressions"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
+          "type": "SYMBOL",
+          "name": "comma_seperated_expressions_in_paratheses"
         }
       ]
     },
@@ -1430,7 +1423,7 @@
         }
       ]
     },
-    "function_declaration_arguments": {
+    "comma_seperated_declarations": {
       "type": "SEQ",
       "members": [
         {

@@ -73,6 +73,21 @@
     }
   },
   {
+    "type": "comma_seperated_declarations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_declaration_argument",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "comma_seperated_expressions",
     "named": true,
     "fields": {},
@@ -82,6 +97,21 @@
       "types": [
         {
           "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comma_seperated_expressions_in_paratheses",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comma_seperated_expressions",
           "named": true
         }
       ]
@@ -186,7 +216,7 @@
           "named": true
         },
         {
-          "type": "parenthese_expression",
+          "type": "parentheses_expression",
           "named": true
         },
         {
@@ -205,7 +235,7 @@
       "required": true,
       "types": [
         {
-          "type": "comma_seperated_expressions",
+          "type": "comma_seperated_expressions_in_paratheses",
           "named": true
         },
         {
@@ -233,21 +263,6 @@
         },
         {
           "type": "passing_style",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "function_declaration_arguments",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "function_declaration_argument",
           "named": true
         }
       ]
@@ -285,7 +300,7 @@
       "required": false,
       "types": [
         {
-          "type": "function_declaration_arguments",
+          "type": "comma_seperated_declarations",
           "named": true
         }
       ]
@@ -365,7 +380,7 @@
           "named": true
         },
         {
-          "type": "comma_seperated_expressions",
+          "type": "comma_seperated_expressions_in_paratheses",
           "named": true
         },
         {
@@ -410,7 +425,7 @@
     }
   },
   {
-    "type": "parenthese_expression",
+    "type": "parentheses_expression",
     "named": true,
     "fields": {},
     "children": {
@@ -506,7 +521,7 @@
       "required": true,
       "types": [
         {
-          "type": "function_declaration_arguments",
+          "type": "comma_seperated_declarations",
           "named": true
         }
       ]
