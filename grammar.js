@@ -22,6 +22,8 @@ const binary_operators = [
   "||",
   "..<",
   "..=",
+  // comma operator
+  ",",
   // assignment operators
   "=",
   "*=",
@@ -40,7 +42,6 @@ module.exports = grammar({
   name: "cpp2",
   conflicts: ($) => [
     [$.any_identifier],
-    [$.binary_expression, $.comma_seperated_expressions],
     [$.unary_postfix_expression, $.binary_expression],
     [$.unary_prefix_expression, $.binary_expression],
   ],
@@ -54,21 +55,27 @@ module.exports = grammar({
       $.unary_postfix_expression,
       $.unary_prefix_expression,
     ],
-    [$.definition, $.function_type],
+    binary_operators,
+    [$.function_type, $.definition],
     [$.type, $.binary_expression],
-    [$.expression, $.function_declaration_argument],
+    [$.function_declaration_argument, $.expression],
+    // [$.function_type, $.expression],
+    [$.function_type_without_return_type, $.parentheses_expression],
+
+    // [$.parentheses_expression, $.comma_seperated_expressions],
     // [
     //   $.function_type_without_return_type,
     //   $.comma_seperated_expressions_in_paratheses,
     // ],
     // [$.comma_seperated_expressions, $.parentheses_expression],
-    binary_operators,
   ],
   rules: {
     source_file: ($) => repeat(choice($.declaration, ";")),
 
     declaration: ($) =>
-      seq($.identifier, choice(seq(":", $.type), $.definition)),
+      seq($.identifier, choice($.no_definition_declaration, $.definition)),
+
+    no_definition_declaration: ($) => seq(":", $.type),
 
     definition: ($) =>
       prec.right(
@@ -94,14 +101,11 @@ module.exports = grammar({
     template_declaration_arguments: ($) =>
       seq("<", $.comma_seperated_declarations, ">"),
 
-    template_comma_seperated_expressions: ($) =>
-      prec.right(seq("<", $.comma_seperated_expressions, ">")),
+    template_call_arguments: ($) =>
+      prec.right(seq("<", $.expression, optional(","), ">")),
 
     any_identifier: ($) =>
-      seq(
-        $.non_template_any_identifier,
-        optional($.template_comma_seperated_expressions),
-      ),
+      seq($.non_template_any_identifier, optional($.template_call_arguments)),
 
     non_template_any_identifier: ($) =>
       choice($.namespaced_identifier, $.identifier),
@@ -121,7 +125,15 @@ module.exports = grammar({
     type_type: ($) => "type",
 
     function_type_without_return_type: ($) =>
-      seq("(", optional($.comma_seperated_declarations), ")"),
+      seq("(", optional($.comma_seperated_declarations), optional(","), ")"),
+
+    comma_seperated_declarations: ($) =>
+      prec.right(
+        seq(
+          $.function_declaration_argument,
+          repeat(seq(",", $.function_declaration_argument)),
+        ),
+      ),
 
     function_type: ($) =>
       seq(
@@ -149,7 +161,6 @@ module.exports = grammar({
         $.binary_expression,
         $.parentheses_expression,
         $.definition,
-        // $.comma_seperated_expressions_in_paratheses,
       ),
 
     unary_expression: ($) =>
@@ -176,37 +187,24 @@ module.exports = grammar({
       );
     },
 
-    parentheses_expression: ($) => seq("(", $.expression, ")"),
+    parentheses_expression: ($) =>
+      seq("(", optional($.expression), optional(","), ")"),
 
-    comma_seperated_expressions: ($) =>
-      seq($.expression, repeat(seq(",", $.expression)), optional(",")),
-
-    comma_seperated_expressions_in_paratheses: ($) =>
-      seq("(", optional($.comma_seperated_expressions), ")"),
-
-    function_call: ($) =>
-      seq($.expression, $.comma_seperated_expressions_in_paratheses),
+    function_call: ($) => seq($.expression, $.parentheses_expression),
 
     bracket_call: ($) =>
-      seq($.expression, "[", optional($.comma_seperated_expressions), "]"),
+      seq($.expression, "[", optional($.expression), optional(","), "]"),
 
     method_call: ($) =>
       seq(
         $.expression,
         choice(".", ".."),
         $.any_identifier,
-        $.comma_seperated_expressions_in_paratheses,
+        $.parentheses_expression,
       ),
 
     member_access: ($) =>
       seq($.expression, choice(".", ".."), $.any_identifier),
-
-    comma_seperated_declarations: ($) =>
-      seq(
-        $.function_declaration_argument,
-        repeat(seq(",", $.function_declaration_argument)),
-        optional(","),
-      ),
 
     function_declaration_argument: ($) =>
       seq(optional($.passing_style), choice($.declaration, $.any_identifier)),
