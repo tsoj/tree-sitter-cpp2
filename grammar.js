@@ -1,65 +1,16 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
-const binary_operators = [
-  "*",
-  "/",
-  "%",
-  "+",
-  "-",
-  "<<",
-  ">>",
-  "<=>",
-  "<",
-  ">",
-  "<=",
-  ">=",
-  "==",
-  "!=",
-  "&",
-  "^",
-  "|",
-  "&&",
-  "||",
-  "..<",
-  "..=",
-  // comma operator
-  ",",
-  // assignment operators
-  "=",
-  "*=",
-  "/=",
-  "%=",
-  "+=",
-  "-=",
-  ">>=",
-  "<<=",
-  "&=",
-  "^=",
-  "|=",
-];
 
 module.exports = grammar({
   name: "cpp2",
-  conflicts: ($) => [
-    [$.any_identifier],
-    [$.unary_postfix_expression, $.binary_expression],
-    [$.unary_prefix_expression, $.binary_expression],
-  ],
+  conflicts: ($) => [[$.identifier]],
 
   precedences: ($) => [
-    [
-      $.method_call,
-      $.member_access,
-      $.function_call,
-      $.bracket_call,
-      $.unary_postfix_expression,
-      $.unary_prefix_expression,
-    ],
-    binary_operators,
+    [$.method_call, $.member_access, $.function_call, $.bracket_call],
     [$.function_type, $.definition],
-    [$.type, $.binary_expression],
     [$.function_declaration_argument, $.expression],
     // [$.function_type, $.expression],
+
     [$.function_type_without_return_type, $.parentheses_expression],
 
     // [$.parentheses_expression, $.comma_seperated_expressions],
@@ -81,46 +32,15 @@ module.exports = grammar({
       prec.right(
         choice(
           seq(
-            seq(
-              ":",
-              optional($.metafunction_arguments),
-              optional($.template_declaration_arguments),
-              choice(
-                seq(optional($.type), choice("=", "==")),
-                $.function_type_without_return_type,
-              ),
-            ),
+            seq(":", $.function_type_without_return_type),
             choice($.block, $.expression),
           ),
         ),
       ),
 
-    metafunction_arguments: ($) =>
-      repeat1(seq("@", $.non_template_any_identifier)),
-
-    template_declaration_arguments: ($) =>
-      seq("<", $.comma_seperated_declarations, ">"),
-
-    template_call_arguments: ($) =>
-      prec.right(seq("<", $.expression, optional(","), ">")),
-
-    any_identifier: ($) =>
-      seq($.non_template_any_identifier, optional($.template_call_arguments)),
-
-    non_template_any_identifier: ($) =>
-      choice($.namespaced_identifier, $.identifier),
-
-    namespaced_identifier: ($) =>
-      seq(optional(" ::"), repeat1(seq($.identifier, "::")), $.identifier),
-
     identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
-    type: ($) =>
-      choice(
-        $.function_type,
-        seq(repeat(choice("const", "*")), $.expression),
-        $.type_type,
-      ),
+    type: ($) => choice($.function_type, $.expression),
 
     type_type: ($) => "type",
 
@@ -135,57 +55,13 @@ module.exports = grammar({
         ),
       ),
 
-    function_type: ($) =>
-      seq(
-        $.function_type_without_return_type,
-        optional(seq("->", optional($.passing_style), $.type)),
-      ),
+    function_type: ($) => seq($.function_type_without_return_type),
 
     block: ($) => seq("{", repeat($.statement), "}"),
 
-    statement: ($) =>
-      seq(
-        optional(choice($.declaration, $.return_statement, $.expression)),
-        ";",
-      ),
+    statement: ($) => seq(optional(choice($.declaration, $.expression)), ";"),
 
-    expression: ($) =>
-      choice(
-        $.literal,
-        $.any_identifier,
-        $.function_call,
-        $.method_call,
-        $.member_access,
-        $.bracket_call,
-        $.unary_expression,
-        $.binary_expression,
-        $.parentheses_expression,
-        $.definition,
-      ),
-
-    unary_expression: ($) =>
-      choice($.unary_prefix_expression, $.unary_postfix_expression),
-
-    unary_postfix_expression: ($) =>
-      seq(
-        $.expression,
-        // the reason we have &&  additionally to & is for issues
-        // with conflicting tokenization with the binary operator &&
-        choice("++", "--", "*", "&", "&&", "~", "$", "..."),
-      ),
-
-    unary_prefix_expression: ($) => seq(choice("-", "+", "!"), $.expression),
-
-    binary_expression: ($) => {
-      return choice(
-        ...binary_operators.map((operator) => {
-          return prec.right(
-            operator,
-            seq($.expression, operator, $.expression),
-          );
-        }),
-      );
-    },
+    expression: ($) => choice($.identifier, $.parentheses_expression),
 
     parentheses_expression: ($) =>
       seq("(", optional($.expression), optional(","), ")"),
@@ -199,26 +75,13 @@ module.exports = grammar({
       seq(
         $.expression,
         choice(".", ".."),
-        $.any_identifier,
+        $.identifier,
         $.parentheses_expression,
       ),
 
-    member_access: ($) =>
-      seq($.expression, choice(".", ".."), $.any_identifier),
+    member_access: ($) => seq($.expression, choice(".", ".."), $.identifier),
 
     function_declaration_argument: ($) =>
-      seq(optional($.passing_style), choice($.declaration, $.any_identifier)),
-
-    passing_style: ($) =>
-      choice("in", "copy", "inout", "out", "move", "forward"),
-
-    return_statement: ($) => seq("return", $.expression),
-
-    literal: ($) => choice($.number, $.string, $.float, $.boolean),
-
-    number: ($) => /\d+/,
-    string: ($) => /"([^"\\]|\\.)*"/,
-    float: ($) => /\d+\.\d+/,
-    boolean: ($) => choice("true", "false"),
+      seq(choice($.declaration, $.identifier)),
   },
 });
