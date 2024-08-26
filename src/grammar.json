@@ -1607,6 +1607,10 @@
     [
       "unary_prefix_expression",
       "binary_expression"
+    ],
+    [
+      "function_type",
+      "definition"
     ]
   ],
   "precedences": [
@@ -1768,16 +1772,6 @@
       {
         "type": "STRING",
         "value": "|="
-      }
-    ],
-    [
-      {
-        "type": "SYMBOL",
-        "name": "function_type"
-      },
-      {
-        "type": "SYMBOL",
-        "name": "definition"
       }
     ],
     [
