@@ -44,6 +44,7 @@ module.exports = grammar({
     [$.any_identifier],
     [$.unary_postfix_expression, $.binary_expression],
     [$.unary_prefix_expression, $.binary_expression],
+    [$.function_type, $.definition],
   ],
 
   precedences: ($) => [
@@ -56,7 +57,6 @@ module.exports = grammar({
       $.unary_prefix_expression,
     ],
     binary_operators,
-    [$.function_type, $.definition],
     [$.type, $.binary_expression],
     [$.function_declaration_argument, $.expression],
     // [$.function_type, $.expression],
