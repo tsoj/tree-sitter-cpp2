@@ -53,7 +53,7 @@
       ]
     },
     "definition": {
-      "type": "PREC_RIGHT",
+      "type": "PREC_LEFT",
       "value": 0,
       "content": {
         "type": "CHOICE",
