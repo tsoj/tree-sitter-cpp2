@@ -78,7 +78,7 @@ module.exports = grammar({
     no_definition_declaration: ($) => seq(":", $.type),
 
     definition: ($) =>
-      prec.right(
+      prec.left(
         choice(
           seq(
             seq(
