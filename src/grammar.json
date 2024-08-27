@@ -1314,24 +1314,28 @@
             "name": "expression"
           },
           {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              },
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "expression_or_comma_expressions"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "comma_expressions"
           }
         ]
       }
+    },
+    "comma_expressions": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression_or_comma_expressions"
+        }
+      ]
     },
     "parentheses_expression": {
       "type": "SEQ",
@@ -1807,6 +1811,16 @@
       {
         "type": "SYMBOL",
         "name": "parentheses_expression"
+      }
+    ],
+    [
+      {
+        "type": "SYMBOL",
+        "name": "comma_expressions"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "expression_or_comma_expressions"
       }
     ]
   ],

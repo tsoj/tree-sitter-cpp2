@@ -73,6 +73,25 @@
     }
   },
   {
+    "type": "comma_expressions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "expression_or_comma_expressions",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "comma_seperated_declarations",
     "named": true,
     "fields": {},
@@ -201,15 +220,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "comma_expressions",
           "named": true
         },
         {
-          "type": "expression_or_comma_expressions",
+          "type": "expression",
           "named": true
         }
       ]

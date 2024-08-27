@@ -59,6 +59,7 @@ module.exports = grammar({
     [$.function_declaration_argument, $.expression],
     // [$.function_type, $.expression],
     [$.function_type_without_return_type, $.parentheses_expression],
+    [$.comma_expressions, $.expression_or_comma_expressions],
 
     // [$.parentheses_expression, $.comma_seperated_expressions],
     // [
@@ -188,12 +189,10 @@ module.exports = grammar({
     },
 
     expression_or_comma_expressions: ($) =>
-      prec.left(
-        choice(
-          $.expression,
-          seq($.expression, ",", $.expression_or_comma_expressions),
-        ),
-      ),
+      prec.left(choice($.expression, $.comma_expressions)),
+
+    comma_expressions: ($) =>
+      seq($.expression, ",", $.expression_or_comma_expressions),
 
     parentheses_expression: ($) =>
       seq("(", optional($.expression_or_comma_expressions), optional(","), ")"),
