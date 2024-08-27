@@ -64,6 +64,10 @@
         {
           "type": "expression",
           "named": true
+        },
+        {
+          "type": "expression_or_comma_expressions",
+          "named": true
         }
       ]
     }
@@ -187,6 +191,25 @@
         },
         {
           "type": "unary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression_or_comma_expressions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "expression_or_comma_expressions",
           "named": true
         }
       ]
@@ -414,7 +437,7 @@
       "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "expression_or_comma_expressions",
           "named": true
         }
       ]
@@ -487,7 +510,7 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "expression_or_comma_expressions",
           "named": true
         }
       ]

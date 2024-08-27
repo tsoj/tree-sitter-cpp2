@@ -22,8 +22,6 @@ const binary_operators = [
   "||",
   "..<",
   "..=",
-  // comma operator
-  ",",
   // assignment operators
   "=",
   "*=",
@@ -102,7 +100,9 @@ module.exports = grammar({
       seq("<", $.comma_seperated_declarations, ">"),
 
     template_call_arguments: ($) =>
-      prec.right(seq("<", $.expression, optional(","), ">")),
+      prec.right(
+        seq("<", $.expression_or_comma_expressions, optional(","), ">"),
+      ),
 
     any_identifier: ($) =>
       seq($.non_template_any_identifier, optional($.template_call_arguments)),
@@ -187,13 +187,27 @@ module.exports = grammar({
       );
     },
 
+    expression_or_comma_expressions: ($) =>
+      prec.left(
+        choice(
+          $.expression,
+          seq($.expression, ",", $.expression_or_comma_expressions),
+        ),
+      ),
+
     parentheses_expression: ($) =>
-      seq("(", optional($.expression), optional(","), ")"),
+      seq("(", optional($.expression_or_comma_expressions), optional(","), ")"),
 
     function_call: ($) => seq($.expression, $.parentheses_expression),
 
     bracket_call: ($) =>
-      seq($.expression, "[", optional($.expression), optional(","), "]"),
+      seq(
+        $.expression,
+        "[",
+        optional($.expression_or_comma_expressions),
+        optional(","),
+        "]",
+      ),
 
     method_call: ($) =>
       seq(
