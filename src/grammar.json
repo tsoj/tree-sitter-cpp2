@@ -196,7 +196,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "expression_or_comma_expressions"
           },
           {
             "type": "CHOICE",
@@ -1072,27 +1072,6 @@
         },
         {
           "type": "PREC_RIGHT",
-          "value": ",",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              },
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              }
-            ]
-          }
-        },
-        {
-          "type": "PREC_RIGHT",
           "value": "=",
           "content": {
             "type": "SEQ",
@@ -1324,6 +1303,36 @@
         }
       ]
     },
+    "expression_or_comma_expressions": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              },
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression_or_comma_expressions"
+              }
+            ]
+          }
+        ]
+      }
+    },
     "parentheses_expression": {
       "type": "SEQ",
       "members": [
@@ -1336,7 +1345,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "expression_or_comma_expressions"
             },
             {
               "type": "BLANK"
@@ -1390,7 +1399,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "expression_or_comma_expressions"
             },
             {
               "type": "BLANK"
@@ -1724,10 +1733,6 @@
       {
         "type": "STRING",
         "value": "..="
-      },
-      {
-        "type": "STRING",
-        "value": ","
       },
       {
         "type": "STRING",
