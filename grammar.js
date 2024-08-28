@@ -43,6 +43,7 @@ module.exports = grammar({
     [$.unary_postfix_expression, $.binary_expression],
     [$.unary_prefix_expression, $.binary_expression],
     [$.function_type, $.left_side_of_definition],
+    [$.declaration, $.block_statement],
   ],
 
   precedences: ($) => [
@@ -164,7 +165,7 @@ module.exports = grammar({
 
     statement: ($) =>
       choice(
-        // $.block_statement,
+        $.block_statement,
         seq(
           optional(choice($.declaration, $.return_statement, $.expression)),
           ";",

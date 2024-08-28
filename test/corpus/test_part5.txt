@@ -9,7 +9,7 @@ set: <Key> type = {
         set_returned := container.insert(value);
         where    = set_returned.first;
         inserted = set_returned.second;
-    };
+    }
 
     ssize: (this) -> i64 = std::ssize(container);
 
@@ -79,7 +79,7 @@ set: <Key> type = {
                         (no_namespace_identifier
                           (non_template_identifier)))))))))
           (statement
-            (declaration
+            (block_statement
               (block_declaration
                 (non_template_identifier)
                 (block_definition
