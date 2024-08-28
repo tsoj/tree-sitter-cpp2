@@ -582,6 +582,10 @@
         {
           "type": "SYMBOL",
           "name": "block_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
         }
       ]
     },
