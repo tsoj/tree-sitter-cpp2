@@ -39,7 +39,7 @@ const binary_operators = [
 module.exports = grammar({
   name: "cpp2",
   conflicts: ($) => [
-    [$.any_identifier],
+    [$.any_identifier, $.template_any_identifier],
     [$.unary_postfix_expression, $.binary_expression],
     [$.unary_prefix_expression, $.binary_expression],
     [$.function_type, $.definition],
@@ -57,16 +57,8 @@ module.exports = grammar({
     binary_operators,
     [$.type, $.binary_expression],
     [$.function_declaration_argument, $.expression],
-    // [$.function_type, $.expression],
     [$.function_type_without_return_type, $.parentheses_expression],
     [$.comma_expressions, $.expression_or_comma_expressions],
-
-    // [$.parentheses_expression, $.comma_seperated_expressions],
-    // [
-    //   $.function_type_without_return_type,
-    //   $.comma_seperated_expressions_in_paratheses,
-    // ],
-    // [$.comma_seperated_expressions, $.parentheses_expression],
   ],
   rules: {
     source_file: ($) => repeat(choice($.declaration, ";")),
@@ -106,7 +98,10 @@ module.exports = grammar({
       ),
 
     any_identifier: ($) =>
-      seq($.non_template_any_identifier, optional($.template_call_arguments)),
+      choice($.non_template_any_identifier, $.template_any_identifier),
+
+    template_any_identifier: ($) =>
+      seq($.non_template_any_identifier, $.template_call_arguments),
 
     non_template_any_identifier: ($) =>
       choice($.namespaced_identifier, $.identifier),

@@ -4,7 +4,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -12,7 +12,7 @@
           "named": true
         },
         {
-          "type": "template_call_arguments",
+          "type": "template_any_identifier",
           "named": true
         }
       ]
@@ -515,6 +515,25 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "template_any_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "non_template_any_identifier",
+          "named": true
+        },
+        {
+          "type": "template_call_arguments",
           "named": true
         }
       ]
