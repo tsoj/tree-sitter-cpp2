@@ -42,8 +42,7 @@ module.exports = grammar({
     [$.no_namespace_identifier, $.template_identifier],
     [$.unary_postfix_expression, $.binary_expression],
     [$.unary_prefix_expression, $.binary_expression],
-    [$.function_type, $.definition],
-    [$.binary_expression],
+    [$.function_type, $.left_side_of_definition],
   ],
 
   precedences: ($) => [
@@ -61,6 +60,7 @@ module.exports = grammar({
     [$.function_type_without_return_type, $.parentheses_expression],
     [$.comma_expressions, $.expression_or_comma_expressions],
   ],
+
   rules: {
     source_file: ($) => repeat(choice($.declaration, ";")),
 
@@ -73,20 +73,16 @@ module.exports = grammar({
     no_definition_declaration: ($) => seq(":", $.type),
 
     definition: ($) =>
-      prec.left(
+      prec.left(seq($.left_side_of_definition, choice($.block, $.expression))),
+
+    left_side_of_definition: ($) =>
+      seq(
+        ":",
+        optional($.metafunction_arguments),
+        optional($.template_declaration_arguments),
         choice(
-          seq(
-            seq(
-              ":",
-              optional($.metafunction_arguments),
-              optional($.template_declaration_arguments),
-              choice(
-                seq(optional($.type), choice("=", "==")),
-                $.function_type_without_return_type,
-              ),
-            ),
-            choice($.block, $.expression),
-          ),
+          seq(optional($.type), choice("=", "==")),
+          $.function_type_without_return_type,
         ),
       ),
 
@@ -155,10 +151,15 @@ module.exports = grammar({
     block: ($) => seq("{", repeat($.statement), "}"),
 
     statement: ($) =>
-      seq(
-        optional(choice($.declaration, $.return_statement, $.expression)),
-        ";",
+      choice(
+        // $.block_statement,
+        seq(
+          optional(choice($.declaration, $.return_statement, $.expression)),
+          ";",
+        ),
       ),
+
+    block_statement: ($) => "",
 
     expression: ($) =>
       choice(

@@ -27,6 +27,7 @@ is_void := u**.identifier* == "void";
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_postfix_expression
@@ -53,6 +54,7 @@ is_void := u**.identifier* == "void";
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -93,6 +95,7 @@ a := b... * 3;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -122,6 +125,7 @@ a := b... * 3;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (member_access
           (expression
@@ -134,6 +138,7 @@ a := b... * 3;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (member_access
           (expression
@@ -154,6 +159,7 @@ a := b... * 3;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (method_call
           (expression
@@ -175,6 +181,7 @@ a := b... * 3;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression

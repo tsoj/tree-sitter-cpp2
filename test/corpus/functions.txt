@@ -12,14 +12,15 @@ main : () -> int = {
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (function_type
-          (function_type_without_return_type)
-          (type
-            (expression
-              (any_identifier
-                (no_namespace_identifier
-                  (non_template_identifier)))))))
+      (left_side_of_definition
+        (type
+          (function_type
+            (function_type_without_return_type)
+            (type
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))))))))
       (block
         (statement
           (return_statement
@@ -57,11 +58,12 @@ a := hello(x, "hello");
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (expression
-          (any_identifier
-            (no_namespace_identifier
-              (non_template_identifier)))))
+      (left_side_of_definition
+        (type
+          (expression
+            (any_identifier
+              (no_namespace_identifier
+                (non_template_identifier))))))
       (expression
         (any_identifier
           (no_namespace_identifier
@@ -69,6 +71,7 @@ a := hello(x, "hello");
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (any_identifier
           (no_namespace_identifier
@@ -76,16 +79,18 @@ a := hello(x, "hello");
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (parentheses_expression
           (expression_or_comma_expressions
             (expression
               (definition
-                (type
-                  (expression
-                    (any_identifier
-                      (no_namespace_identifier
-                        (non_template_identifier)))))
+                (left_side_of_definition
+                  (type
+                    (expression
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier))))))
                 (expression
                   (any_identifier
                     (no_namespace_identifier
@@ -93,11 +98,13 @@ a := hello(x, "hello");
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (parentheses_expression
           (expression_or_comma_expressions
             (expression
               (definition
+                (left_side_of_definition)
                 (expression
                   (any_identifier
                     (no_namespace_identifier
@@ -105,44 +112,47 @@ a := hello(x, "hello");
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (function_type
-          (function_type_without_return_type
-            (comma_seperated_declarations
-              (function_declaration_argument
-                (declaration
-                  (non_template_identifier)
-                  (no_definition_declaration
-                    (type
-                      (expression
-                        (any_identifier
-                          (no_namespace_identifier
-                            (non_template_identifier))))))))
-              (function_declaration_argument
-                (declaration
-                  (non_template_identifier)
-                  (no_definition_declaration
-                    (type
-                      (expression
-                        (any_identifier
-                          (no_namespace_identifier
-                            (non_template_identifier))))))))))))
+      (left_side_of_definition
+        (type
+          (function_type
+            (function_type_without_return_type
+              (comma_seperated_declarations
+                (function_declaration_argument
+                  (declaration
+                    (non_template_identifier)
+                    (no_definition_declaration
+                      (type
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))))))))
+                (function_declaration_argument
+                  (declaration
+                    (non_template_identifier)
+                    (no_definition_declaration
+                      (type
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))))))))
       (block
         (statement
           (declaration
             (non_template_identifier)
             (definition
-              (type
-                (expression
-                  (any_identifier
-                    (no_namespace_identifier
-                      (non_template_identifier)))))
+              (left_side_of_definition
+                (type
+                  (expression
+                    (any_identifier
+                      (no_namespace_identifier
+                        (non_template_identifier))))))
               (expression
                 (literal
                   (number)))))))))
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (function_call
           (expression
@@ -178,32 +188,34 @@ _main2: () -> ::std::hello::int = {
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (function_type
-          (function_type_without_return_type)
-          (type
-            (expression
-              (any_identifier
-                (namespaced_identifier
-                  (no_namespace_identifier
-                    (non_template_identifier))
-                  (no_namespace_identifier
-                    (non_template_identifier))
-                  (no_namespace_identifier
-                    (non_template_identifier))))))))
+      (left_side_of_definition
+        (type
+          (function_type
+            (function_type_without_return_type)
+            (type
+              (expression
+                (any_identifier
+                  (namespaced_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))
+                    (no_namespace_identifier
+                      (non_template_identifier))
+                    (no_namespace_identifier
+                      (non_template_identifier)))))))))
       (block
         (statement
           (declaration
             (non_template_identifier)
             (definition
-              (type
-                (expression
-                  (any_identifier
-                    (namespaced_identifier
-                      (no_namespace_identifier
-                        (non_template_identifier))
-                      (no_namespace_identifier
-                        (non_template_identifier))))))
+              (left_side_of_definition
+                (type
+                  (expression
+                    (any_identifier
+                      (namespaced_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier))
+                        (no_namespace_identifier
+                          (non_template_identifier)))))))
               (expression
                 (literal
                   (string))))))
@@ -211,6 +223,7 @@ _main2: () -> ::std::hello::int = {
           (declaration
             (non_template_identifier)
             (definition
+              (left_side_of_definition)
               (expression
                 (function_call
                   (expression
@@ -298,20 +311,23 @@ b: type = hello();
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (literal
           (number)))))
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (literal
           (number)))))
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (type_type))
+      (left_side_of_definition
+        (type
+          (type_type)))
       (expression
         (function_call
           (expression
@@ -340,14 +356,15 @@ main: () -> int = {
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (function_type
-          (function_type_without_return_type)
-          (type
-            (expression
-              (any_identifier
-                (no_namespace_identifier
-                  (non_template_identifier)))))))
+      (left_side_of_definition
+        (type
+          (function_type
+            (function_type_without_return_type)
+            (type
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))))))))
       (block
         (statement
           (return_statement
@@ -357,14 +374,15 @@ main: () -> int = {
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (function_type
-          (function_type_without_return_type)
-          (type
-            (expression
-              (any_identifier
-                (no_namespace_identifier
-                  (non_template_identifier)))))))
+      (left_side_of_definition
+        (type
+          (function_type
+            (function_type_without_return_type)
+            (type
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))))))))
       (block
         (statement
           (return_statement
@@ -375,14 +393,15 @@ main: () -> int = {
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (function_type
-          (function_type_without_return_type)
-          (type
-            (expression
-              (any_identifier
-                (no_namespace_identifier
-                  (non_template_identifier)))))))
+      (left_side_of_definition
+        (type
+          (function_type
+            (function_type_without_return_type)
+            (type
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))))))))
       (block
         (statement
           (return_statement
@@ -393,14 +412,15 @@ main: () -> int = {
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (function_type
-          (function_type_without_return_type)
-          (type
-            (expression
-              (any_identifier
-                (no_namespace_identifier
-                  (non_template_identifier)))))))
+      (left_side_of_definition
+        (type
+          (function_type
+            (function_type_without_return_type)
+            (type
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))))))))
       (block
         (statement
           (return_statement
@@ -411,14 +431,15 @@ main: () -> int = {
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (function_type
-          (function_type_without_return_type)
-          (type
-            (expression
-              (any_identifier
-                (no_namespace_identifier
-                  (non_template_identifier)))))))
+      (left_side_of_definition
+        (type
+          (function_type
+            (function_type_without_return_type)
+            (type
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))))))))
       (block
         (statement
           (return_statement
@@ -429,14 +450,15 @@ main: () -> int = {
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (function_type
-          (function_type_without_return_type)
-          (type
-            (expression
-              (any_identifier
-                (no_namespace_identifier
-                  (non_template_identifier)))))))
+      (left_side_of_definition
+        (type
+          (function_type
+            (function_type_without_return_type)
+            (type
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))))))))
       (block
         (statement
           (return_statement
@@ -482,6 +504,7 @@ k := -x++;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_prefix_expression
@@ -492,6 +515,7 @@ k := -x++;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_prefix_expression
@@ -505,6 +529,7 @@ k := -x++;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_prefix_expression
@@ -515,6 +540,7 @@ k := -x++;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (function_call
           (expression
@@ -528,6 +554,7 @@ k := -x++;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_postfix_expression
@@ -538,6 +565,7 @@ k := -x++;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_postfix_expression
@@ -548,6 +576,7 @@ k := -x++;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_postfix_expression
@@ -558,6 +587,7 @@ k := -x++;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_postfix_expression
@@ -568,6 +598,7 @@ k := -x++;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_postfix_expression
@@ -578,6 +609,7 @@ k := -x++;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_postfix_expression
@@ -588,6 +620,7 @@ k := -x++;
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_prefix_expression
@@ -621,9 +654,10 @@ main: () = {
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (function_type
-          (function_type_without_return_type)))
+      (left_side_of_definition
+        (type
+          (function_type
+            (function_type_without_return_type))))
       (block
         (statement
           (expression
@@ -860,6 +894,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_postfix_expression
@@ -870,6 +905,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -886,6 +922,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -899,6 +936,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -915,6 +953,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -931,6 +970,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -947,6 +987,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (unary_expression
           (unary_postfix_expression
@@ -960,6 +1001,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -979,6 +1021,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -992,6 +1035,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1008,6 +1052,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1027,6 +1072,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1046,6 +1092,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1065,6 +1112,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1084,6 +1132,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1103,6 +1152,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1122,6 +1172,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1144,6 +1195,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1166,6 +1218,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1188,6 +1241,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1210,6 +1264,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1235,6 +1290,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1260,6 +1316,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1285,6 +1342,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1310,6 +1368,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1332,6 +1391,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1354,6 +1414,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1376,6 +1437,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1398,6 +1460,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1423,6 +1486,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1448,6 +1512,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1473,6 +1538,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1498,62 +1564,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
-      (expression
-        (binary_expression
-          (expression
-            (parentheses_expression
-              (expression_or_comma_expressions
-                (expression
-                  (unary_expression
-                    (unary_postfix_expression
-                      (expression
-                        (parentheses_expression
-                          (expression_or_comma_expressions
-                            (expression
-                              (unary_expression
-                                (unary_postfix_expression
-                                  (expression
-                                    (any_identifier
-                                      (no_namespace_identifier
-                                        (non_template_identifier))))))))))))))))
-          (expression
-            (parentheses_expression
-              (expression_or_comma_expressions
-                (expression
-                  (any_identifier
-                    (no_namespace_identifier
-                      (non_template_identifier)))))))))))
-  (declaration
-    (non_template_identifier)
-    (definition
-      (expression
-        (binary_expression
-          (expression
-            (parentheses_expression
-              (expression_or_comma_expressions
-                (expression
-                  (unary_expression
-                    (unary_postfix_expression
-                      (expression
-                        (parentheses_expression
-                          (expression_or_comma_expressions
-                            (expression
-                              (unary_expression
-                                (unary_postfix_expression
-                                  (expression
-                                    (any_identifier
-                                      (no_namespace_identifier
-                                        (non_template_identifier))))))))))))))))
-          (expression
-            (parentheses_expression
-              (expression_or_comma_expressions
-                (expression
-                  (any_identifier
-                    (no_namespace_identifier
-                      (non_template_identifier)))))))))))
-  (declaration
-    (non_template_identifier)
-    (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1582,6 +1593,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1610,6 +1622,65 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
+      (expression
+        (binary_expression
+          (expression
+            (parentheses_expression
+              (expression_or_comma_expressions
+                (expression
+                  (unary_expression
+                    (unary_postfix_expression
+                      (expression
+                        (parentheses_expression
+                          (expression_or_comma_expressions
+                            (expression
+                              (unary_expression
+                                (unary_postfix_expression
+                                  (expression
+                                    (any_identifier
+                                      (no_namespace_identifier
+                                        (non_template_identifier))))))))))))))))
+          (expression
+            (parentheses_expression
+              (expression_or_comma_expressions
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier)))))))))))
+  (declaration
+    (non_template_identifier)
+    (definition
+      (left_side_of_definition)
+      (expression
+        (binary_expression
+          (expression
+            (parentheses_expression
+              (expression_or_comma_expressions
+                (expression
+                  (unary_expression
+                    (unary_postfix_expression
+                      (expression
+                        (parentheses_expression
+                          (expression_or_comma_expressions
+                            (expression
+                              (unary_expression
+                                (unary_postfix_expression
+                                  (expression
+                                    (any_identifier
+                                      (no_namespace_identifier
+                                        (non_template_identifier))))))))))))))))
+          (expression
+            (parentheses_expression
+              (expression_or_comma_expressions
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier)))))))))))
+  (declaration
+    (non_template_identifier)
+    (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1626,6 +1697,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1642,6 +1714,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1661,6 +1734,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1680,6 +1754,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1699,6 +1774,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1721,6 +1797,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1743,6 +1820,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1765,6 +1843,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1790,6 +1869,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1815,6 +1895,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1840,6 +1921,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1865,25 +1947,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
-      (expression
-        (binary_expression
-          (expression
-            (unary_expression
-              (unary_postfix_expression
-                (expression
-                  (any_identifier
-                    (no_namespace_identifier
-                      (non_template_identifier)))))))
-          (expression
-            (parentheses_expression
-              (expression_or_comma_expressions
-                (expression
-                  (any_identifier
-                    (no_namespace_identifier
-                      (non_template_identifier)))))))))))
-  (declaration
-    (non_template_identifier)
-    (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1903,6 +1967,27 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
+      (expression
+        (binary_expression
+          (expression
+            (unary_expression
+              (unary_postfix_expression
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier)))))))
+          (expression
+            (parentheses_expression
+              (expression_or_comma_expressions
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier)))))))))))
+  (declaration
+    (non_template_identifier)
+    (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1925,6 +2010,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1947,6 +2033,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1969,6 +2056,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -1994,6 +2082,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -2019,6 +2108,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -2044,6 +2134,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -2072,6 +2163,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -2100,6 +2192,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
@@ -2128,6 +2221,7 @@ a := ((A &) &) &(A)
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (binary_expression
           (expression
