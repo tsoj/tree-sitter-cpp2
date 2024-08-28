@@ -167,6 +167,17 @@
         ]
       }
     },
+    "template_close_token": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "STRING",
+          "value": ">"
+        }
+      }
+    },
     "template_declaration_arguments": {
       "type": "SEQ",
       "members": [
@@ -179,8 +190,8 @@
           "name": "comma_seperated_declarations"
         },
         {
-          "type": "STRING",
-          "value": ">"
+          "type": "SYMBOL",
+          "name": "template_close_token"
         }
       ]
     },
@@ -211,8 +222,8 @@
             ]
           },
           {
-            "type": "STRING",
-            "value": ">"
+            "type": "SYMBOL",
+            "name": "template_close_token"
           }
         ]
       }
@@ -772,11 +783,7 @@
               },
               {
                 "type": "STRING",
-                "value": ">"
-              },
-              {
-                "type": "STRING",
-                "value": ">"
+                "value": ">>"
               },
               {
                 "type": "SYMBOL",

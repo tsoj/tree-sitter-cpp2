@@ -544,11 +544,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "expression_or_comma_expressions",
+          "named": true
+        },
+        {
+          "type": "template_close_token",
           "named": true
         }
       ]
@@ -559,11 +563,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "comma_seperated_declarations",
+          "named": true
+        },
+        {
+          "type": "template_close_token",
           "named": true
         }
       ]
@@ -802,6 +810,10 @@
     "named": false
   },
   {
+    "type": ">>",
+    "named": false
+  },
+  {
     "type": ">>=",
     "named": false
   },
@@ -875,6 +887,10 @@
   },
   {
     "type": "string",
+    "named": true
+  },
+  {
+    "type": "template_close_token",
     "named": true
   },
   {

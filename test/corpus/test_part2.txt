@@ -1013,3 +1013,11 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, d>b, T>(hello, i
                 (any_identifier
                   (non_template_any_identifier
                     (identifier)))))))))))
+
+===========================================================
+template calling vs shift right
+===========================================================
+
+a := hello<b<a>> >> hello<a, b<c, d<(e > b), (f>>g)>>>;
+
+-----------------------------------------------------------
