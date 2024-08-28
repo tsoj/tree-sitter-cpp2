@@ -1,0 +1,129 @@
+===========================================================
+if branch
+===========================================================
+
+hello := {
+    if vec.ssize() > 100 {
+        do_general_algorithm( container );
+    }
+    else {
+        do_linear_scan( vec );
+    }
+
+    if (a, b, c, := b) {
+       if true { return false; } else if 4 == 4 {}
+    }
+}
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (block_declaration
+      (non_template_identifier)
+      (block_definition
+        (left_side_of_definition)
+        (block
+          (statement
+            (block_statement
+              (if_else_statement
+                (expression
+                  (binary_expression
+                    (expression
+                      (method_call
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))))
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))
+                        (parentheses_expression)))
+                    (expression
+                      (literal
+                        (number)))))
+                (block
+                  (statement
+                    (expression
+                      (function_call
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))))
+                        (parentheses_expression
+                          (expression_or_comma_expressions
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))))))))
+                (block_statement
+                  (block
+                    (statement
+                      (expression
+                        (function_call
+                          (expression
+                            (any_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier))))
+                          (parentheses_expression
+                            (expression_or_comma_expressions
+                              (expression
+                                (any_identifier
+                                  (no_namespace_identifier
+                                    (non_template_identifier))))))))))))))
+          (statement
+            (block_statement
+              (if_else_statement
+                (expression
+                  (parentheses_expression
+                    (expression_or_comma_expressions
+                      (comma_expressions
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))))
+                        (expression_or_comma_expressions
+                          (comma_expressions
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))
+                            (expression_or_comma_expressions
+                              (comma_expressions
+                                (expression
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier))))
+                                (expression_or_comma_expressions
+                                  (expression
+                                    (definition
+                                      (expression_definition
+                                        (left_side_of_definition)
+                                        (expression
+                                          (any_identifier
+                                            (no_namespace_identifier
+                                              (non_template_identifier))))))))))))))))
+                (block
+                  (statement
+                    (block_statement
+                      (if_else_statement
+                        (expression
+                          (literal
+                            (boolean)))
+                        (block
+                          (statement
+                            (return_statement
+                              (expression
+                                (literal
+                                  (boolean))))))
+                        (block_statement
+                          (if_else_statement
+                            (expression
+                              (binary_expression
+                                (expression
+                                  (literal
+                                    (number)))
+                                (expression
+                                  (literal
+                                    (number)))))
+                            (block)))))))))))))))

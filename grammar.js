@@ -175,7 +175,16 @@ module.exports = grammar({
         ),
       ),
 
-    block_statement: ($) => choice($.block_declaration, $.block),
+    block_statement: ($) =>
+      choice($.block_declaration, $.block, $.if_else_statement),
+
+    if_else_statement: ($) =>
+      seq(
+        "if",
+        $.expression,
+        $.block,
+        optional(seq("else", $.block_statement)),
+      ),
 
     expression: ($) =>
       choice(

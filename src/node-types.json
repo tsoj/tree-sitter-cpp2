@@ -101,6 +101,10 @@
         {
           "type": "block_declaration",
           "named": true
+        },
+        {
+          "type": "if_else_statement",
+          "named": true
         }
       ]
     }
@@ -396,6 +400,29 @@
       "types": [
         {
           "type": "comma_seperated_declarations",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "if_else_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "block_statement",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         }
       ]
@@ -968,6 +995,10 @@
     "named": false
   },
   {
+    "type": "else",
+    "named": false
+  },
+  {
     "type": "false",
     "named": false
   },
@@ -977,6 +1008,10 @@
   },
   {
     "type": "forward",
+    "named": false
+  },
+  {
+    "type": "if",
     "named": false
   },
   {
