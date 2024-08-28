@@ -50,11 +50,12 @@ c :== {
               (function_declaration_argument
                 (declaration
                   (identifier)
-                  (type
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier)))))))))
+                  (no_definition_declaration
+                    (type
+                      (expression
+                        (any_identifier
+                          (non_template_any_identifier
+                            (identifier))))))))))
           (type
             (expression
               (any_identifier

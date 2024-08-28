@@ -31,8 +31,8 @@ add:(a,b):(a,b)a=b;
                   (any_identifier
                     (non_template_any_identifier
                       (identifier))))
-                (comma_seperated_expressions_in_paratheses
-                  (comma_seperated_expressions
+                (parentheses_expression
+                  (expression_or_comma_expressions
                     (expression
                       (any_identifier
                         (non_template_any_identifier
@@ -56,8 +56,8 @@ add:(a,b):(a,b)a=b;
                       (any_identifier
                         (non_template_any_identifier
                           (identifier))))
-                    (comma_seperated_expressions_in_paratheses
-                      (comma_seperated_expressions
+                    (parentheses_expression
+                      (expression_or_comma_expressions
                         (expression
                           (any_identifier
                             (non_template_any_identifier
@@ -89,13 +89,16 @@ add:(a,b):(a,b)a=b;
           (function_declaration_argument
             (declaration
               (identifier)
-              (type
-                (type_type))))
+              (no_definition_declaration
+                (type
+                  (type_type)))))
           (function_declaration_argument
             (declaration
               (identifier)
-              (type
-                (type_type))))))
+              (no_definition_declaration
+                (type
+                  (type_type))))))
+        (template_close_token))
       (type
         (function_type
           (function_type_without_return_type
@@ -103,19 +106,21 @@ add:(a,b):(a,b)a=b;
               (function_declaration_argument
                 (declaration
                   (identifier)
-                  (type
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier)))))))
+                  (no_definition_declaration
+                    (type
+                      (expression
+                        (any_identifier
+                          (non_template_any_identifier
+                            (identifier))))))))
               (function_declaration_argument
                 (declaration
                   (identifier)
-                  (type
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier)))))))))
+                  (no_definition_declaration
+                    (type
+                      (expression
+                        (any_identifier
+                          (non_template_any_identifier
+                            (identifier))))))))))
           (type
             (expression
               (function_call
@@ -123,8 +128,8 @@ add:(a,b):(a,b)a=b;
                   (any_identifier
                     (non_template_any_identifier
                       (identifier))))
-                (comma_seperated_expressions_in_paratheses
-                  (comma_seperated_expressions
+                (parentheses_expression
+                  (expression_or_comma_expressions
                     (expression
                       (binary_expression
                         (expression
@@ -221,46 +226,85 @@ add:(a,b):(a,b)a=b;
               (unary_postfix_expression
                 (expression
                   (parentheses_expression
-                    (expression
-                      (binary_expression
-                        (expression
-                          (binary_expression
-                            (expression
-                              (unary_expression
-                                (unary_postfix_expression
-                                  (expression
-                                    (unary_expression
-                                      (unary_postfix_expression
-                                        (expression
-                                          (any_identifier
-                                            (non_template_any_identifier
-                                              (identifier))
-                                            (template_comma_seperated_expressions
-                                              (comma_seperated_expressions
-                                                (expression
-                                                  (any_identifier
-                                                    (non_template_any_identifier
-                                                      (identifier))))))))))))))
-                            (expression
-                              (any_identifier
-                                (non_template_any_identifier
-                                  (identifier))))))
-                        (expression
-                          (any_identifier
-                            (non_template_any_identifier
-                              (identifier)))))))))))
+                    (expression_or_comma_expressions
+                      (expression
+                        (binary_expression
+                          (expression
+                            (binary_expression
+                              (expression
+                                (unary_expression
+                                  (unary_postfix_expression
+                                    (expression
+                                      (unary_expression
+                                        (unary_postfix_expression
+                                          (expression
+                                            (any_identifier
+                                              (template_any_identifier
+                                                (non_template_any_identifier
+                                                  (identifier))
+                                                (template_call_arguments
+                                                  (expression_or_comma_expressions
+                                                    (expression
+                                                      (any_identifier
+                                                        (non_template_any_identifier
+                                                          (identifier)))))
+                                                  (template_close_token)))))))))))
+                              (expression
+                                (any_identifier
+                                  (non_template_any_identifier
+                                    (identifier))))))
+                          (expression
+                            (any_identifier
+                              (non_template_any_identifier
+                                (identifier))))))))))))
           (expression
             (parentheses_expression
-              (expression
-                (binary_expression
-                  (expression
+              (expression_or_comma_expressions
+                (expression
+                  (binary_expression
+                    (expression
+                      (any_identifier
+                        (non_template_any_identifier
+                          (identifier))))
+                    (expression
+                      (any_identifier
+                        (non_template_any_identifier
+                          (identifier)))))))))))))
+  (declaration
+    (identifier)
+    (definition
+      (function_type_without_return_type
+        (comma_seperated_declarations
+          (function_declaration_argument
+            (any_identifier
+              (non_template_any_identifier
+                (identifier))))
+          (function_declaration_argument
+            (any_identifier
+              (non_template_any_identifier
+                (identifier))))))
+      (expression
+        (binary_expression
+          (expression
+            (definition
+              (function_type_without_return_type
+                (comma_seperated_declarations
+                  (function_declaration_argument
                     (any_identifier
                       (non_template_any_identifier
                         (identifier))))
-                  (expression
+                  (function_declaration_argument
                     (any_identifier
                       (non_template_any_identifier
-                        (identifier))))))))))))
+                        (identifier))))))
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))))
+          (expression
+            (any_identifier
+              (non_template_any_identifier
+                (identifier))))))))
   (declaration
     (identifier)
     (definition
@@ -275,59 +319,24 @@ add:(a,b):(a,b)a=b;
               (non_template_any_identifier
                 (identifier))))))
       (expression
-        (definition
-          (function_type_without_return_type
-            (comma_seperated_declarations
-              (function_declaration_argument
-                (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))
-              (function_declaration_argument
+        (binary_expression
+          (expression
+            (definition
+              (function_type_without_return_type
+                (comma_seperated_declarations
+                  (function_declaration_argument
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier))))
+                  (function_declaration_argument
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier))))))
+              (expression
                 (any_identifier
                   (non_template_any_identifier
                     (identifier))))))
           (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))
-              (expression
-                (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))))))))
-  (declaration
-    (identifier)
-    (definition
-      (function_type_without_return_type
-        (comma_seperated_declarations
-          (function_declaration_argument
             (any_identifier
               (non_template_any_identifier
-                (identifier))))
-          (function_declaration_argument
-            (any_identifier
-              (non_template_any_identifier
-                (identifier))))))
-      (expression
-        (definition
-          (function_type_without_return_type
-            (comma_seperated_declarations
-              (function_declaration_argument
-                (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))
-              (function_declaration_argument
-                (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))))
-          (expression
-            (binary_expression
-              (expression
-                (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))
-              (expression
-                (any_identifier
-                  (non_template_any_identifier
-                    (identifier)))))))))))
+                (identifier)))))))))

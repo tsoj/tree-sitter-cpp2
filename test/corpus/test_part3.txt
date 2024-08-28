@@ -7,11 +7,12 @@ p: const * * const i32;
 (source_file
   (declaration
     (identifier)
-    (type
-      (expression
-        (any_identifier
-          (non_template_any_identifier
-            (identifier)))))))
+    (no_definition_declaration
+      (type
+        (expression
+          (any_identifier
+            (non_template_any_identifier
+              (identifier))))))))
 
 ===========================================================
 bracket call and member access
@@ -38,7 +39,7 @@ is_void := u**.identifier* == "void";
                         (any_identifier
                           (non_template_any_identifier
                             (identifier)))))))
-                (comma_seperated_expressions
+                (expression_or_comma_expressions
                   (expression
                     (binary_expression
                       (expression
@@ -96,24 +97,28 @@ a := b... * 3;
         (binary_expression
           (expression
             (any_identifier
-              (non_template_any_identifier
-                (identifier))
-              (template_comma_seperated_expressions
-                (comma_seperated_expressions
-                  (expression
-                    (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))))))
+              (template_any_identifier
+                (non_template_any_identifier
+                  (identifier))
+                (template_call_arguments
+                  (expression_or_comma_expressions
+                    (expression
+                      (any_identifier
+                        (non_template_any_identifier
+                          (identifier)))))
+                  (template_close_token)))))
           (expression
             (any_identifier
-              (non_template_any_identifier
-                (identifier))
-              (template_comma_seperated_expressions
-                (comma_seperated_expressions
-                  (expression
-                    (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))))))))))
+              (template_any_identifier
+                (non_template_any_identifier
+                  (identifier))
+                (template_call_arguments
+                  (expression_or_comma_expressions
+                    (expression
+                      (any_identifier
+                        (non_template_any_identifier
+                          (identifier)))))
+                  (template_close_token)))))))))
   (declaration
     (identifier)
     (definition
@@ -136,14 +141,16 @@ a := b... * 3;
               (non_template_any_identifier
                 (identifier))))
           (any_identifier
-            (non_template_any_identifier
-              (identifier))
-            (template_comma_seperated_expressions
-              (comma_seperated_expressions
-                (expression
-                  (any_identifier
-                    (non_template_any_identifier
-                      (identifier)))))))))))
+            (template_any_identifier
+              (non_template_any_identifier
+                (identifier))
+              (template_call_arguments
+                (expression_or_comma_expressions
+                  (expression
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier)))))
+                (template_close_token))))))))
   (declaration
     (identifier)
     (definition
@@ -154,15 +161,17 @@ a := b... * 3;
               (non_template_any_identifier
                 (identifier))))
           (any_identifier
-            (non_template_any_identifier
-              (identifier))
-            (template_comma_seperated_expressions
-              (comma_seperated_expressions
-                (expression
-                  (any_identifier
-                    (non_template_any_identifier
-                      (identifier)))))))
-          (comma_seperated_expressions_in_paratheses)))))
+            (template_any_identifier
+              (non_template_any_identifier
+                (identifier))
+              (template_call_arguments
+                (expression_or_comma_expressions
+                  (expression
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier)))))
+                (template_close_token))))
+          (parentheses_expression)))))
   (declaration
     (identifier)
     (definition
