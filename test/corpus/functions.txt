@@ -2341,3 +2341,91 @@ a := ((A &) &) &(A)
                     (any_identifier
                       (no_namespace_identifier
                         (non_template_identifier)))))))))))))
+
+===========================================================
+inline function calls
+===========================================================
+
+
+hello := {
+    a == :(a, b) -> 10 = { return 1; }();
+    a += :(a, b) hello();
+}
+
+
+
+
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (block_declaration
+      (non_template_identifier)
+      (block_definition
+        (left_side_of_definition)
+        (block
+          (statement
+            (expression
+              (binary_expression
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))
+                (expression
+                  (function_call
+                    (expression
+                      (definition
+                        (block_definition
+                          (left_side_of_definition
+                            (type
+                              (function_type
+                                (function_type_without_return_type
+                                  (comma_seperated_declarations
+                                    (function_declaration_argument
+                                      (any_identifier
+                                        (no_namespace_identifier
+                                          (non_template_identifier))))
+                                    (function_declaration_argument
+                                      (any_identifier
+                                        (no_namespace_identifier
+                                          (non_template_identifier))))))
+                                (type
+                                  (expression
+                                    (literal
+                                      (number)))))))
+                          (block
+                            (statement
+                              (return_statement
+                                (expression
+                                  (literal
+                                    (number)))))))))
+                    (parentheses_expression))))))
+          (statement
+            (expression
+              (binary_expression
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))
+                (expression
+                  (function_call
+                    (expression
+                      (definition
+                        (expression_definition
+                          (left_side_of_definition
+                            (function_type_without_return_type
+                              (comma_seperated_declarations
+                                (function_declaration_argument
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier))))
+                                (function_declaration_argument
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier)))))))
+                          (expression
+                            (any_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier)))))))
+                    (parentheses_expression)))))))))))
