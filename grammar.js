@@ -43,6 +43,7 @@ module.exports = grammar({
     [$.unary_postfix_expression, $.binary_expression],
     [$.unary_prefix_expression, $.binary_expression],
     [$.function_type, $.definition],
+    [$.binary_expression],
   ],
 
   precedences: ($) => [
@@ -175,10 +176,17 @@ module.exports = grammar({
     binary_expression: ($) => {
       return choice(
         ...binary_operators.map((operator) => {
-          return prec.right(
-            operator,
-            seq($.expression, operator, $.expression),
-          );
+          if (operator == ">>") {
+            return prec.right(
+              operator,
+              seq($.expression, ">", ">", $.expression),
+            );
+          } else {
+            return prec.right(
+              operator,
+              seq($.expression, operator, $.expression),
+            );
+          }
         }),
       );
     },

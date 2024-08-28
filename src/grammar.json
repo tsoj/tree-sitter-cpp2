@@ -772,7 +772,11 @@
               },
               {
                 "type": "STRING",
-                "value": ">>"
+                "value": ">"
+              },
+              {
+                "type": "STRING",
+                "value": ">"
               },
               {
                 "type": "SYMBOL",
@@ -1630,6 +1634,9 @@
     [
       "function_type",
       "definition"
+    ],
+    [
+      "binary_expression"
     ]
   ],
   "precedences": [
