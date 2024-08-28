@@ -90,12 +90,20 @@ module.exports = grammar({
     metafunction_arguments: ($) =>
       repeat1(seq("@", $.non_template_any_identifier)),
 
+    // we need this to prefer closing templates to the >> operator
+    template_close_token: ($) => token(prec(1, ">")),
+
     template_declaration_arguments: ($) =>
-      seq("<", $.comma_seperated_declarations, ">"),
+      seq("<", $.comma_seperated_declarations, $.template_close_token),
 
     template_call_arguments: ($) =>
       prec.right(
-        seq("<", $.expression_or_comma_expressions, optional(","), ">"),
+        seq(
+          "<",
+          $.expression_or_comma_expressions,
+          optional(","),
+          $.template_close_token,
+        ),
       ),
 
     any_identifier: ($) =>
@@ -176,17 +184,10 @@ module.exports = grammar({
     binary_expression: ($) => {
       return choice(
         ...binary_operators.map((operator) => {
-          if (operator == ">>") {
-            return prec.right(
-              operator,
-              seq($.expression, ">", ">", $.expression),
-            );
-          } else {
-            return prec.right(
-              operator,
-              seq($.expression, operator, $.expression),
-            );
-          }
+          return prec.right(
+            operator,
+            seq($.expression, operator, $.expression),
+          );
         }),
       );
     },
