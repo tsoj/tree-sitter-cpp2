@@ -2,4 +2,78 @@
 tuples
 ===========================================================
 a := (a, t);
+hello: (a, b) -> (a, b, c: hello) = (d, e, f);
 -----------------------------------------------------------
+
+(source_file
+  (declaration
+    (identifier)
+    (definition
+      (expression
+        (parentheses_expression
+          (expression_or_comma_expressions
+            (comma_expressions
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression_or_comma_expressions
+                (expression
+                  (any_identifier
+                    (non_template_any_identifier
+                      (identifier)))))))))))
+  (declaration
+    (identifier)
+    (definition
+      (type
+        (function_type
+          (function_type_without_return_type
+            (comma_seperated_declarations
+              (function_declaration_argument
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (function_declaration_argument
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))))
+          (type
+            (function_type
+              (function_type_without_return_type
+                (comma_seperated_declarations
+                  (function_declaration_argument
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier))))
+                  (function_declaration_argument
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier))))
+                  (function_declaration_argument
+                    (declaration
+                      (identifier)
+                      (no_definition_declaration
+                        (type
+                          (expression
+                            (any_identifier
+                              (non_template_any_identifier
+                                (identifier))))))))))))))
+      (expression
+        (parentheses_expression
+          (expression_or_comma_expressions
+            (comma_expressions
+              (expression
+                (any_identifier
+                  (non_template_any_identifier
+                    (identifier))))
+              (expression_or_comma_expressions
+                (comma_expressions
+                  (expression
+                    (any_identifier
+                      (non_template_any_identifier
+                        (identifier))))
+                  (expression_or_comma_expressions
+                    (expression
+                      (any_identifier
+                        (non_template_any_identifier
+                          (identifier))))))))))))))

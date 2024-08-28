@@ -1,0 +1,20 @@
+
+
+===========================================================
+Member function with multiple/named return values
+===========================================================
+set: <Key> type = {
+    container: std::set<Key>;
+    iterator : type == std::set<Key>::iterator;
+
+    insert: (inout this, value: Key) -> (where: iterator, inserted: bool) = {
+        set_returned := container.insert(value);
+        where    = set_returned.first;
+        inserted = set_returned.second;
+    }
+
+    ssize: (this) -> i64 = std::ssize(container);
+
+}
+
+-----------------------------------------------------------
