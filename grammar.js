@@ -172,7 +172,7 @@ module.exports = grammar({
         ),
       ),
 
-    block_statement: ($) => choice($.block_declaration),
+    block_statement: ($) => choice($.block_declaration, $.block),
 
     expression: ($) =>
       choice(

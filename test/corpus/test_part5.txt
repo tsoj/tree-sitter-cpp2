@@ -212,3 +212,269 @@ set: <Key> type = {
                             (any_identifier
                               (no_namespace_identifier
                                 (non_template_identifier)))))))))))))))))
+
+===========================================================
+No silent discard
+===========================================================
+
+f: ()             -> void = { }
+g: ()             -> int  = { return 10; }
+h: (inout x: int) -> void = { x = 20; }
+
+main: ()
+= {
+    f();
+
+    std::cout << g();
+
+    _ = g();
+
+    g();
+
+    {
+        x := 0;
+        h( x );
+        std::cout << x;
+    };
+
+    {
+        x := 0;
+        h( x );
+        _ = x;
+    }
+
+    {
+        x := 0;
+        h( x );
+    }
+}
+
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (block_declaration
+      (non_template_identifier)
+      (block_definition
+        (left_side_of_definition
+          (type
+            (function_type
+              (function_type_without_return_type)
+              (type
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))))))
+        (block))))
+  (declaration
+    (block_declaration
+      (non_template_identifier)
+      (block_definition
+        (left_side_of_definition
+          (type
+            (function_type
+              (function_type_without_return_type)
+              (type
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))))))
+        (block
+          (statement
+            (return_statement
+              (expression
+                (literal
+                  (number)))))))))
+  (declaration
+    (block_declaration
+      (non_template_identifier)
+      (block_definition
+        (left_side_of_definition
+          (type
+            (function_type
+              (function_type_without_return_type
+                (comma_seperated_declarations
+                  (function_declaration_argument
+                    (passing_style)
+                    (declaration
+                      (no_definition_declaration
+                        (non_template_identifier)
+                        (type
+                          (expression
+                            (any_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier))))))))))
+              (type
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))))))
+        (block
+          (statement
+            (expression
+              (binary_expression
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))
+                (expression
+                  (literal
+                    (number))))))))))
+  (declaration
+    (block_declaration
+      (non_template_identifier)
+      (block_definition
+        (left_side_of_definition
+          (type
+            (function_type
+              (function_type_without_return_type))))
+        (block
+          (statement
+            (expression
+              (function_call
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))
+                (parentheses_expression))))
+          (statement
+            (expression
+              (binary_expression
+                (expression
+                  (any_identifier
+                    (namespaced_identifier
+                      (no_namespace_identifier
+                        (non_template_identifier))
+                      (no_namespace_identifier
+                        (non_template_identifier)))))
+                (expression
+                  (function_call
+                    (expression
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier))))
+                    (parentheses_expression))))))
+          (statement
+            (expression
+              (binary_expression
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))
+                (expression
+                  (function_call
+                    (expression
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier))))
+                    (parentheses_expression))))))
+          (statement
+            (expression
+              (function_call
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))
+                (parentheses_expression))))
+          (statement
+            (block_statement
+              (block
+                (statement
+                  (declaration
+                    (expression_declaration
+                      (non_template_identifier)
+                      (expression_definition
+                        (left_side_of_definition)
+                        (expression
+                          (literal
+                            (number)))))))
+                (statement
+                  (expression
+                    (function_call
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier))))
+                      (parentheses_expression
+                        (expression_or_comma_expressions
+                          (expression
+                            (any_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier)))))))))
+                (statement
+                  (expression
+                    (binary_expression
+                      (expression
+                        (any_identifier
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier)))))
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier))))))))))
+          (statement)
+          (statement
+            (block_statement
+              (block
+                (statement
+                  (declaration
+                    (expression_declaration
+                      (non_template_identifier)
+                      (expression_definition
+                        (left_side_of_definition)
+                        (expression
+                          (literal
+                            (number)))))))
+                (statement
+                  (expression
+                    (function_call
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier))))
+                      (parentheses_expression
+                        (expression_or_comma_expressions
+                          (expression
+                            (any_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier)))))))))
+                (statement
+                  (expression
+                    (binary_expression
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier))))
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier))))))))))
+          (statement
+            (block_statement
+              (block
+                (statement
+                  (declaration
+                    (expression_declaration
+                      (non_template_identifier)
+                      (expression_definition
+                        (left_side_of_definition)
+                        (expression
+                          (literal
+                            (number)))))))
+                (statement
+                  (expression
+                    (function_call
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier))))
+                      (parentheses_expression
+                        (expression_or_comma_expressions
+                          (expression
+                            (any_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier)))))))))))))))))
