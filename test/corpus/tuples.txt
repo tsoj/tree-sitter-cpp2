@@ -9,73 +9,75 @@ hello: (a, b) -> (a, b, c: hello) = (d, e, f);
   (declaration
     (non_template_identifier)
     (definition
-      (left_side_of_definition)
-      (expression
-        (parentheses_expression
-          (expression_or_comma_expressions
-            (comma_expressions
-              (expression
-                (any_identifier
-                  (no_namespace_identifier
-                    (non_template_identifier))))
-              (expression_or_comma_expressions
+      (expression_definition
+        (left_side_of_definition)
+        (expression
+          (parentheses_expression
+            (expression_or_comma_expressions
+              (comma_expressions
                 (expression
                   (any_identifier
                     (no_namespace_identifier
-                      (non_template_identifier)))))))))))
-  (declaration
-    (non_template_identifier)
-    (definition
-      (left_side_of_definition
-        (type
-          (function_type
-            (function_type_without_return_type
-              (comma_seperated_declarations
-                (function_declaration_argument
-                  (any_identifier
-                    (no_namespace_identifier
                       (non_template_identifier))))
-                (function_declaration_argument
-                  (any_identifier
-                    (no_namespace_identifier
-                      (non_template_identifier))))))
-            (type
-              (function_type
-                (function_type_without_return_type
-                  (comma_seperated_declarations
-                    (function_declaration_argument
-                      (any_identifier
-                        (no_namespace_identifier
-                          (non_template_identifier))))
-                    (function_declaration_argument
-                      (any_identifier
-                        (no_namespace_identifier
-                          (non_template_identifier))))
-                    (function_declaration_argument
-                      (declaration
-                        (non_template_identifier)
-                        (no_definition_declaration
-                          (type
-                            (expression
-                              (any_identifier
-                                (no_namespace_identifier
-                                  (non_template_identifier)))))))))))))))
-      (expression
-        (parentheses_expression
-          (expression_or_comma_expressions
-            (comma_expressions
-              (expression
-                (any_identifier
-                  (no_namespace_identifier
-                    (non_template_identifier))))
-              (expression_or_comma_expressions
-                (comma_expressions
+                (expression_or_comma_expressions
                   (expression
                     (any_identifier
                       (no_namespace_identifier
+                        (non_template_identifier))))))))))))
+  (declaration
+    (non_template_identifier)
+    (definition
+      (expression_definition
+        (left_side_of_definition
+          (type
+            (function_type
+              (function_type_without_return_type
+                (comma_seperated_declarations
+                  (function_declaration_argument
+                    (any_identifier
+                      (no_namespace_identifier
                         (non_template_identifier))))
-                  (expression_or_comma_expressions
+                  (function_declaration_argument
+                    (any_identifier
+                      (no_namespace_identifier
+                        (non_template_identifier))))))
+              (type
+                (function_type
+                  (function_type_without_return_type
+                    (comma_seperated_declarations
+                      (function_declaration_argument
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier))))
+                      (function_declaration_argument
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier))))
+                      (function_declaration_argument
+                        (declaration
+                          (non_template_identifier)
+                          (no_definition_declaration
+                            (type
+                              (expression
+                                (any_identifier
+                                  (no_namespace_identifier
+                                    (non_template_identifier)))))))))))))))
+        (expression
+          (parentheses_expression
+            (expression_or_comma_expressions
+              (comma_expressions
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))
+                (expression_or_comma_expressions
+                  (comma_expressions
                     (expression
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier))))))))))))))
+                          (non_template_identifier))))
+                    (expression_or_comma_expressions
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))))))))))))))

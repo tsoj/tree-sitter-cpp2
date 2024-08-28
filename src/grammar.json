@@ -53,6 +53,19 @@
       ]
     },
     "definition": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "block_definition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression_definition"
+        }
+      ]
+    },
+    "block_definition": {
       "type": "PREC_LEFT",
       "value": 0,
       "content": {
@@ -63,17 +76,25 @@
             "name": "left_side_of_definition"
           },
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "block"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "block"
+          }
+        ]
+      }
+    },
+    "expression_definition": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "left_side_of_definition"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
           }
         ]
       }

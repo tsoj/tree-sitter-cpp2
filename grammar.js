@@ -72,8 +72,12 @@ module.exports = grammar({
 
     no_definition_declaration: ($) => seq(":", $.type),
 
-    definition: ($) =>
-      prec.left(seq($.left_side_of_definition, choice($.block, $.expression))),
+    definition: ($) => choice($.block_definition, $.expression_definition),
+
+    block_definition: ($) => prec.left(seq($.left_side_of_definition, $.block)),
+
+    expression_definition: ($) =>
+      prec.left(seq($.left_side_of_definition, $.expression)),
 
     left_side_of_definition: ($) =>
       seq(
