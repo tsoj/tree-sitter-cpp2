@@ -60,6 +60,7 @@ module.exports = grammar({
     [$.function_declaration_argument, $.expression],
     [$.function_type_without_return_type, $.parentheses_expression],
     [$.comma_expressions, $.expression_or_comma_expressions],
+    [$.expression_or_comma_expressions, $.type],
   ],
 
   rules: {
@@ -137,8 +138,10 @@ module.exports = grammar({
 
     type: ($) =>
       choice(
-        $.function_type,
-        seq(repeat(choice("const", "*")), $.expression),
+        seq(
+          repeat(choice("const", "*")),
+          choice($.expression, $.function_type),
+        ),
         $.type_type,
       ),
 
@@ -213,10 +216,10 @@ module.exports = grammar({
     },
 
     expression_or_comma_expressions: ($) =>
-      prec.left(choice($.expression, $.comma_expressions)),
+      prec.left(choice($.type, $.expression, $.comma_expressions)),
 
     comma_expressions: ($) =>
-      seq($.expression, ",", $.expression_or_comma_expressions),
+      seq(choice($.expression, $.type), ",", $.expression_or_comma_expressions),
 
     parentheses_expression: ($) =>
       seq("(", optional($.expression_or_comma_expressions), optional(","), ")"),
