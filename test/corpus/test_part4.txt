@@ -14,11 +14,12 @@ c :== {
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (expression
-          (any_identifier
-            (no_namespace_identifier
-              (non_template_identifier)))))
+      (left_side_of_definition
+        (type
+          (expression
+            (any_identifier
+              (no_namespace_identifier
+                (non_template_identifier))))))
       (expression
         (any_identifier
           (no_namespace_identifier
@@ -26,47 +27,51 @@ c :== {
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (expression
         (literal
           (float)))))
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (expression
-          (any_identifier
-            (no_namespace_identifier
-              (non_template_identifier)))))
+      (left_side_of_definition
+        (type
+          (expression
+            (any_identifier
+              (no_namespace_identifier
+                (non_template_identifier))))))
       (expression
         (literal
           (string)))))
   (declaration
     (non_template_identifier)
     (definition
-      (type
-        (function_type
-          (function_type_without_return_type
-            (comma_seperated_declarations
-              (function_declaration_argument
-                (declaration
-                  (non_template_identifier)
-                  (no_definition_declaration
-                    (type
-                      (expression
-                        (any_identifier
-                          (no_namespace_identifier
-                            (non_template_identifier))))))))))
-          (type
-            (expression
-              (any_identifier
-                (no_namespace_identifier
-                  (non_template_identifier)))))))
+      (left_side_of_definition
+        (type
+          (function_type
+            (function_type_without_return_type
+              (comma_seperated_declarations
+                (function_declaration_argument
+                  (declaration
+                    (non_template_identifier)
+                    (no_definition_declaration
+                      (type
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))))))))))
+            (type
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))))))))
       (expression
         (literal
           (float)))))
   (declaration
     (non_template_identifier)
     (definition
+      (left_side_of_definition)
       (block
         (statement
           (return_statement

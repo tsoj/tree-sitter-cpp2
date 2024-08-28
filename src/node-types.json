@@ -146,19 +146,7 @@
           "named": true
         },
         {
-          "type": "function_type_without_return_type",
-          "named": true
-        },
-        {
-          "type": "metafunction_arguments",
-          "named": true
-        },
-        {
-          "type": "template_declaration_arguments",
-          "named": true
-        },
-        {
-          "type": "type",
+          "type": "left_side_of_definition",
           "named": true
         }
       ]
@@ -309,6 +297,33 @@
       "types": [
         {
           "type": "comma_seperated_declarations",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "left_side_of_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "function_type_without_return_type",
+          "named": true
+        },
+        {
+          "type": "metafunction_arguments",
+          "named": true
+        },
+        {
+          "type": "template_declaration_arguments",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
