@@ -17,8 +17,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (block_declaration
+      (non_template_identifier)
       (block_definition
         (left_side_of_definition
           (type
@@ -28,8 +28,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                   (function_declaration_argument
                     (passing_style)
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -41,8 +41,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                   (function_declaration_argument
                     (passing_style)
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -54,8 +54,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                   (function_declaration_argument
                     (passing_style)
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -101,8 +101,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                                   (no_namespace_identifier
                                     (non_template_identifier))))))))))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (block_declaration
+      (non_template_identifier)
       (block_definition
         (left_side_of_definition
           (type
@@ -112,8 +112,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                   (function_declaration_argument
                     (passing_style)
                     (declaration
-                      (non_template_identifier)
-                      (definition
+                      (expression_declaration
+                        (non_template_identifier)
                         (expression_definition
                           (left_side_of_definition)
                           (expression
@@ -122,8 +122,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                   (function_declaration_argument
                     (passing_style)
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -132,8 +132,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                   (function_declaration_argument
                     (passing_style)
                     (declaration
-                      (non_template_identifier)
-                      (definition
+                      (expression_declaration
+                        (non_template_identifier)
                         (expression_definition
                           (left_side_of_definition
                             (type
@@ -147,8 +147,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
         (block
           (statement
             (declaration
-              (non_template_identifier)
-              (definition
+              (expression_declaration
+                (non_template_identifier)
                 (expression_definition
                   (left_side_of_definition
                     (type
@@ -164,8 +164,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                       (string)))))))
           (statement
             (declaration
-              (non_template_identifier)
-              (definition
+              (expression_declaration
+                (non_template_identifier)
                 (expression_definition
                   (left_side_of_definition
                     (type
@@ -241,8 +241,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (type
@@ -261,8 +261,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
               (literal
                 (string))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (type
@@ -271,8 +271,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                 (comma_seperated_declarations
                   (function_declaration_argument
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -294,8 +294,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
               (literal
                 (string))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (type
@@ -305,8 +305,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                   (function_declaration_argument
                     (passing_style)
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -328,8 +328,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
               (literal
                 (string))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (type
@@ -339,8 +339,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                   (function_declaration_argument
                     (passing_style)
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -359,8 +359,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
               (literal
                 (string))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (type
@@ -370,8 +370,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                   (function_declaration_argument
                     (passing_style)
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -393,8 +393,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
               (literal
                 (string))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (block_declaration
+      (non_template_identifier)
       (block_definition
         (left_side_of_definition
           (type
@@ -404,8 +404,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                   (function_declaration_argument
                     (passing_style)
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -464,16 +464,16 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (block_declaration
+      (non_template_identifier)
       (block_definition
         (left_side_of_definition
           (template_declaration_arguments
             (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (expression
                         (any_identifier
@@ -481,8 +481,8 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                             (non_template_identifier))))))))
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (type_type))))))
             (template_close_token))
@@ -492,8 +492,8 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                 (comma_seperated_declarations
                   (function_declaration_argument
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -530,16 +530,16 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                               (no_namespace_identifier
                                 (non_template_identifier))))))))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (block_declaration
+      (non_template_identifier)
       (block_definition
         (left_side_of_definition
           (template_declaration_arguments
             (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (expression
                         (any_identifier
@@ -547,8 +547,8 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                             (non_template_identifier))))))))
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (type_type))))))
             (template_close_token))
@@ -557,8 +557,8 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
         (block
           (statement
             (declaration
-              (non_template_identifier)
               (no_definition_declaration
+                (non_template_identifier)
                 (type
                   (expression
                     (any_identifier
@@ -568,8 +568,8 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                         (no_namespace_identifier
                           (non_template_identifier)))))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (block_declaration
+      (non_template_identifier)
       (block_definition
         (left_side_of_definition
           (metafunction_arguments
@@ -591,8 +591,8 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
             (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (expression
                         (any_identifier
@@ -600,8 +600,8 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                             (non_template_identifier))))))))
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (type_type))))))
             (template_close_token))
@@ -610,8 +610,8 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
         (block
           (statement
             (declaration
-              (non_template_identifier)
               (no_definition_declaration
+                (non_template_identifier)
                 (type
                   (expression
                     (any_identifier
@@ -636,8 +636,8 @@ main: () = {
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (block_declaration
+      (non_template_identifier)
       (block_definition
         (left_side_of_definition
           (type
@@ -646,8 +646,8 @@ main: () = {
         (block
           (statement
             (declaration
-              (non_template_identifier)
-              (definition
+              (expression_declaration
+                (non_template_identifier)
                 (expression_definition
                   (left_side_of_definition)
                   (expression
@@ -662,8 +662,8 @@ main: () = {
                             (non_template_identifier))))))))))
           (statement
             (declaration
-              (non_template_identifier)
-              (definition
+              (expression_declaration
+                (non_template_identifier)
                 (expression_definition
                   (left_side_of_definition)
                   (expression
@@ -678,8 +678,8 @@ main: () = {
                             (non_template_identifier))))))))))
           (statement
             (declaration
-              (non_template_identifier)
-              (definition
+              (expression_declaration
+                (non_template_identifier)
                 (expression_definition
                   (left_side_of_definition)
                   (expression
@@ -700,8 +700,8 @@ main: () = {
                             (non_template_identifier))))))))))
           (statement
             (declaration
-              (non_template_identifier)
-              (definition
+              (expression_declaration
+                (non_template_identifier)
                 (expression_definition
                   (left_side_of_definition)
                   (expression
@@ -726,8 +726,8 @@ a := hello<b, c>;
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -759,8 +759,8 @@ g := f += d /= a + b * c;
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -780,8 +780,8 @@ g := f += d /= a + b * c;
                 (no_namespace_identifier
                   (non_template_identifier)))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -830,8 +830,8 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -861,8 +861,8 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                               (non_template_identifier)))))
                       (template_close_token)))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -906,8 +906,8 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                               (non_template_identifier)))))
                       (template_close_token)))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -931,22 +931,22 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                     (no_namespace_identifier
                       (non_template_identifier)))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (template_declaration_arguments
             (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (type_type)))))
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (expression
                         (any_identifier
@@ -998,22 +998,22 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                         (no_namespace_identifier
                           (non_template_identifier)))))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (template_declaration_arguments
             (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (type_type)))))
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (expression
                         (any_identifier
@@ -1088,22 +1088,22 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                         (no_namespace_identifier
                           (non_template_identifier)))))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (template_declaration_arguments
             (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (type_type)))))
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (expression
                         (any_identifier
@@ -1206,8 +1206,8 @@ a := hello<b<a>> >> hello<a, b<c, d<(e > b), (f>>g)>>>;
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression

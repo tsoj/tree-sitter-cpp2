@@ -6,8 +6,8 @@ p: const * * const i32;
 
 (source_file
   (declaration
-    (non_template_identifier)
     (no_definition_declaration
+      (non_template_identifier)
       (type
         (expression
           (any_identifier
@@ -25,8 +25,8 @@ is_void := u**.identifier* == "void";
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -53,8 +53,8 @@ is_void := u**.identifier* == "void";
                             (no_namespace_identifier
                               (non_template_identifier)))))))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -95,8 +95,8 @@ a := b... * 3;
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -126,8 +126,8 @@ a := b... * 3;
                               (non_template_identifier)))))
                       (template_close_token)))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -140,8 +140,8 @@ a := b... * 3;
               (no_namespace_identifier
                 (non_template_identifier))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -162,8 +162,8 @@ a := b... * 3;
                             (non_template_identifier)))))
                     (template_close_token))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -185,8 +185,8 @@ a := b... * 3;
                     (template_close_token)))))
             (parentheses_expression))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression

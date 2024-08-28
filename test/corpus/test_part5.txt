@@ -19,8 +19,8 @@ set: <Key> type = {
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (block_declaration
+      (non_template_identifier)
       (block_definition
         (left_side_of_definition
           (template_declaration_arguments
@@ -35,8 +35,8 @@ set: <Key> type = {
         (block
           (statement
             (declaration
-              (non_template_identifier)
               (no_definition_declaration
+                (non_template_identifier)
                 (type
                   (expression
                     (any_identifier
@@ -55,8 +55,8 @@ set: <Key> type = {
                               (template_close_token)))))))))))
           (statement
             (declaration
-              (non_template_identifier)
-              (definition
+              (expression_declaration
+                (non_template_identifier)
                 (expression_definition
                   (left_side_of_definition
                     (type
@@ -80,8 +80,8 @@ set: <Key> type = {
                           (non_template_identifier)))))))))
           (statement
             (declaration
-              (non_template_identifier)
-              (definition
+              (block_declaration
+                (non_template_identifier)
                 (block_definition
                   (left_side_of_definition
                     (type
@@ -95,8 +95,8 @@ set: <Key> type = {
                                   (non_template_identifier))))
                             (function_declaration_argument
                               (declaration
-                                (non_template_identifier)
                                 (no_definition_declaration
+                                  (non_template_identifier)
                                   (type
                                     (expression
                                       (any_identifier
@@ -108,8 +108,8 @@ set: <Key> type = {
                               (comma_seperated_declarations
                                 (function_declaration_argument
                                   (declaration
-                                    (non_template_identifier)
                                     (no_definition_declaration
+                                      (non_template_identifier)
                                       (type
                                         (expression
                                           (any_identifier
@@ -117,8 +117,8 @@ set: <Key> type = {
                                               (non_template_identifier))))))))
                                 (function_declaration_argument
                                   (declaration
-                                    (non_template_identifier)
                                     (no_definition_declaration
+                                      (non_template_identifier)
                                       (type
                                         (expression
                                           (any_identifier
@@ -127,8 +127,8 @@ set: <Key> type = {
                   (block
                     (statement
                       (declaration
-                        (non_template_identifier)
-                        (definition
+                        (expression_declaration
+                          (non_template_identifier)
                           (expression_definition
                             (left_side_of_definition)
                             (expression
@@ -180,8 +180,8 @@ set: <Key> type = {
                                   (non_template_identifier)))))))))))))
           (statement
             (declaration
-              (non_template_identifier)
-              (definition
+              (expression_declaration
+                (non_template_identifier)
                 (expression_definition
                   (left_side_of_definition
                     (type
