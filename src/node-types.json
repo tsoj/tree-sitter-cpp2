@@ -87,6 +87,21 @@
     }
   },
   {
+    "type": "block_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "boolean",
     "named": true,
     "fields": {}
@@ -596,6 +611,10 @@
       "multiple": false,
       "required": false,
       "types": [
+        {
+          "type": "block_statement",
+          "named": true
+        },
         {
           "type": "declaration",
           "named": true

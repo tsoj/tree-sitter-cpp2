@@ -537,6 +537,10 @@
       "type": "CHOICE",
       "members": [
         {
+          "type": "SYMBOL",
+          "name": "block_statement"
+        },
+        {
           "type": "SEQ",
           "members": [
             {
@@ -1710,6 +1714,10 @@
     [
       "function_type",
       "left_side_of_definition"
+    ],
+    [
+      "declaration",
+      "block_statement"
     ]
   ],
   "precedences": [
