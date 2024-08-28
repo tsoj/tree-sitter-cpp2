@@ -39,7 +39,7 @@ const binary_operators = [
 module.exports = grammar({
   name: "cpp2",
   conflicts: ($) => [
-    [$.any_identifier, $.template_any_identifier],
+    [$.no_namespace_identifier, $.template_identifier],
     [$.unary_postfix_expression, $.binary_expression],
     [$.unary_prefix_expression, $.binary_expression],
     [$.function_type, $.definition],
@@ -65,7 +65,10 @@ module.exports = grammar({
     source_file: ($) => repeat(choice($.declaration, ";")),
 
     declaration: ($) =>
-      seq($.identifier, choice($.no_definition_declaration, $.definition)),
+      seq(
+        $.non_template_identifier,
+        choice($.no_definition_declaration, $.definition),
+      ),
 
     no_definition_declaration: ($) => seq(":", $.type),
 
@@ -87,8 +90,7 @@ module.exports = grammar({
         ),
       ),
 
-    metafunction_arguments: ($) =>
-      repeat1(seq("@", $.non_template_any_identifier)),
+    metafunction_arguments: ($) => repeat1(seq("@", $.any_identifier)),
 
     // we need this to prefer closing templates to the >> operator
     template_close_token: ($) => token(prec(1, ">")),
@@ -107,18 +109,22 @@ module.exports = grammar({
       ),
 
     any_identifier: ($) =>
-      choice($.non_template_any_identifier, $.template_any_identifier),
-
-    template_any_identifier: ($) =>
-      seq($.non_template_any_identifier, $.template_call_arguments),
-
-    non_template_any_identifier: ($) =>
-      choice($.namespaced_identifier, $.identifier),
+      choice($.no_namespace_identifier, $.namespaced_identifier),
 
     namespaced_identifier: ($) =>
-      seq(optional(" ::"), repeat1(seq($.identifier, "::")), $.identifier),
+      seq(
+        choice(seq($.no_namespace_identifier, "::"), " ::"),
+        $.no_namespace_identifier,
+        repeat(seq("::", $.no_namespace_identifier)),
+      ),
 
-    identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    no_namespace_identifier: ($) =>
+      choice($.non_template_identifier, $.template_identifier),
+
+    template_identifier: ($) =>
+      seq($.non_template_identifier, $.template_call_arguments),
+
+    non_template_identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
     type: ($) =>
       choice(

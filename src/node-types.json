@@ -8,11 +8,11 @@
       "required": true,
       "types": [
         {
-          "type": "non_template_any_identifier",
+          "type": "namespaced_identifier",
           "named": true
         },
         {
-          "type": "template_any_identifier",
+          "type": "no_namespace_identifier",
           "named": true
         }
       ]
@@ -119,11 +119,11 @@
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "no_definition_declaration",
           "named": true
         },
         {
-          "type": "no_definition_declaration",
+          "type": "non_template_identifier",
           "named": true
         }
       ]
@@ -369,7 +369,7 @@
       "required": true,
       "types": [
         {
-          "type": "non_template_any_identifier",
+          "type": "any_identifier",
           "named": true
         }
       ]
@@ -407,7 +407,7 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "no_namespace_identifier",
           "named": true
         }
       ]
@@ -429,7 +429,7 @@
     }
   },
   {
-    "type": "non_template_any_identifier",
+    "type": "no_namespace_identifier",
     "named": true,
     "fields": {},
     "children": {
@@ -437,11 +437,11 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "non_template_identifier",
           "named": true
         },
         {
-          "type": "namespaced_identifier",
+          "type": "template_identifier",
           "named": true
         }
       ]
@@ -521,25 +521,6 @@
     }
   },
   {
-    "type": "template_any_identifier",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "non_template_any_identifier",
-          "named": true
-        },
-        {
-          "type": "template_call_arguments",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "template_call_arguments",
     "named": true,
     "fields": {},
@@ -572,6 +553,25 @@
         },
         {
           "type": "template_close_token",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "template_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "non_template_identifier",
+          "named": true
+        },
+        {
+          "type": "template_call_arguments",
           "named": true
         }
       ]
@@ -858,10 +858,6 @@
     "named": false
   },
   {
-    "type": "identifier",
-    "named": true
-  },
-  {
     "type": "in",
     "named": false
   },
@@ -872,6 +868,10 @@
   {
     "type": "move",
     "named": false
+  },
+  {
+    "type": "non_template_identifier",
+    "named": true
   },
   {
     "type": "number",
