@@ -6,13 +6,13 @@ p: const * * const i32;
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (no_definition_declaration
       (type
         (expression
           (any_identifier
-            (non_template_any_identifier
-              (identifier))))))))
+            (no_namespace_identifier
+              (non_template_identifier))))))))
 
 ===========================================================
 bracket call and member access
@@ -25,7 +25,7 @@ is_void := u**.identifier* == "void";
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (unary_expression
@@ -37,21 +37,21 @@ is_void := u**.identifier* == "void";
                     (unary_postfix_expression
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier)))))))
+                          (no_namespace_identifier
+                            (non_template_identifier)))))))
                 (expression_or_comma_expressions
                   (expression
                     (binary_expression
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))
+                          (no_namespace_identifier
+                            (non_template_identifier))))
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))))))))))))
+                          (no_namespace_identifier
+                            (non_template_identifier))))))))))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (binary_expression
@@ -68,11 +68,11 @@ is_void := u**.identifier* == "void";
                               (unary_postfix_expression
                                 (expression
                                   (any_identifier
-                                    (non_template_any_identifier
-                                      (identifier))))))))))
+                                    (no_namespace_identifier
+                                      (non_template_identifier))))))))))
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))))))
+                      (no_namespace_identifier
+                        (non_template_identifier))))))))
           (expression
             (literal
               (string))))))))
@@ -91,89 +91,89 @@ a := b... * 3;
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (binary_expression
           (expression
             (any_identifier
-              (template_any_identifier
-                (non_template_any_identifier
-                  (identifier))
-                (template_call_arguments
-                  (expression_or_comma_expressions
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier)))))
-                  (template_close_token)))))
+              (no_namespace_identifier
+                (template_identifier
+                  (non_template_identifier)
+                  (template_call_arguments
+                    (expression_or_comma_expressions
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))))
+                    (template_close_token))))))
           (expression
             (any_identifier
-              (template_any_identifier
-                (non_template_any_identifier
-                  (identifier))
+              (no_namespace_identifier
+                (template_identifier
+                  (non_template_identifier)
+                  (template_call_arguments
+                    (expression_or_comma_expressions
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))))
+                    (template_close_token))))))))))
+  (declaration
+    (non_template_identifier)
+    (definition
+      (expression
+        (member_access
+          (expression
+            (any_identifier
+              (no_namespace_identifier
+                (non_template_identifier))))
+          (any_identifier
+            (no_namespace_identifier
+              (non_template_identifier)))))))
+  (declaration
+    (non_template_identifier)
+    (definition
+      (expression
+        (member_access
+          (expression
+            (any_identifier
+              (no_namespace_identifier
+                (non_template_identifier))))
+          (any_identifier
+            (no_namespace_identifier
+              (template_identifier
+                (non_template_identifier)
                 (template_call_arguments
                   (expression_or_comma_expressions
                     (expression
                       (any_identifier
-                        (non_template_any_identifier
-                          (identifier)))))
+                        (no_namespace_identifier
+                          (non_template_identifier)))))
                   (template_close_token)))))))))
   (declaration
-    (identifier)
-    (definition
-      (expression
-        (member_access
-          (expression
-            (any_identifier
-              (non_template_any_identifier
-                (identifier))))
-          (any_identifier
-            (non_template_any_identifier
-              (identifier)))))))
-  (declaration
-    (identifier)
-    (definition
-      (expression
-        (member_access
-          (expression
-            (any_identifier
-              (non_template_any_identifier
-                (identifier))))
-          (any_identifier
-            (template_any_identifier
-              (non_template_any_identifier
-                (identifier))
-              (template_call_arguments
-                (expression_or_comma_expressions
-                  (expression
-                    (any_identifier
-                      (non_template_any_identifier
-                        (identifier)))))
-                (template_close_token))))))))
-  (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (method_call
           (expression
             (any_identifier
-              (non_template_any_identifier
-                (identifier))))
+              (no_namespace_identifier
+                (non_template_identifier))))
           (any_identifier
-            (template_any_identifier
-              (non_template_any_identifier
-                (identifier))
-              (template_call_arguments
-                (expression_or_comma_expressions
-                  (expression
-                    (any_identifier
-                      (non_template_any_identifier
-                        (identifier)))))
-                (template_close_token))))
+            (no_namespace_identifier
+              (template_identifier
+                (non_template_identifier)
+                (template_call_arguments
+                  (expression_or_comma_expressions
+                    (expression
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier)))))
+                  (template_close_token)))))
           (parentheses_expression)))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (binary_expression
@@ -182,8 +182,8 @@ a := b... * 3;
               (unary_postfix_expression
                 (expression
                   (any_identifier
-                    (non_template_any_identifier
-                      (identifier)))))))
+                    (no_namespace_identifier
+                      (non_template_identifier)))))))
           (expression
             (literal
               (number))))))))

@@ -12,36 +12,36 @@ c :== {
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (expression
           (any_identifier
-            (non_template_any_identifier
-              (identifier)))))
+            (no_namespace_identifier
+              (non_template_identifier)))))
       (expression
         (any_identifier
-          (non_template_any_identifier
-            (identifier))))))
+          (no_namespace_identifier
+            (non_template_identifier))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (literal
           (float)))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (expression
           (any_identifier
-            (non_template_any_identifier
-              (identifier)))))
+            (no_namespace_identifier
+              (non_template_identifier)))))
       (expression
         (literal
           (string)))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (function_type
@@ -49,23 +49,23 @@ c :== {
             (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (no_definition_declaration
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))))))))
+                          (no_namespace_identifier
+                            (non_template_identifier))))))))))
           (type
             (expression
               (any_identifier
-                (non_template_any_identifier
-                  (identifier)))))))
+                (no_namespace_identifier
+                  (non_template_identifier)))))))
       (expression
         (literal
           (float)))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (block
         (statement

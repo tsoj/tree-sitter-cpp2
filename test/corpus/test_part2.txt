@@ -17,7 +17,7 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (function_type
@@ -26,75 +26,80 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
               (function_declaration_argument
                 (passing_style)
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (no_definition_declaration
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (namespaced_identifier
-                              (identifier)
-                              (identifier)))))))))
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))))
               (function_declaration_argument
                 (passing_style)
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (no_definition_declaration
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (namespaced_identifier
-                              (identifier)
-                              (identifier)))))))))
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))))
               (function_declaration_argument
                 (passing_style)
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (no_definition_declaration
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (namespaced_identifier
-                              (identifier)
-                              (identifier)))))))))))))
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))))))))
       (block
         (statement
           (expression
             (binary_expression
               (expression
                 (any_identifier
-                  (non_template_any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier)))))
+                  (namespaced_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))
+                    (no_namespace_identifier
+                      (non_template_identifier)))))
               (expression
                 (binary_expression
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))
+                      (no_namespace_identifier
+                        (non_template_identifier))))
                   (expression
                     (binary_expression
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))
+                          (no_namespace_identifier
+                            (non_template_identifier))))
                       (expression
                         (binary_expression
                           (expression
                             (any_identifier
-                              (non_template_any_identifier
-                                (identifier))))
+                              (no_namespace_identifier
+                                (non_template_identifier))))
                           (expression
                             (any_identifier
-                              (non_template_any_identifier
-                                (namespaced_identifier
-                                  (identifier)
-                                  (identifier)))))))))))))))))
+                              (namespaced_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))
+                                (no_namespace_identifier
+                                  (non_template_identifier)))))))))))))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (function_type
@@ -103,7 +108,7 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
               (function_declaration_argument
                 (passing_style)
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (definition
                     (expression
                       (literal
@@ -111,52 +116,54 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
               (function_declaration_argument
                 (passing_style)
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (no_definition_declaration
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))))))
+                          (no_namespace_identifier
+                            (non_template_identifier))))))))
               (function_declaration_argument
                 (passing_style)
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (definition
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier)))))
+                          (no_namespace_identifier
+                            (non_template_identifier)))))
                     (expression
                       (literal
                         (float))))))))))
       (block
         (statement
           (declaration
-            (identifier)
+            (non_template_identifier)
             (definition
               (type
                 (expression
                   (any_identifier
-                    (non_template_any_identifier
-                      (namespaced_identifier
-                        (identifier)
-                        (identifier))))))
+                    (namespaced_identifier
+                      (no_namespace_identifier
+                        (non_template_identifier))
+                      (no_namespace_identifier
+                        (non_template_identifier))))))
               (expression
                 (literal
                   (string))))))
         (statement
           (declaration
-            (identifier)
+            (non_template_identifier)
             (definition
               (type
                 (expression
                   (any_identifier
-                    (non_template_any_identifier
-                      (namespaced_identifier
-                        (identifier)
-                        (identifier))))))
+                    (namespaced_identifier
+                      (no_namespace_identifier
+                        (non_template_identifier))
+                      (no_namespace_identifier
+                        (non_template_identifier))))))
               (expression
                 (literal
                   (string))))))
@@ -165,8 +172,8 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
             (function_call
               (expression
                 (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))
+                  (no_namespace_identifier
+                    (non_template_identifier))))
               (parentheses_expression
                 (expression_or_comma_expressions
                   (comma_expressions
@@ -174,10 +181,11 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                       (function_call
                         (expression
                           (any_identifier
-                            (non_template_any_identifier
-                              (namespaced_identifier
-                                (identifier)
-                                (identifier)))))
+                            (namespaced_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier))
+                              (no_namespace_identifier
+                                (non_template_identifier)))))
                         (parentheses_expression
                           (expression_or_comma_expressions
                             (expression
@@ -187,20 +195,20 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                       (comma_expressions
                         (expression
                           (any_identifier
-                            (non_template_any_identifier
-                              (identifier))))
+                            (no_namespace_identifier
+                              (non_template_identifier))))
                         (expression_or_comma_expressions
                           (expression
                             (any_identifier
-                              (non_template_any_identifier
-                                (identifier)))))))))))))
+                              (no_namespace_identifier
+                                (non_template_identifier)))))))))))))
         (statement
           (expression
             (binary_expression
               (expression
                 (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))
+                  (no_namespace_identifier
+                    (non_template_identifier))))
               (expression
                 (literal
                   (string))))))))))
@@ -221,7 +229,7 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (function_type
@@ -230,15 +238,16 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
         (binary_expression
           (expression
             (any_identifier
-              (non_template_any_identifier
-                (namespaced_identifier
-                  (identifier)
-                  (identifier)))))
+              (namespaced_identifier
+                (no_namespace_identifier
+                  (non_template_identifier))
+                (no_namespace_identifier
+                  (non_template_identifier)))))
           (expression
             (literal
               (string)))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (function_type
@@ -246,28 +255,30 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
             (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (no_definition_declaration
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (namespaced_identifier
-                              (identifier)
-                              (identifier)))))))))))))
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))))))))
       (expression
         (binary_expression
           (expression
             (any_identifier
-              (non_template_any_identifier
-                (namespaced_identifier
-                  (identifier)
-                  (identifier)))))
+              (namespaced_identifier
+                (no_namespace_identifier
+                  (non_template_identifier))
+                (no_namespace_identifier
+                  (non_template_identifier)))))
           (expression
             (literal
               (string)))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (function_type
@@ -276,28 +287,30 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
               (function_declaration_argument
                 (passing_style)
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (no_definition_declaration
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (namespaced_identifier
-                              (identifier)
-                              (identifier)))))))))))))
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))))))))
       (expression
         (binary_expression
           (expression
             (any_identifier
-              (non_template_any_identifier
-                (namespaced_identifier
-                  (identifier)
-                  (identifier)))))
+              (namespaced_identifier
+                (no_namespace_identifier
+                  (non_template_identifier))
+                (no_namespace_identifier
+                  (non_template_identifier)))))
           (expression
             (literal
               (string)))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (function_type
@@ -306,26 +319,27 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
               (function_declaration_argument
                 (passing_style)
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (no_definition_declaration
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (namespaced_identifier
-                              (identifier)
-                              (identifier)))))))))))))
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))))))))
       (expression
         (binary_expression
           (expression
             (any_identifier
-              (non_template_any_identifier
-                (identifier))))
+              (no_namespace_identifier
+                (non_template_identifier))))
           (expression
             (literal
               (string)))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (function_type
@@ -334,28 +348,30 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
               (function_declaration_argument
                 (passing_style)
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (no_definition_declaration
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (namespaced_identifier
-                              (identifier)
-                              (identifier)))))))))))))
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))))))))
       (expression
         (binary_expression
           (expression
             (any_identifier
-              (non_template_any_identifier
-                (namespaced_identifier
-                  (identifier)
-                  (identifier)))))
+              (namespaced_identifier
+                (no_namespace_identifier
+                  (non_template_identifier))
+                (no_namespace_identifier
+                  (non_template_identifier)))))
           (expression
             (literal
               (string)))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (function_type
@@ -364,33 +380,36 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
               (function_declaration_argument
                 (passing_style)
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (no_definition_declaration
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (namespaced_identifier
-                              (identifier)
-                              (identifier)))))))))))
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))))))
           (passing_style)
           (type
             (expression
               (any_identifier
-                (non_template_any_identifier
-                  (namespaced_identifier
-                    (identifier)
-                    (identifier))))))))
+                (namespaced_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))
+                  (no_namespace_identifier
+                    (non_template_identifier))))))))
       (block
         (statement
           (expression
             (binary_expression
               (expression
                 (any_identifier
-                  (non_template_any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier)))))
+                  (namespaced_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))
+                    (no_namespace_identifier
+                      (non_template_identifier)))))
               (expression
                 (literal
                   (string))))))
@@ -398,8 +417,8 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
           (return_statement
             (expression
               (any_identifier
-                (non_template_any_identifier
-                  (identifier))))))))))
+                (no_namespace_identifier
+                  (non_template_identifier))))))))))
 
 ===========================================================
 templates
@@ -421,22 +440,22 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (template_declaration_arguments
         (comma_seperated_declarations
           (function_declaration_argument
             (declaration
-              (identifier)
+              (non_template_identifier)
               (no_definition_declaration
                 (type
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))))))
+                      (no_namespace_identifier
+                        (non_template_identifier))))))))
           (function_declaration_argument
             (declaration
-              (identifier)
+              (non_template_identifier)
               (no_definition_declaration
                 (type
                   (type_type))))))
@@ -447,58 +466,60 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
             (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
-                  (identifier)
+                  (non_template_identifier)
                   (no_definition_declaration
                     (type
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))))))))))
+                          (no_namespace_identifier
+                            (non_template_identifier))))))))))))
       (block
         (statement
           (expression
             (binary_expression
               (expression
                 (any_identifier
-                  (non_template_any_identifier
-                    (namespaced_identifier
-                      (identifier)
-                      (identifier)))))
+                  (namespaced_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))
+                    (no_namespace_identifier
+                      (non_template_identifier)))))
               (expression
                 (binary_expression
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))
+                      (no_namespace_identifier
+                        (non_template_identifier))))
                   (expression
                     (binary_expression
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))
+                          (no_namespace_identifier
+                            (non_template_identifier))))
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (namespaced_identifier
-                              (identifier)
-                              (identifier)))))))))))))))
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))))))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (template_declaration_arguments
         (comma_seperated_declarations
           (function_declaration_argument
             (declaration
-              (identifier)
+              (non_template_identifier)
               (no_definition_declaration
                 (type
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))))))
+                      (no_namespace_identifier
+                        (non_template_identifier))))))))
           (function_declaration_argument
             (declaration
-              (identifier)
+              (non_template_identifier)
               (no_definition_declaration
                 (type
                   (type_type))))))
@@ -508,42 +529,48 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
       (block
         (statement
           (declaration
-            (identifier)
+            (non_template_identifier)
             (no_definition_declaration
               (type
                 (expression
                   (any_identifier
-                    (non_template_any_identifier
-                      (namespaced_identifier
-                        (identifier)
-                        (identifier))))))))))))
+                    (namespaced_identifier
+                      (no_namespace_identifier
+                        (non_template_identifier))
+                      (no_namespace_identifier
+                        (non_template_identifier))))))))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (metafunction_arguments
-        (non_template_any_identifier
-          (identifier))
-        (non_template_any_identifier
+        (any_identifier
+          (no_namespace_identifier
+            (non_template_identifier)))
+        (any_identifier
           (namespaced_identifier
-            (identifier)
-            (identifier)
-            (identifier)))
-        (non_template_any_identifier
-          (identifier)))
+            (no_namespace_identifier
+              (non_template_identifier))
+            (no_namespace_identifier
+              (non_template_identifier))
+            (no_namespace_identifier
+              (non_template_identifier))))
+        (any_identifier
+          (no_namespace_identifier
+            (non_template_identifier))))
       (template_declaration_arguments
         (comma_seperated_declarations
           (function_declaration_argument
             (declaration
-              (identifier)
+              (non_template_identifier)
               (no_definition_declaration
                 (type
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))))))
+                      (no_namespace_identifier
+                        (non_template_identifier))))))))
           (function_declaration_argument
             (declaration
-              (identifier)
+              (non_template_identifier)
               (no_definition_declaration
                 (type
                   (type_type))))))
@@ -553,15 +580,16 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
       (block
         (statement
           (declaration
-            (identifier)
+            (non_template_identifier)
             (no_definition_declaration
               (type
                 (expression
                   (any_identifier
-                    (non_template_any_identifier
-                      (namespaced_identifier
-                        (identifier)
-                        (identifier)))))))))))))
+                    (namespaced_identifier
+                      (no_namespace_identifier
+                        (non_template_identifier))
+                      (no_namespace_identifier
+                        (non_template_identifier)))))))))))))
 
 ===========================================================
 calling templates
@@ -578,7 +606,7 @@ main: () = {
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (type
         (function_type
@@ -586,35 +614,35 @@ main: () = {
       (block
         (statement
           (declaration
-            (identifier)
+            (non_template_identifier)
             (definition
               (expression
                 (binary_expression
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))
+                      (no_namespace_identifier
+                        (non_template_identifier))))
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier)))))))))
+                      (no_namespace_identifier
+                        (non_template_identifier)))))))))
         (statement
           (declaration
-            (identifier)
+            (non_template_identifier)
             (definition
               (expression
                 (binary_expression
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))
+                      (no_namespace_identifier
+                        (non_template_identifier))))
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier)))))))))
+                      (no_namespace_identifier
+                        (non_template_identifier)))))))))
         (statement
           (declaration
-            (identifier)
+            (non_template_identifier)
             (definition
               (expression
                 (binary_expression
@@ -622,32 +650,32 @@ main: () = {
                     (binary_expression
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))
+                          (no_namespace_identifier
+                            (non_template_identifier))))
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))))
+                          (no_namespace_identifier
+                            (non_template_identifier))))))
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier)))))))))
+                      (no_namespace_identifier
+                        (non_template_identifier)))))))))
         (statement
           (declaration
-            (identifier)
+            (non_template_identifier)
             (definition
               (expression
                 (any_identifier
-                  (template_any_identifier
-                    (non_template_any_identifier
-                      (identifier))
-                    (template_call_arguments
-                      (expression_or_comma_expressions
-                        (expression
-                          (any_identifier
-                            (non_template_any_identifier
-                              (identifier)))))
-                      (template_close_token))))))))))))
+                  (no_namespace_identifier
+                    (template_identifier
+                      (non_template_identifier)
+                      (template_call_arguments
+                        (expression_or_comma_expressions
+                          (expression
+                            (any_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier)))))
+                        (template_close_token)))))))))))))
 
 ===========================================================
 more calling templates
@@ -658,26 +686,26 @@ a := hello<b, c>;
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (any_identifier
-          (template_any_identifier
-            (non_template_any_identifier
-              (identifier))
-            (template_call_arguments
-              (expression_or_comma_expressions
-                (comma_expressions
-                  (expression
-                    (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))
-                  (expression_or_comma_expressions
+          (no_namespace_identifier
+            (template_identifier
+              (non_template_identifier)
+              (template_call_arguments
+                (expression_or_comma_expressions
+                  (comma_expressions
                     (expression
                       (any_identifier
-                        (non_template_any_identifier
-                          (identifier)))))))
-              (template_close_token))))))))
+                        (no_namespace_identifier
+                          (non_template_identifier))))
+                    (expression_or_comma_expressions
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))))))
+                (template_close_token)))))))))
 
 ===========================================================
 binary op order
@@ -689,7 +717,7 @@ g := f += d /= a + b * c;
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (binary_expression
@@ -697,47 +725,47 @@ g := f += d /= a + b * c;
             (binary_expression
               (expression
                 (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))
+                  (no_namespace_identifier
+                    (non_template_identifier))))
               (expression
                 (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))))
+                  (no_namespace_identifier
+                    (non_template_identifier))))))
           (expression
             (any_identifier
-              (non_template_any_identifier
-                (identifier))))))))
+              (no_namespace_identifier
+                (non_template_identifier))))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (binary_expression
           (expression
             (any_identifier
-              (non_template_any_identifier
-                (identifier))))
+              (no_namespace_identifier
+                (non_template_identifier))))
           (expression
             (binary_expression
               (expression
                 (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))
+                  (no_namespace_identifier
+                    (non_template_identifier))))
               (expression
                 (binary_expression
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))
+                      (no_namespace_identifier
+                        (non_template_identifier))))
                   (expression
                     (binary_expression
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))
+                          (no_namespace_identifier
+                            (non_template_identifier))))
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier)))))))))))))))
+                          (no_namespace_identifier
+                            (non_template_identifier)))))))))))))))
 
 ===========================================================
 even more template calling
@@ -756,36 +784,36 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (binary_expression
           (expression
             (any_identifier
-              (template_any_identifier
-                (non_template_any_identifier
-                  (identifier))
-                (template_call_arguments
-                  (expression_or_comma_expressions
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier)))))
-                  (template_close_token)))))
+              (no_namespace_identifier
+                (template_identifier
+                  (non_template_identifier)
+                  (template_call_arguments
+                    (expression_or_comma_expressions
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))))
+                    (template_close_token))))))
           (expression
             (any_identifier
-              (template_any_identifier
-                (non_template_any_identifier
-                  (identifier))
-                (template_call_arguments
-                  (expression_or_comma_expressions
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier)))))
-                  (template_close_token)))))))))
+              (no_namespace_identifier
+                (template_identifier
+                  (non_template_identifier)
+                  (template_call_arguments
+                    (expression_or_comma_expressions
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))))
+                    (template_close_token))))))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (binary_expression
@@ -793,322 +821,322 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
             (binary_expression
               (expression
                 (any_identifier
-                  (template_any_identifier
-                    (non_template_any_identifier
-                      (identifier))
-                    (template_call_arguments
-                      (expression_or_comma_expressions
-                        (expression
-                          (any_identifier
-                            (non_template_any_identifier
-                              (identifier)))))
-                      (template_close_token)))))
-              (expression
-                (any_identifier
-                  (template_any_identifier
-                    (non_template_any_identifier
-                      (identifier))
-                    (template_call_arguments
-                      (expression_or_comma_expressions
-                        (expression
-                          (any_identifier
-                            (non_template_any_identifier
-                              (identifier)))))
-                      (template_close_token)))))))
-          (expression
-            (any_identifier
-              (template_any_identifier
-                (non_template_any_identifier
-                  (identifier))
-                (template_call_arguments
-                  (expression_or_comma_expressions
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier)))))
-                  (template_close_token)))))))))
-  (declaration
-    (identifier)
-    (definition
-      (expression
-        (function_call
-          (expression
-            (any_identifier
-              (template_any_identifier
-                (non_template_any_identifier
-                  (identifier))
-                (template_call_arguments
-                  (expression_or_comma_expressions
-                    (expression
-                      (any_identifier
-                        (non_template_any_identifier
-                          (identifier)))))
-                  (template_close_token)))))
-          (parentheses_expression
-            (expression_or_comma_expressions
-              (expression
-                (any_identifier
-                  (non_template_any_identifier
-                    (identifier))))))))))
-  (declaration
-    (identifier)
-    (definition
-      (template_declaration_arguments
-        (comma_seperated_declarations
-          (function_declaration_argument
-            (declaration
-              (identifier)
-              (no_definition_declaration
-                (type
-                  (type_type)))))
-          (function_declaration_argument
-            (declaration
-              (identifier)
-              (no_definition_declaration
-                (type
-                  (expression
-                    (any_identifier
-                      (non_template_any_identifier
-                        (identifier)))))))))
-        (template_close_token))
-      (expression
-        (function_call
-          (expression
-            (any_identifier
-              (template_any_identifier
-                (non_template_any_identifier
-                  (identifier))
-                (template_call_arguments
-                  (expression_or_comma_expressions
-                    (comma_expressions
-                      (expression
-                        (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))
-                      (expression_or_comma_expressions
-                        (comma_expressions
+                  (no_namespace_identifier
+                    (template_identifier
+                      (non_template_identifier)
+                      (template_call_arguments
+                        (expression_or_comma_expressions
                           (expression
                             (any_identifier
-                              (non_template_any_identifier
-                                (identifier))))
-                          (expression_or_comma_expressions
-                            (comma_expressions
-                              (expression
-                                (any_identifier
-                                  (non_template_any_identifier
-                                    (identifier))))
-                              (expression_or_comma_expressions
-                                (expression
-                                  (any_identifier
-                                    (non_template_any_identifier
-                                      (identifier)))))))))))
-                  (template_close_token)))))
+                              (no_namespace_identifier
+                                (non_template_identifier)))))
+                        (template_close_token))))))
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (template_identifier
+                      (non_template_identifier)
+                      (template_call_arguments
+                        (expression_or_comma_expressions
+                          (expression
+                            (any_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier)))))
+                        (template_close_token))))))))
+          (expression
+            (any_identifier
+              (no_namespace_identifier
+                (template_identifier
+                  (non_template_identifier)
+                  (template_call_arguments
+                    (expression_or_comma_expressions
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))))
+                    (template_close_token))))))))))
+  (declaration
+    (non_template_identifier)
+    (definition
+      (expression
+        (function_call
+          (expression
+            (any_identifier
+              (no_namespace_identifier
+                (template_identifier
+                  (non_template_identifier)
+                  (template_call_arguments
+                    (expression_or_comma_expressions
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))))
+                    (template_close_token))))))
           (parentheses_expression
             (expression_or_comma_expressions
-              (comma_expressions
-                (expression
-                  (any_identifier
-                    (non_template_any_identifier
-                      (identifier))))
-                (expression_or_comma_expressions
-                  (expression
-                    (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))))))))))
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))))))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (template_declaration_arguments
         (comma_seperated_declarations
           (function_declaration_argument
             (declaration
-              (identifier)
+              (non_template_identifier)
               (no_definition_declaration
                 (type
                   (type_type)))))
           (function_declaration_argument
             (declaration
-              (identifier)
+              (non_template_identifier)
               (no_definition_declaration
                 (type
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier)))))))))
+                      (no_namespace_identifier
+                        (non_template_identifier)))))))))
         (template_close_token))
       (expression
         (function_call
           (expression
             (any_identifier
-              (template_any_identifier
-                (non_template_any_identifier
-                  (identifier))
-                (template_call_arguments
-                  (expression_or_comma_expressions
-                    (comma_expressions
-                      (expression
-                        (any_identifier
-                          (template_any_identifier
-                            (non_template_any_identifier
-                              (identifier))
-                            (template_call_arguments
-                              (expression_or_comma_expressions
+              (no_namespace_identifier
+                (template_identifier
+                  (non_template_identifier)
+                  (template_call_arguments
+                    (expression_or_comma_expressions
+                      (comma_expressions
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))))
+                        (expression_or_comma_expressions
+                          (comma_expressions
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))
+                            (expression_or_comma_expressions
+                              (comma_expressions
                                 (expression
                                   (any_identifier
-                                    (non_template_any_identifier
-                                      (identifier)))))
-                              (template_close_token)))))
-                      (expression_or_comma_expressions
-                        (comma_expressions
-                          (expression
-                            (binary_expression
-                              (expression
-                                (any_identifier
-                                  (non_template_any_identifier
-                                    (identifier))))
-                              (expression
-                                (any_identifier
-                                  (non_template_any_identifier
-                                    (identifier))))))
-                          (expression_or_comma_expressions
-                            (comma_expressions
-                              (expression
-                                (parentheses_expression
-                                  (expression_or_comma_expressions
-                                    (expression
-                                      (binary_expression
-                                        (expression
-                                          (any_identifier
-                                            (non_template_any_identifier
-                                              (identifier))))
-                                        (expression
-                                          (any_identifier
-                                            (non_template_any_identifier
-                                              (identifier)))))))))
-                              (expression_or_comma_expressions
-                                (expression
-                                  (any_identifier
-                                    (non_template_any_identifier
-                                      (identifier)))))))))))
-                  (template_close_token)))))
+                                    (no_namespace_identifier
+                                      (non_template_identifier))))
+                                (expression_or_comma_expressions
+                                  (expression
+                                    (any_identifier
+                                      (no_namespace_identifier
+                                        (non_template_identifier)))))))))))
+                    (template_close_token))))))
           (parentheses_expression
             (expression_or_comma_expressions
               (comma_expressions
                 (expression
                   (any_identifier
-                    (non_template_any_identifier
-                      (identifier))))
+                    (no_namespace_identifier
+                      (non_template_identifier))))
                 (expression_or_comma_expressions
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier))))))))))))
+                      (no_namespace_identifier
+                        (non_template_identifier))))))))))))
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (template_declaration_arguments
         (comma_seperated_declarations
           (function_declaration_argument
             (declaration
-              (identifier)
+              (non_template_identifier)
               (no_definition_declaration
                 (type
                   (type_type)))))
           (function_declaration_argument
             (declaration
-              (identifier)
+              (non_template_identifier)
               (no_definition_declaration
                 (type
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier)))))))))
+                      (no_namespace_identifier
+                        (non_template_identifier)))))))))
+        (template_close_token))
+      (expression
+        (function_call
+          (expression
+            (any_identifier
+              (no_namespace_identifier
+                (template_identifier
+                  (non_template_identifier)
+                  (template_call_arguments
+                    (expression_or_comma_expressions
+                      (comma_expressions
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (template_identifier
+                                (non_template_identifier)
+                                (template_call_arguments
+                                  (expression_or_comma_expressions
+                                    (expression
+                                      (any_identifier
+                                        (no_namespace_identifier
+                                          (non_template_identifier)))))
+                                  (template_close_token))))))
+                        (expression_or_comma_expressions
+                          (comma_expressions
+                            (expression
+                              (binary_expression
+                                (expression
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier))))
+                                (expression
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier))))))
+                            (expression_or_comma_expressions
+                              (comma_expressions
+                                (expression
+                                  (parentheses_expression
+                                    (expression_or_comma_expressions
+                                      (expression
+                                        (binary_expression
+                                          (expression
+                                            (any_identifier
+                                              (no_namespace_identifier
+                                                (non_template_identifier))))
+                                          (expression
+                                            (any_identifier
+                                              (no_namespace_identifier
+                                                (non_template_identifier)))))))))
+                                (expression_or_comma_expressions
+                                  (expression
+                                    (any_identifier
+                                      (no_namespace_identifier
+                                        (non_template_identifier)))))))))))
+                    (template_close_token))))))
+          (parentheses_expression
+            (expression_or_comma_expressions
+              (comma_expressions
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))
+                (expression_or_comma_expressions
+                  (expression
+                    (any_identifier
+                      (no_namespace_identifier
+                        (non_template_identifier))))))))))))
+  (declaration
+    (non_template_identifier)
+    (definition
+      (template_declaration_arguments
+        (comma_seperated_declarations
+          (function_declaration_argument
+            (declaration
+              (non_template_identifier)
+              (no_definition_declaration
+                (type
+                  (type_type)))))
+          (function_declaration_argument
+            (declaration
+              (non_template_identifier)
+              (no_definition_declaration
+                (type
+                  (expression
+                    (any_identifier
+                      (no_namespace_identifier
+                        (non_template_identifier)))))))))
         (template_close_token))
       (type
         (expression
           (any_identifier
-            (template_any_identifier
-              (non_template_any_identifier
-                (identifier))
-              (template_call_arguments
-                (expression_or_comma_expressions
-                  (comma_expressions
-                    (expression
-                      (literal
-                        (string)))
-                    (expression_or_comma_expressions
-                      (expression
-                        (any_identifier
-                          (non_template_any_identifier
-                            (identifier)))))))
-                (template_close_token))))))
-      (expression
-        (function_call
-          (expression
-            (any_identifier
-              (template_any_identifier
-                (non_template_any_identifier
-                  (identifier))
+            (no_namespace_identifier
+              (template_identifier
+                (non_template_identifier)
                 (template_call_arguments
                   (expression_or_comma_expressions
                     (comma_expressions
                       (expression
-                        (any_identifier
-                          (template_any_identifier
-                            (non_template_any_identifier
-                              (identifier))
-                            (template_call_arguments
-                              (expression_or_comma_expressions
-                                (expression
-                                  (any_identifier
-                                    (non_template_any_identifier
-                                      (identifier)))))
-                              (template_close_token)))))
+                        (literal
+                          (string)))
                       (expression_or_comma_expressions
-                        (comma_expressions
-                          (expression
-                            (binary_expression
-                              (expression
-                                (any_identifier
-                                  (non_template_any_identifier
-                                    (identifier))))
-                              (expression
-                                (any_identifier
-                                  (non_template_any_identifier
-                                    (identifier))))))
-                          (expression_or_comma_expressions
-                            (comma_expressions
-                              (expression
-                                (parentheses_expression
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))
+                  (template_close_token)))))))
+      (expression
+        (function_call
+          (expression
+            (any_identifier
+              (no_namespace_identifier
+                (template_identifier
+                  (non_template_identifier)
+                  (template_call_arguments
+                    (expression_or_comma_expressions
+                      (comma_expressions
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (template_identifier
+                                (non_template_identifier)
+                                (template_call_arguments
                                   (expression_or_comma_expressions
                                     (expression
-                                      (binary_expression
-                                        (expression
-                                          (any_identifier
-                                            (non_template_any_identifier
-                                              (identifier))))
-                                        (expression
-                                          (any_identifier
-                                            (non_template_any_identifier
-                                              (identifier)))))))))
-                              (expression_or_comma_expressions
+                                      (any_identifier
+                                        (no_namespace_identifier
+                                          (non_template_identifier)))))
+                                  (template_close_token))))))
+                        (expression_or_comma_expressions
+                          (comma_expressions
+                            (expression
+                              (binary_expression
                                 (expression
                                   (any_identifier
-                                    (non_template_any_identifier
-                                      (identifier)))))))))))
-                  (template_close_token)))))
+                                    (no_namespace_identifier
+                                      (non_template_identifier))))
+                                (expression
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier))))))
+                            (expression_or_comma_expressions
+                              (comma_expressions
+                                (expression
+                                  (parentheses_expression
+                                    (expression_or_comma_expressions
+                                      (expression
+                                        (binary_expression
+                                          (expression
+                                            (any_identifier
+                                              (no_namespace_identifier
+                                                (non_template_identifier))))
+                                          (expression
+                                            (any_identifier
+                                              (no_namespace_identifier
+                                                (non_template_identifier)))))))))
+                                (expression_or_comma_expressions
+                                  (expression
+                                    (any_identifier
+                                      (no_namespace_identifier
+                                        (non_template_identifier)))))))))))
+                    (template_close_token))))))
           (parentheses_expression
             (expression_or_comma_expressions
               (comma_expressions
                 (expression
                   (any_identifier
-                    (non_template_any_identifier
-                      (identifier))))
+                    (no_namespace_identifier
+                      (non_template_identifier))))
                 (expression_or_comma_expressions
                   (expression
                     (any_identifier
-                      (non_template_any_identifier
-                        (identifier)))))))))))))
+                      (no_namespace_identifier
+                        (non_template_identifier)))))))))))))
 
 ===========================================================
 template calling vs shift right
@@ -1120,91 +1148,91 @@ a := hello<b<a>> >> hello<a, b<c, d<(e > b), (f>>g)>>>;
 
 (source_file
   (declaration
-    (identifier)
+    (non_template_identifier)
     (definition
       (expression
         (binary_expression
           (expression
             (any_identifier
-              (template_any_identifier
-                (non_template_any_identifier
-                  (identifier))
-                (template_call_arguments
-                  (expression_or_comma_expressions
-                    (expression
-                      (any_identifier
-                        (template_any_identifier
-                          (non_template_any_identifier
-                            (identifier))
-                          (template_call_arguments
-                            (expression_or_comma_expressions
-                              (expression
-                                (any_identifier
-                                  (non_template_any_identifier
-                                    (identifier)))))
-                            (template_close_token))))))
-                  (template_close_token)))))
-          (expression
-            (any_identifier
-              (template_any_identifier
-                (non_template_any_identifier
-                  (identifier))
-                (template_call_arguments
-                  (expression_or_comma_expressions
-                    (comma_expressions
+              (no_namespace_identifier
+                (template_identifier
+                  (non_template_identifier)
+                  (template_call_arguments
+                    (expression_or_comma_expressions
                       (expression
                         (any_identifier
-                          (non_template_any_identifier
-                            (identifier))))
-                      (expression_or_comma_expressions
-                        (expression
-                          (any_identifier
-                            (template_any_identifier
-                              (non_template_any_identifier
-                                (identifier))
+                          (no_namespace_identifier
+                            (template_identifier
+                              (non_template_identifier)
                               (template_call_arguments
                                 (expression_or_comma_expressions
-                                  (comma_expressions
-                                    (expression
-                                      (any_identifier
-                                        (non_template_any_identifier
-                                          (identifier))))
+                                  (expression
+                                    (any_identifier
+                                      (no_namespace_identifier
+                                        (non_template_identifier)))))
+                                (template_close_token)))))))
+                    (template_close_token))))))
+          (expression
+            (any_identifier
+              (no_namespace_identifier
+                (template_identifier
+                  (non_template_identifier)
+                  (template_call_arguments
+                    (expression_or_comma_expressions
+                      (comma_expressions
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))))
+                        (expression_or_comma_expressions
+                          (expression
+                            (any_identifier
+                              (no_namespace_identifier
+                                (template_identifier
+                                  (non_template_identifier)
+                                  (template_call_arguments
                                     (expression_or_comma_expressions
-                                      (expression
-                                        (any_identifier
-                                          (template_any_identifier
-                                            (non_template_any_identifier
-                                              (identifier))
-                                            (template_call_arguments
-                                              (expression_or_comma_expressions
-                                                (comma_expressions
-                                                  (expression
-                                                    (parentheses_expression
-                                                      (expression_or_comma_expressions
+                                      (comma_expressions
+                                        (expression
+                                          (any_identifier
+                                            (no_namespace_identifier
+                                              (non_template_identifier))))
+                                        (expression_or_comma_expressions
+                                          (expression
+                                            (any_identifier
+                                              (no_namespace_identifier
+                                                (template_identifier
+                                                  (non_template_identifier)
+                                                  (template_call_arguments
+                                                    (expression_or_comma_expressions
+                                                      (comma_expressions
                                                         (expression
-                                                          (binary_expression
-                                                            (expression
-                                                              (any_identifier
-                                                                (non_template_any_identifier
-                                                                  (identifier))))
-                                                            (expression
-                                                              (any_identifier
-                                                                (non_template_any_identifier
-                                                                  (identifier)))))))))
-                                                  (expression_or_comma_expressions
-                                                    (expression
-                                                      (parentheses_expression
+                                                          (parentheses_expression
+                                                            (expression_or_comma_expressions
+                                                              (expression
+                                                                (binary_expression
+                                                                  (expression
+                                                                    (any_identifier
+                                                                      (no_namespace_identifier
+                                                                        (non_template_identifier))))
+                                                                  (expression
+                                                                    (any_identifier
+                                                                      (no_namespace_identifier
+                                                                        (non_template_identifier)))))))))
                                                         (expression_or_comma_expressions
                                                           (expression
-                                                            (binary_expression
-                                                              (expression
-                                                                (any_identifier
-                                                                  (non_template_any_identifier
-                                                                    (identifier))))
-                                                              (expression
-                                                                (any_identifier
-                                                                  (non_template_any_identifier
-                                                                    (identifier))))))))))))
-                                              (template_close_token))))))))
-                                (template_close_token))))))))
-                  (template_close_token))))))))))
+                                                            (parentheses_expression
+                                                              (expression_or_comma_expressions
+                                                                (expression
+                                                                  (binary_expression
+                                                                    (expression
+                                                                      (any_identifier
+                                                                        (no_namespace_identifier
+                                                                          (non_template_identifier))))
+                                                                    (expression
+                                                                      (any_identifier
+                                                                        (no_namespace_identifier
+                                                                          (non_template_identifier))))))))))))
+                                                    (template_close_token)))))))))
+                                    (template_close_token)))))))))
+                    (template_close_token)))))))))))
