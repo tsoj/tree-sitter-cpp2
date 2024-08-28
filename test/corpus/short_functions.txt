@@ -19,8 +19,8 @@ add:(a,b):(a,b)a=b;
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (type
@@ -44,8 +44,8 @@ add:(a,b):(a,b)a=b;
             (no_namespace_identifier
               (non_template_identifier)))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (type
@@ -86,22 +86,22 @@ add:(a,b):(a,b)a=b;
                     (no_namespace_identifier
                       (non_template_identifier)))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (block_declaration
+      (non_template_identifier)
       (block_definition
         (left_side_of_definition
           (template_declaration_arguments
             (comma_seperated_declarations
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (type_type)))))
               (function_declaration_argument
                 (declaration
-                  (non_template_identifier)
                   (no_definition_declaration
+                    (non_template_identifier)
                     (type
                       (type_type))))))
             (template_close_token))
@@ -111,8 +111,8 @@ add:(a,b):(a,b)a=b;
                 (comma_seperated_declarations
                   (function_declaration_argument
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -120,8 +120,8 @@ add:(a,b):(a,b)a=b;
                                 (non_template_identifier))))))))
                   (function_declaration_argument
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -160,8 +160,8 @@ add:(a,b):(a,b)a=b;
                       (no_namespace_identifier
                         (non_template_identifier))))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (type
@@ -192,8 +192,8 @@ add:(a,b):(a,b)a=b;
                 (no_namespace_identifier
                   (non_template_identifier)))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (function_type_without_return_type
@@ -217,8 +217,8 @@ add:(a,b):(a,b)a=b;
                 (no_namespace_identifier
                   (non_template_identifier)))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (function_type_without_return_type
@@ -283,8 +283,8 @@ add:(a,b):(a,b)a=b;
                           (no_namespace_identifier
                             (non_template_identifier))))))))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (function_type_without_return_type
@@ -322,8 +322,8 @@ add:(a,b):(a,b)a=b;
                 (no_namespace_identifier
                   (non_template_identifier)))))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (function_type_without_return_type

@@ -65,12 +65,20 @@ module.exports = grammar({
     source_file: ($) => repeat(choice($.declaration, ";")),
 
     declaration: ($) =>
-      seq(
-        $.non_template_identifier,
-        choice($.no_definition_declaration, $.definition),
+      choice(
+        $.no_definition_declaration,
+        $.block_declaration,
+        $.expression_declaration,
       ),
 
-    no_definition_declaration: ($) => seq(":", $.type),
+    block_declaration: ($) =>
+      seq($.non_template_identifier, $.block_definition),
+
+    expression_declaration: ($) =>
+      seq($.non_template_identifier, $.expression_definition),
+
+    no_definition_declaration: ($) =>
+      seq($.non_template_identifier, ":", $.type),
 
     definition: ($) => choice($.block_definition, $.expression_definition),
 
@@ -163,7 +171,7 @@ module.exports = grammar({
         ),
       ),
 
-    block_statement: ($) => "",
+    block_statement: ($) => choice($.block_declaration),
 
     expression: ($) =>
       choice(

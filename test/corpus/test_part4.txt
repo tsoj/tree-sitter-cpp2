@@ -12,8 +12,8 @@ c :== {
 
 (source_file
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (type
@@ -26,16 +26,16 @@ c :== {
             (no_namespace_identifier
               (non_template_identifier)))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition)
         (expression
           (literal
             (float))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (type
@@ -47,8 +47,8 @@ c :== {
           (literal
             (string))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (expression_declaration
+      (non_template_identifier)
       (expression_definition
         (left_side_of_definition
           (type
@@ -57,8 +57,8 @@ c :== {
                 (comma_seperated_declarations
                   (function_declaration_argument
                     (declaration
-                      (non_template_identifier)
                       (no_definition_declaration
+                        (non_template_identifier)
                         (type
                           (expression
                             (any_identifier
@@ -73,8 +73,8 @@ c :== {
           (literal
             (float))))))
   (declaration
-    (non_template_identifier)
-    (definition
+    (block_declaration
+      (non_template_identifier)
       (block_definition
         (left_side_of_definition)
         (block
