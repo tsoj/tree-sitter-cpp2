@@ -148,17 +148,18 @@ add:(a,b):(a,b)a=b;
                                   (non_template_identifier))))))))))))))
         (block
           (statement
-            (return_statement
-              (expression
-                (binary_expression
-                  (expression
-                    (any_identifier
-                      (no_namespace_identifier
-                        (non_template_identifier))))
-                  (expression
-                    (any_identifier
-                      (no_namespace_identifier
-                        (non_template_identifier))))))))))))
+            (non_block_statement
+              (return_statement
+                (expression
+                  (binary_expression
+                    (expression
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier))))
+                    (expression
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier)))))))))))))
   (declaration
     (expression_declaration
       (non_template_identifier)

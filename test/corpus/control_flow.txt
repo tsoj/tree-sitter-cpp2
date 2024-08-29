@@ -42,35 +42,38 @@ hello := {
                     (expression
                       (literal
                         (number)))))
-                (block
-                  (statement
-                    (expression
-                      (function_call
-                        (expression
-                          (any_identifier
-                            (no_namespace_identifier
-                              (non_template_identifier))))
-                        (parentheses_expression
-                          (expression_or_comma_expressions
-                            (expression
-                              (any_identifier
-                                (no_namespace_identifier
-                                  (non_template_identifier))))))))))
                 (block_statement
                   (block
                     (statement
-                      (expression
-                        (function_call
-                          (expression
-                            (any_identifier
-                              (no_namespace_identifier
-                                (non_template_identifier))))
-                          (parentheses_expression
-                            (expression_or_comma_expressions
-                              (expression
-                                (any_identifier
-                                  (no_namespace_identifier
-                                    (non_template_identifier))))))))))))))
+                      (non_block_statement
+                        (expression
+                          (function_call
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))
+                            (parentheses_expression
+                              (expression_or_comma_expressions
+                                (expression
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier))))))))))))
+                (block_statement
+                  (block
+                    (statement
+                      (non_block_statement
+                        (expression
+                          (function_call
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))
+                            (parentheses_expression
+                              (expression_or_comma_expressions
+                                (expression
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier)))))))))))))))
           (statement
             (block_statement
               (if_else_statement
@@ -103,27 +106,31 @@ hello := {
                                           (any_identifier
                                             (no_namespace_identifier
                                               (non_template_identifier))))))))))))))))
-                (block
-                  (statement
-                    (block_statement
-                      (if_else_statement
-                        (expression
-                          (literal
-                            (boolean)))
-                        (block
-                          (statement
-                            (return_statement
+                (block_statement
+                  (block
+                    (statement
+                      (block_statement
+                        (if_else_statement
+                          (expression
+                            (literal
+                              (boolean)))
+                          (block_statement
+                            (block
+                              (statement
+                                (non_block_statement
+                                  (return_statement
+                                    (expression
+                                      (literal
+                                        (boolean))))))))
+                          (block_statement
+                            (if_else_statement
                               (expression
-                                (literal
-                                  (boolean))))))
-                        (block_statement
-                          (if_else_statement
-                            (expression
-                              (binary_expression
-                                (expression
-                                  (literal
-                                    (number)))
-                                (expression
-                                  (literal
-                                    (number)))))
-                            (block)))))))))))))))
+                                (binary_expression
+                                  (expression
+                                    (literal
+                                      (number)))
+                                  (expression
+                                    (literal
+                                      (number)))))
+                              (block_statement
+                                (block)))))))))))))))))

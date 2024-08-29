@@ -44,6 +44,7 @@ module.exports = grammar({
     [$.unary_prefix_expression, $.binary_expression],
     [$.function_type, $.left_side_of_definition],
     [$.declaration, $.block_statement],
+    [$.block_statement, $.do_while_statement],
   ],
 
   precedences: ($) => [
@@ -167,23 +168,61 @@ module.exports = grammar({
     block: ($) => seq("{", repeat($.statement), "}"),
 
     statement: ($) =>
+      choice($.block_statement, seq(optional($.non_block_statement), ";")),
+
+    non_block_statement: ($) =>
       choice(
-        $.block_statement,
-        seq(
-          optional(choice($.declaration, $.return_statement, $.expression)),
-          ";",
-        ),
+        $.declaration,
+        $.return_statement,
+        $.expression,
+        $.do_while_statement,
       ),
 
     block_statement: ($) =>
-      choice($.block_declaration, $.block, $.if_else_statement),
+      choice(
+        $.block_declaration,
+        $.block,
+        $.if_else_statement,
+        $.while_statement,
+        $.do_statement,
+      ),
 
     if_else_statement: ($) =>
+      prec.left(
+        seq(
+          "if",
+          $.expression,
+          $.block_statement,
+          optional(seq("else", $.block_statement)),
+        ),
+      ),
+
+    while_statement: ($) =>
       seq(
-        "if",
+        "while",
         $.expression,
-        $.block,
-        optional(seq("else", $.block_statement)),
+        optional(seq("next", $.expression)),
+        $.block_statement,
+      ),
+
+    for_statement: ($) =>
+      seq(
+        "for",
+        $.expression,
+        optional(seq("next", $.expression)),
+        "do",
+        $.function_type_without_return_type,
+        $.block_statement,
+      ),
+
+    do_statement: ($) => seq("do", $.block_statement),
+
+    do_while_statement: ($) =>
+      seq(
+        $.do_statement,
+        optional(seq("next", $.expression)),
+        "while",
+        $.expression,
       ),
 
     expression: ($) =>
