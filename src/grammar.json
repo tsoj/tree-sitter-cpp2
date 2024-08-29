@@ -602,7 +602,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "do_while_statement"
+          "name": "non_block_loop"
         }
       ]
     },
@@ -627,15 +627,80 @@
         },
         {
           "type": "SYMBOL",
-          "name": "while_statement"
+          "name": "block_loop"
+        }
+      ]
+    },
+    "non_block_loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "non_template_identifier"
+                },
+                {
+                  "type": "STRING",
+                  "value": ":"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
-          "name": "for_statement"
+          "name": "do_while_statement"
+        }
+      ]
+    },
+    "block_loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "non_template_identifier"
+                },
+                {
+                  "type": "STRING",
+                  "value": ":"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
-          "type": "SYMBOL",
-          "name": "do_statement"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "while_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "for_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "do_statement"
+            }
+          ]
         }
       ]
     },
@@ -1964,7 +2029,7 @@
       "block_statement"
     ],
     [
-      "block_statement",
+      "block_loop",
       "do_while_statement"
     ]
   ],

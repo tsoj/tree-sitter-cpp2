@@ -44,7 +44,7 @@ module.exports = grammar({
     [$.unary_prefix_expression, $.binary_expression],
     [$.function_type, $.left_side_of_definition],
     [$.declaration, $.block_statement],
-    [$.block_statement, $.do_while_statement],
+    [$.block_loop, $.do_while_statement],
   ],
 
   precedences: ($) => [
@@ -175,12 +175,7 @@ module.exports = grammar({
       ),
 
     non_block_statement: ($) =>
-      choice(
-        $.declaration,
-        $.return_statement,
-        $.expression,
-        $.do_while_statement,
-      ),
+      choice($.declaration, $.return_statement, $.expression, $.non_block_loop),
 
     block_statement: ($) =>
       choice(
@@ -188,9 +183,16 @@ module.exports = grammar({
         $.block_definition,
         $.block,
         $.if_else_statement,
-        $.while_statement,
-        $.for_statement,
-        $.do_statement,
+        $.block_loop,
+      ),
+
+    non_block_loop: ($) =>
+      seq(optional(seq($.non_template_identifier, ":")), $.do_while_statement),
+
+    block_loop: ($) =>
+      seq(
+        optional(seq($.non_template_identifier, ":")),
+        choice($.while_statement, $.for_statement, $.do_statement),
       ),
 
     if_else_statement: ($) =>
