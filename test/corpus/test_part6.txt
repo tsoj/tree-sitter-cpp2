@@ -1,1 +1,188 @@
+===========================================================
+Start with an ordinary block or statement, and successively add parts
+===========================================================
+main := {
+                        {}
+                        statement;
 
+    (x: int = init)   {}
+    (x: int = init)   statement;
+
+    :(x: int = init) = {}
+    :(x: int = init) = statement;
+
+    f:(x: int = init) = {}
+    f:(x: int = init) = statement;
+
+}
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (block_declaration
+      (non_template_identifier)
+      (block_definition
+        (left_side_of_definition)
+        (block
+          (statement
+            (block_statement
+              (block)))
+          (statement
+            (non_block_statement
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))))))
+          (statement
+            (function_type_without_return_type
+              (comma_seperated_declarations
+                (function_declaration_argument
+                  (declaration
+                    (expression_declaration
+                      (non_template_identifier)
+                      (expression_definition
+                        (left_side_of_definition
+                          (type
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))))
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))))))))))
+            (block_statement
+              (block)))
+          (statement
+            (function_type_without_return_type
+              (comma_seperated_declarations
+                (function_declaration_argument
+                  (declaration
+                    (expression_declaration
+                      (non_template_identifier)
+                      (expression_definition
+                        (left_side_of_definition
+                          (type
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))))
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))))))))))
+            (non_block_statement
+              (expression
+                (any_identifier
+                  (no_namespace_identifier
+                    (non_template_identifier))))))
+          (statement
+            (block_statement
+              (block_definition
+                (left_side_of_definition
+                  (type
+                    (function_type
+                      (function_type_without_return_type
+                        (comma_seperated_declarations
+                          (function_declaration_argument
+                            (declaration
+                              (expression_declaration
+                                (non_template_identifier)
+                                (expression_definition
+                                  (left_side_of_definition
+                                    (type
+                                      (expression
+                                        (any_identifier
+                                          (no_namespace_identifier
+                                            (non_template_identifier))))))
+                                  (expression
+                                    (any_identifier
+                                      (no_namespace_identifier
+                                        (non_template_identifier)))))))))))))
+                (block))))
+          (statement
+            (non_block_statement
+              (expression
+                (definition
+                  (expression_definition
+                    (left_side_of_definition
+                      (type
+                        (function_type
+                          (function_type_without_return_type
+                            (comma_seperated_declarations
+                              (function_declaration_argument
+                                (declaration
+                                  (expression_declaration
+                                    (non_template_identifier)
+                                    (expression_definition
+                                      (left_side_of_definition
+                                        (type
+                                          (expression
+                                            (any_identifier
+                                              (no_namespace_identifier
+                                                (non_template_identifier))))))
+                                      (expression
+                                        (any_identifier
+                                          (no_namespace_identifier
+                                            (non_template_identifier)))))))))))))
+                    (expression
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier)))))))))
+          (statement
+            (block_statement
+              (block_declaration
+                (non_template_identifier)
+                (block_definition
+                  (left_side_of_definition
+                    (type
+                      (function_type
+                        (function_type_without_return_type
+                          (comma_seperated_declarations
+                            (function_declaration_argument
+                              (declaration
+                                (expression_declaration
+                                  (non_template_identifier)
+                                  (expression_definition
+                                    (left_side_of_definition
+                                      (type
+                                        (expression
+                                          (any_identifier
+                                            (no_namespace_identifier
+                                              (non_template_identifier))))))
+                                    (expression
+                                      (any_identifier
+                                        (no_namespace_identifier
+                                          (non_template_identifier)))))))))))))
+                  (block)))))
+          (statement
+            (non_block_statement
+              (declaration
+                (expression_declaration
+                  (non_template_identifier)
+                  (expression_definition
+                    (left_side_of_definition
+                      (type
+                        (function_type
+                          (function_type_without_return_type
+                            (comma_seperated_declarations
+                              (function_declaration_argument
+                                (declaration
+                                  (expression_declaration
+                                    (non_template_identifier)
+                                    (expression_definition
+                                      (left_side_of_definition
+                                        (type
+                                          (expression
+                                            (any_identifier
+                                              (no_namespace_identifier
+                                                (non_template_identifier))))))
+                                      (expression
+                                        (any_identifier
+                                          (no_namespace_identifier
+                                            (non_template_identifier)))))))))))))
+                    (expression
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier))))))))))))))

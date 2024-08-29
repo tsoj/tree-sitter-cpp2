@@ -615,6 +615,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "block_definition"
+        },
+        {
+          "type": "SYMBOL",
           "name": "block"
         },
         {
@@ -2169,6 +2173,16 @@
       {
         "type": "SYMBOL",
         "name": "type"
+      }
+    ],
+    [
+      {
+        "type": "SYMBOL",
+        "name": "block_statement"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "definition"
       }
     ]
   ],
