@@ -168,7 +168,10 @@ module.exports = grammar({
     block: ($) => seq("{", repeat($.statement), "}"),
 
     statement: ($) =>
-      choice($.block_statement, seq(optional($.non_block_statement), ";")),
+      seq(
+        optional($.function_type_without_return_type),
+        choice($.block_statement, seq(optional($.non_block_statement), ";")),
+      ),
 
     non_block_statement: ($) =>
       choice(
@@ -184,6 +187,7 @@ module.exports = grammar({
         $.block,
         $.if_else_statement,
         $.while_statement,
+        $.for_statement,
         $.do_statement,
       ),
 
