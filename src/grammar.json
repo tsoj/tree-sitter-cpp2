@@ -2307,6 +2307,16 @@
         "type": "SYMBOL",
         "name": "definition"
       }
+    ],
+    [
+      {
+        "type": "SYMBOL",
+        "name": "binary_expression"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "expression_definition"
+      }
     ]
   ],
   "externals": [],
