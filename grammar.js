@@ -175,7 +175,14 @@ module.exports = grammar({
       ),
 
     non_block_statement: ($) =>
-      choice($.declaration, $.return_statement, $.expression, $.non_block_loop),
+      choice(
+        $.declaration,
+        $.return_statement,
+        $.continue_statement,
+        $.break_statement,
+        $.expression,
+        $.non_block_loop,
+      ),
 
     block_statement: ($) =>
       choice(
@@ -308,7 +315,9 @@ module.exports = grammar({
     passing_style: ($) =>
       choice("in", "copy", "inout", "out", "move", "forward"),
 
-    return_statement: ($) => seq("return", $.expression),
+    return_statement: ($) => seq("return", optional($.expression)),
+    continue_statement: ($) => seq("continue", optional($.expression)),
+    break_statement: ($) => seq("break", optional($.expression)),
 
     literal: ($) => choice($.number, $.string, $.float, $.boolean),
 
