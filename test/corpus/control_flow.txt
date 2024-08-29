@@ -573,6 +573,17 @@ hello := {
             }
         }
     }
+
+    outer: while i<M next i++
+    inner: for (a, b, c) do (x)
+    inner_most: do {
+        if something() {
+            continue inner;
+        }
+        if something_else() {
+            break outer;
+        }
+    }
 }
 
 -----------------------------------------------------------
@@ -684,4 +695,99 @@ hello := {
                                                               (expression
                                                                 (any_identifier
                                                                   (no_namespace_identifier
-                                                                    (non_template_identifier)))))))))))))))))))))))))))))))))))
+                                                                    (non_template_identifier))))))))))))))))))))))))))))))
+          (statement
+            (block_statement
+              (block_loop
+                (non_template_identifier)
+                (while_statement
+                  (expression
+                    (binary_expression
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier))))
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier))))))
+                  (expression
+                    (unary_expression
+                      (unary_postfix_expression
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier)))))))
+                  (block_statement
+                    (block_loop
+                      (non_template_identifier)
+                      (for_statement
+                        (expression
+                          (parentheses_expression
+                            (expression_or_comma_expressions
+                              (comma_expressions
+                                (expression
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier))))
+                                (expression_or_comma_expressions
+                                  (comma_expressions
+                                    (expression
+                                      (any_identifier
+                                        (no_namespace_identifier
+                                          (non_template_identifier))))
+                                    (expression_or_comma_expressions
+                                      (expression
+                                        (any_identifier
+                                          (no_namespace_identifier
+                                            (non_template_identifier)))))))))))
+                        (function_type_without_return_type
+                          (comma_seperated_declarations
+                            (function_declaration_argument
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))))
+                        (block_statement
+                          (block_loop
+                            (non_template_identifier)
+                            (do_statement
+                              (block_statement
+                                (block
+                                  (statement
+                                    (block_statement
+                                      (if_else_statement
+                                        (expression
+                                          (function_call
+                                            (expression
+                                              (any_identifier
+                                                (no_namespace_identifier
+                                                  (non_template_identifier))))
+                                            (parentheses_expression)))
+                                        (block_statement
+                                          (block
+                                            (statement
+                                              (non_block_statement
+                                                (continue_statement
+                                                  (expression
+                                                    (any_identifier
+                                                      (no_namespace_identifier
+                                                        (non_template_identifier))))))))))))
+                                  (statement
+                                    (block_statement
+                                      (if_else_statement
+                                        (expression
+                                          (function_call
+                                            (expression
+                                              (any_identifier
+                                                (no_namespace_identifier
+                                                  (non_template_identifier))))
+                                            (parentheses_expression)))
+                                        (block_statement
+                                          (block
+                                            (statement
+                                              (non_block_statement
+                                                (break_statement
+                                                  (expression
+                                                    (any_identifier
+                                                      (no_namespace_identifier
+                                                        (non_template_identifier)))))))))))))))))))))))))))))
