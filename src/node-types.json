@@ -87,6 +87,33 @@
     }
   },
   {
+    "type": "block_loop",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "do_statement",
+          "named": true
+        },
+        {
+          "type": "for_statement",
+          "named": true
+        },
+        {
+          "type": "non_template_identifier",
+          "named": true
+        },
+        {
+          "type": "while_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "block_statement",
     "named": true,
     "fields": {},
@@ -107,19 +134,11 @@
           "named": true
         },
         {
-          "type": "do_statement",
-          "named": true
-        },
-        {
-          "type": "for_statement",
+          "type": "block_loop",
           "named": true
         },
         {
           "type": "if_else_statement",
-          "named": true
-        },
-        {
-          "type": "while_statement",
           "named": true
         }
       ]
@@ -662,6 +681,25 @@
     }
   },
   {
+    "type": "non_block_loop",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "do_while_statement",
+          "named": true
+        },
+        {
+          "type": "non_template_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "non_block_statement",
     "named": true,
     "fields": {},
@@ -674,11 +712,11 @@
           "named": true
         },
         {
-          "type": "do_while_statement",
+          "type": "expression",
           "named": true
         },
         {
-          "type": "expression",
+          "type": "non_block_loop",
           "named": true
         },
         {
