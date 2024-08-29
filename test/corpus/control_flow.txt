@@ -160,6 +160,12 @@ hello := {
     {
         print(b);
     }
+
+    (copy i := 0)
+    while i < 10
+    next  i++ {
+        std::cout << i;
+    }
 }
 
 -----------------------------------------------------------
@@ -289,6 +295,243 @@ hello := {
                                       (any_identifier
                                         (no_namespace_identifier
                                           (non_template_identifier))))))))))))
+                    (block_statement
+                      (block
+                        (statement
+                          (non_block_statement
+                            (expression
+                              (function_call
+                                (expression
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier))))
+                                (parentheses_expression
+                                  (expression_or_comma_expressions
+                                    (expression
+                                      (any_identifier
+                                        (no_namespace_identifier
+                                          (non_template_identifier)))))))))))))))))
+          (statement
+            (function_type_without_return_type
+              (comma_seperated_declarations
+                (function_declaration_argument
+                  (passing_style)
+                  (declaration
+                    (expression_declaration
+                      (non_template_identifier)
+                      (expression_definition
+                        (left_side_of_definition)
+                        (expression
+                          (literal
+                            (number)))))))))
+            (block_statement
+              (while_statement
+                (expression
+                  (binary_expression
+                    (expression
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier))))
+                    (expression
+                      (literal
+                        (number)))))
+                (expression
+                  (unary_expression
+                    (unary_postfix_expression
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))))))
+                (block_statement
+                  (block
+                    (statement
+                      (non_block_statement
+                        (expression
+                          (binary_expression
+                            (expression
+                              (any_identifier
+                                (namespaced_identifier
+                                  (no_namespace_identifier
+                                    (non_template_identifier))
+                                  (no_namespace_identifier
+                                    (non_template_identifier)))))
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))))))))))))))))
+
+===========================================================
+for loop
+===========================================================
+
+hello := {
+    for  words
+    next i++
+    do   (inout word)
+    {
+        print(word);
+    }
+
+    (copy i := 0)
+    for (a, b) do (a, b, c := 3)
+    {
+        print(c);
+    }
+
+    for  words
+    next i++
+    do   (word)
+    if   i % 2 == 1
+    {
+        print(i);
+    }
+}
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (block_declaration
+      (non_template_identifier)
+      (block_definition
+        (left_side_of_definition)
+        (block
+          (statement
+            (block_statement
+              (for_statement
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))
+                (expression
+                  (unary_expression
+                    (unary_postfix_expression
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))))))
+                (function_type_without_return_type
+                  (comma_seperated_declarations
+                    (function_declaration_argument
+                      (passing_style)
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier))))))
+                (block_statement
+                  (block
+                    (statement
+                      (non_block_statement
+                        (expression
+                          (function_call
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))
+                            (parentheses_expression
+                              (expression_or_comma_expressions
+                                (expression
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier)))))))))))))))
+          (statement
+            (function_type_without_return_type
+              (comma_seperated_declarations
+                (function_declaration_argument
+                  (passing_style)
+                  (declaration
+                    (expression_declaration
+                      (non_template_identifier)
+                      (expression_definition
+                        (left_side_of_definition)
+                        (expression
+                          (literal
+                            (number)))))))))
+            (block_statement
+              (for_statement
+                (expression
+                  (parentheses_expression
+                    (expression_or_comma_expressions
+                      (comma_expressions
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))))
+                        (expression_or_comma_expressions
+                          (expression
+                            (any_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier)))))))))
+                (function_type_without_return_type
+                  (comma_seperated_declarations
+                    (function_declaration_argument
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier))))
+                    (function_declaration_argument
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier))))
+                    (function_declaration_argument
+                      (declaration
+                        (expression_declaration
+                          (non_template_identifier)
+                          (expression_definition
+                            (left_side_of_definition)
+                            (expression
+                              (literal
+                                (number)))))))))
+                (block_statement
+                  (block
+                    (statement
+                      (non_block_statement
+                        (expression
+                          (function_call
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))
+                            (parentheses_expression
+                              (expression_or_comma_expressions
+                                (expression
+                                  (any_identifier
+                                    (no_namespace_identifier
+                                      (non_template_identifier)))))))))))))))
+          (statement
+            (block_statement
+              (for_statement
+                (expression
+                  (any_identifier
+                    (no_namespace_identifier
+                      (non_template_identifier))))
+                (expression
+                  (unary_expression
+                    (unary_postfix_expression
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier)))))))
+                (function_type_without_return_type
+                  (comma_seperated_declarations
+                    (function_declaration_argument
+                      (any_identifier
+                        (no_namespace_identifier
+                          (non_template_identifier))))))
+                (block_statement
+                  (if_else_statement
+                    (expression
+                      (binary_expression
+                        (expression
+                          (binary_expression
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier))))
+                            (expression
+                              (literal
+                                (number)))))
+                        (expression
+                          (literal
+                            (number)))))
                     (block_statement
                       (block
                         (statement
