@@ -103,7 +103,15 @@
           "named": true
         },
         {
+          "type": "do_statement",
+          "named": true
+        },
+        {
           "type": "if_else_statement",
+          "named": true
+        },
+        {
+          "type": "while_statement",
           "named": true
         }
       ]
@@ -208,6 +216,40 @@
         },
         {
           "type": "expression_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "do_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "do_while_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "do_statement",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         }
       ]
@@ -414,10 +456,6 @@
       "required": true,
       "types": [
         {
-          "type": "block",
-          "named": true
-        },
-        {
           "type": "block_statement",
           "named": true
         },
@@ -593,6 +631,33 @@
     }
   },
   {
+    "type": "non_block_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "do_while_statement",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "return_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "parentheses_expression",
     "named": true,
     "fields": {},
@@ -655,15 +720,7 @@
           "named": true
         },
         {
-          "type": "declaration",
-          "named": true
-        },
-        {
-          "type": "expression",
-          "named": true
-        },
-        {
-          "type": "return_statement",
+          "type": "non_block_statement",
           "named": true
         }
       ]
@@ -791,6 +848,25 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "while_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block_statement",
+          "named": true
+        },
         {
           "type": "expression",
           "named": true
@@ -995,6 +1071,10 @@
     "named": false
   },
   {
+    "type": "do",
+    "named": false
+  },
+  {
     "type": "else",
     "named": false
   },
@@ -1005,6 +1085,10 @@
   {
     "type": "float",
     "named": true
+  },
+  {
+    "type": "for",
+    "named": false
   },
   {
     "type": "forward",
@@ -1024,6 +1108,10 @@
   },
   {
     "type": "move",
+    "named": false
+  },
+  {
+    "type": "next",
     "named": false
   },
   {
@@ -1057,6 +1145,10 @@
   {
     "type": "type_type",
     "named": true
+  },
+  {
+    "type": "while",
+    "named": false
   },
   {
     "type": "{",

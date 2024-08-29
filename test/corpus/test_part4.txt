@@ -79,7 +79,8 @@ c :== {
         (left_side_of_definition)
         (block
           (statement
-            (return_statement
-              (expression
-                (literal
-                  (boolean))))))))))
+            (non_block_statement
+              (return_statement
+                (expression
+                  (literal
+                    (boolean)))))))))))
