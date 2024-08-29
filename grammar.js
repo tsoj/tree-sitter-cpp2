@@ -63,6 +63,7 @@ module.exports = grammar({
     [$.comma_expressions, $.expression_or_comma_expressions],
     [$.expression_or_comma_expressions, $.type],
     [$.block_statement, $.definition],
+    [$.binary_expression, $.expression_definition],
   ],
 
   rules: {
