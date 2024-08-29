@@ -103,6 +103,10 @@
           "named": true
         },
         {
+          "type": "block_definition",
+          "named": true
+        },
+        {
           "type": "do_statement",
           "named": true
         },

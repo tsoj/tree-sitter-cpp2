@@ -62,6 +62,7 @@ module.exports = grammar({
     [$.function_type_without_return_type, $.parentheses_expression],
     [$.comma_expressions, $.expression_or_comma_expressions],
     [$.expression_or_comma_expressions, $.type],
+    [$.block_statement, $.definition],
   ],
 
   rules: {
@@ -184,6 +185,7 @@ module.exports = grammar({
     block_statement: ($) =>
       choice(
         $.block_declaration,
+        $.block_definition,
         $.block,
         $.if_else_statement,
         $.while_statement,
