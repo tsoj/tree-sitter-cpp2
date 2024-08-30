@@ -15,7 +15,8 @@ mytype: type =
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition
           (type
@@ -26,20 +27,24 @@ mytype: type =
               (declaration
                 (no_definition_declaration
                   (declaration_left_side
-                    (non_template_identifier))
+                    (non_template_identifier
+                      (ordinary_identifier)))
                   (type
                     (expression
                       (any_identifier
                         (namespaced_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))
+                            (non_template_identifier
+                              (ordinary_identifier)))
                           (no_namespace_identifier
-                            (non_template_identifier))))))))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))))))))
           (statement
             (block_statement
               (block_declaration
                 (declaration_left_side
-                  (non_template_identifier))
+                  (non_template_identifier
+                    (ordinary_identifier)))
                 (block_definition
                   (left_side_of_definition
                     (type
@@ -49,7 +54,8 @@ mytype: type =
                             (function_declaration_argument
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier)))))))))
+                                  (non_template_identifier
+                                    (ordinary_identifier))))))))))
                   (block
                     (statement
                       (non_block_statement
@@ -58,24 +64,28 @@ mytype: type =
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))
                             (parentheses_expression
                               (expression_or_comma_expressions
                                 (expression
                                   (any_identifier
                                     (no_namespace_identifier
-                                      (non_template_identifier)))))))))))))))
+                                      (non_template_identifier
+                                        (ordinary_identifier))))))))))))))))
           (statement
             (non_block_statement
               (declaration
                 (no_definition_declaration
                   (declaration_left_side
-                    (non_template_identifier))
+                    (non_template_identifier
+                      (ordinary_identifier)))
                   (type
                     (expression
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier))))))))))))))
+                          (non_template_identifier
+                            (ordinary_identifier)))))))))))))))
 
 ===========================================================
 parameter direction
@@ -99,7 +109,8 @@ derived: type
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition
           (type
@@ -110,7 +121,8 @@ derived: type
               (declaration
                 (no_definition_declaration
                   (declaration_left_side
-                    (non_template_identifier))
+                    (non_template_identifier
+                      (ordinary_identifier)))
                   (type
                     (function_type
                       (function_type_without_return_type
@@ -120,24 +132,29 @@ derived: type
                             (passing_style)
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))
                           (function_declaration_argument
                             (declaration
                               (no_definition_declaration
                                 (declaration_left_side
-                                  (non_template_identifier))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))
                                 (type
                                   (expression
                                     (any_identifier
                                       (namespaced_identifier
                                         (no_namespace_identifier
-                                          (non_template_identifier))
+                                          (non_template_identifier
+                                            (ordinary_identifier)))
                                         (no_namespace_identifier
-                                          (non_template_identifier)))))))))))))))))))))
+                                          (non_template_identifier
+                                            (ordinary_identifier))))))))))))))))))))))
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition
           (type
@@ -148,17 +165,20 @@ derived: type
               (declaration
                 (no_definition_declaration
                   (declaration_left_side
-                    (non_template_identifier))
+                    (non_template_identifier
+                      (ordinary_identifier)))
                   (type
                     (expression
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier)))))))))
+                          (non_template_identifier
+                            (ordinary_identifier))))))))))
           (statement
             (block_statement
               (block_declaration
                 (declaration_left_side
-                  (non_template_identifier))
+                  (non_template_identifier
+                    (ordinary_identifier)))
                 (block_definition
                   (left_side_of_definition
                     (type
@@ -170,18 +190,22 @@ derived: type
                               (passing_style)
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))
                             (function_declaration_argument
                               (declaration
                                 (no_definition_declaration
                                   (declaration_left_side
-                                    (non_template_identifier))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))
                                   (type
                                     (expression
                                       (any_identifier
                                         (namespaced_identifier
                                           (no_namespace_identifier
-                                            (non_template_identifier))
+                                            (non_template_identifier
+                                              (ordinary_identifier)))
                                           (no_namespace_identifier
-                                            (non_template_identifier))))))))))))))
+                                            (non_template_identifier
+                                              (ordinary_identifier)))))))))))))))
                   (block))))))))))

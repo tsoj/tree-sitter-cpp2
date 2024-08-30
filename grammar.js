@@ -1,5 +1,7 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
+
+const unary_operators = ["++", "--", "*", "&", "&&", "~", "$", "..."];
 const binary_operators = [
   "*",
   "/",
@@ -47,6 +49,7 @@ module.exports = grammar({
     [$.block_loop, $.do_while_statement],
     [$.declaration_left_side, $.non_block_loop, $.block_loop],
     [$.declaration_left_side, $.block_loop],
+    [$.type, $.unary_postfix_expression, $.binary_expression],
   ],
 
   precedences: ($) => [
@@ -57,6 +60,7 @@ module.exports = grammar({
       $.bracket_call,
       $.unary_postfix_expression,
       $.unary_prefix_expression,
+      $.type,
     ],
     binary_operators,
     [$.type, $.binary_expression],
@@ -66,6 +70,8 @@ module.exports = grammar({
     [$.expression_or_comma_expressions, $.type],
     [$.block_statement, $.definition],
     [$.binary_expression, $.expression_definition],
+    [$.operator_keyword, $._const_and_star],
+    [$.operator_keyword, $.unary_prefix_expression],
   ],
 
   rules: {
@@ -138,13 +144,15 @@ module.exports = grammar({
       ),
 
     any_identifier: ($) =>
-      choice($.no_namespace_identifier, $.namespaced_identifier),
+      prec.left(choice($.no_namespace_identifier, $.namespaced_identifier)),
 
     namespaced_identifier: ($) =>
-      seq(
-        choice(seq($.no_namespace_identifier, "::"), " ::"),
-        $.no_namespace_identifier,
-        repeat(seq("::", $.no_namespace_identifier)),
+      prec.left(
+        seq(
+          choice(seq($.no_namespace_identifier, "::"), " ::"),
+          $.no_namespace_identifier,
+          repeat(seq("::", $.no_namespace_identifier)),
+        ),
       ),
 
     no_namespace_identifier: ($) =>
@@ -153,17 +161,41 @@ module.exports = grammar({
     template_identifier: ($) =>
       seq($.non_template_identifier, $.template_call_arguments),
 
-    non_template_identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    non_template_identifier: ($) =>
+      choice($.operator_keyword, $.ordinary_identifier),
+
+    ordinary_identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
+
+    operator_keyword: ($) =>
+      seq(
+        "operator",
+        choice(
+          $.type,
+          seq("new", "[]"),
+          seq("delete", "[]"),
+          ...[
+            ...new Set([
+              ...binary_operators,
+              ...unary_operators,
+              "co_await",
+              "new",
+              "delete",
+              '""',
+            ]),
+          ].map((operator) => {
+            return operator;
+          }),
+        ),
+      ),
 
     type: ($) =>
       choice(
-        seq(
-          repeat(choice("const", "*")),
-          choice($.expression, $.function_type),
-        ),
+        seq(optional($._const_and_star), choice($.expression, $.function_type)),
         $.type_type,
         $.namespace_type,
       ),
+
+    _const_and_star: ($) => repeat1(choice("const", "*")),
 
     type_type: ($) => "type",
     namespace_type: ($) => "namespace",
@@ -282,7 +314,7 @@ module.exports = grammar({
         $.expression,
         // the reason we have &&  additionally to & is for issues
         // with conflicting tokenization with the binary operator &&
-        choice("++", "--", "*", "&", "&&", "~", "$", "..."),
+        choice(...unary_operators),
       ),
 
     unary_prefix_expression: ($) => seq(choice("-", "+", "!"), $.expression),

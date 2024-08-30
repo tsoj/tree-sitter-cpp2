@@ -8,12 +8,14 @@ p: const * * const i32;
   (declaration
     (no_definition_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (type
         (expression
           (any_identifier
             (no_namespace_identifier
-              (non_template_identifier))))))))
+              (non_template_identifier
+                (ordinary_identifier)))))))))
 
 ===========================================================
 bracket call and member access
@@ -28,7 +30,8 @@ is_void := u**.identifier* == "void";
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -42,22 +45,26 @@ is_void := u**.identifier* == "void";
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))))
+                              (non_template_identifier
+                                (ordinary_identifier))))))))
                   (expression_or_comma_expressions
                     (expression
                       (binary_expression
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))))))))))))
+                              (non_template_identifier
+                                (ordinary_identifier))))))))))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -76,10 +83,12 @@ is_void := u**.identifier* == "void";
                                   (expression
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier))))))))))
+                                        (non_template_identifier
+                                          (ordinary_identifier)))))))))))
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier))))))))
+                          (non_template_identifier
+                            (ordinary_identifier)))))))))
             (expression
               (literal
                 (string)))))))))
@@ -100,7 +109,8 @@ a := b... * 3;
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -109,28 +119,33 @@ a := b... * 3;
               (any_identifier
                 (no_namespace_identifier
                   (template_identifier
-                    (non_template_identifier)
+                    (non_template_identifier
+                      (ordinary_identifier))
                     (template_call_arguments
                       (expression_or_comma_expressions
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))))))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))))))))
             (expression
               (any_identifier
                 (no_namespace_identifier
                   (template_identifier
-                    (non_template_identifier)
+                    (non_template_identifier
+                      (ordinary_identifier))
                     (template_call_arguments
                       (expression_or_comma_expressions
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))))))))))))
+                              (non_template_identifier
+                                (ordinary_identifier))))))))))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -138,14 +153,17 @@ a := b... * 3;
             (expression
               (any_identifier
                 (no_namespace_identifier
-                  (non_template_identifier))))
+                  (non_template_identifier
+                    (ordinary_identifier)))))
             (any_identifier
               (no_namespace_identifier
-                (non_template_identifier))))))))
+                (non_template_identifier
+                  (ordinary_identifier)))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -153,21 +171,25 @@ a := b... * 3;
             (expression
               (any_identifier
                 (no_namespace_identifier
-                  (non_template_identifier))))
+                  (non_template_identifier
+                    (ordinary_identifier)))))
             (any_identifier
               (no_namespace_identifier
                 (template_identifier
-                  (non_template_identifier)
+                  (non_template_identifier
+                    (ordinary_identifier))
                   (template_call_arguments
                     (expression_or_comma_expressions
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))))))))))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))))))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -175,22 +197,26 @@ a := b... * 3;
             (expression
               (any_identifier
                 (no_namespace_identifier
-                  (non_template_identifier))))
+                  (non_template_identifier
+                    (ordinary_identifier)))))
             (any_identifier
               (no_namespace_identifier
                 (template_identifier
-                  (non_template_identifier)
+                  (non_template_identifier
+                    (ordinary_identifier))
                   (template_call_arguments
                     (expression_or_comma_expressions
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier)))))))))
+                            (non_template_identifier
+                              (ordinary_identifier))))))))))
             (parentheses_expression))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -201,7 +227,8 @@ a := b... * 3;
                   (expression
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier)))))))
+                        (non_template_identifier
+                          (ordinary_identifier))))))))
             (expression
               (literal
                 (number)))))))))

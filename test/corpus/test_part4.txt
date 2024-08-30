@@ -14,22 +14,26 @@ c :== {
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition
           (type
             (expression
               (any_identifier
                 (no_namespace_identifier
-                  (non_template_identifier))))))
+                  (non_template_identifier
+                    (ordinary_identifier)))))))
         (expression
           (any_identifier
             (no_namespace_identifier
-              (non_template_identifier)))))))
+              (non_template_identifier
+                (ordinary_identifier))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -38,21 +42,24 @@ c :== {
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition
           (type
             (expression
               (any_identifier
                 (no_namespace_identifier
-                  (non_template_identifier))))))
+                  (non_template_identifier
+                    (ordinary_identifier)))))))
         (expression
           (literal
             (string))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition
           (type
@@ -63,24 +70,28 @@ c :== {
                     (declaration
                       (no_definition_declaration
                         (declaration_left_side
-                          (non_template_identifier))
+                          (non_template_identifier
+                            (ordinary_identifier)))
                         (type
                           (expression
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))))))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))))))))
               (type
                 (expression
                   (any_identifier
                     (no_namespace_identifier
-                      (non_template_identifier))))))))
+                      (non_template_identifier
+                        (ordinary_identifier)))))))))
         (expression
           (literal
             (float))))))
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition)
         (block
