@@ -491,8 +491,7 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                   (no_definition_declaration
                     (non_template_identifier)
                     (type
-                      (type_type))))))
-            (template_close_token))
+                      (type_type)))))))
           (type
             (function_type
               (function_type_without_return_type
@@ -558,8 +557,7 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                   (no_definition_declaration
                     (non_template_identifier)
                     (type
-                      (type_type))))))
-            (template_close_token))
+                      (type_type)))))))
           (type
             (type_type)))
         (block
@@ -612,8 +610,7 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                   (no_definition_declaration
                     (non_template_identifier)
                     (type
-                      (type_type))))))
-            (template_close_token))
+                      (type_type)))))))
           (type
             (type_type)))
         (block
@@ -728,8 +725,7 @@ main: () = {
                                 (expression
                                   (any_identifier
                                     (no_namespace_identifier
-                                      (non_template_identifier)))))
-                              (template_close_token))))))))))))))))
+                                      (non_template_identifier))))))))))))))))))))
 
 ===========================================================
 more calling templates
@@ -760,8 +756,7 @@ a := hello<b, c>;
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))))
-                  (template_close_token))))))))))
+                              (non_template_identifier))))))))))))))))
 
 ===========================================================
 binary op order
@@ -860,8 +855,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))
-                      (template_close_token))))))
+                              (non_template_identifier))))))))))
             (expression
               (any_identifier
                 (no_namespace_identifier
@@ -872,8 +866,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))
-                      (template_close_token)))))))))))
+                              (non_template_identifier)))))))))))))))
   (declaration
     (expression_declaration
       (non_template_identifier)
@@ -893,8 +886,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier)))))
-                          (template_close_token))))))
+                                  (non_template_identifier))))))))))
                 (expression
                   (any_identifier
                     (no_namespace_identifier
@@ -905,8 +897,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier)))))
-                          (template_close_token))))))))
+                                  (non_template_identifier))))))))))))
             (expression
               (any_identifier
                 (no_namespace_identifier
@@ -917,8 +908,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))
-                      (template_close_token)))))))))))
+                              (non_template_identifier)))))))))))))))
   (declaration
     (expression_declaration
       (non_template_identifier)
@@ -936,8 +926,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))
-                      (template_close_token))))))
+                              (non_template_identifier))))))))))
             (parentheses_expression
               (expression_or_comma_expressions
                 (expression
@@ -965,8 +954,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier)))))))))
-            (template_close_token)))
+                            (non_template_identifier)))))))))))
         (expression
           (function_call
             (expression
@@ -997,8 +985,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                                     (expression
                                       (any_identifier
                                         (no_namespace_identifier
-                                          (non_template_identifier)))))))))))
-                      (template_close_token))))))
+                                          (non_template_identifier))))))))))))))))
             (parentheses_expression
               (expression_or_comma_expressions
                 (comma_expressions
@@ -1032,8 +1019,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier)))))))))
-            (template_close_token)))
+                            (non_template_identifier)))))))))))
         (expression
           (function_call
             (expression
@@ -1054,8 +1040,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                                       (expression
                                         (any_identifier
                                           (no_namespace_identifier
-                                            (non_template_identifier)))))
-                                    (template_close_token))))))
+                                            (non_template_identifier))))))))))
                           (expression_or_comma_expressions
                             (comma_expressions
                               (expression
@@ -1087,8 +1072,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                                     (expression
                                       (any_identifier
                                         (no_namespace_identifier
-                                          (non_template_identifier)))))))))))
-                      (template_close_token))))))
+                                          (non_template_identifier))))))))))))))))
             (parentheses_expression
               (expression_or_comma_expressions
                 (comma_expressions
@@ -1122,8 +1106,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier)))))))))
-            (template_close_token))
+                            (non_template_identifier))))))))))
           (type
             (expression
               (any_identifier
@@ -1140,8 +1123,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier)))))))
-                      (template_close_token))))))))
+                                  (non_template_identifier))))))))))))))
         (expression
           (function_call
             (expression
@@ -1162,8 +1144,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                                       (expression
                                         (any_identifier
                                           (no_namespace_identifier
-                                            (non_template_identifier)))))
-                                    (template_close_token))))))
+                                            (non_template_identifier))))))))))
                           (expression_or_comma_expressions
                             (comma_expressions
                               (expression
@@ -1195,8 +1176,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                                     (expression
                                       (any_identifier
                                         (no_namespace_identifier
-                                          (non_template_identifier)))))))))))
-                      (template_close_token))))))
+                                          (non_template_identifier))))))))))))))))
             (parentheses_expression
               (expression_or_comma_expressions
                 (comma_expressions
@@ -1243,9 +1223,7 @@ a := hello<b<a>> >> hello<a, b<c, d<(e > b), (f>>g)>>>;
                                     (expression
                                       (any_identifier
                                         (no_namespace_identifier
-                                          (non_template_identifier)))))
-                                  (template_close_token)))))))
-                      (template_close_token))))))
+                                          (non_template_identifier))))))))))))))))
             (expression
               (any_identifier
                 (no_namespace_identifier
@@ -1306,7 +1284,4 @@ a := hello<b<a>> >> hello<a, b<c, d<(e > b), (f>>g)>>>;
                                                                       (expression
                                                                         (any_identifier
                                                                           (no_namespace_identifier
-                                                                            (non_template_identifier))))))))))))
-                                                      (template_close_token)))))))))
-                                      (template_close_token)))))))))
-                      (template_close_token))))))))))))
+                                                                            (non_template_identifier)))))))))))))))))))))))))))))))))))))))
