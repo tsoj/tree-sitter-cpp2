@@ -78,8 +78,38 @@
       ]
     },
     "declaration_left_side": {
-      "type": "SYMBOL",
-      "name": "non_template_identifier"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "public"
+                },
+                {
+                  "type": "STRING",
+                  "value": "protected"
+                },
+                {
+                  "type": "STRING",
+                  "value": "private"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "non_template_identifier"
+        }
+      ]
     },
     "definition": {
       "type": "CHOICE",

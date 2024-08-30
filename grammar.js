@@ -85,7 +85,11 @@ module.exports = grammar({
 
     no_definition_declaration: ($) => seq($.declaration_left_side, ":", $.type),
 
-    declaration_left_side: ($) => $.non_template_identifier,
+    declaration_left_side: ($) =>
+      seq(
+        optional(choice("public", "protected", "private")),
+        $.non_template_identifier,
+      ),
 
     definition: ($) => choice($.block_definition, $.expression_definition),
 
