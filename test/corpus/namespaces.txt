@@ -26,7 +26,8 @@ main: () = {
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition
           (type
@@ -36,7 +37,8 @@ main: () = {
             (block_statement
               (block_declaration
                 (declaration_left_side
-                  (non_template_identifier))
+                  (non_template_identifier
+                    (ordinary_identifier)))
                 (block_definition
                   (left_side_of_definition
                     (type
@@ -45,7 +47,8 @@ main: () = {
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition
           (type
@@ -57,7 +60,8 @@ main: () = {
               (declaration
                 (expression_declaration
                   (declaration_left_side
-                    (non_template_identifier))
+                    (non_template_identifier
+                      (ordinary_identifier)))
                   (expression_definition
                     (left_side_of_definition
                       (type
@@ -65,15 +69,18 @@ main: () = {
                           (any_identifier
                             (namespaced_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))
+                                (non_template_identifier
+                                  (ordinary_identifier)))
                               (no_namespace_identifier
-                                (non_template_identifier)))))))
+                                (non_template_identifier
+                                  (ordinary_identifier))))))))
                     (expression
                       (function_call
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))
                         (parentheses_expression))))))))
           (statement
             (block_statement
@@ -85,28 +92,33 @@ main: () = {
                         (any_identifier
                           (namespaced_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))
+                              (non_template_identifier
+                                (ordinary_identifier)))
                             (no_namespace_identifier
-                              (non_template_identifier))))))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))))))
                 (statement
                   (non_block_statement
                     (declaration
                       (expression_declaration
                         (declaration_left_side
-                          (non_template_identifier))
+                          (non_template_identifier
+                            (ordinary_identifier)))
                         (expression_definition
                           (left_side_of_definition
                             (type
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier))))))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))))))
                           (expression
                             (function_call
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier))))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))))
                               (parentheses_expression)))))))))))
           (statement
             (block_statement
@@ -118,26 +130,31 @@ main: () = {
                         (any_identifier
                           (namespaced_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))
+                              (non_template_identifier
+                                (ordinary_identifier)))
                             (no_namespace_identifier
-                              (non_template_identifier))))))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))))))
                 (statement
                   (non_block_statement
                     (declaration
                       (expression_declaration
                         (declaration_left_side
-                          (non_template_identifier))
+                          (non_template_identifier
+                            (ordinary_identifier)))
                         (expression_definition
                           (left_side_of_definition
                             (type
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier))))))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))))))
                           (expression
                             (function_call
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier))))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))))
                               (parentheses_expression))))))))))))))))

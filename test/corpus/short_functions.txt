@@ -21,7 +21,8 @@ add:(a,b):(a,b)a=b;
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition
           (type
@@ -33,21 +34,25 @@ add:(a,b):(a,b)a=b;
                     (expression
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier))))
+                          (non_template_identifier
+                            (ordinary_identifier)))))
                     (parentheses_expression
                       (expression_or_comma_expressions
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))))))))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))))))))))
         (expression
           (any_identifier
             (no_namespace_identifier
-              (non_template_identifier)))))))
+              (non_template_identifier
+                (ordinary_identifier))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition
           (type
@@ -61,13 +66,15 @@ add:(a,b):(a,b)a=b;
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))
                         (parentheses_expression
                           (expression_or_comma_expressions
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))))))
                     (expression
                       (literal
                         (number)))))))))
@@ -76,21 +83,25 @@ add:(a,b):(a,b)a=b;
             (expression
               (any_identifier
                 (no_namespace_identifier
-                  (non_template_identifier))))
+                  (non_template_identifier
+                    (ordinary_identifier)))))
             (expression
               (binary_expression
                 (expression
                   (any_identifier
                     (no_namespace_identifier
-                      (non_template_identifier))))
+                      (non_template_identifier
+                        (ordinary_identifier)))))
                 (expression
                   (any_identifier
                     (no_namespace_identifier
-                      (non_template_identifier)))))))))))
+                      (non_template_identifier
+                        (ordinary_identifier))))))))))))
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition
           (template_declaration_arguments
@@ -99,14 +110,16 @@ add:(a,b):(a,b)a=b;
                 (declaration
                   (no_definition_declaration
                     (declaration_left_side
-                      (non_template_identifier))
+                      (non_template_identifier
+                        (ordinary_identifier)))
                     (type
                       (type_type)))))
               (function_declaration_argument
                 (declaration
                   (no_definition_declaration
                     (declaration_left_side
-                      (non_template_identifier))
+                      (non_template_identifier
+                        (ordinary_identifier)))
                     (type
                       (type_type)))))))
           (type
@@ -117,29 +130,34 @@ add:(a,b):(a,b)a=b;
                     (declaration
                       (no_definition_declaration
                         (declaration_left_side
-                          (non_template_identifier))
+                          (non_template_identifier
+                            (ordinary_identifier)))
                         (type
                           (expression
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))))))
                   (function_declaration_argument
                     (declaration
                       (no_definition_declaration
                         (declaration_left_side
-                          (non_template_identifier))
+                          (non_template_identifier
+                            (ordinary_identifier)))
                         (type
                           (expression
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))))))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))))))))
               (type
                 (expression
                   (function_call
                     (expression
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier))))
+                          (non_template_identifier
+                            (ordinary_identifier)))))
                     (parentheses_expression
                       (expression_or_comma_expressions
                         (expression
@@ -147,11 +165,13 @@ add:(a,b):(a,b)a=b;
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))))))))))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))))))))))))
         (block
           (statement
             (non_block_statement
@@ -161,15 +181,18 @@ add:(a,b):(a,b)a=b;
                     (expression
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier))))
+                          (non_template_identifier
+                            (ordinary_identifier)))))
                     (expression
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier)))))))))))))
+                          (non_template_identifier
+                            (ordinary_identifier))))))))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition
           (type
@@ -179,30 +202,36 @@ add:(a,b):(a,b)a=b;
                   (function_declaration_argument
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))
                   (function_declaration_argument
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))))
               (type
                 (expression
                   (any_identifier
                     (no_namespace_identifier
-                      (non_template_identifier))))))))
+                      (non_template_identifier
+                        (ordinary_identifier)))))))))
         (expression
           (binary_expression
             (expression
               (any_identifier
                 (no_namespace_identifier
-                  (non_template_identifier))))
+                  (non_template_identifier
+                    (ordinary_identifier)))))
             (expression
               (any_identifier
                 (no_namespace_identifier
-                  (non_template_identifier)))))))))
+                  (non_template_identifier
+                    (ordinary_identifier))))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition
           (function_type_without_return_type
@@ -210,25 +239,30 @@ add:(a,b):(a,b)a=b;
               (function_declaration_argument
                 (any_identifier
                   (no_namespace_identifier
-                    (non_template_identifier))))
+                    (non_template_identifier
+                      (ordinary_identifier)))))
               (function_declaration_argument
                 (any_identifier
                   (no_namespace_identifier
-                    (non_template_identifier)))))))
+                    (non_template_identifier
+                      (ordinary_identifier))))))))
         (expression
           (binary_expression
             (expression
               (any_identifier
                 (no_namespace_identifier
-                  (non_template_identifier))))
+                  (non_template_identifier
+                    (ordinary_identifier)))))
             (expression
               (any_identifier
                 (no_namespace_identifier
-                  (non_template_identifier)))))))))
+                  (non_template_identifier
+                    (ordinary_identifier))))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition
           (function_type_without_return_type
@@ -236,11 +270,13 @@ add:(a,b):(a,b)a=b;
               (function_declaration_argument
                 (any_identifier
                   (no_namespace_identifier
-                    (non_template_identifier))))
+                    (non_template_identifier
+                      (ordinary_identifier)))))
               (function_declaration_argument
                 (any_identifier
                   (no_namespace_identifier
-                    (non_template_identifier)))))))
+                    (non_template_identifier
+                      (ordinary_identifier))))))))
         (expression
           (binary_expression
             (expression
@@ -263,21 +299,25 @@ add:(a,b):(a,b)a=b;
                                               (any_identifier
                                                 (no_namespace_identifier
                                                   (template_identifier
-                                                    (non_template_identifier)
+                                                    (non_template_identifier
+                                                      (ordinary_identifier))
                                                     (template_call_arguments
                                                       (expression_or_comma_expressions
                                                         (expression
                                                           (any_identifier
                                                             (no_namespace_identifier
-                                                              (non_template_identifier))))))))))))))))
+                                                              (non_template_identifier
+                                                                (ordinary_identifier)))))))))))))))))
                                 (expression
                                   (any_identifier
                                     (no_namespace_identifier
-                                      (non_template_identifier))))))
+                                      (non_template_identifier
+                                        (ordinary_identifier)))))))
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))))))))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))))))))))
             (expression
               (parentheses_expression
                 (expression_or_comma_expressions
@@ -286,15 +326,18 @@ add:(a,b):(a,b)a=b;
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))))))))))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))))))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition
           (function_type_without_return_type
@@ -302,11 +345,13 @@ add:(a,b):(a,b)a=b;
               (function_declaration_argument
                 (any_identifier
                   (no_namespace_identifier
-                    (non_template_identifier))))
+                    (non_template_identifier
+                      (ordinary_identifier)))))
               (function_declaration_argument
                 (any_identifier
                   (no_namespace_identifier
-                    (non_template_identifier)))))))
+                    (non_template_identifier
+                      (ordinary_identifier))))))))
         (expression
           (definition
             (expression_definition
@@ -316,25 +361,30 @@ add:(a,b):(a,b)a=b;
                     (function_declaration_argument
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier))))
+                          (non_template_identifier
+                            (ordinary_identifier)))))
                     (function_declaration_argument
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier)))))))
+                          (non_template_identifier
+                            (ordinary_identifier))))))))
               (expression
                 (binary_expression
                   (expression
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))
                   (expression
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))))))))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition
           (function_type_without_return_type
@@ -342,11 +392,13 @@ add:(a,b):(a,b)a=b;
               (function_declaration_argument
                 (any_identifier
                   (no_namespace_identifier
-                    (non_template_identifier))))
+                    (non_template_identifier
+                      (ordinary_identifier)))))
               (function_declaration_argument
                 (any_identifier
                   (no_namespace_identifier
-                    (non_template_identifier)))))))
+                    (non_template_identifier
+                      (ordinary_identifier))))))))
         (expression
           (definition
             (expression_definition
@@ -356,21 +408,25 @@ add:(a,b):(a,b)a=b;
                     (function_declaration_argument
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier))))
+                          (non_template_identifier
+                            (ordinary_identifier)))))
                     (function_declaration_argument
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier)))))))
+                          (non_template_identifier
+                            (ordinary_identifier))))))))
               (expression
                 (binary_expression
                   (expression
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))
                   (expression
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier)))))))))))))
+                        (non_template_identifier
+                          (ordinary_identifier))))))))))))))
 
 ===========================================================
 more unnamed short functions
@@ -392,7 +448,8 @@ main := {
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition)
         (block
@@ -404,18 +461,22 @@ main := {
                     (any_identifier
                       (namespaced_identifier
                         (no_namespace_identifier
-                          (non_template_identifier))
+                          (non_template_identifier
+                            (ordinary_identifier)))
                         (no_namespace_identifier
-                          (non_template_identifier))
+                          (non_template_identifier
+                            (ordinary_identifier)))
                         (no_namespace_identifier
-                          (non_template_identifier)))))
+                          (non_template_identifier
+                            (ordinary_identifier))))))
                   (parentheses_expression
                     (expression_or_comma_expressions
                       (comma_expressions
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))
                         (expression_or_comma_expressions
                           (expression
                             (definition
@@ -428,20 +489,24 @@ main := {
                                           (function_declaration_argument
                                             (any_identifier
                                               (no_namespace_identifier
-                                                (non_template_identifier)))))))))
+                                                (non_template_identifier
+                                                  (ordinary_identifier))))))))))
                                 (expression
                                   (binary_expression
                                     (expression
                                       (any_identifier
                                         (namespaced_identifier
                                           (no_namespace_identifier
-                                            (non_template_identifier))
+                                            (non_template_identifier
+                                              (ordinary_identifier)))
                                           (no_namespace_identifier
-                                            (non_template_identifier)))))
+                                            (non_template_identifier
+                                              (ordinary_identifier))))))
                                     (expression
                                       (any_identifier
                                         (no_namespace_identifier
-                                          (non_template_identifier)))))))))))))))))
+                                          (non_template_identifier
+                                            (ordinary_identifier))))))))))))))))))
           (statement
             (non_block_statement
               (expression
@@ -450,24 +515,29 @@ main := {
                     (any_identifier
                       (namespaced_identifier
                         (no_namespace_identifier
-                          (non_template_identifier))
+                          (non_template_identifier
+                            (ordinary_identifier)))
                         (no_namespace_identifier
-                          (non_template_identifier))
+                          (non_template_identifier
+                            (ordinary_identifier)))
                         (no_namespace_identifier
-                          (non_template_identifier)))))
+                          (non_template_identifier
+                            (ordinary_identifier))))))
                   (parentheses_expression
                     (expression_or_comma_expressions
                       (comma_expressions
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))
                         (expression_or_comma_expressions
                           (comma_expressions
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))
                             (expression_or_comma_expressions
                               (expression
                                 (definition
@@ -478,13 +548,15 @@ main := {
                                           (function_declaration_argument
                                             (any_identifier
                                               (no_namespace_identifier
-                                                (non_template_identifier)))))))
+                                                (non_template_identifier
+                                                  (ordinary_identifier))))))))
                                     (expression
                                       (binary_expression
                                         (expression
                                           (any_identifier
                                             (no_namespace_identifier
-                                              (non_template_identifier))))
+                                              (non_template_identifier
+                                                (ordinary_identifier)))))
                                         (expression
                                           (literal
                                             (number))))))))))))))))))
@@ -495,25 +567,30 @@ main := {
                   (expression
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))
                   (expression
                     (function_call
                       (expression
                         (any_identifier
                           (namespaced_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))
+                              (non_template_identifier
+                                (ordinary_identifier)))
                             (no_namespace_identifier
-                              (non_template_identifier))
+                              (non_template_identifier
+                                (ordinary_identifier)))
                             (no_namespace_identifier
-                              (non_template_identifier)))))
+                              (non_template_identifier
+                                (ordinary_identifier))))))
                       (parentheses_expression
                         (expression_or_comma_expressions
                           (comma_expressions
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))
                             (expression_or_comma_expressions
                               (expression
                                 (definition
@@ -524,17 +601,20 @@ main := {
                                           (function_declaration_argument
                                             (any_identifier
                                               (no_namespace_identifier
-                                                (non_template_identifier)))))))
+                                                (non_template_identifier
+                                                  (ordinary_identifier))))))))
                                     (expression
                                       (binary_expression
                                         (expression
                                           (any_identifier
                                             (no_namespace_identifier
-                                              (non_template_identifier))))
+                                              (non_template_identifier
+                                                (ordinary_identifier)))))
                                         (expression
                                           (unary_expression
                                             (unary_postfix_expression
                                               (expression
                                                 (any_identifier
                                                   (no_namespace_identifier
-                                                    (non_template_identifier)))))))))))))))))))))))))))
+                                                    (non_template_identifier
+                                                      (ordinary_identifier))))))))))))))))))))))))))))

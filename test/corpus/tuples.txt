@@ -9,7 +9,8 @@ hello: (a, b) -> (a, b, c: hello) = (d, e, f);
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -19,16 +20,19 @@ hello: (a, b) -> (a, b, c: hello) = (d, e, f);
                 (expression
                   (any_identifier
                     (no_namespace_identifier
-                      (non_template_identifier))))
+                      (non_template_identifier
+                        (ordinary_identifier)))))
                 (expression_or_comma_expressions
                   (expression
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))))))))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))))))))))
   (declaration
     (expression_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (expression_definition
         (left_side_of_definition
           (type
@@ -38,11 +42,13 @@ hello: (a, b) -> (a, b, c: hello) = (d, e, f);
                   (function_declaration_argument
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))
                   (function_declaration_argument
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))))
               (type
                 (function_type
                   (function_type_without_return_type
@@ -50,21 +56,25 @@ hello: (a, b) -> (a, b, c: hello) = (d, e, f);
                       (function_declaration_argument
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))
                       (function_declaration_argument
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))
                       (function_declaration_argument
                         (declaration
                           (no_definition_declaration
                             (declaration_left_side
-                              (non_template_identifier))
+                              (non_template_identifier
+                                (ordinary_identifier)))
                             (type
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier)))))))))))))))
+                                    (non_template_identifier
+                                      (ordinary_identifier))))))))))))))))
         (expression
           (parentheses_expression
             (expression_or_comma_expressions
@@ -72,15 +82,18 @@ hello: (a, b) -> (a, b, c: hello) = (d, e, f);
                 (expression
                   (any_identifier
                     (no_namespace_identifier
-                      (non_template_identifier))))
+                      (non_template_identifier
+                        (ordinary_identifier)))))
                 (expression_or_comma_expressions
                   (comma_expressions
                     (expression
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier))))
+                          (non_template_identifier
+                            (ordinary_identifier)))))
                     (expression_or_comma_expressions
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier)))))))))))))))
+                            (non_template_identifier
+                              (ordinary_identifier))))))))))))))))

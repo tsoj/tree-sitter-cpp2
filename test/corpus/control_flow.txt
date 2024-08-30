@@ -21,7 +21,8 @@ hello := {
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition)
         (block
@@ -35,10 +36,12 @@ hello := {
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier)))
+                            (non_template_identifier
+                              (ordinary_identifier))))
                         (parentheses_expression)))
                     (expression
                       (literal
@@ -52,13 +55,15 @@ hello := {
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))
                             (parentheses_expression
                               (expression_or_comma_expressions
                                 (expression
                                   (any_identifier
                                     (no_namespace_identifier
-                                      (non_template_identifier))))))))))))
+                                      (non_template_identifier
+                                        (ordinary_identifier)))))))))))))
                 (block_statement
                   (block
                     (statement
@@ -68,13 +73,15 @@ hello := {
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))
                             (parentheses_expression
                               (expression_or_comma_expressions
                                 (expression
                                   (any_identifier
                                     (no_namespace_identifier
-                                      (non_template_identifier)))))))))))))))
+                                      (non_template_identifier
+                                        (ordinary_identifier))))))))))))))))
           (statement
             (block_statement
               (if_else_statement
@@ -85,19 +92,22 @@ hello := {
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))
                         (expression_or_comma_expressions
                           (comma_expressions
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))
                             (expression_or_comma_expressions
                               (comma_expressions
                                 (expression
                                   (any_identifier
                                     (no_namespace_identifier
-                                      (non_template_identifier))))
+                                      (non_template_identifier
+                                        (ordinary_identifier)))))
                                 (expression_or_comma_expressions
                                   (expression
                                     (definition
@@ -106,7 +116,8 @@ hello := {
                                         (expression
                                           (any_identifier
                                             (no_namespace_identifier
-                                              (non_template_identifier))))))))))))))))
+                                              (non_template_identifier
+                                                (ordinary_identifier)))))))))))))))))
                 (block_statement
                   (block
                     (statement
@@ -175,7 +186,8 @@ hello := {
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition)
         (block
@@ -188,16 +200,19 @@ hello := {
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))
                       (expression
                         (method_call
                           (expression
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))
+                              (non_template_identifier
+                                (ordinary_identifier))))
                           (parentheses_expression)))))
                   (expression
                     (unary_expression
@@ -205,7 +220,8 @@ hello := {
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))))
+                              (non_template_identifier
+                                (ordinary_identifier))))))))
                   (block_statement
                     (block
                       (statement
@@ -215,13 +231,15 @@ hello := {
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier))))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))))
                               (parentheses_expression
                                 (expression_or_comma_expressions
                                   (expression
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier))))))))))))))))
+                                        (non_template_identifier
+                                          (ordinary_identifier)))))))))))))))))
           (statement
             (block_statement
               (block_loop
@@ -233,12 +251,14 @@ hello := {
                           (expression
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))
                           (expression_or_comma_expressions
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier)))))))))
+                                  (non_template_identifier
+                                    (ordinary_identifier))))))))))
                   (block_statement
                     (block
                       (statement
@@ -248,13 +268,15 @@ hello := {
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier))))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))))
                               (parentheses_expression
                                 (expression_or_comma_expressions
                                   (expression
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier))))))))))))))))
+                                        (non_template_identifier
+                                          (ordinary_identifier)))))))))))))))))
           (statement
             (block_statement
               (block_loop
@@ -266,12 +288,14 @@ hello := {
                           (expression
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))
                           (expression_or_comma_expressions
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier)))))))))
+                                  (non_template_identifier
+                                    (ordinary_identifier))))))))))
                   (block_statement
                     (if_else_statement
                       (expression
@@ -279,11 +303,13 @@ hello := {
                           (expression
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))
                           (expression
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))))
                       (block_statement
                         (block
                           (statement
@@ -293,13 +319,15 @@ hello := {
                                   (expression
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier))))
+                                        (non_template_identifier
+                                          (ordinary_identifier)))))
                                   (parentheses_expression
                                     (expression_or_comma_expressions
                                       (expression
                                         (any_identifier
                                           (no_namespace_identifier
-                                            (non_template_identifier))))))))))))
+                                            (non_template_identifier
+                                              (ordinary_identifier)))))))))))))
                       (block_statement
                         (block
                           (statement
@@ -309,13 +337,15 @@ hello := {
                                   (expression
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier))))
+                                        (non_template_identifier
+                                          (ordinary_identifier)))))
                                   (parentheses_expression
                                     (expression_or_comma_expressions
                                       (expression
                                         (any_identifier
                                           (no_namespace_identifier
-                                            (non_template_identifier))))))))))))))))))
+                                            (non_template_identifier
+                                              (ordinary_identifier)))))))))))))))))))
           (statement
             (function_type_without_return_type
               (comma_seperated_declarations
@@ -324,7 +354,8 @@ hello := {
                   (declaration
                     (expression_declaration
                       (declaration_left_side
-                        (non_template_identifier))
+                        (non_template_identifier
+                          (ordinary_identifier)))
                       (expression_definition
                         (left_side_of_definition)
                         (expression
@@ -338,7 +369,8 @@ hello := {
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))
                       (expression
                         (literal
                           (number)))))
@@ -348,7 +380,8 @@ hello := {
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))))
+                              (non_template_identifier
+                                (ordinary_identifier))))))))
                   (block_statement
                     (block
                       (statement
@@ -359,13 +392,16 @@ hello := {
                                 (any_identifier
                                   (namespaced_identifier
                                     (no_namespace_identifier
-                                      (non_template_identifier))
+                                      (non_template_identifier
+                                        (ordinary_identifier)))
                                     (no_namespace_identifier
-                                      (non_template_identifier)))))
+                                      (non_template_identifier
+                                        (ordinary_identifier))))))
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier)))))))))))))))))))
+                                    (non_template_identifier
+                                      (ordinary_identifier))))))))))))))))))))
 
 ===========================================================
 for loop
@@ -400,7 +436,8 @@ hello := {
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition)
         (block
@@ -411,21 +448,24 @@ hello := {
                   (expression
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))
                   (expression
                     (unary_expression
                       (unary_postfix_expression
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))))
+                              (non_template_identifier
+                                (ordinary_identifier))))))))
                   (function_type_without_return_type
                     (comma_seperated_declarations
                       (function_declaration_argument
                         (passing_style)
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))))
                   (block_statement
                     (block
                       (statement
@@ -435,13 +475,15 @@ hello := {
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier))))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))))
                               (parentheses_expression
                                 (expression_or_comma_expressions
                                   (expression
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier))))))))))))))))
+                                        (non_template_identifier
+                                          (ordinary_identifier)))))))))))))))))
           (statement
             (function_type_without_return_type
               (comma_seperated_declarations
@@ -450,7 +492,8 @@ hello := {
                   (declaration
                     (expression_declaration
                       (declaration_left_side
-                        (non_template_identifier))
+                        (non_template_identifier
+                          (ordinary_identifier)))
                       (expression_definition
                         (left_side_of_definition)
                         (expression
@@ -466,27 +509,32 @@ hello := {
                           (expression
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))
                           (expression_or_comma_expressions
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier)))))))))
+                                  (non_template_identifier
+                                    (ordinary_identifier))))))))))
                   (function_type_without_return_type
                     (comma_seperated_declarations
                       (function_declaration_argument
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))
                       (function_declaration_argument
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))
                       (function_declaration_argument
                         (declaration
                           (expression_declaration
                             (declaration_left_side
-                              (non_template_identifier))
+                              (non_template_identifier
+                                (ordinary_identifier)))
                             (expression_definition
                               (left_side_of_definition)
                               (expression
@@ -501,13 +549,15 @@ hello := {
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier))))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))))
                               (parentheses_expression
                                 (expression_or_comma_expressions
                                   (expression
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier))))))))))))))))
+                                        (non_template_identifier
+                                          (ordinary_identifier)))))))))))))))))
           (statement
             (block_statement
               (block_loop
@@ -515,20 +565,23 @@ hello := {
                   (expression
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))
                   (expression
                     (unary_expression
                       (unary_postfix_expression
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))))
+                              (non_template_identifier
+                                (ordinary_identifier))))))))
                   (function_type_without_return_type
                     (comma_seperated_declarations
                       (function_declaration_argument
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))))
                   (block_statement
                     (if_else_statement
                       (expression
@@ -538,7 +591,8 @@ hello := {
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier))))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))))
                               (expression
                                 (literal
                                   (number)))))
@@ -554,13 +608,15 @@ hello := {
                                   (expression
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier))))
+                                        (non_template_identifier
+                                          (ordinary_identifier)))))
                                   (parentheses_expression
                                     (expression_or_comma_expressions
                                       (expression
                                         (any_identifier
                                           (no_namespace_identifier
-                                            (non_template_identifier)))))))))))))))))))))))
+                                            (non_template_identifier
+                                              (ordinary_identifier))))))))))))))))))))))))
 
 ===========================================================
 Using named break and continue
@@ -598,38 +654,44 @@ hello := {
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition)
         (block
           (statement
             (block_statement
               (block_loop
-                (non_template_identifier)
+                (non_template_identifier
+                  (ordinary_identifier))
                 (while_statement
                   (expression
                     (binary_expression
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))))
                   (expression
                     (unary_expression
                       (unary_postfix_expression
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))))
+                              (non_template_identifier
+                                (ordinary_identifier))))))))
                   (block_statement
                     (block
                       (statement
                         (block_statement
                           (block_loop
-                            (non_template_identifier)
+                            (non_template_identifier
+                              (ordinary_identifier))
                             (for_statement
                               (expression
                                 (parentheses_expression
@@ -638,30 +700,35 @@ hello := {
                                       (expression
                                         (any_identifier
                                           (no_namespace_identifier
-                                            (non_template_identifier))))
+                                            (non_template_identifier
+                                              (ordinary_identifier)))))
                                       (expression_or_comma_expressions
                                         (comma_expressions
                                           (expression
                                             (any_identifier
                                               (no_namespace_identifier
-                                                (non_template_identifier))))
+                                                (non_template_identifier
+                                                  (ordinary_identifier)))))
                                           (expression_or_comma_expressions
                                             (expression
                                               (any_identifier
                                                 (no_namespace_identifier
-                                                  (non_template_identifier)))))))))))
+                                                  (non_template_identifier
+                                                    (ordinary_identifier))))))))))))
                               (function_type_without_return_type
                                 (comma_seperated_declarations
                                   (function_declaration_argument
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier))))))
+                                        (non_template_identifier
+                                          (ordinary_identifier)))))))
                               (block_statement
                                 (block
                                   (statement
                                     (block_statement
                                       (block_loop
-                                        (non_template_identifier)
+                                        (non_template_identifier
+                                          (ordinary_identifier))
                                         (do_statement
                                           (block_statement
                                             (block
@@ -673,7 +740,8 @@ hello := {
                                                         (expression
                                                           (any_identifier
                                                             (no_namespace_identifier
-                                                              (non_template_identifier))))
+                                                              (non_template_identifier
+                                                                (ordinary_identifier)))))
                                                         (parentheses_expression)))
                                                     (block_statement
                                                       (block
@@ -683,7 +751,8 @@ hello := {
                                                               (expression
                                                                 (any_identifier
                                                                   (no_namespace_identifier
-                                                                    (non_template_identifier))))))))))))
+                                                                    (non_template_identifier
+                                                                      (ordinary_identifier)))))))))))))
                                               (statement
                                                 (block_statement
                                                   (if_else_statement
@@ -692,7 +761,8 @@ hello := {
                                                         (expression
                                                           (any_identifier
                                                             (no_namespace_identifier
-                                                              (non_template_identifier))))
+                                                              (non_template_identifier
+                                                                (ordinary_identifier)))))
                                                         (parentheses_expression)))
                                                     (block_statement
                                                       (block
@@ -702,32 +772,38 @@ hello := {
                                                               (expression
                                                                 (any_identifier
                                                                   (no_namespace_identifier
-                                                                    (non_template_identifier))))))))))))))))))))))))))))))
+                                                                    (non_template_identifier
+                                                                      (ordinary_identifier)))))))))))))))))))))))))))))))
           (statement
             (block_statement
               (block_loop
-                (non_template_identifier)
+                (non_template_identifier
+                  (ordinary_identifier))
                 (while_statement
                   (expression
                     (binary_expression
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))))
                   (expression
                     (unary_expression
                       (unary_postfix_expression
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier)))))))
+                              (non_template_identifier
+                                (ordinary_identifier))))))))
                   (block_statement
                     (block_loop
-                      (non_template_identifier)
+                      (non_template_identifier
+                        (ordinary_identifier))
                       (for_statement
                         (expression
                           (parentheses_expression
@@ -736,27 +812,32 @@ hello := {
                                 (expression
                                   (any_identifier
                                     (no_namespace_identifier
-                                      (non_template_identifier))))
+                                      (non_template_identifier
+                                        (ordinary_identifier)))))
                                 (expression_or_comma_expressions
                                   (comma_expressions
                                     (expression
                                       (any_identifier
                                         (no_namespace_identifier
-                                          (non_template_identifier))))
+                                          (non_template_identifier
+                                            (ordinary_identifier)))))
                                     (expression_or_comma_expressions
                                       (expression
                                         (any_identifier
                                           (no_namespace_identifier
-                                            (non_template_identifier)))))))))))
+                                            (non_template_identifier
+                                              (ordinary_identifier))))))))))))
                         (function_type_without_return_type
                           (comma_seperated_declarations
                             (function_declaration_argument
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))))
                         (block_statement
                           (block_loop
-                            (non_template_identifier)
+                            (non_template_identifier
+                              (ordinary_identifier))
                             (do_statement
                               (block_statement
                                 (block
@@ -768,7 +849,8 @@ hello := {
                                             (expression
                                               (any_identifier
                                                 (no_namespace_identifier
-                                                  (non_template_identifier))))
+                                                  (non_template_identifier
+                                                    (ordinary_identifier)))))
                                             (parentheses_expression)))
                                         (block_statement
                                           (block
@@ -778,7 +860,8 @@ hello := {
                                                   (expression
                                                     (any_identifier
                                                       (no_namespace_identifier
-                                                        (non_template_identifier))))))))))))
+                                                        (non_template_identifier
+                                                          (ordinary_identifier)))))))))))))
                                   (statement
                                     (block_statement
                                       (if_else_statement
@@ -787,7 +870,8 @@ hello := {
                                             (expression
                                               (any_identifier
                                                 (no_namespace_identifier
-                                                  (non_template_identifier))))
+                                                  (non_template_identifier
+                                                    (ordinary_identifier)))))
                                             (parentheses_expression)))
                                         (block_statement
                                           (block
@@ -797,4 +881,5 @@ hello := {
                                                   (expression
                                                     (any_identifier
                                                       (no_namespace_identifier
-                                                        (non_template_identifier)))))))))))))))))))))))))))))
+                                                        (non_template_identifier
+                                                          (ordinary_identifier))))))))))))))))))))))))))))))

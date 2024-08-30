@@ -15,7 +15,8 @@ insert_at: (container, where: int, val: int)
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition
           (type
@@ -25,33 +26,39 @@ insert_at: (container, where: int, val: int)
                   (function_declaration_argument
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))
                   (function_declaration_argument
                     (declaration
                       (no_definition_declaration
                         (declaration_left_side
-                          (non_template_identifier))
+                          (non_template_identifier
+                            (ordinary_identifier)))
                         (type
                           (expression
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))))))
                   (function_declaration_argument
                     (declaration
                       (no_definition_declaration
                         (declaration_left_side
-                          (non_template_identifier))
+                          (non_template_identifier
+                            (ordinary_identifier)))
                         (type
                           (expression
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier))))))))))))
+                                (non_template_identifier
+                                  (ordinary_identifier)))))))))))))
           (template_call_arguments
             (expression_or_comma_expressions
               (expression
                 (any_identifier
                   (no_namespace_identifier
-                    (non_template_identifier))))))
+                    (non_template_identifier
+                      (ordinary_identifier)))))))
           (parentheses_expression
             (expression_or_comma_expressions
               (comma_expressions
@@ -65,16 +72,19 @@ insert_at: (container, where: int, val: int)
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))
                         (expression
                           (method_call
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))
                             (any_identifier
                               (no_namespace_identifier
-                                (non_template_identifier)))
+                                (non_template_identifier
+                                  (ordinary_identifier))))
                             (parentheses_expression)))))))
                 (expression_or_comma_expressions
                   (expression
@@ -89,10 +99,12 @@ insert_at: (container, where: int, val: int)
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier)))
+                          (non_template_identifier
+                            (ordinary_identifier))))
                       (parentheses_expression)))
                   (expression
                     (binary_expression
@@ -104,10 +116,12 @@ insert_at: (container, where: int, val: int)
                                 (expression
                                   (any_identifier
                                     (no_namespace_identifier
-                                      (non_template_identifier))))
+                                      (non_template_identifier
+                                        (ordinary_identifier)))))
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier)))
+                                    (non_template_identifier
+                                      (ordinary_identifier))))
                                 (parentheses_expression))))))
                       (expression
                         (literal
@@ -120,16 +134,19 @@ insert_at: (container, where: int, val: int)
                   (expression
                     (any_identifier
                       (no_namespace_identifier
-                        (non_template_identifier))))
+                        (non_template_identifier
+                          (ordinary_identifier)))))
                   (expression
                     (method_call
                       (expression
                         (any_identifier
                           (no_namespace_identifier
-                            (non_template_identifier))))
+                            (non_template_identifier
+                              (ordinary_identifier)))))
                       (any_identifier
                         (no_namespace_identifier
-                          (non_template_identifier)))
+                          (non_template_identifier
+                            (ordinary_identifier))))
                       (parentheses_expression
                         (expression_or_comma_expressions
                           (comma_expressions
@@ -140,20 +157,24 @@ insert_at: (container, where: int, val: int)
                                     (expression
                                       (any_identifier
                                         (no_namespace_identifier
-                                          (non_template_identifier))))
+                                          (non_template_identifier
+                                            (ordinary_identifier)))))
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier)))
+                                        (non_template_identifier
+                                          (ordinary_identifier))))
                                     (parentheses_expression)))
                                 (expression
                                   (any_identifier
                                     (no_namespace_identifier
-                                      (non_template_identifier))))))
+                                      (non_template_identifier
+                                        (ordinary_identifier)))))))
                             (expression_or_comma_expressions
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier)))))))))))))))))))
+                                    (non_template_identifier
+                                      (ordinary_identifier))))))))))))))))))))
 
 ===========================================================
 Example of using 'this' as a contract group
@@ -173,13 +194,15 @@ function_declaration: @copyable type =
   (declaration
     (block_declaration
       (declaration_left_side
-        (non_template_identifier))
+        (non_template_identifier
+          (ordinary_identifier)))
       (block_definition
         (left_side_of_definition
           (metafunction_arguments
             (any_identifier
               (no_namespace_identifier
-                (non_template_identifier))))
+                (non_template_identifier
+                  (ordinary_identifier)))))
           (type
             (type_type)))
         (block
@@ -187,7 +210,8 @@ function_declaration: @copyable type =
             (block_statement
               (block_declaration
                 (declaration_left_side
-                  (non_template_identifier))
+                  (non_template_identifier
+                    (ordinary_identifier)))
                 (block_definition
                   (left_side_of_definition
                     (type
@@ -198,26 +222,31 @@ function_declaration: @copyable type =
                               (passing_style)
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))
                             (function_declaration_argument
                               (declaration
                                 (no_definition_declaration
                                   (declaration_left_side
-                                    (non_template_identifier))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))
                                   (type
                                     (expression
                                       (any_identifier
                                         (namespaced_identifier
                                           (no_namespace_identifier
-                                            (non_template_identifier))
+                                            (non_template_identifier
+                                              (ordinary_identifier)))
                                           (no_namespace_identifier
-                                            (non_template_identifier)))))))))))))
+                                            (non_template_identifier
+                                              (ordinary_identifier))))))))))))))
                     (template_call_arguments
                       (expression_or_comma_expressions
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))))
                     (parentheses_expression
                       (expression_or_comma_expressions
                         (comma_expressions
@@ -229,7 +258,8 @@ function_declaration: @copyable type =
                                     (expression
                                       (any_identifier
                                         (no_namespace_identifier
-                                          (non_template_identifier))))
+                                          (non_template_identifier
+                                            (ordinary_identifier)))))
                                     (parentheses_expression))))))
                           (expression_or_comma_expressions
                             (expression
@@ -240,7 +270,8 @@ function_declaration: @copyable type =
                         (expression
                           (any_identifier
                             (no_namespace_identifier
-                              (non_template_identifier))))))
+                              (non_template_identifier
+                                (ordinary_identifier)))))))
                     (parentheses_expression
                       (expression_or_comma_expressions
                         (comma_expressions
@@ -249,7 +280,8 @@ function_declaration: @copyable type =
                               (expression
                                 (any_identifier
                                   (no_namespace_identifier
-                                    (non_template_identifier))))
+                                    (non_template_identifier
+                                      (ordinary_identifier)))))
                               (parentheses_expression)))
                           (expression_or_comma_expressions
                             (expression
@@ -263,7 +295,8 @@ function_declaration: @copyable type =
                             (expression
                               (any_identifier
                                 (no_namespace_identifier
-                                  (non_template_identifier))))
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))
                             (parentheses_expression
                               (expression_or_comma_expressions
                                 (expression

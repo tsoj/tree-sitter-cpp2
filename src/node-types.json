@@ -792,6 +792,40 @@
     }
   },
   {
+    "type": "non_template_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "operator_keyword",
+          "named": true
+        },
+        {
+          "type": "ordinary_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operator_keyword",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "parentheses_expression",
     "named": true,
     "fields": {},
@@ -1036,6 +1070,10 @@
     "named": false
   },
   {
+    "type": "\"\"",
+    "named": false
+  },
+  {
     "type": "$",
     "named": false
   },
@@ -1204,6 +1242,10 @@
     "named": false
   },
   {
+    "type": "[]",
+    "named": false
+  },
+  {
     "type": "]",
     "named": false
   },
@@ -1220,6 +1262,10 @@
     "named": false
   },
   {
+    "type": "co_await",
+    "named": false
+  },
+  {
     "type": "const",
     "named": false
   },
@@ -1229,6 +1275,10 @@
   },
   {
     "type": "copy",
+    "named": false
+  },
+  {
+    "type": "delete",
     "named": false
   },
   {
@@ -1284,15 +1334,23 @@
     "named": true
   },
   {
+    "type": "new",
+    "named": false
+  },
+  {
     "type": "next",
     "named": false
   },
   {
-    "type": "non_template_identifier",
+    "type": "number",
     "named": true
   },
   {
-    "type": "number",
+    "type": "operator",
+    "named": false
+  },
+  {
+    "type": "ordinary_identifier",
     "named": true
   },
   {
