@@ -98,7 +98,17 @@ module.exports = grammar({
         optional($.metafunction_arguments),
         optional($.template_declaration_arguments),
         choice(
-          seq(optional($.type), choice("=", "==")),
+          seq(
+            optional($.type),
+            repeat(
+              seq(
+                choice("pre", "post"),
+                optional($.template_call_arguments),
+                $.parentheses_expression,
+              ),
+            ),
+            choice("=", "=="),
+          ),
           $.function_type_without_return_type,
         ),
       ),
