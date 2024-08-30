@@ -162,9 +162,11 @@ module.exports = grammar({
           choice($.expression, $.function_type),
         ),
         $.type_type,
+        $.namespace_type,
       ),
 
     type_type: ($) => "type",
+    namespace_type: ($) => "namespace",
 
     function_type_without_return_type: ($) =>
       seq("(", optional($.comma_seperated_declarations), optional(","), ")"),
@@ -197,6 +199,7 @@ module.exports = grammar({
         $.return_statement,
         $.continue_statement,
         $.break_statement,
+        $.using_statement,
         $.expression,
         $.non_block_loop,
       ),
@@ -348,6 +351,7 @@ module.exports = grammar({
     return_statement: ($) => seq("return", optional($.expression)),
     continue_statement: ($) => seq("continue", optional($.expression)),
     break_statement: ($) => seq("break", optional($.expression)),
+    using_statement: ($) => seq("using", optional($.expression)),
 
     literal: ($) => choice($.number, $.string, $.float, $.boolean),
 

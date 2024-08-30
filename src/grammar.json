@@ -479,12 +479,20 @@
         {
           "type": "SYMBOL",
           "name": "type_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "namespace_type"
         }
       ]
     },
     "type_type": {
       "type": "STRING",
       "value": "type"
+    },
+    "namespace_type": {
+      "type": "STRING",
+      "value": "namespace"
     },
     "function_type_without_return_type": {
       "type": "SEQ",
@@ -679,6 +687,10 @@
         {
           "type": "SYMBOL",
           "name": "break_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "using_statement"
         },
         {
           "type": "SYMBOL",
@@ -2088,6 +2100,27 @@
         {
           "type": "STRING",
           "value": "break"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "using_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "using"
         },
         {
           "type": "CHOICE",
