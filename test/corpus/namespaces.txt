@@ -1,0 +1,143 @@
+===========================================================
+parameter direction
+===========================================================
+
+widgetlib: namespace = {
+    widget: type = { }
+}
+
+main: () = {
+    w: widgetlib::widget = Widget();
+
+    {
+        using widgetlib::widget;
+        w2: widget = SecondWidget();
+    }
+
+    {
+        using widgetlib::_;
+        w3: widget = ThirdWidget();
+    }
+}
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (block_declaration
+      (declaration_left_side
+        (non_template_identifier))
+      (block_definition
+        (left_side_of_definition
+          (type
+            (namespace_type)))
+        (block
+          (statement
+            (block_statement
+              (block_declaration
+                (declaration_left_side
+                  (non_template_identifier))
+                (block_definition
+                  (left_side_of_definition
+                    (type
+                      (type_type)))
+                  (block)))))))))
+  (declaration
+    (block_declaration
+      (declaration_left_side
+        (non_template_identifier))
+      (block_definition
+        (left_side_of_definition
+          (type
+            (function_type
+              (function_type_without_return_type))))
+        (block
+          (statement
+            (non_block_statement
+              (declaration
+                (expression_declaration
+                  (declaration_left_side
+                    (non_template_identifier))
+                  (expression_definition
+                    (left_side_of_definition
+                      (type
+                        (expression
+                          (any_identifier
+                            (namespaced_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier))
+                              (no_namespace_identifier
+                                (non_template_identifier)))))))
+                    (expression
+                      (function_call
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))))
+                        (parentheses_expression))))))))
+          (statement
+            (block_statement
+              (block
+                (statement
+                  (non_block_statement
+                    (using_statement
+                      (expression
+                        (any_identifier
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier))))))))
+                (statement
+                  (non_block_statement
+                    (declaration
+                      (expression_declaration
+                        (declaration_left_side
+                          (non_template_identifier))
+                        (expression_definition
+                          (left_side_of_definition
+                            (type
+                              (expression
+                                (any_identifier
+                                  (no_namespace_identifier
+                                    (non_template_identifier))))))
+                          (expression
+                            (function_call
+                              (expression
+                                (any_identifier
+                                  (no_namespace_identifier
+                                    (non_template_identifier))))
+                              (parentheses_expression)))))))))))
+          (statement
+            (block_statement
+              (block
+                (statement
+                  (non_block_statement
+                    (using_statement
+                      (expression
+                        (any_identifier
+                          (namespaced_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier))
+                            (no_namespace_identifier
+                              (non_template_identifier))))))))
+                (statement
+                  (non_block_statement
+                    (declaration
+                      (expression_declaration
+                        (declaration_left_side
+                          (non_template_identifier))
+                        (expression_definition
+                          (left_side_of_definition
+                            (type
+                              (expression
+                                (any_identifier
+                                  (no_namespace_identifier
+                                    (non_template_identifier))))))
+                          (expression
+                            (function_call
+                              (expression
+                                (any_identifier
+                                  (no_namespace_identifier
+                                    (non_template_identifier))))
+                              (parentheses_expression))))))))))))))))
