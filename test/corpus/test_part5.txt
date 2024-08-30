@@ -28,8 +28,7 @@ set: <Key> type = {
               (function_declaration_argument
                 (any_identifier
                   (no_namespace_identifier
-                    (non_template_identifier)))))
-            (template_close_token))
+                    (non_template_identifier))))))
           (type
             (type_type)))
         (block
@@ -52,8 +51,7 @@ set: <Key> type = {
                                   (expression
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier)))))
-                                (template_close_token))))))))))))
+                                        (non_template_identifier))))))))))))))))
           (statement
             (non_block_statement
               (declaration
@@ -76,8 +74,7 @@ set: <Key> type = {
                                   (expression
                                     (any_identifier
                                       (no_namespace_identifier
-                                        (non_template_identifier)))))
-                                (template_close_token))))
+                                        (non_template_identifier))))))))
                           (no_namespace_identifier
                             (non_template_identifier))))))))))
           (statement
@@ -592,8 +589,7 @@ main: () = {
                                                   (no_namespace_identifier
                                                     (non_template_identifier))
                                                   (no_namespace_identifier
-                                                    (non_template_identifier)))))))))
-                                    (template_close_token)))))))))
+                                                    (non_template_identifier)))))))))))))))))
                     (expression
                       (unary_expression
                         (unary_postfix_expression

@@ -103,8 +103,7 @@ add:(a,b):(a,b)a=b;
                   (no_definition_declaration
                     (non_template_identifier)
                     (type
-                      (type_type))))))
-            (template_close_token))
+                      (type_type)))))))
           (type
             (function_type
               (function_type_without_return_type
@@ -260,8 +259,7 @@ add:(a,b):(a,b)a=b;
                                                         (expression
                                                           (any_identifier
                                                             (no_namespace_identifier
-                                                              (non_template_identifier)))))
-                                                      (template_close_token))))))))))))
+                                                              (non_template_identifier))))))))))))))))
                                 (expression
                                   (any_identifier
                                     (no_namespace_identifier

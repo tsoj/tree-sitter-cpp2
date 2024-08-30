@@ -249,16 +249,21 @@
         ]
       }
     },
-    "template_close_token": {
-      "type": "TOKEN",
+    "_template_close_token": {
+      "type": "ALIAS",
       "content": {
-        "type": "PREC",
-        "value": 1,
+        "type": "TOKEN",
         "content": {
-          "type": "STRING",
-          "value": ">"
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "STRING",
+            "value": ">"
+          }
         }
-      }
+      },
+      "named": false,
+      "value": "> template"
     },
     "template_declaration_arguments": {
       "type": "SEQ",
@@ -273,7 +278,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "template_close_token"
+          "name": "_template_close_token"
         }
       ]
     },
@@ -305,7 +310,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "template_close_token"
+            "name": "_template_close_token"
           }
         ]
       }
