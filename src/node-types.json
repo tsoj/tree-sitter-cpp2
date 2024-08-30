@@ -563,6 +563,14 @@
           "named": true
         },
         {
+          "type": "parentheses_expression",
+          "named": true
+        },
+        {
+          "type": "template_call_arguments",
+          "named": true
+        },
+        {
           "type": "template_declaration_arguments",
           "named": true
         },
@@ -1243,6 +1251,14 @@
   },
   {
     "type": "out",
+    "named": false
+  },
+  {
+    "type": "post",
+    "named": false
+  },
+  {
+    "type": "pre",
     "named": false
   },
   {
