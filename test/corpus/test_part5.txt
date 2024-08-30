@@ -20,7 +20,8 @@ set: <Key> type = {
 (source_file
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition
           (template_declaration_arguments
@@ -36,7 +37,8 @@ set: <Key> type = {
             (non_block_statement
               (declaration
                 (no_definition_declaration
-                  (non_template_identifier)
+                  (declaration_left_side
+                    (non_template_identifier))
                   (type
                     (expression
                       (any_identifier
@@ -56,7 +58,8 @@ set: <Key> type = {
             (non_block_statement
               (declaration
                 (expression_declaration
-                  (non_template_identifier)
+                  (declaration_left_side
+                    (non_template_identifier))
                   (expression_definition
                     (left_side_of_definition
                       (type
@@ -80,7 +83,8 @@ set: <Key> type = {
           (statement
             (block_statement
               (block_declaration
-                (non_template_identifier)
+                (declaration_left_side
+                  (non_template_identifier))
                 (block_definition
                   (left_side_of_definition
                     (type
@@ -95,7 +99,8 @@ set: <Key> type = {
                             (function_declaration_argument
                               (declaration
                                 (no_definition_declaration
-                                  (non_template_identifier)
+                                  (declaration_left_side
+                                    (non_template_identifier))
                                   (type
                                     (expression
                                       (any_identifier
@@ -108,7 +113,8 @@ set: <Key> type = {
                                 (function_declaration_argument
                                   (declaration
                                     (no_definition_declaration
-                                      (non_template_identifier)
+                                      (declaration_left_side
+                                        (non_template_identifier))
                                       (type
                                         (expression
                                           (any_identifier
@@ -117,7 +123,8 @@ set: <Key> type = {
                                 (function_declaration_argument
                                   (declaration
                                     (no_definition_declaration
-                                      (non_template_identifier)
+                                      (declaration_left_side
+                                        (non_template_identifier))
                                       (type
                                         (expression
                                           (any_identifier
@@ -128,7 +135,8 @@ set: <Key> type = {
                       (non_block_statement
                         (declaration
                           (expression_declaration
-                            (non_template_identifier)
+                            (declaration_left_side
+                              (non_template_identifier))
                             (expression_definition
                               (left_side_of_definition)
                               (expression
@@ -184,7 +192,8 @@ set: <Key> type = {
             (non_block_statement
               (declaration
                 (expression_declaration
-                  (non_template_identifier)
+                  (declaration_left_side
+                    (non_template_identifier))
                   (expression_definition
                     (left_side_of_definition
                       (type
@@ -258,7 +267,8 @@ main: ()
 (source_file
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition
           (type
@@ -272,7 +282,8 @@ main: ()
         (block))))
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition
           (type
@@ -292,7 +303,8 @@ main: ()
                     (number))))))))))
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition
           (type
@@ -303,7 +315,8 @@ main: ()
                     (passing_style)
                     (declaration
                       (no_definition_declaration
-                        (non_template_identifier)
+                        (declaration_left_side
+                          (non_template_identifier))
                         (type
                           (expression
                             (any_identifier
@@ -328,7 +341,8 @@ main: ()
                       (number)))))))))))
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition
           (type
@@ -393,7 +407,8 @@ main: ()
                   (non_block_statement
                     (declaration
                       (expression_declaration
-                        (non_template_identifier)
+                        (declaration_left_side
+                          (non_template_identifier))
                         (expression_definition
                           (left_side_of_definition)
                           (expression
@@ -436,7 +451,8 @@ main: ()
                   (non_block_statement
                     (declaration
                       (expression_declaration
-                        (non_template_identifier)
+                        (declaration_left_side
+                          (non_template_identifier))
                         (expression_definition
                           (left_side_of_definition)
                           (expression
@@ -475,7 +491,8 @@ main: ()
                   (non_block_statement
                     (declaration
                       (expression_declaration
-                        (non_template_identifier)
+                        (declaration_left_side
+                          (non_template_identifier))
                         (expression_definition
                           (left_side_of_definition)
                           (expression
@@ -515,7 +532,8 @@ main: () = {
 (source_file
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition
           (type
@@ -525,7 +543,8 @@ main: () = {
                   (function_declaration_argument
                     (declaration
                       (no_definition_declaration
-                        (non_template_identifier)
+                        (declaration_left_side
+                          (non_template_identifier))
                         (type
                           (expression
                             (any_identifier
@@ -544,7 +563,8 @@ main: () = {
             (string))))))
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition
           (type
@@ -555,7 +575,8 @@ main: () = {
             (non_block_statement
               (declaration
                 (expression_declaration
-                  (non_template_identifier)
+                  (declaration_left_side
+                    (non_template_identifier))
                   (expression_definition
                     (left_side_of_definition
                       (type
@@ -576,7 +597,8 @@ main: () = {
                                               (function_declaration_argument
                                                 (declaration
                                                   (no_definition_declaration
-                                                    (non_template_identifier)
+                                                    (declaration_left_side
+                                                      (non_template_identifier))
                                                     (type
                                                       (expression
                                                         (any_identifier
@@ -615,7 +637,8 @@ main: () = {
             (non_block_statement
               (declaration
                 (expression_declaration
-                  (non_template_identifier)
+                  (declaration_left_side
+                    (non_template_identifier))
                   (expression_definition
                     (left_side_of_definition
                       (type
@@ -625,7 +648,8 @@ main: () = {
                               (function_declaration_argument
                                 (declaration
                                   (no_definition_declaration
-                                    (non_template_identifier)
+                                    (declaration_left_side
+                                      (non_template_identifier))
                                     (type
                                       (expression
                                         (any_identifier

@@ -13,7 +13,8 @@ c :== {
 (source_file
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition
           (type
@@ -27,7 +28,8 @@ c :== {
               (non_template_identifier)))))))
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -35,7 +37,8 @@ c :== {
             (float))))))
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition
           (type
@@ -48,7 +51,8 @@ c :== {
             (string))))))
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition
           (type
@@ -58,7 +62,8 @@ c :== {
                   (function_declaration_argument
                     (declaration
                       (no_definition_declaration
-                        (non_template_identifier)
+                        (declaration_left_side
+                          (non_template_identifier))
                         (type
                           (expression
                             (any_identifier
@@ -74,7 +79,8 @@ c :== {
             (float))))))
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition)
         (block

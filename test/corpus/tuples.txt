@@ -8,7 +8,8 @@ hello: (a, b) -> (a, b, c: hello) = (d, e, f);
 (source_file
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -26,7 +27,8 @@ hello: (a, b) -> (a, b, c: hello) = (d, e, f);
                         (non_template_identifier))))))))))))
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition
           (type
@@ -56,7 +58,8 @@ hello: (a, b) -> (a, b, c: hello) = (d, e, f);
                       (function_declaration_argument
                         (declaration
                           (no_definition_declaration
-                            (non_template_identifier)
+                            (declaration_left_side
+                              (non_template_identifier))
                             (type
                               (expression
                                 (any_identifier

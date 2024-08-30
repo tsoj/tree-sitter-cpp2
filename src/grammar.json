@@ -39,7 +39,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "non_template_identifier"
+          "name": "declaration_left_side"
         },
         {
           "type": "SYMBOL",
@@ -52,7 +52,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "non_template_identifier"
+          "name": "declaration_left_side"
         },
         {
           "type": "SYMBOL",
@@ -65,7 +65,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "non_template_identifier"
+          "name": "declaration_left_side"
         },
         {
           "type": "STRING",
@@ -76,6 +76,10 @@
           "name": "type"
         }
       ]
+    },
+    "declaration_left_side": {
+      "type": "SYMBOL",
+      "name": "non_template_identifier"
     },
     "definition": {
       "type": "CHOICE",
@@ -2131,6 +2135,15 @@
     [
       "block_loop",
       "do_while_statement"
+    ],
+    [
+      "declaration_left_side",
+      "non_block_loop",
+      "block_loop"
+    ],
+    [
+      "declaration_left_side",
+      "block_loop"
     ]
   ],
   "precedences": [
