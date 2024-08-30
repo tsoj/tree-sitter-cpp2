@@ -327,10 +327,23 @@ module.exports = grammar({
       seq($.expression, choice(".", ".."), $.any_identifier),
 
     function_declaration_argument: ($) =>
-      seq(optional($.passing_style), choice($.declaration, $.any_identifier)),
+      seq(repeat($.passing_style), choice($.declaration, $.any_identifier)),
 
     passing_style: ($) =>
-      choice("in", "copy", "inout", "out", "move", "forward"),
+      choice(
+        "in",
+        "copy",
+        "inout",
+        "out",
+        "move",
+        "forward",
+        "virtual",
+        "override",
+        "final",
+        "implicit",
+      ),
+
+    virtual_style: ($) => choice(),
 
     return_statement: ($) => seq("return", optional($.expression)),
     continue_statement: ($) => seq("continue", optional($.expression)),

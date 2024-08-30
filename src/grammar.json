@@ -1970,16 +1970,11 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "passing_style"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "passing_style"
+          }
         },
         {
           "type": "CHOICE",
@@ -2022,8 +2017,28 @@
         {
           "type": "STRING",
           "value": "forward"
+        },
+        {
+          "type": "STRING",
+          "value": "virtual"
+        },
+        {
+          "type": "STRING",
+          "value": "override"
+        },
+        {
+          "type": "STRING",
+          "value": "final"
+        },
+        {
+          "type": "STRING",
+          "value": "implicit"
         }
       ]
+    },
+    "virtual_style": {
+      "type": "CHOICE",
+      "members": []
     },
     "return_statement": {
       "type": "SEQ",
