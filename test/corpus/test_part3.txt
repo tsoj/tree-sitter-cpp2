@@ -7,7 +7,8 @@ p: const * * const i32;
 (source_file
   (declaration
     (no_definition_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (type
         (expression
           (any_identifier
@@ -26,7 +27,8 @@ is_void := u**.identifier* == "void";
 (source_file
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -54,7 +56,8 @@ is_void := u**.identifier* == "void";
                               (non_template_identifier)))))))))))))))
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -96,7 +99,8 @@ a := b... * 3;
 (source_file
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -125,7 +129,8 @@ a := b... * 3;
                               (non_template_identifier)))))))))))))))
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -139,7 +144,8 @@ a := b... * 3;
                 (non_template_identifier))))))))
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -160,7 +166,8 @@ a := b... * 3;
                             (non_template_identifier))))))))))))))
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition)
         (expression
@@ -182,7 +189,8 @@ a := b... * 3;
             (parentheses_expression))))))
   (declaration
     (expression_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (expression_definition
         (left_side_of_definition)
         (expression

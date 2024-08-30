@@ -21,7 +21,8 @@ main := {
 (source_file
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition)
         (block
@@ -40,7 +41,8 @@ main := {
                 (function_declaration_argument
                   (declaration
                     (expression_declaration
-                      (non_template_identifier)
+                      (declaration_left_side
+                        (non_template_identifier))
                       (expression_definition
                         (left_side_of_definition
                           (type
@@ -60,7 +62,8 @@ main := {
                 (function_declaration_argument
                   (declaration
                     (expression_declaration
-                      (non_template_identifier)
+                      (declaration_left_side
+                        (non_template_identifier))
                       (expression_definition
                         (left_side_of_definition
                           (type
@@ -88,7 +91,8 @@ main := {
                           (function_declaration_argument
                             (declaration
                               (expression_declaration
-                                (non_template_identifier)
+                                (declaration_left_side
+                                  (non_template_identifier))
                                 (expression_definition
                                   (left_side_of_definition
                                     (type
@@ -114,7 +118,8 @@ main := {
                               (function_declaration_argument
                                 (declaration
                                   (expression_declaration
-                                    (non_template_identifier)
+                                    (declaration_left_side
+                                      (non_template_identifier))
                                     (expression_definition
                                       (left_side_of_definition
                                         (type
@@ -133,7 +138,8 @@ main := {
           (statement
             (block_statement
               (block_declaration
-                (non_template_identifier)
+                (declaration_left_side
+                  (non_template_identifier))
                 (block_definition
                   (left_side_of_definition
                     (type
@@ -143,7 +149,8 @@ main := {
                             (function_declaration_argument
                               (declaration
                                 (expression_declaration
-                                  (non_template_identifier)
+                                  (declaration_left_side
+                                    (non_template_identifier))
                                   (expression_definition
                                     (left_side_of_definition
                                       (type
@@ -160,7 +167,8 @@ main := {
             (non_block_statement
               (declaration
                 (expression_declaration
-                  (non_template_identifier)
+                  (declaration_left_side
+                    (non_template_identifier))
                   (expression_definition
                     (left_side_of_definition
                       (type
@@ -170,7 +178,8 @@ main := {
                               (function_declaration_argument
                                 (declaration
                                   (expression_declaration
-                                    (non_template_identifier)
+                                    (declaration_left_side
+                                      (non_template_identifier))
                                     (expression_definition
                                       (left_side_of_definition
                                         (type

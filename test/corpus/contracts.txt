@@ -14,7 +14,8 @@ insert_at: (container, where: int, val: int)
 (source_file
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition
           (type
@@ -28,7 +29,8 @@ insert_at: (container, where: int, val: int)
                   (function_declaration_argument
                     (declaration
                       (no_definition_declaration
-                        (non_template_identifier)
+                        (declaration_left_side
+                          (non_template_identifier))
                         (type
                           (expression
                             (any_identifier
@@ -37,7 +39,8 @@ insert_at: (container, where: int, val: int)
                   (function_declaration_argument
                     (declaration
                       (no_definition_declaration
-                        (non_template_identifier)
+                        (declaration_left_side
+                          (non_template_identifier))
                         (type
                           (expression
                             (any_identifier
@@ -169,7 +172,8 @@ function_declaration: @copyable type =
 (source_file
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition
           (metafunction_arguments
@@ -182,7 +186,8 @@ function_declaration: @copyable type =
           (statement
             (block_statement
               (block_declaration
-                (non_template_identifier)
+                (declaration_left_side
+                  (non_template_identifier))
                 (block_definition
                   (left_side_of_definition
                     (type
@@ -197,7 +202,8 @@ function_declaration: @copyable type =
                             (function_declaration_argument
                               (declaration
                                 (no_definition_declaration
-                                  (non_template_identifier)
+                                  (declaration_left_side
+                                    (non_template_identifier))
                                   (type
                                     (expression
                                       (any_identifier

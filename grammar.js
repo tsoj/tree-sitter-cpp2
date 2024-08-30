@@ -45,6 +45,8 @@ module.exports = grammar({
     [$.function_type, $.left_side_of_definition],
     [$.declaration, $.block_statement],
     [$.block_loop, $.do_while_statement],
+    [$.declaration_left_side, $.non_block_loop, $.block_loop],
+    [$.declaration_left_side, $.block_loop],
   ],
 
   precedences: ($) => [
@@ -76,14 +78,14 @@ module.exports = grammar({
         $.expression_declaration,
       ),
 
-    block_declaration: ($) =>
-      seq($.non_template_identifier, $.block_definition),
+    block_declaration: ($) => seq($.declaration_left_side, $.block_definition),
 
     expression_declaration: ($) =>
-      seq($.non_template_identifier, $.expression_definition),
+      seq($.declaration_left_side, $.expression_definition),
 
-    no_definition_declaration: ($) =>
-      seq($.non_template_identifier, ":", $.type),
+    no_definition_declaration: ($) => seq($.declaration_left_side, ":", $.type),
+
+    declaration_left_side: ($) => $.non_template_identifier,
 
     definition: ($) => choice($.block_definition, $.expression_definition),
 

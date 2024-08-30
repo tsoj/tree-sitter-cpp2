@@ -20,7 +20,8 @@ hello := {
 (source_file
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition)
         (block
@@ -173,7 +174,8 @@ hello := {
 (source_file
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition)
         (block
@@ -321,7 +323,8 @@ hello := {
                   (passing_style)
                   (declaration
                     (expression_declaration
-                      (non_template_identifier)
+                      (declaration_left_side
+                        (non_template_identifier))
                       (expression_definition
                         (left_side_of_definition)
                         (expression
@@ -396,7 +399,8 @@ hello := {
 (source_file
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition)
         (block
@@ -445,7 +449,8 @@ hello := {
                   (passing_style)
                   (declaration
                     (expression_declaration
-                      (non_template_identifier)
+                      (declaration_left_side
+                        (non_template_identifier))
                       (expression_definition
                         (left_side_of_definition)
                         (expression
@@ -480,7 +485,8 @@ hello := {
                       (function_declaration_argument
                         (declaration
                           (expression_declaration
-                            (non_template_identifier)
+                            (declaration_left_side
+                              (non_template_identifier))
                             (expression_definition
                               (left_side_of_definition)
                               (expression
@@ -591,7 +597,8 @@ hello := {
 (source_file
   (declaration
     (block_declaration
-      (non_template_identifier)
+      (declaration_left_side
+        (non_template_identifier))
       (block_definition
         (left_side_of_definition)
         (block
