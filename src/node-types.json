@@ -1221,6 +1221,10 @@
     "named": false
   },
   {
+    "type": "final",
+    "named": false
+  },
+  {
     "type": "float",
     "named": true
   },
@@ -1234,6 +1238,10 @@
   },
   {
     "type": "if",
+    "named": false
+  },
+  {
+    "type": "implicit",
     "named": false
   },
   {
@@ -1262,6 +1270,10 @@
   },
   {
     "type": "out",
+    "named": false
+  },
+  {
+    "type": "override",
     "named": false
   },
   {
@@ -1299,6 +1311,10 @@
   {
     "type": "type_type",
     "named": true
+  },
+  {
+    "type": "virtual",
+    "named": false
   },
   {
     "type": "while",
