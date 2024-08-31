@@ -38,6 +38,12 @@ const binary_operators = [
   "|=",
 ];
 
+const passing_styles = ["in", "copy", "inout", "out", "move", "forward"];
+
+const keyword_passing_styles = ["virtual", "override", "final", "implicit"];
+
+const non_keyword_words = [...passing_styles];
+
 module.exports = grammar({
   name: "cpp2",
   conflicts: ($) => [
@@ -52,6 +58,8 @@ module.exports = grammar({
     [$.type, $.unary_postfix_expression, $.binary_expression],
     [$.left_side_of_definition, $.binary_expression],
     [$.declaration_left_side, $.no_namespace_identifier],
+    [$.ordinary_identifier, $.passing_style],
+    [$.passing_style],
   ],
 
   precedences: ($) => [
@@ -177,7 +185,8 @@ module.exports = grammar({
     non_template_identifier: ($) =>
       choice($.operator_keyword, $.ordinary_identifier),
 
-    ordinary_identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    ordinary_identifier: ($) =>
+      choice(...non_keyword_words, /[a-zA-Z_][a-zA-Z0-9_]*/),
 
     operator_keyword: ($) =>
       seq(
@@ -381,22 +390,7 @@ module.exports = grammar({
       seq(optional($.passing_style), choice($.declaration, $.any_identifier)),
 
     passing_style: ($) =>
-      repeat1(
-        choice(
-          "in",
-          "copy",
-          "inout",
-          "out",
-          "move",
-          "forward",
-          "virtual",
-          "override",
-          "final",
-          "implicit",
-        ),
-      ),
-
-    virtual_style: ($) => choice(),
+      repeat1(choice(...passing_styles, ...keyword_passing_styles)),
 
     return_statement: ($) => seq("return", optional($.expression)),
     continue_statement: ($) => seq("continue", optional($.expression)),

@@ -88,7 +88,7 @@ mytype: type =
                             (ordinary_identifier)))))))))))))))
 
 ===========================================================
-parameter direction
+multiple parameter direction and inheritance
 ===========================================================
 
 abstract_base: type
@@ -128,7 +128,6 @@ derived: type
                       (function_type_without_return_type
                         (comma_seperated_declarations
                           (function_declaration_argument
-                            (passing_style)
                             (passing_style)
                             (any_identifier
                               (no_namespace_identifier
@@ -186,7 +185,6 @@ derived: type
                         (function_type_without_return_type
                           (comma_seperated_declarations
                             (function_declaration_argument
-                              (passing_style)
                               (passing_style)
                               (any_identifier
                                 (no_namespace_identifier
