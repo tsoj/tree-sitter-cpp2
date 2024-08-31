@@ -50,6 +50,8 @@ module.exports = grammar({
     [$.declaration_left_side, $.non_block_loop, $.block_loop],
     [$.declaration_left_side, $.block_loop],
     [$.type, $.unary_postfix_expression, $.binary_expression],
+    [$.left_side_of_definition, $.binary_expression],
+    [$.declaration_left_side, $.no_namespace_identifier],
   ],
 
   precedences: ($) => [
@@ -72,6 +74,7 @@ module.exports = grammar({
     [$.binary_expression, $.expression_definition],
     [$.operator_keyword, $._const_and_star],
     [$.operator_keyword, $.unary_prefix_expression],
+    [$.operator_keyword, $.expansion_dots],
   ],
 
   rules: {
@@ -89,12 +92,21 @@ module.exports = grammar({
     expression_declaration: ($) =>
       seq($.declaration_left_side, $.expression_definition),
 
-    no_definition_declaration: ($) => seq($.declaration_left_side, ":", $.type),
+    no_definition_declaration: ($) =>
+      seq(
+        $.declaration_left_side,
+        ":",
+        optional($.metafunction_arguments),
+        optional($.template_declaration_arguments),
+        $.type,
+        optional(seq("requires", $.expression)),
+      ),
 
     declaration_left_side: ($) =>
       seq(
         optional(choice("public", "protected", "private")),
         $.non_template_identifier,
+        optional("..."),
       ),
 
     definition: ($) => choice($.block_definition, $.expression_definition),
@@ -104,6 +116,7 @@ module.exports = grammar({
     expression_definition: ($) =>
       prec.left(seq($.left_side_of_definition, $.expression)),
 
+    // TODO remove duplication of no_definition_declaration and definition_declaration
     left_side_of_definition: ($) =>
       seq(
         ":",
@@ -111,7 +124,7 @@ module.exports = grammar({
         optional($.template_declaration_arguments),
         choice(
           seq(
-            optional($.type),
+            optional(seq($.type, optional(seq("requires", $.expression)))),
             repeat(
               seq(
                 choice("pre", "post"),
@@ -304,7 +317,10 @@ module.exports = grammar({
         $.binary_expression,
         $.parentheses_expression,
         $.definition,
+        $.expansion_dots,
       ),
+
+    expansion_dots: ($) => "...",
 
     unary_expression: ($) =>
       choice($.unary_prefix_expression, $.unary_postfix_expression),
@@ -362,20 +378,22 @@ module.exports = grammar({
       seq($.expression, choice(".", ".."), $.any_identifier),
 
     function_declaration_argument: ($) =>
-      seq(repeat($.passing_style), choice($.declaration, $.any_identifier)),
+      seq(optional($.passing_style), choice($.declaration, $.any_identifier)),
 
     passing_style: ($) =>
-      choice(
-        "in",
-        "copy",
-        "inout",
-        "out",
-        "move",
-        "forward",
-        "virtual",
-        "override",
-        "final",
-        "implicit",
+      repeat1(
+        choice(
+          "in",
+          "copy",
+          "inout",
+          "out",
+          "move",
+          "forward",
+          "virtual",
+          "override",
+          "final",
+          "implicit",
+        ),
       ),
 
     virtual_style: ($) => choice(),

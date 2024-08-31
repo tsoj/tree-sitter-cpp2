@@ -328,6 +328,11 @@
     }
   },
   {
+    "type": "expansion_dots",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "expression",
     "named": true,
     "fields": {},
@@ -349,6 +354,10 @@
         },
         {
           "type": "definition",
+          "named": true
+        },
+        {
+          "type": "expansion_dots",
           "named": true
         },
         {
@@ -570,6 +579,10 @@
       "required": false,
       "types": [
         {
+          "type": "expression",
+          "named": true
+        },
+        {
           "type": "function_type_without_return_type",
           "named": true
         },
@@ -705,6 +718,18 @@
       "types": [
         {
           "type": "declaration_left_side",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "metafunction_arguments",
+          "named": true
+        },
+        {
+          "type": "template_declaration_arguments",
           "named": true
         },
         {
@@ -1379,6 +1404,10 @@
   },
   {
     "type": "public",
+    "named": false
+  },
+  {
+    "type": "requires",
     "named": false
   },
   {
