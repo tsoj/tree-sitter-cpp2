@@ -2861,6 +2861,21 @@
     }
   },
   {
+    "type": "cpp2_ordinary_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "cpp2_parentheses_expression",
     "named": true,
     "fields": {},
@@ -8714,10 +8729,6 @@
     "named": true
   },
   {
-    "type": "cpp2_ordinary_identifier",
-    "named": true
-  },
-  {
     "type": "cpp2_string",
     "named": true
   },
@@ -8767,11 +8778,11 @@
   },
   {
     "type": "false",
-    "named": false
+    "named": true
   },
   {
     "type": "false",
-    "named": true
+    "named": false
   },
   {
     "type": "field_identifier",

@@ -92,6 +92,10 @@ module.exports = grammar(CPP1, {
 
     // Cpp2 vs C++
     // [$.type_qualifier, $.cpp2_type],
+    [$.expression, $.cpp2_ordinary_identifier],
+    [$.type_specifier, $.cpp2_ordinary_identifier],
+    [$.template_type, $.cpp2_ordinary_identifier],
+
     // Cpp2
     [$.cpp2_no_namespace_identifier, $.cpp2_template_identifier],
     [$.cpp2_unary_postfix_expression, $.cpp2_binary_expression],
@@ -151,41 +155,56 @@ module.exports = grammar(CPP1, {
   rules: {
     _top_level_item: ($, original) =>
       choice(
-        // Cpp2
-        $.cpp2_declaration,
-
         //
         // C
         $.function_definition,
-
-        // $.linkage_specification,
-        // $.declaration,
+        $.linkage_specification,
+        $.declaration,
         // $._top_level_statement,
-        // $.attributed_statement,
-        // $.type_definition,
-        // $._empty_declaration,
-        // $.preproc_if,
-        // $.preproc_ifdef,
-        // $.preproc_include,
-        // $.preproc_def,
-        // $.preproc_function_def,
-        // $.preproc_call,
+        choice(
+          $.case_statement,
+          $.attributed_statement,
+          // $.labeled_statement,
+          $.compound_statement,
+          alias($._top_level_expression_statement, $.expression_statement),
+          $.if_statement,
+          $.switch_statement,
+          $.do_statement,
+          $.while_statement,
+          $.for_statement,
+          $.return_statement,
+          $.break_statement,
+          $.continue_statement,
+          $.goto_statement,
+        ),
+        $.attributed_statement,
+        $.type_definition,
+        $._empty_declaration,
+        $.preproc_if,
+        $.preproc_ifdef,
+        $.preproc_include,
+        $.preproc_def,
+        $.preproc_function_def,
+        $.preproc_call,
 
-        // C++
-        // $.namespace_definition,
-        // $.concept_definition,
-        // $.namespace_alias_definition,
-        // $.using_declaration,
-        // $.alias_declaration,
-        // $.static_assert_declaration,
-        // $.template_declaration,
-        // $.template_instantiation,
-        // alias($.constructor_or_destructor_definition, $.function_definition),
-        // alias($.operator_cast_definition, $.function_definition),
-        // alias($.operator_cast_declaration, $.declaration),
+        // // C++
+        $.namespace_definition,
+        $.concept_definition,
+        $.namespace_alias_definition,
+        $.using_declaration,
+        $.alias_declaration,
+        $.static_assert_declaration,
+        $.template_declaration,
+        $.template_instantiation,
+        alias($.constructor_or_destructor_definition, $.function_definition),
+        alias($.operator_cast_definition, $.function_definition),
+        alias($.operator_cast_declaration, $.declaration),
 
-        ";",
+        // original,
         seq("/**/", original),
+        // Cpp2
+        ";",
+        $.cpp2_declaration,
       ),
 
     // cpp2_source_file: ($) => repeat(choice($.cpp2_declaration, ";")),
@@ -296,9 +315,7 @@ module.exports = grammar(CPP1, {
       choice($.cpp2_operator_keyword, $.cpp2_ordinary_identifier),
 
     cpp2_ordinary_identifier: ($) =>
-      token(
-        prec(1000, choice(...cpp2_non_keyword_words, /[a-zA-Z_][a-zA-Z0-9_]*/)),
-      ),
+      choice(...cpp2_non_keyword_words, $.identifier),
 
     cpp2_operator_keyword: ($) =>
       seq(
