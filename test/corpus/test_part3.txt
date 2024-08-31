@@ -232,3 +232,112 @@ a := b... * 3;
             (expression
               (literal
                 (number)))))))))
+
+===========================================================
+A requires constraint on a variadic function
+===========================================================
+
+print: <Args...: type>
+       (inout out: std::ostream, args...: Args)
+       requires sizeof...(Args) >= 1
+= {
+    (out << ... << args);
+}
+
+-----------------------------------------------------------
+
+(source_file
+  (declaration
+    (block_declaration
+      (declaration_left_side
+        (non_template_identifier
+          (ordinary_identifier)))
+      (block_definition
+        (left_side_of_definition
+          (template_declaration_arguments
+            (comma_seperated_declarations
+              (function_declaration_argument
+                (declaration
+                  (no_definition_declaration
+                    (declaration_left_side
+                      (non_template_identifier
+                        (ordinary_identifier)))
+                    (type
+                      (type_type)))))))
+          (type
+            (function_type
+              (function_type_without_return_type
+                (comma_seperated_declarations
+                  (function_declaration_argument
+                    (passing_style)
+                    (declaration
+                      (no_definition_declaration
+                        (declaration_left_side
+                          (non_template_identifier
+                            (ordinary_identifier)))
+                        (type
+                          (expression
+                            (any_identifier
+                              (namespaced_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier
+                                    (ordinary_identifier)))
+                                (no_namespace_identifier
+                                  (non_template_identifier
+                                    (ordinary_identifier))))))))))
+                  (function_declaration_argument
+                    (declaration
+                      (no_definition_declaration
+                        (declaration_left_side
+                          (non_template_identifier
+                            (ordinary_identifier)))
+                        (type
+                          (expression
+                            (any_identifier
+                              (no_namespace_identifier
+                                (non_template_identifier
+                                  (ordinary_identifier)))))))))))))
+          (expression
+            (binary_expression
+              (expression
+                (function_call
+                  (expression
+                    (unary_expression
+                      (unary_postfix_expression
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier
+                                (ordinary_identifier))))))))
+                  (parentheses_expression
+                    (expression_or_comma_expressions
+                      (expression
+                        (any_identifier
+                          (no_namespace_identifier
+                            (non_template_identifier
+                              (ordinary_identifier)))))))))
+              (expression
+                (literal
+                  (number))))))
+        (block
+          (statement
+            (non_block_statement
+              (expression
+                (parentheses_expression
+                  (expression_or_comma_expressions
+                    (expression
+                      (binary_expression
+                        (expression
+                          (any_identifier
+                            (no_namespace_identifier
+                              (non_template_identifier
+                                (ordinary_identifier)))))
+                        (expression
+                          (binary_expression
+                            (expression
+                              (expansion_dots))
+                            (expression
+                              (any_identifier
+                                (no_namespace_identifier
+                                  (non_template_identifier
+                                    (ordinary_identifier)))))))))))))))))))

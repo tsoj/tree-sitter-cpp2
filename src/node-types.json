@@ -851,6 +851,11 @@
     }
   },
   {
+    "type": "ordinary_identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "parentheses_expression",
     "named": true,
     "fields": {},
@@ -1373,10 +1378,6 @@
   {
     "type": "operator",
     "named": false
-  },
-  {
-    "type": "ordinary_identifier",
-    "named": true
   },
   {
     "type": "out",
