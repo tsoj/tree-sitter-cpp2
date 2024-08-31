@@ -101,7 +101,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_unary_postfix_expression, $.cpp2_binary_expression],
     [$.cpp2_unary_prefix_expression, $.cpp2_binary_expression],
     [$.cpp2_function_type, $.cpp2_left_side_of_definition],
-    [$.cpp2_declaration, $.cpp2_block_statement],
+    // [$.cpp2_declaration, $.cpp2_block_statement],
     [$.cpp2_block_loop, $.cpp2_do_while_statement],
     [$.cpp2_declaration_left_side, $.cpp2_non_block_loop, $.cpp2_block_loop],
     [$.cpp2_declaration_left_side, $.cpp2_block_loop],
@@ -204,17 +204,14 @@ module.exports = grammar(CPP1, {
         seq("/**/", original),
         // Cpp2
         ";",
-        $.cpp2_declaration,
+        $.cpp2_block_declaration,
+        seq($.cpp2_no_block_declaration, ";"),
       ),
 
     // cpp2_source_file: ($) => repeat(choice($.cpp2_declaration, ";")),
 
-    cpp2_declaration: ($) =>
-      choice(
-        $.cpp2_no_definition_declaration,
-        $.cpp2_block_declaration,
-        $.cpp2_expression_declaration,
-      ),
+    cpp2_no_block_declaration: ($) =>
+      choice($.cpp2_no_definition_declaration, $.cpp2_expression_declaration),
 
     cpp2_block_declaration: ($) =>
       seq($.cpp2_declaration_left_side, $.cpp2_block_definition),
@@ -383,13 +380,13 @@ module.exports = grammar(CPP1, {
         optional($.cpp2_function_type_without_return_type),
         choice(
           $.cpp2_block_statement,
-          seq(optional($.cpp2_non_cpp2_block_statement), ";"),
+          seq(optional($.cpp2_non_block_statement), ";"),
         ),
       ),
 
-    cpp2_non_cpp2_block_statement: ($) =>
+    cpp2_non_block_statement: ($) =>
       choice(
-        $.cpp2_declaration,
+        $.cpp2_no_block_declaration,
         $.cpp2_return_statement,
         $.cpp2_continue_statement,
         $.cpp2_break_statement,
@@ -549,7 +546,11 @@ module.exports = grammar(CPP1, {
     cpp2_function_declaration_argument: ($) =>
       seq(
         optional($.cpp2_passing_style),
-        choice($.cpp2_declaration, $.cpp2_any_identifier),
+        choice(
+          $.cpp2_no_block_declaration,
+          $.cpp2_block_declaration,
+          $.cpp2_any_identifier,
+        ),
       ),
 
     cpp2_passing_style: ($) =>

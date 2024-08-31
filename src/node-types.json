@@ -2242,29 +2242,6 @@
     }
   },
   {
-    "type": "cpp2_declaration",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "cpp2_block_declaration",
-          "named": true
-        },
-        {
-          "type": "cpp2_expression_declaration",
-          "named": true
-        },
-        {
-          "type": "cpp2_no_definition_declaration",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "cpp2_declaration_left_side",
     "named": true,
     "fields": {},
@@ -2508,7 +2485,11 @@
           "named": true
         },
         {
-          "type": "cpp2_declaration",
+          "type": "cpp2_block_declaration",
+          "named": true
+        },
+        {
+          "type": "cpp2_no_block_declaration",
           "named": true
         },
         {
@@ -2719,6 +2700,25 @@
     }
   },
   {
+    "type": "cpp2_no_block_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "cpp2_expression_declaration",
+          "named": true
+        },
+        {
+          "type": "cpp2_no_definition_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "cpp2_no_definition_declaration",
     "named": true,
     "fields": {},
@@ -2788,7 +2788,7 @@
     }
   },
   {
-    "type": "cpp2_non_cpp2_block_statement",
+    "type": "cpp2_non_block_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -2804,11 +2804,11 @@
           "named": true
         },
         {
-          "type": "cpp2_declaration",
+          "type": "cpp2_expression",
           "named": true
         },
         {
-          "type": "cpp2_expression",
+          "type": "cpp2_no_block_declaration",
           "named": true
         },
         {
@@ -2927,7 +2927,7 @@
           "named": true
         },
         {
-          "type": "cpp2_non_cpp2_block_statement",
+          "type": "cpp2_non_block_statement",
           "named": true
         }
       ]
@@ -7574,7 +7574,11 @@
           "named": true
         },
         {
-          "type": "cpp2_declaration",
+          "type": "cpp2_block_declaration",
+          "named": true
+        },
+        {
+          "type": "cpp2_no_block_declaration",
           "named": true
         },
         {
