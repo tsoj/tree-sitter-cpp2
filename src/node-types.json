@@ -2861,11 +2861,6 @@
     }
   },
   {
-    "type": "cpp2_ordinary_identifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "cpp2_parentheses_expression",
     "named": true,
     "fields": {},
@@ -8351,6 +8346,10 @@
     "named": false
   },
   {
+    "type": "/**/",
+    "named": false
+  },
+  {
     "type": "/=",
     "named": false
   },
@@ -8715,6 +8714,10 @@
     "named": true
   },
   {
+    "type": "cpp2_ordinary_identifier",
+    "named": true
+  },
+  {
     "type": "cpp2_string",
     "named": true
   },
@@ -8764,11 +8767,11 @@
   },
   {
     "type": "false",
-    "named": true
+    "named": false
   },
   {
     "type": "false",
-    "named": false
+    "named": true
   },
   {
     "type": "field_identifier",
