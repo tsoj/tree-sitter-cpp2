@@ -131,6 +131,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_function_declaration_argument, $.cpp2_expression],
     [$.cpp2_function_type],
     [$.cpp2_number_literal],
+    [$.cpp2_type_type, $.cpp2_passing_style],
   ],
 
   precedences: ($) => [
@@ -325,7 +326,7 @@ module.exports = grammar(CPP1, {
 
     _const_and_star: ($) => repeat1(choice("const", "*")),
 
-    cpp2_type_type: ($) => "cpp2_type",
+    cpp2_type_type: ($) => seq(optional("final"), "type"),
     cpp2_namespace_type: ($) => "namespace",
 
     cpp2_function_type_without_return_type: ($) =>

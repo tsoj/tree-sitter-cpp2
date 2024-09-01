@@ -3080,6 +3080,11 @@
     }
   },
   {
+    "type": "cpp2_type_type",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "cpp2_unary_expression",
     "named": true,
     "fields": {},
@@ -8819,10 +8824,6 @@
     "named": false
   },
   {
-    "type": "cpp2_type_type",
-    "named": true
-  },
-  {
     "type": "decltype",
     "named": false
   },
@@ -9136,6 +9137,10 @@
   },
   {
     "type": "try",
+    "named": false
+  },
+  {
+    "type": "type",
     "named": false
   },
   {
