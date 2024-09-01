@@ -2218,6 +2218,21 @@
     }
   },
   {
+    "type": "cpp2_const_and_star",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "cpp2_const_and_star",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "cpp2_declaration_left_side",
     "named": true,
     "fields": {},
@@ -3052,9 +3067,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "cpp2_const_and_star",
+          "named": true
+        },
         {
           "type": "cpp2_expression",
           "named": true

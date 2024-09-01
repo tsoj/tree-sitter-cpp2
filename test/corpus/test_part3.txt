@@ -13,12 +13,16 @@ p: const * * const i32;
             (identifier))))
       (cpp2_expression
         (cpp2_type
+          (cpp2_const_and_star)
           (cpp2_expression
             (cpp2_type
+              (cpp2_const_and_star)
               (cpp2_expression
                 (cpp2_type
+                  (cpp2_const_and_star)
                   (cpp2_expression
                     (cpp2_type
+                      (cpp2_const_and_star)
                       (cpp2_expression
                         (cpp2_any_identifier
                           (cpp2_no_namespace_identifier

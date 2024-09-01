@@ -804,6 +804,7 @@ main: () = {
                   (cpp2_left_side_of_definition
                     (cpp2_expression
                       (cpp2_type
+                        (cpp2_const_and_star)
                         (cpp2_function_type
                           (cpp2_function_type_without_return_type
                             (cpp2_comma_seperated_declarations

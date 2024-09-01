@@ -1863,6 +1863,7 @@ a := ((A &) &) &(A);
                             (identifier)))))))))
             (cpp2_expression
               (cpp2_type
+                (cpp2_const_and_star)
                 (cpp2_function_type
                   (cpp2_function_type_without_return_type
                     (cpp2_comma_seperated_declarations
@@ -1893,6 +1894,7 @@ a := ((A &) &) &(A);
                             (identifier)))))))))
             (cpp2_expression
               (cpp2_type
+                (cpp2_const_and_star)
                 (cpp2_function_type
                   (cpp2_function_type_without_return_type
                     (cpp2_comma_seperated_declarations
@@ -1923,6 +1925,7 @@ a := ((A &) &) &(A);
                             (identifier)))))))))
             (cpp2_expression
               (cpp2_type
+                (cpp2_const_and_star)
                 (cpp2_function_type
                   (cpp2_function_type_without_return_type
                     (cpp2_comma_seperated_declarations
@@ -1953,6 +1956,7 @@ a := ((A &) &) &(A);
                             (identifier)))))))))
             (cpp2_expression
               (cpp2_type
+                (cpp2_const_and_star)
                 (cpp2_function_type
                   (cpp2_function_type_without_return_type
                     (cpp2_comma_seperated_declarations

@@ -97,13 +97,9 @@ module.exports = grammar(CPP1, {
     [$.type_specifier, $.cpp2_ordinary_identifier],
     [$.template_type, $.cpp2_ordinary_identifier],
     [$.concatenated_string, $.cpp2_ordinary_identifier],
-    [$.concatenated_string, $.cpp2_literal],
     [$.type_specifier, $.cpp2_primitive_type],
     [$.cpp2_ordinary_identifier, $.labeled_statement],
     [$._unary_left_fold, $.cpp2_expansion_dots],
-    [$.pointer_declarator, $.cpp2_type],
-    [$.pointer_declarator, $._const_and_star],
-    [$.type_qualifier, $._const_and_star],
     [$.type_specifier, $.call_expression, $.cpp2_primitive_type],
     [$.expression, $.cpp2_literal],
     [$.expression, $.cpp2_keyword],
@@ -118,8 +114,6 @@ module.exports = grammar(CPP1, {
     [$.call_expression, $.cpp2_primitive_type],
     [$.user_defined_literal, $.cpp2_user_defined_literal],
     [$.union_specifier, $.cpp2_ordinary_identifier],
-    [$.expression, $.cpp2_raw_string_literal],
-    [$.user_defined_literal, $.cpp2_raw_string_literal],
     [$.raw_string_literal, $.cpp2_raw_string_literal],
 
     // Cpp2
@@ -137,7 +131,6 @@ module.exports = grammar(CPP1, {
     [$.cpp2_function_type],
     [$.cpp2_number_literal],
     [$.cpp2_type_type, $.cpp2_passing_style],
-    // [$.cpp2_expression, $.cpp2_comma_expressions],
     [$.cpp2_type],
     [$.cpp2_binary_expression, $.cpp2_function_type],
     [$.cpp2_ordinary_identifier, $.cpp2_type_type],
@@ -164,31 +157,17 @@ module.exports = grammar(CPP1, {
     cpp2_binary_operators,
     [$.cpp2_type, $.cpp2_binary_expression],
     [$.cpp2_function_type_without_return_type, $.cpp2_parentheses_expression],
-    // [$.cpp2_comma_expressions, $.cpp2_comma_expressions],
-    // [$.cpp2_comma_expressions, $.cpp2_type],
     [$.cpp2_block_statement, $.cpp2_definition],
-    [$._const_and_star, $.type_qualifier],
+    [$.cpp2_const_and_star, $.type_qualifier],
     [$.cpp2_keyword, $.cpp2_expression],
-
     [$.cpp2_operator_keyword, $.cpp2_expression],
-    [$.cpp2_operator_keyword, $._const_and_star],
-    // [$.cpp2_operator_keyword, $.cpp2_unary_prefix_expression],
+    [$.cpp2_operator_keyword, $.cpp2_const_and_star],
     [$.cpp2_expansion_dots, $.cpp2_operator_keyword],
-
-    // [$.cpp2_unary_postfix_expression, $.cpp2_operator_keyword],
-    // [$.cpp2_function_call, $.cpp2_operator_keyword],
     [$.cpp2_binary_expression, $.cpp2_operator_keyword],
     [$.cpp2_left_side_of_definition, $.cpp2_function_type],
-    // [$.cpp2_operator_keyword, $._const_and_star],
-    // [$.cpp2_binary_expression, $.cpp2_type],
     [$.cpp2_function_type, $.cpp2_statement],
-    // [$.cpp2_unary_postfix_expression, $.cpp2_function_type],
-    // [$.cpp2_function_call, $.cpp2_function_type],
-    // [$.cpp2_binary_expression, $.cpp2_function_type],
     [$.cpp2_left_side_of_definition, $.cpp2_binary_expression],
     [$.cpp2_binary_expression, $.cpp2_expression_definition],
-    // [$.cpp2_unary_postfix_expression, $.cpp2_expression_definition],
-    // [$.cpp2_function_call, $.cpp2_expression_definition],
   ],
 
   extras: ($) => [/\s|\\\r?\n/, $.comment, $.macro_comment],
@@ -204,8 +183,6 @@ module.exports = grammar(CPP1, {
         // this is only really here to parse cases like `v := :() -> bool = true;();` at least without error
         $.cpp2_parentheses_expression,
       ),
-
-    // cpp2_source_file: ($) => repeat(choice($.cpp2_declaration, ";")),
 
     cpp2_no_block_declaration: ($) =>
       choice($.cpp2_no_definition_declaration, $.cpp2_expression_declaration),
@@ -342,16 +319,16 @@ module.exports = grammar(CPP1, {
 
     cpp2_type: ($) =>
       choice(
-        seq(optional($._const_and_star), $.cpp2_function_type),
+        seq(optional($.cpp2_const_and_star), $.cpp2_function_type),
         // lower preference to prefer unary postfix operator
-        prec.dynamic(-1, seq($._const_and_star, $.cpp2_expression)),
+        prec.dynamic(-1, seq($.cpp2_const_and_star, $.cpp2_expression)),
         // higher preference to prefer type as keyword instead of identifer if possible
         prec.dynamic(1, $.cpp2_type_type),
         $.cpp2_namespace_type,
       ),
 
-    _const_and_star: ($) =>
-      prec.left(seq(choice("const", "*"), optional($._const_and_star))),
+    cpp2_const_and_star: ($) =>
+      prec.left(seq(choice("const", "*"), optional($.cpp2_const_and_star))),
 
     cpp2_type_type: ($) => seq(optional("final"), "type"),
     cpp2_namespace_type: ($) => "namespace",
