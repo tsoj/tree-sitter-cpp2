@@ -111,6 +111,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_declaration_left_side, $.cpp2_no_namespace_identifier],
     [$.cpp2_ordinary_identifier, $.cpp2_passing_style],
     [$.cpp2_passing_style],
+    [$.cpp2_function_declaration_argument, $.cpp2_expression],
   ],
 
   precedences: ($) => [
@@ -130,7 +131,7 @@ module.exports = grammar(CPP1, {
     ],
     cpp2_binary_operators,
     [$.cpp2_type, $.cpp2_binary_expression],
-    [$.cpp2_function_declaration_argument, $.cpp2_expression],
+    // [$.cpp2_function_declaration_argument, $.cpp2_expression],
     [$.cpp2_function_type_without_return_type, $.cpp2_parentheses_expression],
     [$.cpp2_comma_expressions, $.cpp2_expression_or_comma_expressions],
     [$.cpp2_expression_or_comma_expressions, $.cpp2_type],
@@ -371,6 +372,7 @@ module.exports = grammar(CPP1, {
       prec.left(
         seq(
           "if",
+          optional("constexpr"),
           $.cpp2_expression,
           $.cpp2_block_statement,
           optional(seq("else", $.cpp2_block_statement)),
