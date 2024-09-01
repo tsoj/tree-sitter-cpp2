@@ -229,4 +229,5 @@ mytype: type
                               (cpp2_operator_keyword)))))
                       (cpp2_expression
                         (cpp2_literal
-                          (cpp2_string))))))))))))))
+                          (string_literal
+                            (string_content)))))))))))))))

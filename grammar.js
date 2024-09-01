@@ -91,17 +91,18 @@ module.exports = grammar(CPP1, {
     [$.qualified_field_identifier, $.template_method, $.template_type],
 
     // Cpp2 vs C++
-    // [$.type_qualifier, $.cpp2_type],
     [$.expression, $.cpp2_ordinary_identifier],
     [$.type_specifier, $.cpp2_ordinary_identifier],
     [$.template_type, $.cpp2_ordinary_identifier],
+    [$.concatenated_string, $.cpp2_ordinary_identifier],
+    [$.concatenated_string, $.cpp2_literal],
+    [$.type_specifier, $.cpp2_primitive_type],
+    [$.cpp2_ordinary_identifier, $.labeled_statement],
 
     // Cpp2
     [$.cpp2_no_namespace_identifier, $.cpp2_template_identifier],
     [$.cpp2_unary_postfix_expression, $.cpp2_binary_expression],
     [$.cpp2_unary_prefix_expression, $.cpp2_binary_expression],
-    [$.cpp2_function_type, $.cpp2_left_side_of_definition],
-    // [$.cpp2_declaration, $.cpp2_block_statement],
     [$.cpp2_block_loop, $.cpp2_do_while_statement],
     [$.cpp2_declaration_left_side, $.cpp2_non_block_loop, $.cpp2_block_loop],
     [$.cpp2_declaration_left_side, $.cpp2_block_loop],
@@ -110,16 +111,6 @@ module.exports = grammar(CPP1, {
     [$.cpp2_declaration_left_side, $.cpp2_no_namespace_identifier],
     [$.cpp2_ordinary_identifier, $.cpp2_passing_style],
     [$.cpp2_passing_style],
-    [$.cpp2_no_definition_declaration, $.cpp2_left_side_of_definition],
-    [$.cpp2_no_definition_declaration, $.cpp2_function_call],
-    [$.cpp2_no_definition_declaration, $.cpp2_unary_postfix_expression],
-    [$.cpp2_no_definition_declaration, $.cpp2_binary_expression],
-    [
-      $.cpp2_no_definition_declaration,
-      $.cpp2_unary_postfix_expression,
-      $.cpp2_binary_expression,
-    ],
-    [$.cpp2_no_definition_declaration, $.cpp2_bracket_call],
   ],
 
   precedences: ($) => [
@@ -149,60 +140,15 @@ module.exports = grammar(CPP1, {
     [$.cpp2_operator_keyword, $.cpp2_unary_prefix_expression],
     [$.cpp2_operator_keyword, $.cpp2_expansion_dots],
     [$._const_and_star, $.type_qualifier],
-    // [$.cpp2_declaration, $.translation_unit],
+    [$.cpp2_keyword, $.cpp2_expression],
   ],
+
+  extras: ($) => [/\s|\\\r?\n/, $.comment],
 
   rules: {
     _top_level_item: ($, original) =>
       choice(
-        //
-        // C
-        $.function_definition,
-        $.linkage_specification,
-        $.declaration,
-        // $._top_level_statement,
-        choice(
-          $.case_statement,
-          $.attributed_statement,
-          // $.labeled_statement,
-          $.compound_statement,
-          alias($._top_level_expression_statement, $.expression_statement),
-          $.if_statement,
-          $.switch_statement,
-          $.do_statement,
-          $.while_statement,
-          $.for_statement,
-          $.return_statement,
-          $.break_statement,
-          $.continue_statement,
-          $.goto_statement,
-        ),
-        $.attributed_statement,
-        $.type_definition,
-        $._empty_declaration,
-        $.preproc_if,
-        $.preproc_ifdef,
-        $.preproc_include,
-        $.preproc_def,
-        $.preproc_function_def,
-        $.preproc_call,
-
-        // // C++
-        $.namespace_definition,
-        $.concept_definition,
-        $.namespace_alias_definition,
-        $.using_declaration,
-        $.alias_declaration,
-        $.static_assert_declaration,
-        $.template_declaration,
-        $.template_instantiation,
-        alias($.constructor_or_destructor_definition, $.function_definition),
-        alias($.operator_cast_definition, $.function_definition),
-        alias($.operator_cast_declaration, $.declaration),
-
-        // original,
-        seq("/**/", original),
-        // Cpp2
+        original,
         ";",
         $.cpp2_block_declaration,
         seq($.cpp2_no_block_declaration, ";"),
@@ -312,7 +258,8 @@ module.exports = grammar(CPP1, {
       choice($.cpp2_operator_keyword, $.cpp2_ordinary_identifier),
 
     cpp2_ordinary_identifier: ($) =>
-      choice(...cpp2_non_keyword_words, $.identifier),
+      // dynamic precedence for preferring cpp2 grammar to labeled_statement
+      prec.dynamic(1, choice(...cpp2_non_keyword_words, $.identifier)),
 
     cpp2_operator_keyword: ($) =>
       seq(
@@ -461,6 +408,8 @@ module.exports = grammar(CPP1, {
     cpp2_expression: ($) =>
       choice(
         $.cpp2_literal,
+        $.cpp2_keyword,
+        $.cpp2_primitive_type,
         $.cpp2_any_identifier,
         $.cpp2_function_call,
         $.cpp2_method_call,
@@ -563,11 +512,28 @@ module.exports = grammar(CPP1, {
     cpp2_using_statement: ($) => seq("using", optional($.cpp2_expression)),
 
     cpp2_literal: ($) =>
-      choice($.cpp2_number, $.cpp2_string, $.cpp2_float, $.cpp2_boolean),
+      choice($.number_literal, $._string, $.raw_string_literal, $.char_literal),
 
-    cpp2_number: ($) => /\d+/,
-    cpp2_string: ($) => /"([^"\\]|\\.)*"/,
-    cpp2_float: ($) => /\d+\.\d+/,
-    cpp2_boolean: ($) => choice("true", "false"),
+    cpp2_keyword: ($) => choice($.true, $.false, $.cpp2_primitive_type),
+
+    cpp2_primitive_type: ($) =>
+      choice(
+        $.primitive_type,
+        token(
+          choice(
+            "ushort",
+            "uint",
+            "ulong",
+            "longlong",
+            "ulonglong",
+            "longdouble",
+            "_schar",
+            "_uchar",
+            ...[8, 16, 32, 64].map((n) => `i${n}`),
+            ...[8, 16, 32, 64].map((n) => `u${n}`),
+            ...[8, 16, 32, 64].map((n) => `f${n}`),
+          ),
+        ),
+      ),
   },
 });

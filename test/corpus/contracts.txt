@@ -38,11 +38,9 @@ insert_at: (container, where: int, val: int)
                             (identifier))))
                       (cpp2_type
                         (cpp2_expression
-                          (cpp2_any_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))))))))
+                          (cpp2_keyword
+                            (cpp2_primitive_type
+                              (primitive_type))))))))
                 (cpp2_function_declaration_argument
                   (cpp2_no_block_declaration
                     (cpp2_no_definition_declaration
@@ -52,11 +50,9 @@ insert_at: (container, where: int, val: int)
                             (identifier))))
                       (cpp2_type
                         (cpp2_expression
-                          (cpp2_any_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))))))))))))
+                          (cpp2_keyword
+                            (cpp2_primitive_type
+                              (primitive_type))))))))))))
         (cpp2_template_call_arguments
           (cpp2_expression_or_comma_expressions
             (cpp2_expression
@@ -72,7 +68,7 @@ insert_at: (container, where: int, val: int)
                 (cpp2_binary_expression
                   (cpp2_expression
                     (cpp2_literal
-                      (cpp2_number)))
+                      (number_literal)))
                   (cpp2_expression
                     (cpp2_binary_expression
                       (cpp2_expression
@@ -98,7 +94,8 @@ insert_at: (container, where: int, val: int)
               (cpp2_expression_or_comma_expressions
                 (cpp2_expression
                   (cpp2_literal
-                    (cpp2_string)))))))
+                    (string_literal
+                      (string_content))))))))
         (cpp2_parentheses_expression
           (cpp2_expression_or_comma_expressions
             (cpp2_expression
@@ -138,7 +135,7 @@ insert_at: (container, where: int, val: int)
                               (cpp2_parentheses_expression))))))
                     (cpp2_expression
                       (cpp2_literal
-                        (cpp2_number))))))))))
+                        (number_literal))))))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
@@ -297,7 +294,8 @@ function_declaration: @copyable type =
                         (cpp2_expression_or_comma_expressions
                           (cpp2_expression
                             (cpp2_literal
-                              (cpp2_string)))))))
+                              (string_literal
+                                (string_content))))))))
                   (cpp2_template_call_arguments
                     (cpp2_expression_or_comma_expressions
                       (cpp2_expression
@@ -321,7 +319,8 @@ function_declaration: @copyable type =
                         (cpp2_expression_or_comma_expressions
                           (cpp2_expression
                             (cpp2_literal
-                              (cpp2_string))))))))
+                              (string_literal
+                                (string_content)))))))))
                 (cpp2_block
                   (cpp2_statement
                     (cpp2_non_block_statement
@@ -337,4 +336,5 @@ function_declaration: @copyable type =
                             (cpp2_expression_or_comma_expressions
                               (cpp2_expression
                                 (cpp2_literal
-                                  (cpp2_string))))))))))))))))))
+                                  (string_literal
+                                    (string_content)))))))))))))))))))

@@ -100,7 +100,8 @@ is_void := u**.identifier* == "void";
                               (identifier))))))))))
             (cpp2_expression
               (cpp2_literal
-                (cpp2_string)))))))))
+                (string_literal
+                  (string_content))))))))))
 
 ===========================================================
 range operators, triple dot, and double member access
@@ -258,7 +259,7 @@ a := b... * 3;
                             (identifier)))))))))
             (cpp2_expression
               (cpp2_literal
-                (cpp2_number)))))))))
+                (number_literal)))))))))
 
 ===========================================================
 A requires constraint on a variadic function
@@ -357,7 +358,7 @@ print: <Args...: type>
                               (identifier))))))))))
             (cpp2_expression
               (cpp2_literal
-                (cpp2_number))))))
+                (number_literal))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement

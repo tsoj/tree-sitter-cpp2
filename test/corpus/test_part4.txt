@@ -42,7 +42,7 @@ c :== {
         (cpp2_left_side_of_definition)
         (cpp2_expression
           (cpp2_literal
-            (cpp2_float))))))
+            (number_literal))))))
   (cpp2_no_block_declaration
     (cpp2_expression_declaration
       (cpp2_declaration_left_side
@@ -60,7 +60,8 @@ c :== {
                       (identifier))))))))
         (cpp2_expression
           (cpp2_literal
-            (cpp2_string))))))
+            (string_literal
+              (string_content)))))))
   (cpp2_no_block_declaration
     (cpp2_expression_declaration
       (cpp2_declaration_left_side
@@ -82,21 +83,17 @@ c :== {
                               (identifier))))
                         (cpp2_type
                           (cpp2_expression
-                            (cpp2_any_identifier
-                              (cpp2_no_namespace_identifier
-                                (cpp2_non_template_identifier
-                                  (cpp2_ordinary_identifier
-                                    (identifier))))))))))))
+                            (cpp2_keyword
+                              (cpp2_primitive_type
+                                (primitive_type))))))))))
               (cpp2_type
                 (cpp2_expression
-                  (cpp2_any_identifier
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier))))))))))
+                  (cpp2_keyword
+                    (cpp2_primitive_type
+                      (primitive_type))))))))
         (cpp2_expression
           (cpp2_literal
-            (cpp2_float))))))
+            (number_literal))))))
   (cpp2_block_declaration
     (cpp2_declaration_left_side
       (cpp2_non_template_identifier
@@ -109,5 +106,5 @@ c :== {
           (cpp2_non_block_statement
             (cpp2_return_statement
               (cpp2_expression
-                (cpp2_literal
-                  (cpp2_boolean))))))))))
+                (cpp2_keyword
+                  (true))))))))))

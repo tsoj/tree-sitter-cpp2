@@ -172,11 +172,9 @@ set: <Key> type = {
                                           (identifier))))
                                     (cpp2_type
                                       (cpp2_expression
-                                        (cpp2_any_identifier
-                                          (cpp2_no_namespace_identifier
-                                            (cpp2_non_template_identifier
-                                              (cpp2_ordinary_identifier
-                                                (identifier)))))))))))))))))
+                                        (cpp2_keyword
+                                          (cpp2_primitive_type
+                                            (primitive_type)))))))))))))))
                 (cpp2_block
                   (cpp2_statement
                     (cpp2_non_block_statement
@@ -356,11 +354,9 @@ main: ()
             (cpp2_function_type_without_return_type)
             (cpp2_type
               (cpp2_expression
-                (cpp2_any_identifier
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier))))))))))
+                (cpp2_keyword
+                  (cpp2_primitive_type
+                    (primitive_type))))))))
       (cpp2_block)))
   (cpp2_block_declaration
     (cpp2_declaration_left_side
@@ -374,18 +370,16 @@ main: ()
             (cpp2_function_type_without_return_type)
             (cpp2_type
               (cpp2_expression
-                (cpp2_any_identifier
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier))))))))))
+                (cpp2_keyword
+                  (cpp2_primitive_type
+                    (primitive_type))))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
             (cpp2_return_statement
               (cpp2_expression
                 (cpp2_literal
-                  (cpp2_number)))))))))
+                  (number_literal)))))))))
   (cpp2_block_declaration
     (cpp2_declaration_left_side
       (cpp2_non_template_identifier
@@ -407,18 +401,14 @@ main: ()
                             (identifier))))
                       (cpp2_type
                         (cpp2_expression
-                          (cpp2_any_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))))))))))
+                          (cpp2_keyword
+                            (cpp2_primitive_type
+                              (primitive_type))))))))))
             (cpp2_type
               (cpp2_expression
-                (cpp2_any_identifier
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier))))))))))
+                (cpp2_keyword
+                  (cpp2_primitive_type
+                    (primitive_type))))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
@@ -432,7 +422,7 @@ main: ()
                           (identifier))))))
                 (cpp2_expression
                   (cpp2_literal
-                    (cpp2_number))))))))))
+                    (number_literal))))))))))
   (cpp2_block_declaration
     (cpp2_declaration_left_side
       (cpp2_non_template_identifier
@@ -524,7 +514,7 @@ main: ()
                         (cpp2_left_side_of_definition)
                         (cpp2_expression
                           (cpp2_literal
-                            (cpp2_number))))))))
+                            (number_literal))))))))
               (cpp2_statement
                 (cpp2_non_block_statement
                   (cpp2_expression
@@ -580,7 +570,7 @@ main: ()
                         (cpp2_left_side_of_definition)
                         (cpp2_expression
                           (cpp2_literal
-                            (cpp2_number))))))))
+                            (number_literal))))))))
               (cpp2_statement
                 (cpp2_non_block_statement
                   (cpp2_expression
@@ -630,7 +620,7 @@ main: ()
                         (cpp2_left_side_of_definition)
                         (cpp2_expression
                           (cpp2_literal
-                            (cpp2_number))))))))
+                            (number_literal))))))))
               (cpp2_statement
                 (cpp2_non_block_statement
                   (cpp2_expression
@@ -707,7 +697,8 @@ main: () = {
                             (identifier)))))))))))
         (cpp2_expression
           (cpp2_literal
-            (cpp2_string))))))
+            (string_literal
+              (string_content)))))))
   (cpp2_block_declaration
     (cpp2_declaration_left_side
       (cpp2_non_template_identifier
@@ -800,7 +791,12 @@ main: () = {
                             (identifier)))))))
                 (cpp2_expression
                   (cpp2_literal
-                    (cpp2_string)))))))
+                    (string_literal
+                      (string_content)
+                      (escape_sequence)
+                      (string_content)
+                      (escape_sequence)
+                      (escape_sequence))))))))
         (cpp2_statement
           (cpp2_non_block_statement
             (cpp2_no_block_declaration
@@ -867,4 +863,9 @@ main: () = {
                             (identifier)))))))
                 (cpp2_expression
                   (cpp2_literal
-                    (cpp2_string)))))))))))
+                    (string_literal
+                      (string_content)
+                      (escape_sequence)
+                      (string_content)
+                      (escape_sequence)
+                      (escape_sequence))))))))))))
