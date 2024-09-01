@@ -170,7 +170,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_keyword, $.cpp2_expression],
 
     [$.cpp2_operator_keyword, $.cpp2_expression],
-    [$._const_and_star, $.cpp2_operator_keyword],
+    [$.cpp2_operator_keyword, $._const_and_star],
     // [$.cpp2_operator_keyword, $.cpp2_unary_prefix_expression],
     [$.cpp2_expansion_dots, $.cpp2_operator_keyword],
 
