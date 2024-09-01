@@ -104,7 +104,7 @@ a := hello(x, "hello");
         (cpp2_left_side_of_definition)
         (cpp2_expression
           (cpp2_parentheses_expression
-            (cpp2_expression_or_comma_expressions
+            (cpp2_comma_expressions
               (cpp2_expression
                 (cpp2_definition
                   (cpp2_expression_definition
@@ -131,7 +131,7 @@ a := hello(x, "hello");
         (cpp2_left_side_of_definition)
         (cpp2_expression
           (cpp2_parentheses_expression
-            (cpp2_expression_or_comma_expressions
+            (cpp2_comma_expressions
               (cpp2_expression
                 (cpp2_definition
                   (cpp2_expression_definition
@@ -215,19 +215,17 @@ a := hello(x, "hello");
                     (cpp2_ordinary_identifier
                       (identifier))))))
             (cpp2_parentheses_expression
-              (cpp2_expression_or_comma_expressions
-                (cpp2_comma_expressions
-                  (cpp2_expression
-                    (cpp2_any_identifier
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))))
-                  (cpp2_expression_or_comma_expressions
-                    (cpp2_expression
-                      (cpp2_literal
-                        (string_literal
-                          (string_content))))))))))))))
+              (cpp2_comma_expressions
+                (cpp2_expression
+                  (cpp2_any_identifier
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier))))))
+                (cpp2_expression
+                  (cpp2_literal
+                    (string_literal
+                      (string_content))))))))))))
 
 ===========================================================
 stdio
@@ -315,17 +313,15 @@ _main2: () -> ::std::hello::int = {
                               (cpp2_ordinary_identifier
                                 (identifier))))))
                       (cpp2_parentheses_expression
-                        (cpp2_expression_or_comma_expressions
-                          (cpp2_comma_expressions
-                            (cpp2_expression
-                              (cpp2_literal
-                                (string_literal
-                                  (string_content))))
-                            (cpp2_expression_or_comma_expressions
-                              (cpp2_expression
-                                (cpp2_literal
-                                  (string_literal
-                                    (string_content)))))))))))))))
+                        (cpp2_comma_expressions
+                          (cpp2_expression
+                            (cpp2_literal
+                              (string_literal
+                                (string_content))))
+                          (cpp2_expression
+                            (cpp2_literal
+                              (string_literal
+                                (string_content)))))))))))))
         (cpp2_statement
           (cpp2_non_block_statement
             (cpp2_expression
@@ -350,27 +346,25 @@ _main2: () -> ::std::hello::int = {
                           (cpp2_ordinary_identifier
                             (identifier)))))
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
-                        (cpp2_comma_expressions
-                          (cpp2_expression
-                            (cpp2_literal
-                              (string_literal
-                                (string_content))))
-                          (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
+                        (cpp2_expression
+                          (cpp2_literal
+                            (string_literal
+                              (string_content))))
+                        (cpp2_expression
+                          (cpp2_method_call
                             (cpp2_expression
-                              (cpp2_method_call
-                                (cpp2_expression
-                                  (cpp2_any_identifier
-                                    (cpp2_no_namespace_identifier
-                                      (cpp2_non_template_identifier
-                                        (cpp2_ordinary_identifier
-                                          (identifier))))))
-                                (cpp2_any_identifier
-                                  (cpp2_no_namespace_identifier
-                                    (cpp2_non_template_identifier
-                                      (cpp2_ordinary_identifier
-                                        (identifier)))))
-                                (cpp2_parentheses_expression)))))))))))))
+                              (cpp2_any_identifier
+                                (cpp2_no_namespace_identifier
+                                  (cpp2_non_template_identifier
+                                    (cpp2_ordinary_identifier
+                                      (identifier))))))
+                            (cpp2_any_identifier
+                              (cpp2_no_namespace_identifier
+                                (cpp2_non_template_identifier
+                                  (cpp2_ordinary_identifier
+                                    (identifier)))))
+                            (cpp2_parentheses_expression)))))))))))
         (cpp2_statement
           (cpp2_non_block_statement
             (cpp2_expression
@@ -1603,7 +1597,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -1634,7 +1628,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -1665,7 +1659,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -1696,7 +1690,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -1724,13 +1718,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -1758,13 +1752,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -1792,13 +1786,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -1826,13 +1820,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -1983,7 +1977,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -1995,7 +1989,7 @@ a := ((A &) &) &(A);
                                         (identifier)))))))))))))))
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_any_identifier
                       (cpp2_no_namespace_identifier
@@ -2017,7 +2011,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -2029,7 +2023,7 @@ a := ((A &) &) &(A);
                                         (identifier)))))))))))))))
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_any_identifier
                       (cpp2_no_namespace_identifier
@@ -2051,7 +2045,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -2063,7 +2057,7 @@ a := ((A &) &) &(A);
                                         (identifier)))))))))))))))
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_any_identifier
                       (cpp2_no_namespace_identifier
@@ -2085,7 +2079,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -2097,7 +2091,7 @@ a := ((A &) &) &(A);
                                         (identifier)))))))))))))))
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_any_identifier
                       (cpp2_no_namespace_identifier
@@ -2116,13 +2110,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -2155,13 +2149,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -2194,13 +2188,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -2233,13 +2227,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -2378,7 +2372,7 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
@@ -2409,7 +2403,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -2440,7 +2434,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -2471,7 +2465,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -2499,13 +2493,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -2533,13 +2527,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -2567,13 +2561,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -2601,13 +2595,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -2761,7 +2755,7 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
@@ -2797,7 +2791,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -2833,7 +2827,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -2869,7 +2863,7 @@ a := ((A &) &) &(A);
                 (cpp2_unary_postfix_expression
                   (cpp2_expression
                     (cpp2_parentheses_expression
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_unary_expression
                             (cpp2_unary_postfix_expression
@@ -2902,13 +2896,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -2941,13 +2935,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -2980,13 +2974,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression
@@ -3019,13 +3013,13 @@ a := ((A &) &) &(A);
           (cpp2_binary_expression
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_unary_expression
                       (cpp2_unary_postfix_expression
                         (cpp2_expression
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_unary_expression
                                   (cpp2_unary_postfix_expression

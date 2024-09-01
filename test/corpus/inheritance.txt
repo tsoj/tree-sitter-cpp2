@@ -74,7 +74,7 @@ mytype: type =
                                   (cpp2_ordinary_identifier
                                     (identifier))))))
                           (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_any_identifier
                                   (cpp2_no_namespace_identifier

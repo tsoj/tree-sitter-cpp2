@@ -254,42 +254,38 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                         (cpp2_ordinary_identifier
                           (identifier))))))
                 (cpp2_parentheses_expression
-                  (cpp2_expression_or_comma_expressions
-                    (cpp2_comma_expressions
-                      (cpp2_expression
-                        (cpp2_function_call
-                          (cpp2_expression
-                            (cpp2_any_identifier
-                              (cpp2_namespaced_identifier
-                                (cpp2_no_namespace_identifier
-                                  (cpp2_non_template_identifier
-                                    (cpp2_ordinary_identifier
-                                      (identifier))))
-                                (cpp2_no_namespace_identifier
-                                  (cpp2_non_template_identifier
-                                    (cpp2_ordinary_identifier
-                                      (identifier)))))))
-                          (cpp2_parentheses_expression
-                            (cpp2_expression_or_comma_expressions
-                              (cpp2_expression
-                                (cpp2_literal
-                                  (string_literal
-                                    (string_content))))))))
-                      (cpp2_expression_or_comma_expressions
-                        (cpp2_comma_expressions
-                          (cpp2_expression
-                            (cpp2_any_identifier
+                  (cpp2_comma_expressions
+                    (cpp2_expression
+                      (cpp2_function_call
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_namespaced_identifier
                               (cpp2_no_namespace_identifier
                                 (cpp2_non_template_identifier
                                   (cpp2_ordinary_identifier
-                                    (identifier))))))
-                          (cpp2_expression_or_comma_expressions
+                                    (identifier))))
+                              (cpp2_no_namespace_identifier
+                                (cpp2_non_template_identifier
+                                  (cpp2_ordinary_identifier
+                                    (identifier)))))))
+                        (cpp2_parentheses_expression
+                          (cpp2_comma_expressions
                             (cpp2_expression
-                              (cpp2_any_identifier
-                                (cpp2_no_namespace_identifier
-                                  (cpp2_non_template_identifier
-                                    (cpp2_ordinary_identifier
-                                      (identifier))))))))))))))))
+                              (cpp2_literal
+                                (string_literal
+                                  (string_content))))))))
+                    (cpp2_expression
+                      (cpp2_any_identifier
+                        (cpp2_no_namespace_identifier
+                          (cpp2_non_template_identifier
+                            (cpp2_ordinary_identifier
+                              (identifier))))))
+                    (cpp2_expression
+                      (cpp2_any_identifier
+                        (cpp2_no_namespace_identifier
+                          (cpp2_non_template_identifier
+                            (cpp2_ordinary_identifier
+                              (identifier))))))))))))
         (cpp2_statement
           (cpp2_non_block_statement
             (cpp2_expression
@@ -982,7 +978,7 @@ main: () = {
                             (cpp2_ordinary_identifier
                               (identifier)))
                           (cpp2_template_call_arguments
-                            (cpp2_expression_or_comma_expressions
+                            (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_any_identifier
                                   (cpp2_no_namespace_identifier
@@ -1014,21 +1010,19 @@ a := hello<b, c>;
                   (cpp2_ordinary_identifier
                     (identifier)))
                 (cpp2_template_call_arguments
-                  (cpp2_expression_or_comma_expressions
-                    (cpp2_comma_expressions
-                      (cpp2_expression
-                        (cpp2_any_identifier
-                          (cpp2_no_namespace_identifier
-                            (cpp2_non_template_identifier
-                              (cpp2_ordinary_identifier
-                                (identifier))))))
-                      (cpp2_expression_or_comma_expressions
-                        (cpp2_expression
-                          (cpp2_any_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))))))))))))))))
+                  (cpp2_comma_expressions
+                    (cpp2_expression
+                      (cpp2_any_identifier
+                        (cpp2_no_namespace_identifier
+                          (cpp2_non_template_identifier
+                            (cpp2_ordinary_identifier
+                              (identifier))))))
+                    (cpp2_expression
+                      (cpp2_any_identifier
+                        (cpp2_no_namespace_identifier
+                          (cpp2_non_template_identifier
+                            (cpp2_ordinary_identifier
+                              (identifier))))))))))))))))
 
 ===========================================================
 binary op order
@@ -1150,7 +1144,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                       (cpp2_ordinary_identifier
                         (identifier)))
                     (cpp2_template_call_arguments
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_any_identifier
                             (cpp2_no_namespace_identifier
@@ -1165,7 +1159,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                       (cpp2_ordinary_identifier
                         (identifier)))
                     (cpp2_template_call_arguments
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_any_identifier
                             (cpp2_no_namespace_identifier
@@ -1192,7 +1186,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                           (cpp2_ordinary_identifier
                             (identifier)))
                         (cpp2_template_call_arguments
-                          (cpp2_expression_or_comma_expressions
+                          (cpp2_comma_expressions
                             (cpp2_expression
                               (cpp2_any_identifier
                                 (cpp2_no_namespace_identifier
@@ -1207,7 +1201,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                           (cpp2_ordinary_identifier
                             (identifier)))
                         (cpp2_template_call_arguments
-                          (cpp2_expression_or_comma_expressions
+                          (cpp2_comma_expressions
                             (cpp2_expression
                               (cpp2_any_identifier
                                 (cpp2_no_namespace_identifier
@@ -1222,7 +1216,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                       (cpp2_ordinary_identifier
                         (identifier)))
                     (cpp2_template_call_arguments
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_any_identifier
                             (cpp2_no_namespace_identifier
@@ -1247,7 +1241,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                       (cpp2_ordinary_identifier
                         (identifier)))
                     (cpp2_template_call_arguments
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_any_identifier
                             (cpp2_no_namespace_identifier
@@ -1255,7 +1249,7 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                                 (cpp2_ordinary_identifier
                                   (identifier))))))))))))
             (cpp2_parentheses_expression
-              (cpp2_expression_or_comma_expressions
+              (cpp2_comma_expressions
                 (cpp2_expression
                   (cpp2_any_identifier
                     (cpp2_no_namespace_identifier
@@ -1303,53 +1297,45 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                       (cpp2_ordinary_identifier
                         (identifier)))
                     (cpp2_template_call_arguments
-                      (cpp2_expression_or_comma_expressions
-                        (cpp2_comma_expressions
-                          (cpp2_expression
-                            (cpp2_any_identifier
-                              (cpp2_no_namespace_identifier
-                                (cpp2_non_template_identifier
-                                  (cpp2_ordinary_identifier
-                                    (identifier))))))
-                          (cpp2_expression_or_comma_expressions
-                            (cpp2_comma_expressions
-                              (cpp2_expression
-                                (cpp2_any_identifier
-                                  (cpp2_no_namespace_identifier
-                                    (cpp2_non_template_identifier
-                                      (cpp2_ordinary_identifier
-                                        (identifier))))))
-                              (cpp2_expression_or_comma_expressions
-                                (cpp2_comma_expressions
-                                  (cpp2_expression
-                                    (cpp2_any_identifier
-                                      (cpp2_no_namespace_identifier
-                                        (cpp2_non_template_identifier
-                                          (cpp2_ordinary_identifier
-                                            (identifier))))))
-                                  (cpp2_expression_or_comma_expressions
-                                    (cpp2_expression
-                                      (cpp2_any_identifier
-                                        (cpp2_no_namespace_identifier
-                                          (cpp2_non_template_identifier
-                                            (cpp2_ordinary_identifier
-                                              (identifier))))))))))))))))))
+                      (cpp2_comma_expressions
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_no_namespace_identifier
+                              (cpp2_non_template_identifier
+                                (cpp2_ordinary_identifier
+                                  (identifier))))))
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_no_namespace_identifier
+                              (cpp2_non_template_identifier
+                                (cpp2_ordinary_identifier
+                                  (identifier))))))
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_no_namespace_identifier
+                              (cpp2_non_template_identifier
+                                (cpp2_ordinary_identifier
+                                  (identifier))))))
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_no_namespace_identifier
+                              (cpp2_non_template_identifier
+                                (cpp2_ordinary_identifier
+                                  (identifier))))))))))))
             (cpp2_parentheses_expression
-              (cpp2_expression_or_comma_expressions
-                (cpp2_comma_expressions
-                  (cpp2_expression
-                    (cpp2_any_identifier
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))))
-                  (cpp2_expression_or_comma_expressions
-                    (cpp2_expression
-                      (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (identifier)))))))))))))))
+              (cpp2_comma_expressions
+                (cpp2_expression
+                  (cpp2_any_identifier
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier))))))
+                (cpp2_expression
+                  (cpp2_any_identifier
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier)))))))))))))
   (cpp2_no_block_declaration
     (cpp2_expression_declaration
       (cpp2_declaration_left_side
@@ -1391,24 +1377,38 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                       (cpp2_ordinary_identifier
                         (identifier)))
                     (cpp2_template_call_arguments
-                      (cpp2_expression_or_comma_expressions
-                        (cpp2_comma_expressions
-                          (cpp2_expression
-                            (cpp2_any_identifier
-                              (cpp2_no_namespace_identifier
-                                (cpp2_template_identifier
+                      (cpp2_comma_expressions
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_no_namespace_identifier
+                              (cpp2_template_identifier
+                                (cpp2_non_template_identifier
+                                  (cpp2_ordinary_identifier
+                                    (identifier)))
+                                (cpp2_template_call_arguments
+                                  (cpp2_comma_expressions
+                                    (cpp2_expression
+                                      (cpp2_any_identifier
+                                        (cpp2_no_namespace_identifier
+                                          (cpp2_non_template_identifier
+                                            (cpp2_ordinary_identifier
+                                              (identifier))))))))))))
+                        (cpp2_expression
+                          (cpp2_binary_expression
+                            (cpp2_expression
+                              (cpp2_any_identifier
+                                (cpp2_no_namespace_identifier
                                   (cpp2_non_template_identifier
                                     (cpp2_ordinary_identifier
-                                      (identifier)))
-                                  (cpp2_template_call_arguments
-                                    (cpp2_expression_or_comma_expressions
-                                      (cpp2_expression
-                                        (cpp2_any_identifier
-                                          (cpp2_no_namespace_identifier
-                                            (cpp2_non_template_identifier
-                                              (cpp2_ordinary_identifier
-                                                (identifier))))))))))))
-                          (cpp2_expression_or_comma_expressions
+                                      (identifier))))))
+                            (cpp2_expression
+                              (cpp2_any_identifier
+                                (cpp2_no_namespace_identifier
+                                  (cpp2_non_template_identifier
+                                    (cpp2_ordinary_identifier
+                                      (identifier))))))))
+                        (cpp2_expression
+                          (cpp2_parentheses_expression
                             (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_binary_expression
@@ -1423,49 +1423,27 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                                       (cpp2_no_namespace_identifier
                                         (cpp2_non_template_identifier
                                           (cpp2_ordinary_identifier
-                                            (identifier))))))))
-                              (cpp2_expression_or_comma_expressions
-                                (cpp2_comma_expressions
-                                  (cpp2_expression
-                                    (cpp2_parentheses_expression
-                                      (cpp2_expression_or_comma_expressions
-                                        (cpp2_expression
-                                          (cpp2_binary_expression
-                                            (cpp2_expression
-                                              (cpp2_any_identifier
-                                                (cpp2_no_namespace_identifier
-                                                  (cpp2_non_template_identifier
-                                                    (cpp2_ordinary_identifier
-                                                      (identifier))))))
-                                            (cpp2_expression
-                                              (cpp2_any_identifier
-                                                (cpp2_no_namespace_identifier
-                                                  (cpp2_non_template_identifier
-                                                    (cpp2_ordinary_identifier
-                                                      (identifier)))))))))))
-                                  (cpp2_expression_or_comma_expressions
-                                    (cpp2_expression
-                                      (cpp2_any_identifier
-                                        (cpp2_no_namespace_identifier
-                                          (cpp2_non_template_identifier
-                                            (cpp2_ordinary_identifier
-                                              (identifier))))))))))))))))))
+                                            (identifier)))))))))))
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_no_namespace_identifier
+                              (cpp2_non_template_identifier
+                                (cpp2_ordinary_identifier
+                                  (identifier))))))))))))
             (cpp2_parentheses_expression
-              (cpp2_expression_or_comma_expressions
-                (cpp2_comma_expressions
-                  (cpp2_expression
-                    (cpp2_any_identifier
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))))
-                  (cpp2_expression_or_comma_expressions
-                    (cpp2_expression
-                      (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (identifier)))))))))))))))
+              (cpp2_comma_expressions
+                (cpp2_expression
+                  (cpp2_any_identifier
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier))))))
+                (cpp2_expression
+                  (cpp2_any_identifier
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier)))))))))))))
   (cpp2_no_block_declaration
     (cpp2_expression_declaration
       (cpp2_declaration_left_side
@@ -1505,19 +1483,17 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                     (cpp2_ordinary_identifier
                       (identifier)))
                   (cpp2_template_call_arguments
-                    (cpp2_expression_or_comma_expressions
-                      (cpp2_comma_expressions
-                        (cpp2_expression
-                          (cpp2_literal
-                            (string_literal
-                              (string_content))))
-                        (cpp2_expression_or_comma_expressions
-                          (cpp2_expression
-                            (cpp2_any_identifier
-                              (cpp2_no_namespace_identifier
-                                (cpp2_non_template_identifier
-                                  (cpp2_ordinary_identifier
-                                    (identifier)))))))))))))))
+                    (cpp2_comma_expressions
+                      (cpp2_expression
+                        (cpp2_literal
+                          (string_literal
+                            (string_content))))
+                      (cpp2_expression
+                        (cpp2_any_identifier
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier)))))))))))))
         (cpp2_expression
           (cpp2_function_call
             (cpp2_expression
@@ -1528,24 +1504,38 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                       (cpp2_ordinary_identifier
                         (identifier)))
                     (cpp2_template_call_arguments
-                      (cpp2_expression_or_comma_expressions
-                        (cpp2_comma_expressions
-                          (cpp2_expression
-                            (cpp2_any_identifier
-                              (cpp2_no_namespace_identifier
-                                (cpp2_template_identifier
+                      (cpp2_comma_expressions
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_no_namespace_identifier
+                              (cpp2_template_identifier
+                                (cpp2_non_template_identifier
+                                  (cpp2_ordinary_identifier
+                                    (identifier)))
+                                (cpp2_template_call_arguments
+                                  (cpp2_comma_expressions
+                                    (cpp2_expression
+                                      (cpp2_any_identifier
+                                        (cpp2_no_namespace_identifier
+                                          (cpp2_non_template_identifier
+                                            (cpp2_ordinary_identifier
+                                              (identifier))))))))))))
+                        (cpp2_expression
+                          (cpp2_binary_expression
+                            (cpp2_expression
+                              (cpp2_any_identifier
+                                (cpp2_no_namespace_identifier
                                   (cpp2_non_template_identifier
                                     (cpp2_ordinary_identifier
-                                      (identifier)))
-                                  (cpp2_template_call_arguments
-                                    (cpp2_expression_or_comma_expressions
-                                      (cpp2_expression
-                                        (cpp2_any_identifier
-                                          (cpp2_no_namespace_identifier
-                                            (cpp2_non_template_identifier
-                                              (cpp2_ordinary_identifier
-                                                (identifier))))))))))))
-                          (cpp2_expression_or_comma_expressions
+                                      (identifier))))))
+                            (cpp2_expression
+                              (cpp2_any_identifier
+                                (cpp2_no_namespace_identifier
+                                  (cpp2_non_template_identifier
+                                    (cpp2_ordinary_identifier
+                                      (identifier))))))))
+                        (cpp2_expression
+                          (cpp2_parentheses_expression
                             (cpp2_comma_expressions
                               (cpp2_expression
                                 (cpp2_binary_expression
@@ -1560,49 +1550,27 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                                       (cpp2_no_namespace_identifier
                                         (cpp2_non_template_identifier
                                           (cpp2_ordinary_identifier
-                                            (identifier))))))))
-                              (cpp2_expression_or_comma_expressions
-                                (cpp2_comma_expressions
-                                  (cpp2_expression
-                                    (cpp2_parentheses_expression
-                                      (cpp2_expression_or_comma_expressions
-                                        (cpp2_expression
-                                          (cpp2_binary_expression
-                                            (cpp2_expression
-                                              (cpp2_any_identifier
-                                                (cpp2_no_namespace_identifier
-                                                  (cpp2_non_template_identifier
-                                                    (cpp2_ordinary_identifier
-                                                      (identifier))))))
-                                            (cpp2_expression
-                                              (cpp2_any_identifier
-                                                (cpp2_no_namespace_identifier
-                                                  (cpp2_non_template_identifier
-                                                    (cpp2_ordinary_identifier
-                                                      (identifier)))))))))))
-                                  (cpp2_expression_or_comma_expressions
-                                    (cpp2_expression
-                                      (cpp2_any_identifier
-                                        (cpp2_no_namespace_identifier
-                                          (cpp2_non_template_identifier
-                                            (cpp2_ordinary_identifier
-                                              (identifier))))))))))))))))))
+                                            (identifier)))))))))))
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_no_namespace_identifier
+                              (cpp2_non_template_identifier
+                                (cpp2_ordinary_identifier
+                                  (identifier))))))))))))
             (cpp2_parentheses_expression
-              (cpp2_expression_or_comma_expressions
-                (cpp2_comma_expressions
-                  (cpp2_expression
-                    (cpp2_any_identifier
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))))
-                  (cpp2_expression_or_comma_expressions
-                    (cpp2_expression
-                      (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (identifier))))))))))))))))
+              (cpp2_comma_expressions
+                (cpp2_expression
+                  (cpp2_any_identifier
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier))))))
+                (cpp2_expression
+                  (cpp2_any_identifier
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier))))))))))))))
 
 ===========================================================
 template calling vs shift right
@@ -1631,7 +1599,7 @@ a := hello<b<a>> >> hello<a, b<c, d<(e > b), (f>>g)>>>;
                       (cpp2_ordinary_identifier
                         (identifier)))
                     (cpp2_template_call_arguments
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_any_identifier
                             (cpp2_no_namespace_identifier
@@ -1640,7 +1608,7 @@ a := hello<b<a>> >> hello<a, b<c, d<(e > b), (f>>g)>>>;
                                   (cpp2_ordinary_identifier
                                     (identifier)))
                                 (cpp2_template_call_arguments
-                                  (cpp2_expression_or_comma_expressions
+                                  (cpp2_comma_expressions
                                     (cpp2_expression
                                       (cpp2_any_identifier
                                         (cpp2_no_namespace_identifier
@@ -1655,74 +1623,68 @@ a := hello<b<a>> >> hello<a, b<c, d<(e > b), (f>>g)>>>;
                       (cpp2_ordinary_identifier
                         (identifier)))
                     (cpp2_template_call_arguments
-                      (cpp2_expression_or_comma_expressions
-                        (cpp2_comma_expressions
-                          (cpp2_expression
-                            (cpp2_any_identifier
-                              (cpp2_no_namespace_identifier
+                      (cpp2_comma_expressions
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_no_namespace_identifier
+                              (cpp2_non_template_identifier
+                                (cpp2_ordinary_identifier
+                                  (identifier))))))
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_no_namespace_identifier
+                              (cpp2_template_identifier
                                 (cpp2_non_template_identifier
                                   (cpp2_ordinary_identifier
-                                    (identifier))))))
-                          (cpp2_expression_or_comma_expressions
-                            (cpp2_expression
-                              (cpp2_any_identifier
-                                (cpp2_no_namespace_identifier
-                                  (cpp2_template_identifier
-                                    (cpp2_non_template_identifier
-                                      (cpp2_ordinary_identifier
-                                        (identifier)))
-                                    (cpp2_template_call_arguments
-                                      (cpp2_expression_or_comma_expressions
-                                        (cpp2_comma_expressions
-                                          (cpp2_expression
-                                            (cpp2_any_identifier
-                                              (cpp2_no_namespace_identifier
-                                                (cpp2_non_template_identifier
-                                                  (cpp2_ordinary_identifier
-                                                    (identifier))))))
-                                          (cpp2_expression_or_comma_expressions
-                                            (cpp2_expression
-                                              (cpp2_any_identifier
-                                                (cpp2_no_namespace_identifier
-                                                  (cpp2_template_identifier
-                                                    (cpp2_non_template_identifier
-                                                      (cpp2_ordinary_identifier
-                                                        (identifier)))
-                                                    (cpp2_template_call_arguments
-                                                      (cpp2_expression_or_comma_expressions
-                                                        (cpp2_comma_expressions
+                                    (identifier)))
+                                (cpp2_template_call_arguments
+                                  (cpp2_comma_expressions
+                                    (cpp2_expression
+                                      (cpp2_any_identifier
+                                        (cpp2_no_namespace_identifier
+                                          (cpp2_non_template_identifier
+                                            (cpp2_ordinary_identifier
+                                              (identifier))))))
+                                    (cpp2_expression
+                                      (cpp2_any_identifier
+                                        (cpp2_no_namespace_identifier
+                                          (cpp2_template_identifier
+                                            (cpp2_non_template_identifier
+                                              (cpp2_ordinary_identifier
+                                                (identifier)))
+                                            (cpp2_template_call_arguments
+                                              (cpp2_comma_expressions
+                                                (cpp2_expression
+                                                  (cpp2_parentheses_expression
+                                                    (cpp2_comma_expressions
+                                                      (cpp2_expression
+                                                        (cpp2_binary_expression
                                                           (cpp2_expression
-                                                            (cpp2_parentheses_expression
-                                                              (cpp2_expression_or_comma_expressions
-                                                                (cpp2_expression
-                                                                  (cpp2_binary_expression
-                                                                    (cpp2_expression
-                                                                      (cpp2_any_identifier
-                                                                        (cpp2_no_namespace_identifier
-                                                                          (cpp2_non_template_identifier
-                                                                            (cpp2_ordinary_identifier
-                                                                              (identifier))))))
-                                                                    (cpp2_expression
-                                                                      (cpp2_any_identifier
-                                                                        (cpp2_no_namespace_identifier
-                                                                          (cpp2_non_template_identifier
-                                                                            (cpp2_ordinary_identifier
-                                                                              (identifier)))))))))))
-                                                          (cpp2_expression_or_comma_expressions
-                                                            (cpp2_expression
-                                                              (cpp2_parentheses_expression
-                                                                (cpp2_expression_or_comma_expressions
-                                                                  (cpp2_expression
-                                                                    (cpp2_binary_expression
-                                                                      (cpp2_expression
-                                                                        (cpp2_any_identifier
-                                                                          (cpp2_no_namespace_identifier
-                                                                            (cpp2_non_template_identifier
-                                                                              (cpp2_ordinary_identifier
-                                                                                (identifier))))))
-                                                                      (cpp2_expression
-                                                                        (cpp2_any_identifier
-                                                                          (cpp2_no_namespace_identifier
-                                                                            (cpp2_non_template_identifier
-                                                                              (cpp2_ordinary_identifier
-                                                                                (identifier)))))))))))))))))))))))))))))))))))))))))
+                                                            (cpp2_any_identifier
+                                                              (cpp2_no_namespace_identifier
+                                                                (cpp2_non_template_identifier
+                                                                  (cpp2_ordinary_identifier
+                                                                    (identifier))))))
+                                                          (cpp2_expression
+                                                            (cpp2_any_identifier
+                                                              (cpp2_no_namespace_identifier
+                                                                (cpp2_non_template_identifier
+                                                                  (cpp2_ordinary_identifier
+                                                                    (identifier)))))))))))
+                                                (cpp2_expression
+                                                  (cpp2_parentheses_expression
+                                                    (cpp2_comma_expressions
+                                                      (cpp2_expression
+                                                        (cpp2_binary_expression
+                                                          (cpp2_expression
+                                                            (cpp2_any_identifier
+                                                              (cpp2_no_namespace_identifier
+                                                                (cpp2_non_template_identifier
+                                                                  (cpp2_ordinary_identifier
+                                                                    (identifier))))))
+                                                          (cpp2_expression
+                                                            (cpp2_any_identifier
+                                                              (cpp2_no_namespace_identifier
+                                                                (cpp2_non_template_identifier
+                                                                  (cpp2_ordinary_identifier
+                                                                    (identifier)))))))))))))))))))))))))))))))))))

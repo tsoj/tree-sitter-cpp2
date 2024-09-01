@@ -58,7 +58,7 @@ is_void := u**.identifier* == "void";
                               (cpp2_non_template_identifier
                                 (cpp2_ordinary_identifier
                                   (identifier)))))))))
-                  (cpp2_expression_or_comma_expressions
+                  (cpp2_comma_expressions
                     (cpp2_expression
                       (cpp2_binary_expression
                         (cpp2_expression
@@ -141,7 +141,7 @@ a := b... * 3;
                       (cpp2_ordinary_identifier
                         (identifier)))
                     (cpp2_template_call_arguments
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_any_identifier
                             (cpp2_no_namespace_identifier
@@ -156,7 +156,7 @@ a := b... * 3;
                       (cpp2_ordinary_identifier
                         (identifier)))
                     (cpp2_template_call_arguments
-                      (cpp2_expression_or_comma_expressions
+                      (cpp2_comma_expressions
                         (cpp2_expression
                           (cpp2_any_identifier
                             (cpp2_no_namespace_identifier
@@ -207,7 +207,7 @@ a := b... * 3;
                     (cpp2_ordinary_identifier
                       (identifier)))
                   (cpp2_template_call_arguments
-                    (cpp2_expression_or_comma_expressions
+                    (cpp2_comma_expressions
                       (cpp2_expression
                         (cpp2_any_identifier
                           (cpp2_no_namespace_identifier
@@ -237,7 +237,7 @@ a := b... * 3;
                     (cpp2_ordinary_identifier
                       (identifier)))
                   (cpp2_template_call_arguments
-                    (cpp2_expression_or_comma_expressions
+                    (cpp2_comma_expressions
                       (cpp2_expression
                         (cpp2_any_identifier
                           (cpp2_no_namespace_identifier
@@ -351,7 +351,7 @@ print: <Args...: type>
                               (cpp2_ordinary_identifier
                                 (identifier)))))))))
                 (cpp2_parentheses_expression
-                  (cpp2_expression_or_comma_expressions
+                  (cpp2_comma_expressions
                     (cpp2_expression
                       (cpp2_any_identifier
                         (cpp2_no_namespace_identifier
@@ -366,7 +366,7 @@ print: <Args...: type>
           (cpp2_non_block_statement
             (cpp2_expression
               (cpp2_parentheses_expression
-                (cpp2_expression_or_comma_expressions
+                (cpp2_comma_expressions
                   (cpp2_expression
                     (cpp2_binary_expression
                       (cpp2_expression

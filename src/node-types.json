@@ -2158,11 +2158,11 @@
       "required": true,
       "types": [
         {
-          "type": "cpp2_expression",
+          "type": "cpp2_comma_expressions",
           "named": true
         },
         {
-          "type": "cpp2_expression_or_comma_expressions",
+          "type": "cpp2_expression",
           "named": true
         }
       ]
@@ -2178,10 +2178,6 @@
       "types": [
         {
           "type": "cpp2_expression",
-          "named": true
-        },
-        {
-          "type": "cpp2_expression_or_comma_expressions",
           "named": true
         },
         {
@@ -2398,29 +2394,6 @@
         },
         {
           "type": "cpp2_left_side_of_definition",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "cpp2_expression_or_comma_expressions",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "cpp2_comma_expressions",
-          "named": true
-        },
-        {
-          "type": "cpp2_expression",
-          "named": true
-        },
-        {
-          "type": "cpp2_passing_style",
           "named": true
         }
       ]
@@ -2946,7 +2919,7 @@
       "required": false,
       "types": [
         {
-          "type": "cpp2_expression_or_comma_expressions",
+          "type": "cpp2_comma_expressions",
           "named": true
         }
       ]
@@ -3034,7 +3007,7 @@
       "required": false,
       "types": [
         {
-          "type": "cpp2_expression_or_comma_expressions",
+          "type": "cpp2_comma_expressions",
           "named": true
         }
       ]
