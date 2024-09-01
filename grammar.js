@@ -118,6 +118,9 @@ module.exports = grammar(CPP1, {
     [$.call_expression, $.cpp2_primitive_type],
     [$.user_defined_literal, $.cpp2_user_defined_literal],
     [$.union_specifier, $.cpp2_ordinary_identifier],
+    [$.expression, $.cpp2_raw_string_literal],
+    [$.user_defined_literal, $.cpp2_raw_string_literal],
+    [$.raw_string_literal, $.cpp2_raw_string_literal],
 
     // Cpp2
     [$.cpp2_no_namespace_identifier, $.cpp2_template_identifier],
@@ -596,7 +599,7 @@ module.exports = grammar(CPP1, {
       choice(
         $.cpp2_number_literal,
         $._string,
-        $.raw_string_literal,
+        $.cpp2_raw_string_literal,
         $.char_literal,
         $.cpp2_user_defined_literal,
       ),
@@ -692,10 +695,26 @@ module.exports = grammar(CPP1, {
           $.cpp2_number_literal,
           $.char_literal,
           $.string_literal,
-          $.raw_string_literal,
+          $.cpp2_raw_string_literal,
           $.concatenated_string,
         ),
         $.literal_suffix,
+      ),
+
+    cpp2_raw_string_literal: ($) =>
+      seq(
+        choice('$R"', 'R"', 'LR"', 'uR"', 'UR"', 'u8R"'),
+        choice(
+          seq(
+            field("delimiter", $.raw_string_delimiter),
+            "(",
+            $.raw_string_content,
+            ")",
+            $.raw_string_delimiter,
+          ),
+          seq("(", $.raw_string_content, ")"),
+        ),
+        '"',
       ),
 
     cpp2_keyword: ($) => choice($.true, $.false, $.cpp2_primitive_type),

@@ -2658,11 +2658,11 @@
           "named": true
         },
         {
-          "type": "cpp2_user_defined_literal",
+          "type": "cpp2_raw_string_literal",
           "named": true
         },
         {
-          "type": "raw_string_literal",
+          "type": "cpp2_user_defined_literal",
           "named": true
         },
         {
@@ -2973,6 +2973,36 @@
     }
   },
   {
+    "type": "cpp2_raw_string_literal",
+    "named": true,
+    "fields": {
+      "delimiter": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "raw_string_delimiter",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "raw_string_content",
+          "named": true
+        },
+        {
+          "type": "raw_string_delimiter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "cpp2_statement",
     "named": true,
     "fields": {},
@@ -3146,11 +3176,11 @@
           "named": true
         },
         {
-          "type": "literal_suffix",
+          "type": "cpp2_raw_string_literal",
           "named": true
         },
         {
-          "type": "raw_string_literal",
+          "type": "literal_suffix",
           "named": true
         },
         {
@@ -8345,6 +8375,10 @@
   },
   {
     "type": "$",
+    "named": false
+  },
+  {
+    "type": "$R\"",
     "named": false
   },
   {
