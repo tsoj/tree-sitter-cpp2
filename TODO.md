@@ -4,3 +4,4 @@
 - is this valid? operator(): (this, inout _:) = {}
 - inspect
 - rename rules
+- $ postfix sometimes doesn't appear

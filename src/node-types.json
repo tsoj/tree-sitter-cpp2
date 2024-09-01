@@ -2187,10 +2187,6 @@
         {
           "type": "cpp2_passing_style",
           "named": true
-        },
-        {
-          "type": "cpp2_type",
-          "named": true
         }
       ]
     }
@@ -2359,6 +2355,10 @@
           "named": true
         },
         {
+          "type": "cpp2_type",
+          "named": true
+        },
+        {
           "type": "cpp2_unary_expression",
           "named": true
         }
@@ -2421,10 +2421,6 @@
         },
         {
           "type": "cpp2_passing_style",
-          "named": true
-        },
-        {
-          "type": "cpp2_type",
           "named": true
         }
       ]
@@ -2508,15 +2504,19 @@
       "required": true,
       "types": [
         {
+          "type": "cpp2_arrow",
+          "named": true
+        },
+        {
+          "type": "cpp2_expression",
+          "named": true
+        },
+        {
           "type": "cpp2_function_type_without_return_type",
           "named": true
         },
         {
           "type": "cpp2_passing_style",
-          "named": true
-        },
-        {
-          "type": "cpp2_type",
           "named": true
         }
       ]
@@ -2565,15 +2565,15 @@
       "required": true,
       "types": [
         {
+          "type": "cpp2_arrow",
+          "named": true
+        },
+        {
           "type": "cpp2_expression",
           "named": true
         },
         {
           "type": "cpp2_statement",
-          "named": true
-        },
-        {
-          "type": "cpp2_type",
           "named": true
         }
       ]
@@ -2632,10 +2632,6 @@
         },
         {
           "type": "cpp2_template_declaration_arguments",
-          "named": true
-        },
-        {
-          "type": "cpp2_type",
           "named": true
         }
       ]
@@ -2795,10 +2791,6 @@
         {
           "type": "cpp2_template_declaration_arguments",
           "named": true
-        },
-        {
-          "type": "cpp2_type",
-          "named": true
         }
       ]
     }
@@ -2924,7 +2916,7 @@
       "required": false,
       "types": [
         {
-          "type": "cpp2_type",
+          "type": "cpp2_expression",
           "named": true
         }
       ]
@@ -8822,6 +8814,10 @@
   {
     "type": "copy",
     "named": false
+  },
+  {
+    "type": "cpp2_arrow",
+    "named": true
   },
   {
     "type": "decltype",

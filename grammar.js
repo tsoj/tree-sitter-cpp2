@@ -102,6 +102,8 @@ module.exports = grammar(CPP1, {
     [$.cpp2_ordinary_identifier, $.labeled_statement],
     [$._unary_left_fold, $.cpp2_expansion_dots],
     [$.pointer_declarator, $.cpp2_type],
+    [$.pointer_declarator, $._const_and_star],
+    [$.type_qualifier, $._const_and_star],
     [$.type_specifier, $.call_expression, $.cpp2_primitive_type],
     [$.expression, $.cpp2_literal],
     [$.expression, $.cpp2_keyword],
@@ -124,7 +126,6 @@ module.exports = grammar(CPP1, {
     [$.cpp2_declaration_left_side, $.cpp2_non_block_loop, $.cpp2_block_loop],
     [$.cpp2_declaration_left_side, $.cpp2_block_loop],
     [$.cpp2_type, $.cpp2_unary_postfix_expression, $.cpp2_binary_expression],
-    [$.cpp2_left_side_of_definition, $.cpp2_binary_expression],
     [$.cpp2_declaration_left_side, $.cpp2_no_namespace_identifier],
     [$.cpp2_ordinary_identifier, $.cpp2_passing_style],
     [$.cpp2_passing_style],
@@ -132,6 +133,9 @@ module.exports = grammar(CPP1, {
     [$.cpp2_function_type],
     [$.cpp2_number_literal],
     [$.cpp2_type_type, $.cpp2_passing_style],
+    [$.cpp2_expression, $.cpp2_expression_or_comma_expressions],
+    [$.cpp2_type],
+    [$.cpp2_binary_expression, $.cpp2_function_type],
   ],
 
   precedences: ($) => [
@@ -147,20 +151,36 @@ module.exports = grammar(CPP1, {
       $.cpp2_bracket_call,
       $.cpp2_unary_postfix_expression,
       $.cpp2_unary_prefix_expression,
+      $.cpp2_operator_keyword,
+      $.cpp2_function_type,
       $.cpp2_type,
     ],
     cpp2_binary_operators,
     [$.cpp2_type, $.cpp2_binary_expression],
     [$.cpp2_function_type_without_return_type, $.cpp2_parentheses_expression],
     [$.cpp2_comma_expressions, $.cpp2_expression_or_comma_expressions],
-    [$.cpp2_expression_or_comma_expressions, $.cpp2_type],
+    // [$.cpp2_expression_or_comma_expressions, $.cpp2_type],
     [$.cpp2_block_statement, $.cpp2_definition],
     [$.cpp2_binary_expression, $.cpp2_expression_definition],
-    [$.cpp2_operator_keyword, $._const_and_star],
-    [$.cpp2_operator_keyword, $.cpp2_unary_prefix_expression],
-    [$.cpp2_operator_keyword, $.cpp2_expansion_dots],
     [$._const_and_star, $.type_qualifier],
     [$.cpp2_keyword, $.cpp2_expression],
+
+    [$.cpp2_operator_keyword, $.cpp2_expression],
+    [$._const_and_star, $.cpp2_operator_keyword],
+    // [$.cpp2_operator_keyword, $.cpp2_unary_prefix_expression],
+    [$.cpp2_expansion_dots, $.cpp2_operator_keyword],
+
+    // [$.cpp2_unary_postfix_expression, $.cpp2_operator_keyword],
+    // [$.cpp2_function_call, $.cpp2_operator_keyword],
+    [$.cpp2_binary_expression, $.cpp2_operator_keyword],
+    [$.cpp2_left_side_of_definition, $.cpp2_function_type],
+    // [$.cpp2_operator_keyword, $._const_and_star],
+    // [$.cpp2_binary_expression, $.cpp2_type],
+    [$.cpp2_function_type, $.cpp2_statement],
+    // [$.cpp2_unary_postfix_expression, $.cpp2_function_type],
+    // [$.cpp2_function_call, $.cpp2_function_type],
+    // [$.cpp2_binary_expression, $.cpp2_function_type],
+    [$.cpp2_left_side_of_definition, $.cpp2_binary_expression],
   ],
 
   extras: ($) => [/\s|\\\r?\n/, $.comment],
@@ -194,7 +214,7 @@ module.exports = grammar(CPP1, {
         ":",
         optional($.cpp2_metafunction_arguments),
         optional($.cpp2_template_declaration_arguments),
-        optional($.cpp2_type),
+        optional($.cpp2_expression),
         optional(seq("requires", $.cpp2_expression)),
       ),
 
@@ -225,7 +245,10 @@ module.exports = grammar(CPP1, {
         choice(
           seq(
             optional(
-              seq($.cpp2_type, optional(seq("requires", $.cpp2_expression))),
+              seq(
+                $.cpp2_expression,
+                optional(seq("requires", $.cpp2_expression)),
+              ),
             ),
             repeat(
               seq(
@@ -294,7 +317,7 @@ module.exports = grammar(CPP1, {
       seq(
         "operator",
         choice(
-          $.cpp2_type,
+          $.cpp2_expression,
           seq("new", "[]"),
           seq("delete", "[]"),
           ...[
@@ -316,15 +339,15 @@ module.exports = grammar(CPP1, {
 
     cpp2_type: ($) =>
       choice(
-        seq(
-          optional($._const_and_star),
-          choice($.cpp2_expression, $.cpp2_function_type),
-        ),
+        seq(optional($._const_and_star), $.cpp2_function_type),
+        // lower preference to prefer unary postfix operator
+        prec.dynamic(-1, seq($._const_and_star, $.cpp2_expression)),
         $.cpp2_type_type,
         $.cpp2_namespace_type,
       ),
 
-    _const_and_star: ($) => repeat1(choice("const", "*")),
+    _const_and_star: ($) =>
+      prec.left(seq(choice("const", "*"), optional($._const_and_star))),
 
     cpp2_type_type: ($) => seq(optional("final"), "type"),
     cpp2_namespace_type: ($) => "namespace",
@@ -349,7 +372,9 @@ module.exports = grammar(CPP1, {
       seq(
         $.cpp2_function_type_without_return_type,
         optional("throws"),
-        optional(seq("->", optional($.cpp2_passing_style), $.cpp2_type)),
+        optional(
+          seq($.cpp2_arrow, optional($.cpp2_passing_style), $.cpp2_expression),
+        ),
       ),
 
     cpp2_block: ($) => seq("{", repeat($.cpp2_statement), "}"),
@@ -456,14 +481,15 @@ module.exports = grammar(CPP1, {
         $.cpp2_definition,
         $.cpp2_expansion_dots,
         $.cpp2_inspect_expression,
+        $.cpp2_type,
       ),
 
     cpp2_inspect_expression: ($) =>
       seq(
         "inspect",
         $.cpp2_expression,
-        "->",
-        $.cpp2_type,
+        $.cpp2_arrow,
+        $.cpp2_expression,
         "{",
         repeat(seq("is", $.cpp2_expression, "=", $.cpp2_statement)),
         "}",
@@ -499,10 +525,7 @@ module.exports = grammar(CPP1, {
     cpp2_expression_or_comma_expressions: ($) =>
       prec.left(
         choice(
-          seq(
-            optional($.cpp2_passing_style),
-            choice($.cpp2_type, $.cpp2_expression),
-          ),
+          seq(optional($.cpp2_passing_style), $.cpp2_expression),
           $.cpp2_comma_expressions,
         ),
       ),
@@ -510,7 +533,7 @@ module.exports = grammar(CPP1, {
     cpp2_comma_expressions: ($) =>
       seq(
         optional($.cpp2_passing_style),
-        choice($.cpp2_expression, $.cpp2_type),
+        $.cpp2_expression,
         ",",
         $.cpp2_expression_or_comma_expressions,
       ),
@@ -692,5 +715,11 @@ module.exports = grammar(CPP1, {
           ),
         ),
       ),
+
+    cpp2_arrow: ($) => token(prec(20000, "->")),
+
+    // we need to remove the dollar sign from allowed chars in identifier, so we override the tree-sitter-c identifier rule
+    identifier: (_) =>
+      /(\p{XID_Start}|\$|_|\\u[0-9A-Fa-f]{4}|\\U[0-9A-Fa-f]{8})(\p{XID_Continue}|\\u[0-9A-Fa-f]{4}|\\U[0-9A-Fa-f]{8})*/,
   },
 });
