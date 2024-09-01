@@ -157,7 +157,7 @@ module.exports = grammar(CPP1, {
     cpp2_binary_operators,
     [$.cpp2_type, $.cpp2_binary_expression],
     [$.cpp2_function_type_without_return_type, $.cpp2_parentheses_expression],
-    [$.cpp2_block_statement, $.cpp2_definition],
+    [$.cpp2_block_statement, $.cpp2_expression],
     [$.cpp2_const_and_star, $.type_qualifier],
     [$.cpp2_keyword, $.cpp2_expression],
     [$.cpp2_operator_keyword, $.cpp2_expression],
@@ -210,9 +210,6 @@ module.exports = grammar(CPP1, {
         optional("..."),
       ),
 
-    cpp2_definition: ($) =>
-      choice($.cpp2_block_definition, $.cpp2_expression_definition),
-
     cpp2_block_definition: ($) =>
       prec.left(seq($.cpp2_left_side_of_definition, $.cpp2_block)),
 
@@ -221,7 +218,7 @@ module.exports = grammar(CPP1, {
         seq($.cpp2_left_side_of_definition, $.cpp2_expression, optional(";")),
       ),
 
-    // TODO remove duplication of cpp2_no_definition_declaration and cpp2_definition_declaration
+    // TODO try to remove duplication with cpp2_no_definition_declaration
     cpp2_left_side_of_definition: ($) =>
       seq(
         ":",
@@ -252,18 +249,22 @@ module.exports = grammar(CPP1, {
       repeat1(seq("@", $.cpp2_any_identifier)),
 
     // we need this to prefer closing templates to the >> operator
-    _template_close_token: ($) => alias(token(prec(1, ">")), "> template"),
+    _cpp2_template_close_token: ($) => alias(token(prec(1, ">")), "> template"),
 
     cpp2_template_declaration_arguments: ($) =>
       seq(
         "<",
         optional($.cpp2_comma_seperated_declarations),
-        $._template_close_token,
+        $._cpp2_template_close_token,
       ),
 
     cpp2_template_call_arguments: ($) =>
       prec.right(
-        seq("<", optional($.cpp2_comma_expressions), $._template_close_token),
+        seq(
+          "<",
+          optional($.cpp2_comma_expressions),
+          $._cpp2_template_close_token,
+        ),
       ),
 
     cpp2_any_identifier: ($) =>
@@ -455,7 +456,8 @@ module.exports = grammar(CPP1, {
         $.cpp2_unary_expression,
         $.cpp2_binary_expression,
         $.cpp2_parentheses_expression,
-        $.cpp2_definition,
+        $.cpp2_block_definition,
+        $.cpp2_expression_definition,
         $.cpp2_expansion_dots,
         $.cpp2_inspect_expression,
         $.cpp2_type,
@@ -507,21 +509,6 @@ module.exports = grammar(CPP1, {
           optional(","),
         ),
       ),
-
-    //   prec.left(
-    //     choice(
-    //       seq(optional($.cpp2_passing_style), $.cpp2_expression),
-    //       $.cpp2_comma_expressions,
-    //     ),
-    //   ),
-
-    // cpp2_comma_expressions: ($) =>
-    //   seq(
-    //     optional($.cpp2_passing_style),
-    //     $.cpp2_expression,
-    //     ",",
-    //     $.cpp2_comma_expressions,
-    //   ),
 
     cpp2_parentheses_expression: ($) =>
       seq("(", optional($.cpp2_comma_expressions), ")"),
@@ -706,7 +693,7 @@ module.exports = grammar(CPP1, {
         ),
       ),
 
-    cpp2_arrow: ($) => token(prec(20000, "->")),
+    cpp2_arrow: ($) => alias(token(prec(1, "->")), "->"),
 
     // we need to remove the dollar sign from allowed chars in identifier, so we override the tree-sitter-c identifier rule
     identifier: (_) =>
