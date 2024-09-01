@@ -351,7 +351,7 @@ module.exports = grammar(CPP1, {
         $.cpp2_function_type_without_return_type,
         optional("throws"),
         optional(
-          seq($.cpp2_arrow, optional($.cpp2_passing_style), $.cpp2_expression),
+          seq($._cpp2_arrow, optional($.cpp2_passing_style), $.cpp2_expression),
         ),
       ),
 
@@ -467,7 +467,7 @@ module.exports = grammar(CPP1, {
       seq(
         "inspect",
         $.cpp2_expression,
-        $.cpp2_arrow,
+        $._cpp2_arrow,
         $.cpp2_expression,
         "{",
         repeat(seq("is", $.cpp2_expression, "=", $.cpp2_statement)),
@@ -693,7 +693,7 @@ module.exports = grammar(CPP1, {
         ),
       ),
 
-    cpp2_arrow: ($) => alias(token(prec(1, "->")), "->"),
+    _cpp2_arrow: ($) => alias(token(prec(1, "->")), "->"),
 
     // we need to remove the dollar sign from allowed chars in identifier, so we override the tree-sitter-c identifier rule
     identifier: (_) =>
