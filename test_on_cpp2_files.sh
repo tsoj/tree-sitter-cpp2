@@ -9,7 +9,7 @@ echo "Done"
 search_dir="$1"
 echo "Looking for files in \"${search_dir}\""
 
-exclude_patterns=("mixed-lifetime-safety-and-null-contracts.cpp2")
+exclude_patterns=("mixed-lifetime-safety-and-null-contracts.cpp2" "pure2-cpp1-multitoken-fundamental-types-error.cpp2" "pure2-cpp1-prefix-expression-error.cpp2")
 
 find_command="find \"$search_dir\" -type f \( -name \"*.cpp2\" -o -name \"*.h2\" \)"
 

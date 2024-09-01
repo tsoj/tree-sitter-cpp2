@@ -2976,10 +2976,6 @@
         {
           "type": "primitive_type",
           "named": true
-        },
-        {
-          "type": "sized_type_specifier",
-          "named": true
         }
       ]
     }
