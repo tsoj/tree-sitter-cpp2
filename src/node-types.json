@@ -7632,6 +7632,10 @@
           "named": true
         },
         {
+          "type": "cpp2_parentheses_expression",
+          "named": true
+        },
+        {
           "type": "declaration",
           "named": true
         },

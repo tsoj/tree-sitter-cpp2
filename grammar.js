@@ -100,6 +100,20 @@ module.exports = grammar(CPP1, {
     [$.concatenated_string, $.cpp2_literal],
     [$.type_specifier, $.cpp2_primitive_type],
     [$.cpp2_ordinary_identifier, $.labeled_statement],
+    [$._unary_left_fold, $.cpp2_expansion_dots],
+    [$.pointer_declarator, $.cpp2_type],
+    [$.type_specifier, $.call_expression, $.cpp2_primitive_type],
+    [$.expression, $.cpp2_literal],
+    [$.expression, $.cpp2_keyword],
+    [$._declarator, $.type_specifier, $.expression, $.cpp2_ordinary_identifier],
+    [$.type_specifier, $.expression, $.cpp2_ordinary_identifier],
+    [
+      $.expression,
+      $.template_type,
+      $.template_function,
+      $.cpp2_ordinary_identifier,
+    ],
+    [$.call_expression, $.cpp2_primitive_type],
 
     // Cpp2
     [$.cpp2_no_namespace_identifier, $.cpp2_template_identifier],
@@ -134,7 +148,6 @@ module.exports = grammar(CPP1, {
     ],
     cpp2_binary_operators,
     [$.cpp2_type, $.cpp2_binary_expression],
-    // [$.cpp2_function_declaration_argument, $.cpp2_expression],
     [$.cpp2_function_type_without_return_type, $.cpp2_parentheses_expression],
     [$.cpp2_comma_expressions, $.cpp2_expression_or_comma_expressions],
     [$.cpp2_expression_or_comma_expressions, $.cpp2_type],
@@ -156,6 +169,9 @@ module.exports = grammar(CPP1, {
         ";",
         $.cpp2_block_declaration,
         seq($.cpp2_no_block_declaration, ";"),
+
+        // this is only really here to parse cases like `v := :() -> bool = true;();` at least without error
+        $.cpp2_parentheses_expression,
       ),
 
     // cpp2_source_file: ($) => repeat(choice($.cpp2_declaration, ";")),
@@ -193,7 +209,9 @@ module.exports = grammar(CPP1, {
       prec.left(seq($.cpp2_left_side_of_definition, $.cpp2_block)),
 
     cpp2_expression_definition: ($) =>
-      prec.left(seq($.cpp2_left_side_of_definition, $.cpp2_expression)),
+      prec.left(
+        seq($.cpp2_left_side_of_definition, $.cpp2_expression, optional(";")),
+      ),
 
     // TODO remove duplication of cpp2_no_definition_declaration and cpp2_definition_declaration
     cpp2_left_side_of_definition: ($) =>
