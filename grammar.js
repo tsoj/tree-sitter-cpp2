@@ -154,6 +154,7 @@ module.exports = grammar(CPP1, {
       $.cpp2_operator_keyword,
       $.cpp2_function_type,
       $.cpp2_type,
+      $.cpp2_expression_definition,
     ],
     cpp2_binary_operators,
     [$.cpp2_type, $.cpp2_binary_expression],
@@ -161,7 +162,6 @@ module.exports = grammar(CPP1, {
     [$.cpp2_comma_expressions, $.cpp2_expression_or_comma_expressions],
     // [$.cpp2_expression_or_comma_expressions, $.cpp2_type],
     [$.cpp2_block_statement, $.cpp2_definition],
-    [$.cpp2_binary_expression, $.cpp2_expression_definition],
     [$._const_and_star, $.type_qualifier],
     [$.cpp2_keyword, $.cpp2_expression],
 
@@ -181,6 +181,9 @@ module.exports = grammar(CPP1, {
     // [$.cpp2_function_call, $.cpp2_function_type],
     // [$.cpp2_binary_expression, $.cpp2_function_type],
     [$.cpp2_left_side_of_definition, $.cpp2_binary_expression],
+    [$.cpp2_binary_expression, $.cpp2_expression_definition],
+    // [$.cpp2_unary_postfix_expression, $.cpp2_expression_definition],
+    // [$.cpp2_function_call, $.cpp2_expression_definition],
   ],
 
   extras: ($) => [/\s|\\\r?\n/, $.comment],
