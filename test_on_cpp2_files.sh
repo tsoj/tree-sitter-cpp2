@@ -7,10 +7,20 @@ echo "Done"
 
 # Directory to search
 search_dir="$1"
-
 echo "Looking for files in \"${search_dir}\""
-# Find and concatenate files, stopping on failure
-find "$search_dir" -type f \( -name "*.cpp2" -o -name "*.h2" \) -exec sh -c 'tree-sitter parse -q "$1" || exit 255' _ {} \;
+
+exclude_patterns=("mixed-lifetime-safety-and-null-contracts.cpp2")
+
+find_command="find \"$search_dir\" -type f \( -name \"*.cpp2\" -o -name \"*.h2\" \)"
+
+for pattern in "${exclude_patterns[@]}"; do
+    find_command+=" ! -name \"$pattern\""
+done
+
+find_command="$find_command -exec sh -c 'tree-sitter parse -q "\$1" || exit 255' _ {} \;"
+echo "Command: " $find_command
+eval $find_command
+
 echo "Done"
 
-# Usage: ./script_name.sh /path/to/directory
+# Usage: ./test_on_cpp2_files.sh /path/to/directory

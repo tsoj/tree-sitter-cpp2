@@ -97,7 +97,7 @@ main: () = {
             (cpp2_block
               (cpp2_statement
                 (cpp2_non_block_statement
-                  (cpp2_using_statement
+                  (cpp2_command_statement
                     (cpp2_expression
                       (cpp2_any_identifier
                         (cpp2_namespaced_identifier
@@ -140,7 +140,7 @@ main: () = {
             (cpp2_block
               (cpp2_statement
                 (cpp2_non_block_statement
-                  (cpp2_using_statement
+                  (cpp2_command_statement
                     (cpp2_expression
                       (cpp2_any_identifier
                         (cpp2_namespaced_identifier

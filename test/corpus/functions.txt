@@ -27,7 +27,7 @@ main : () -> int = {
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
-            (cpp2_return_statement
+            (cpp2_command_statement
               (cpp2_expression
                 (cpp2_literal
                   (number_literal))))))))))
@@ -501,7 +501,7 @@ main: () -> int = {
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
-            (cpp2_return_statement
+            (cpp2_command_statement
               (cpp2_expression
                 (cpp2_literal
                   (number_literal)))))))))
@@ -525,7 +525,7 @@ main: () -> int = {
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
-            (cpp2_return_statement
+            (cpp2_command_statement
               (cpp2_expression
                 (cpp2_any_identifier
                   (cpp2_no_namespace_identifier
@@ -552,7 +552,7 @@ main: () -> int = {
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
-            (cpp2_return_statement
+            (cpp2_command_statement
               (cpp2_expression
                 (cpp2_any_identifier
                   (cpp2_no_namespace_identifier
@@ -579,7 +579,7 @@ main: () -> int = {
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
-            (cpp2_return_statement
+            (cpp2_command_statement
               (cpp2_expression
                 (cpp2_any_identifier
                   (cpp2_no_namespace_identifier
@@ -606,7 +606,7 @@ main: () -> int = {
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
-            (cpp2_return_statement
+            (cpp2_command_statement
               (cpp2_expression
                 (cpp2_any_identifier
                   (cpp2_no_namespace_identifier
@@ -631,7 +631,7 @@ main: () -> int = {
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
-            (cpp2_return_statement
+            (cpp2_command_statement
               (cpp2_expression
                 (cpp2_function_call
                   (cpp2_expression
@@ -3078,7 +3078,7 @@ hello := {
                           (cpp2_block
                             (cpp2_statement
                               (cpp2_non_block_statement
-                                (cpp2_return_statement
+                                (cpp2_command_statement
                                   (cpp2_expression
                                     (cpp2_literal
                                       (number_literal))))))))))

@@ -321,6 +321,7 @@ module.exports = grammar(CPP1, {
     cpp2_function_type: ($) =>
       seq(
         $.cpp2_function_type_without_return_type,
+        optional("throws"),
         optional(seq("->", optional($.cpp2_passing_style), $.cpp2_type)),
       ),
 
@@ -338,10 +339,7 @@ module.exports = grammar(CPP1, {
     cpp2_non_block_statement: ($) =>
       choice(
         $.cpp2_no_block_declaration,
-        $.cpp2_return_statement,
-        $.cpp2_continue_statement,
-        $.cpp2_break_statement,
-        $.cpp2_using_statement,
+        $.cpp2_command_statement,
         $.cpp2_expression,
         $.cpp2_non_block_loop,
       ),
@@ -534,11 +532,11 @@ module.exports = grammar(CPP1, {
     cpp2_passing_style: ($) =>
       repeat1(choice(...cpp2_passing_styles, ...cpp2_keyword_passing_styles)),
 
-    cpp2_return_statement: ($) => seq("return", optional($.cpp2_expression)),
-    cpp2_continue_statement: ($) =>
-      seq("continue", optional($.cpp2_expression)),
-    cpp2_break_statement: ($) => seq("break", optional($.cpp2_expression)),
-    cpp2_using_statement: ($) => seq("using", optional($.cpp2_expression)),
+    cpp2_command_statement: ($) =>
+      seq(
+        choice("return", "continue", "break", "using", "delete", "throw"),
+        optional($.cpp2_expression),
+      ),
 
     cpp2_literal: ($) =>
       choice(
