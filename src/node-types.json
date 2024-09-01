@@ -8935,6 +8935,10 @@
     "named": false
   },
   {
+    "type": "macro_comment",
+    "named": true
+  },
+  {
     "type": "move",
     "named": false
   },

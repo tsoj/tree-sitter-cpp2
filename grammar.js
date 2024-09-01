@@ -52,7 +52,7 @@ const cpp2_keyword_passing_styles = [
   "implicit",
 ];
 
-const cpp2_non_keyword_words = [...cpp2_passing_styles, "union"];
+const cpp2_non_keyword_words = [...cpp2_passing_styles, "union", "type"];
 
 module.exports = grammar(CPP1, {
   name: "cpp2",
@@ -140,6 +140,7 @@ module.exports = grammar(CPP1, {
     // [$.cpp2_expression, $.cpp2_comma_expressions],
     [$.cpp2_type],
     [$.cpp2_binary_expression, $.cpp2_function_type],
+    [$.cpp2_ordinary_identifier, $.cpp2_type_type],
   ],
 
   precedences: ($) => [
@@ -190,7 +191,7 @@ module.exports = grammar(CPP1, {
     // [$.cpp2_function_call, $.cpp2_expression_definition],
   ],
 
-  extras: ($) => [/\s|\\\r?\n/, $.comment],
+  extras: ($) => [/\s|\\\r?\n/, $.comment, $.macro_comment],
 
   rules: {
     _top_level_item: ($, original) =>
@@ -344,7 +345,8 @@ module.exports = grammar(CPP1, {
         seq(optional($._const_and_star), $.cpp2_function_type),
         // lower preference to prefer unary postfix operator
         prec.dynamic(-1, seq($._const_and_star, $.cpp2_expression)),
-        $.cpp2_type_type,
+        // higher preference to prefer type as keyword instead of identifer if possible
+        prec.dynamic(1, $.cpp2_type_type),
         $.cpp2_namespace_type,
       ),
 
@@ -732,5 +734,25 @@ module.exports = grammar(CPP1, {
     // we need to remove the dollar sign from allowed chars in identifier, so we override the tree-sitter-c identifier rule
     identifier: (_) =>
       /(\p{XID_Start}|\$|_|\\u[0-9A-Fa-f]{4}|\\U[0-9A-Fa-f]{8})(\p{XID_Continue}|\\u[0-9A-Fa-f]{4}|\\U[0-9A-Fa-f]{8})*/,
+
+    macro_comment: (_) =>
+      token(
+        seq(
+          "#",
+          choice(
+            "define",
+            "undef",
+            "if",
+            "ifdef",
+            "ifndef",
+            "else",
+            "elif",
+            "endif",
+            "error",
+            "pragma",
+          ),
+          /(\\+(.|\r?\n)|[^\\\n])*/,
+        ),
+      ),
   },
 });
