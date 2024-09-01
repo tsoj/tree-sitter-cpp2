@@ -114,6 +114,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_ordinary_identifier, $.cpp2_passing_style],
     [$.cpp2_passing_style],
     [$.cpp2_function_declaration_argument, $.cpp2_expression],
+    [$.cpp2_function_type],
   ],
 
   precedences: ($) => [
@@ -429,6 +430,18 @@ module.exports = grammar(CPP1, {
         $.cpp2_parentheses_expression,
         $.cpp2_definition,
         $.cpp2_expansion_dots,
+        $.cpp2_inspect_expression,
+      ),
+
+    cpp2_inspect_expression: ($) =>
+      seq(
+        "inspect",
+        $.cpp2_expression,
+        "->",
+        $.cpp2_type,
+        "{",
+        repeat(seq("is", $.cpp2_expression, "=", $.cpp2_statement)),
+        "}",
       ),
 
     cpp2_expansion_dots: ($) => "...",
@@ -471,6 +484,7 @@ module.exports = grammar(CPP1, {
 
     cpp2_comma_expressions: ($) =>
       seq(
+        optional($.cpp2_passing_style),
         choice($.cpp2_expression, $.cpp2_type),
         ",",
         $.cpp2_expression_or_comma_expressions,

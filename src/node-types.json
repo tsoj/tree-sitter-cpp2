@@ -2200,6 +2200,10 @@
           "named": true
         },
         {
+          "type": "cpp2_passing_style",
+          "named": true
+        },
+        {
           "type": "cpp2_type",
           "named": true
         }
@@ -2339,6 +2343,10 @@
         },
         {
           "type": "cpp2_function_call",
+          "named": true
+        },
+        {
+          "type": "cpp2_inspect_expression",
           "named": true
         },
         {
@@ -2558,6 +2566,29 @@
         },
         {
           "type": "cpp2_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cpp2_inspect_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cpp2_expression",
+          "named": true
+        },
+        {
+          "type": "cpp2_statement",
+          "named": true
+        },
+        {
+          "type": "cpp2_type",
           "named": true
         }
       ]
@@ -8894,6 +8925,10 @@
   },
   {
     "type": "inout",
+    "named": false
+  },
+  {
+    "type": "inspect",
     "named": false
   },
   {
