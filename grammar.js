@@ -303,6 +303,8 @@ module.exports = grammar(CPP1, {
               "co_await",
               "new",
               "delete",
+              "[]",
+              "()",
               '""',
             ]),
           ].map((operator) => {
