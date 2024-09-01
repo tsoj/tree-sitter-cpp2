@@ -379,7 +379,7 @@ main: ()
             (cpp2_command_statement
               (cpp2_expression
                 (cpp2_literal
-                  (number_literal)))))))))
+                  (cpp2_number_literal)))))))))
   (cpp2_block_declaration
     (cpp2_declaration_left_side
       (cpp2_non_template_identifier
@@ -422,7 +422,7 @@ main: ()
                           (identifier))))))
                 (cpp2_expression
                   (cpp2_literal
-                    (number_literal))))))))))
+                    (cpp2_number_literal))))))))))
   (cpp2_block_declaration
     (cpp2_declaration_left_side
       (cpp2_non_template_identifier
@@ -514,7 +514,7 @@ main: ()
                         (cpp2_left_side_of_definition)
                         (cpp2_expression
                           (cpp2_literal
-                            (number_literal))))))))
+                            (cpp2_number_literal))))))))
               (cpp2_statement
                 (cpp2_non_block_statement
                   (cpp2_expression
@@ -570,7 +570,7 @@ main: ()
                         (cpp2_left_side_of_definition)
                         (cpp2_expression
                           (cpp2_literal
-                            (number_literal))))))))
+                            (cpp2_number_literal))))))))
               (cpp2_statement
                 (cpp2_non_block_statement
                   (cpp2_expression
@@ -620,7 +620,7 @@ main: ()
                         (cpp2_left_side_of_definition)
                         (cpp2_expression
                           (cpp2_literal
-                            (number_literal))))))))
+                            (cpp2_number_literal))))))))
               (cpp2_statement
                 (cpp2_non_block_statement
                   (cpp2_expression

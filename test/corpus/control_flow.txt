@@ -47,7 +47,7 @@ hello := {
                       (cpp2_parentheses_expression)))
                   (cpp2_expression
                     (cpp2_literal
-                      (number_literal)))))
+                      (cpp2_number_literal)))))
               (cpp2_block_statement
                 (cpp2_block
                   (cpp2_statement
@@ -150,10 +150,10 @@ hello := {
                               (cpp2_binary_expression
                                 (cpp2_expression
                                   (cpp2_literal
-                                    (number_literal)))
+                                    (cpp2_number_literal)))
                                 (cpp2_expression
                                   (cpp2_literal
-                                    (number_literal)))))
+                                    (cpp2_number_literal)))))
                             (cpp2_block_statement
                               (cpp2_block))))))))))))))))
 
@@ -389,7 +389,7 @@ hello := {
                       (cpp2_left_side_of_definition)
                       (cpp2_expression
                         (cpp2_literal
-                          (number_literal)))))))))
+                          (cpp2_number_literal)))))))))
           (cpp2_block_statement
             (cpp2_block_loop
               (cpp2_while_statement
@@ -403,7 +403,7 @@ hello := {
                               (identifier))))))
                     (cpp2_expression
                       (cpp2_literal
-                        (number_literal)))))
+                        (cpp2_number_literal)))))
                 (cpp2_expression
                   (cpp2_unary_expression
                     (cpp2_unary_postfix_expression
@@ -538,7 +538,7 @@ hello := {
                       (cpp2_left_side_of_definition)
                       (cpp2_expression
                         (cpp2_literal
-                          (number_literal)))))))))
+                          (cpp2_number_literal)))))))))
           (cpp2_block_statement
             (cpp2_block_loop
               (cpp2_for_statement
@@ -584,7 +584,7 @@ hello := {
                             (cpp2_left_side_of_definition)
                             (cpp2_expression
                               (cpp2_literal
-                                (number_literal)))))))))
+                                (cpp2_number_literal)))))))))
                 (cpp2_block_statement
                   (cpp2_block
                     (cpp2_statement
@@ -646,10 +646,10 @@ hello := {
                                       (identifier))))))
                             (cpp2_expression
                               (cpp2_literal
-                                (number_literal)))))
+                                (cpp2_number_literal)))))
                         (cpp2_expression
                           (cpp2_literal
-                            (number_literal)))))
+                            (cpp2_number_literal)))))
                     (cpp2_block_statement
                       (cpp2_block
                         (cpp2_statement

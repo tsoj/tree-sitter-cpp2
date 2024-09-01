@@ -2658,7 +2658,11 @@
           "named": true
         },
         {
-          "type": "number_literal",
+          "type": "cpp2_number_literal",
+          "named": true
+        },
+        {
+          "type": "cpp2_user_defined_literal",
           "named": true
         },
         {
@@ -2667,10 +2671,6 @@
         },
         {
           "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "user_defined_literal",
           "named": true
         }
       ]
@@ -2911,6 +2911,11 @@
     }
   },
   {
+    "type": "cpp2_number_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "cpp2_operator_keyword",
     "named": true,
     "fields": {},
@@ -3118,6 +3123,41 @@
       "types": [
         {
           "type": "cpp2_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cpp2_user_defined_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "char_literal",
+          "named": true
+        },
+        {
+          "type": "concatenated_string",
+          "named": true
+        },
+        {
+          "type": "cpp2_number_literal",
+          "named": true
+        },
+        {
+          "type": "literal_suffix",
+          "named": true
+        },
+        {
+          "type": "raw_string_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
           "named": true
         }
       ]

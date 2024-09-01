@@ -161,7 +161,7 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                         (cpp2_left_side_of_definition)
                         (cpp2_expression
                           (cpp2_literal
-                            (number_literal)))))))
+                            (cpp2_number_literal)))))))
                 (cpp2_function_declaration_argument
                   (cpp2_passing_style)
                   (cpp2_no_block_declaration
@@ -194,7 +194,7 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                                   (primitive_type))))))
                         (cpp2_expression
                           (cpp2_literal
-                            (number_literal))))))))))))
+                            (cpp2_number_literal))))))))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
