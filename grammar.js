@@ -285,12 +285,7 @@ module.exports = grammar(CPP1, {
 
     cpp2_template_call_arguments: ($) =>
       prec.right(
-        seq(
-          "<",
-          optional($.cpp2_comma_expressions),
-          optional(","),
-          $._template_close_token,
-        ),
+        seq("<", optional($.cpp2_comma_expressions), $._template_close_token),
       ),
 
     cpp2_any_identifier: ($) =>
@@ -360,18 +355,14 @@ module.exports = grammar(CPP1, {
     cpp2_namespace_type: ($) => "namespace",
 
     cpp2_function_type_without_return_type: ($) =>
-      seq(
-        "(",
-        optional($.cpp2_comma_seperated_declarations),
-        optional(","),
-        ")",
-      ),
+      seq("(", optional($.cpp2_comma_seperated_declarations), ")"),
 
     cpp2_comma_seperated_declarations: ($) =>
       prec.right(
         seq(
           $.cpp2_function_declaration_argument,
           repeat(seq(",", $.cpp2_function_declaration_argument)),
+          optional(","),
         ),
       ),
 
@@ -534,6 +525,7 @@ module.exports = grammar(CPP1, {
         seq(
           seq(optional($.cpp2_passing_style), $.cpp2_expression),
           repeat(seq(",", optional($.cpp2_passing_style), $.cpp2_expression)),
+          optional(","),
         ),
       ),
 
@@ -553,19 +545,13 @@ module.exports = grammar(CPP1, {
     //   ),
 
     cpp2_parentheses_expression: ($) =>
-      seq("(", optional($.cpp2_comma_expressions), optional(","), ")"),
+      seq("(", optional($.cpp2_comma_expressions), ")"),
 
     cpp2_function_call: ($) =>
       seq($.cpp2_expression, $.cpp2_parentheses_expression),
 
     cpp2_bracket_call: ($) =>
-      seq(
-        $.cpp2_expression,
-        "[",
-        optional($.cpp2_comma_expressions),
-        optional(","),
-        "]",
-      ),
+      seq($.cpp2_expression, "[", optional($.cpp2_comma_expressions), "]"),
 
     cpp2_method_call: ($) =>
       seq(
