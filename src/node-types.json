@@ -2481,7 +2481,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "cpp2_any_identifier",
@@ -8546,6 +8546,10 @@
     "named": false
   },
   {
+    "type": "_:",
+    "named": false
+  },
+  {
     "type": "_Alignas",
     "named": false
   },
@@ -8868,6 +8872,10 @@
   {
     "type": "long",
     "named": false
+  },
+  {
+    "type": "macro_comment",
+    "named": true
   },
   {
     "type": "move",

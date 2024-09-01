@@ -143,7 +143,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_keyword, $.cpp2_expression],
   ],
 
-  extras: ($) => [/\s|\\\r?\n/, $.comment],
+  extras: ($) => [/\s|\\\r?\n/, $.comment, $.macro_comment],
 
   rules: {
     _top_level_item: ($, original) =>
@@ -496,9 +496,10 @@ module.exports = grammar(CPP1, {
       seq(
         optional($.cpp2_passing_style),
         choice(
+          "_:", // TODO: is this valid? operator(): (this, inout _:) = {}
           $.cpp2_no_block_declaration,
           $.cpp2_block_declaration,
-          $.cpp2_any_identifier,
+          seq($.cpp2_any_identifier, optional("...")),
         ),
       ),
 
@@ -533,6 +534,26 @@ module.exports = grammar(CPP1, {
             ...[8, 16, 32, 64].map((n) => `u${n}`),
             ...[8, 16, 32, 64].map((n) => `f${n}`),
           ),
+        ),
+      ),
+
+    macro_comment: (_) =>
+      token(
+        seq(
+          "#",
+          choice(
+            "define",
+            "undef",
+            "if",
+            "ifdef",
+            "ifndef",
+            "else",
+            "elif",
+            "endif",
+            "error",
+            "pragma",
+          ),
+          /(\\+(.|\r?\n)|[^\\\n])*/,
         ),
       ),
   },
