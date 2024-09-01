@@ -1,7 +1,2 @@
-- comments
-- all kinds of literals
-- requires and concepts and such
-- is this valid? operator(): (this, inout _:) = {}
-- inspect
 - rename rules
-- $ postfix sometimes doesn't appear
+- syntax highlighting
