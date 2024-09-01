@@ -115,6 +115,8 @@ module.exports = grammar(CPP1, {
     ],
     [$.call_expression, $.cpp2_primitive_type],
     [$.user_defined_literal, $.cpp2_user_defined_literal],
+    [$.sized_type_specifier, $.cpp2_primitive_type],
+    [$.sized_type_specifier, $.cpp2_ordinary_identifier],
 
     // Cpp2
     [$.cpp2_no_namespace_identifier, $.cpp2_template_identifier],
@@ -675,6 +677,7 @@ module.exports = grammar(CPP1, {
     cpp2_primitive_type: ($) =>
       choice(
         $.primitive_type,
+        $.sized_type_specifier,
         token(
           choice(
             "ushort",
