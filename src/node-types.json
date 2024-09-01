@@ -2024,11 +2024,6 @@
     }
   },
   {
-    "type": "cpp2_arrow",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "cpp2_binary_expression",
     "named": true,
     "fields": {},
@@ -2417,6 +2412,21 @@
           "named": true
         },
         {
+          "type": "cpp2_for_statement_left_side",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cpp2_for_statement_left_side",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
           "type": "cpp2_expression",
           "named": true
         },
@@ -2482,10 +2492,6 @@
       "required": true,
       "types": [
         {
-          "type": "cpp2_arrow",
-          "named": true
-        },
-        {
           "type": "cpp2_expression",
           "named": true
         },
@@ -2542,10 +2548,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "cpp2_arrow",
-          "named": true
-        },
         {
           "type": "cpp2_expression",
           "named": true
@@ -2805,7 +2807,7 @@
           "named": true
         },
         {
-          "type": "cpp2_function_type_without_return_type",
+          "type": "cpp2_for_statement_left_side",
           "named": true
         }
       ]

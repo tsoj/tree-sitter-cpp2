@@ -248,113 +248,6 @@ module.exports = grammar(CPP1, {
     cpp2_metafunction_arguments: ($) =>
       repeat1(seq("@", $.cpp2_any_identifier)),
 
-    // we need this to prefer closing templates to the >> operator
-    _cpp2_template_close_token: ($) => alias(token(prec(1, ">")), "> template"),
-
-    cpp2_template_declaration_arguments: ($) =>
-      seq(
-        "<",
-        optional($.cpp2_comma_seperated_declarations),
-        $._cpp2_template_close_token,
-      ),
-
-    cpp2_template_call_arguments: ($) =>
-      prec.right(
-        seq(
-          "<",
-          optional($.cpp2_comma_expressions),
-          $._cpp2_template_close_token,
-        ),
-      ),
-
-    cpp2_any_identifier: ($) =>
-      prec.left(
-        choice($.cpp2_no_namespace_identifier, $.cpp2_namespaced_identifier),
-      ),
-
-    cpp2_namespaced_identifier: ($) =>
-      prec.left(
-        seq(
-          choice(seq($.cpp2_no_namespace_identifier, "::"), " ::"),
-          $.cpp2_no_namespace_identifier,
-          repeat(seq("::", $.cpp2_no_namespace_identifier)),
-        ),
-      ),
-
-    cpp2_no_namespace_identifier: ($) =>
-      choice($.cpp2_non_template_identifier, $.cpp2_template_identifier),
-
-    cpp2_template_identifier: ($) =>
-      seq($.cpp2_non_template_identifier, $.cpp2_template_call_arguments),
-
-    cpp2_non_template_identifier: ($) =>
-      choice($.cpp2_operator_keyword, $.cpp2_ordinary_identifier),
-
-    cpp2_ordinary_identifier: ($) =>
-      // dynamic precedence for preferring cpp2 grammar to labeled_statement
-      prec.dynamic(1, choice(...cpp2_non_keyword_words, $.identifier)),
-
-    cpp2_operator_keyword: ($) =>
-      seq(
-        "operator",
-        choice(
-          $.cpp2_expression,
-          seq("new", "[]"),
-          seq("delete", "[]"),
-          ...[
-            ...new Set([
-              ...cpp2_binary_operators,
-              ...cpp2_unary_operators,
-              "co_await",
-              "new",
-              "delete",
-              "[]",
-              "()",
-              '""',
-            ]),
-          ].map((operator) => {
-            return operator;
-          }),
-        ),
-      ),
-
-    cpp2_type: ($) =>
-      choice(
-        seq(optional($.cpp2_const_and_star), $.cpp2_function_type),
-        // lower preference to prefer unary postfix operator
-        prec.dynamic(-1, seq($.cpp2_const_and_star, $.cpp2_expression)),
-        // higher preference to prefer type as keyword instead of identifer if possible
-        prec.dynamic(1, $.cpp2_type_type),
-        $.cpp2_namespace_type,
-      ),
-
-    cpp2_const_and_star: ($) =>
-      prec.left(seq(choice("const", "*"), optional($.cpp2_const_and_star))),
-
-    cpp2_type_type: ($) => seq(optional("final"), "type"),
-    cpp2_namespace_type: ($) => "namespace",
-
-    cpp2_function_type_without_return_type: ($) =>
-      seq("(", optional($.cpp2_comma_seperated_declarations), ")"),
-
-    cpp2_comma_seperated_declarations: ($) =>
-      prec.right(
-        seq(
-          $.cpp2_function_declaration_argument,
-          repeat(seq(",", $.cpp2_function_declaration_argument)),
-          optional(","),
-        ),
-      ),
-
-    cpp2_function_type: ($) =>
-      seq(
-        $.cpp2_function_type_without_return_type,
-        optional("throws"),
-        optional(
-          seq($._cpp2_arrow, optional($.cpp2_passing_style), $.cpp2_expression),
-        ),
-      ),
-
     cpp2_block: ($) => seq("{", repeat($.cpp2_statement), "}"),
 
     cpp2_statement: ($) =>
@@ -419,12 +312,12 @@ module.exports = grammar(CPP1, {
       ),
 
     cpp2_for_statement: ($) =>
-      seq($._cpp2_for_statement_left_side, $.cpp2_block_statement),
+      seq($.cpp2_for_statement_left_side, $.cpp2_block_statement),
 
     cpp2_non_block_for_statement: ($) =>
-      seq($._cpp2_for_statement_left_side, $.cpp2_expression),
+      seq($.cpp2_for_statement_left_side, $.cpp2_expression),
 
-    _cpp2_for_statement_left_side: ($) =>
+    cpp2_for_statement_left_side: ($) =>
       seq(
         "for",
         $.cpp2_expression,
@@ -462,6 +355,104 @@ module.exports = grammar(CPP1, {
         $.cpp2_inspect_expression,
         $.cpp2_type,
       ),
+
+    cpp2_type: ($) =>
+      choice(
+        seq(optional($.cpp2_const_and_star), $.cpp2_function_type),
+        // lower preference to prefer unary postfix operator
+        prec.dynamic(-1, seq($.cpp2_const_and_star, $.cpp2_expression)),
+        // higher preference to prefer type as keyword instead of identifer if possible
+        prec.dynamic(1, $.cpp2_type_type),
+        $.cpp2_namespace_type,
+      ),
+
+    cpp2_const_and_star: ($) =>
+      prec.left(seq(choice("const", "*"), optional($.cpp2_const_and_star))),
+
+    cpp2_function_type: ($) =>
+      seq(
+        $.cpp2_function_type_without_return_type,
+        optional("throws"),
+        optional(
+          seq($._cpp2_arrow, optional($.cpp2_passing_style), $.cpp2_expression),
+        ),
+      ),
+
+    cpp2_function_type_without_return_type: ($) =>
+      seq("(", optional($.cpp2_comma_seperated_declarations), ")"),
+
+    cpp2_type_type: ($) => seq(optional("final"), "type"),
+    cpp2_namespace_type: ($) => "namespace",
+
+    cpp2_comma_seperated_declarations: ($) =>
+      prec.right(
+        seq(
+          $.cpp2_function_declaration_argument,
+          repeat(seq(",", $.cpp2_function_declaration_argument)),
+          optional(","),
+        ),
+      ),
+
+    // we need this to prefer closing templates to the >> operator
+    _cpp2_template_close_token: ($) => alias(token(prec(1, ">")), "> template"),
+
+    cpp2_template_declaration_arguments: ($) =>
+      seq(
+        "<",
+        optional($.cpp2_comma_seperated_declarations),
+        $._cpp2_template_close_token,
+      ),
+
+    cpp2_function_declaration_argument: ($) =>
+      seq(
+        optional($.cpp2_passing_style),
+        choice(
+          $.cpp2_no_block_declaration,
+          $.cpp2_block_declaration,
+          seq($.cpp2_any_identifier, optional("...")),
+        ),
+      ),
+
+    cpp2_passing_style: ($) =>
+      repeat1(choice(...cpp2_passing_styles, ...cpp2_keyword_passing_styles)),
+
+    cpp2_template_call_arguments: ($) =>
+      prec.right(
+        seq(
+          "<",
+          optional($.cpp2_comma_expressions),
+          $._cpp2_template_close_token,
+        ),
+      ),
+
+    cpp2_parentheses_expression: ($) =>
+      seq("(", optional($.cpp2_comma_expressions), ")"),
+
+    cpp2_comma_expressions: ($) =>
+      prec.right(
+        seq(
+          seq(optional($.cpp2_passing_style), $.cpp2_expression),
+          repeat(seq(",", optional($.cpp2_passing_style), $.cpp2_expression)),
+          optional(","),
+        ),
+      ),
+
+    cpp2_function_call: ($) =>
+      seq($.cpp2_expression, $.cpp2_parentheses_expression),
+
+    cpp2_bracket_call: ($) =>
+      seq($.cpp2_expression, "[", optional($.cpp2_comma_expressions), "]"),
+
+    cpp2_method_call: ($) =>
+      seq(
+        $.cpp2_expression,
+        choice(".", ".."),
+        $.cpp2_any_identifier,
+        $.cpp2_parentheses_expression,
+      ),
+
+    cpp2_member_access: ($) =>
+      seq($.cpp2_expression, choice(".", ".."), $.cpp2_any_identifier),
 
     cpp2_inspect_expression: ($) =>
       seq(
@@ -501,52 +492,61 @@ module.exports = grammar(CPP1, {
       );
     },
 
-    cpp2_comma_expressions: ($) =>
-      prec.right(
-        seq(
-          seq(optional($.cpp2_passing_style), $.cpp2_expression),
-          repeat(seq(",", optional($.cpp2_passing_style), $.cpp2_expression)),
-          optional(","),
-        ),
-      ),
-
-    cpp2_parentheses_expression: ($) =>
-      seq("(", optional($.cpp2_comma_expressions), ")"),
-
-    cpp2_function_call: ($) =>
-      seq($.cpp2_expression, $.cpp2_parentheses_expression),
-
-    cpp2_bracket_call: ($) =>
-      seq($.cpp2_expression, "[", optional($.cpp2_comma_expressions), "]"),
-
-    cpp2_method_call: ($) =>
-      seq(
-        $.cpp2_expression,
-        choice(".", ".."),
-        $.cpp2_any_identifier,
-        $.cpp2_parentheses_expression,
-      ),
-
-    cpp2_member_access: ($) =>
-      seq($.cpp2_expression, choice(".", ".."), $.cpp2_any_identifier),
-
-    cpp2_function_declaration_argument: ($) =>
-      seq(
-        optional($.cpp2_passing_style),
-        choice(
-          $.cpp2_no_block_declaration,
-          $.cpp2_block_declaration,
-          seq($.cpp2_any_identifier, optional("...")),
-        ),
-      ),
-
-    cpp2_passing_style: ($) =>
-      repeat1(choice(...cpp2_passing_styles, ...cpp2_keyword_passing_styles)),
-
     cpp2_command_statement: ($) =>
       seq(
         choice("return", "continue", "break", "using", "delete", "throw"),
         optional($.cpp2_expression),
+      ),
+
+    cpp2_any_identifier: ($) =>
+      prec.left(
+        choice($.cpp2_no_namespace_identifier, $.cpp2_namespaced_identifier),
+      ),
+
+    cpp2_namespaced_identifier: ($) =>
+      prec.left(
+        seq(
+          choice(seq($.cpp2_no_namespace_identifier, "::"), " ::"),
+          $.cpp2_no_namespace_identifier,
+          repeat(seq("::", $.cpp2_no_namespace_identifier)),
+        ),
+      ),
+
+    cpp2_no_namespace_identifier: ($) =>
+      choice($.cpp2_non_template_identifier, $.cpp2_template_identifier),
+
+    cpp2_template_identifier: ($) =>
+      seq($.cpp2_non_template_identifier, $.cpp2_template_call_arguments),
+
+    cpp2_non_template_identifier: ($) =>
+      choice($.cpp2_operator_keyword, $.cpp2_ordinary_identifier),
+
+    cpp2_ordinary_identifier: ($) =>
+      // dynamic precedence for preferring cpp2 grammar to labeled_statement
+      prec.dynamic(1, choice(...cpp2_non_keyword_words, $.identifier)),
+
+    cpp2_operator_keyword: ($) =>
+      seq(
+        "operator",
+        choice(
+          $.cpp2_expression,
+          seq("new", "[]"),
+          seq("delete", "[]"),
+          ...[
+            ...new Set([
+              ...cpp2_binary_operators,
+              ...cpp2_unary_operators,
+              "co_await",
+              "new",
+              "delete",
+              "[]",
+              "()",
+              '""',
+            ]),
+          ].map((operator) => {
+            return operator;
+          }),
+        ),
       ),
 
     cpp2_literal: ($) =>

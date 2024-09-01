@@ -569,7 +569,6 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                                 (cpp2_non_template_identifier
                                   (cpp2_ordinary_identifier
                                     (identifier))))))))))))
-              (cpp2_arrow)
               (cpp2_passing_style)
               (cpp2_expression
                 (cpp2_any_identifier
@@ -659,8 +658,10 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                       (cpp2_ordinary_identifier
                         (identifier))))
                   (cpp2_expression
-                    (cpp2_type
-                      (cpp2_type_type))))))))
+                    (cpp2_any_identifier
+                      (cpp2_no_namespace_identifier
+                        (cpp2_non_template_identifier
+                          (cpp2_ordinary_identifier))))))))))
         (cpp2_expression
           (cpp2_type
             (cpp2_function_type
@@ -750,11 +751,15 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                       (cpp2_ordinary_identifier
                         (identifier))))
                   (cpp2_expression
-                    (cpp2_type
-                      (cpp2_type_type))))))))
+                    (cpp2_any_identifier
+                      (cpp2_no_namespace_identifier
+                        (cpp2_non_template_identifier
+                          (cpp2_ordinary_identifier))))))))))
         (cpp2_expression
-          (cpp2_type
-            (cpp2_type_type))))
+          (cpp2_any_identifier
+            (cpp2_no_namespace_identifier
+              (cpp2_non_template_identifier
+                (cpp2_ordinary_identifier))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
@@ -828,11 +833,15 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                       (cpp2_ordinary_identifier
                         (identifier))))
                   (cpp2_expression
-                    (cpp2_type
-                      (cpp2_type_type))))))))
+                    (cpp2_any_identifier
+                      (cpp2_no_namespace_identifier
+                        (cpp2_non_template_identifier
+                          (cpp2_ordinary_identifier))))))))))
         (cpp2_expression
-          (cpp2_type
-            (cpp2_type_type))))
+          (cpp2_any_identifier
+            (cpp2_no_namespace_identifier
+              (cpp2_non_template_identifier
+                (cpp2_ordinary_identifier))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
@@ -1274,8 +1283,10 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                         (cpp2_ordinary_identifier
                           (identifier))))
                     (cpp2_expression
-                      (cpp2_type
-                        (cpp2_type_type))))))
+                      (cpp2_any_identifier
+                        (cpp2_no_namespace_identifier
+                          (cpp2_non_template_identifier
+                            (cpp2_ordinary_identifier))))))))
               (cpp2_function_declaration_argument
                 (cpp2_no_block_declaration
                   (cpp2_no_definition_declaration
@@ -1354,8 +1365,10 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                         (cpp2_ordinary_identifier
                           (identifier))))
                     (cpp2_expression
-                      (cpp2_type
-                        (cpp2_type_type))))))
+                      (cpp2_any_identifier
+                        (cpp2_no_namespace_identifier
+                          (cpp2_non_template_identifier
+                            (cpp2_ordinary_identifier))))))))
               (cpp2_function_declaration_argument
                 (cpp2_no_block_declaration
                   (cpp2_no_definition_declaration
@@ -1462,8 +1475,10 @@ a: <T: type, i: int> Something<"what", what> = hello<a<T>, c<a, (d>b), T>(hello,
                         (cpp2_ordinary_identifier
                           (identifier))))
                     (cpp2_expression
-                      (cpp2_type
-                        (cpp2_type_type))))))
+                      (cpp2_any_identifier
+                        (cpp2_no_namespace_identifier
+                          (cpp2_non_template_identifier
+                            (cpp2_ordinary_identifier))))))))
               (cpp2_function_declaration_argument
                 (cpp2_no_block_declaration
                   (cpp2_no_definition_declaration

@@ -34,8 +34,10 @@ set: <Key> type = {
                     (cpp2_ordinary_identifier
                       (identifier))))))))
         (cpp2_expression
-          (cpp2_type
-            (cpp2_type_type))))
+          (cpp2_any_identifier
+            (cpp2_no_namespace_identifier
+              (cpp2_non_template_identifier
+                (cpp2_ordinary_identifier))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_non_block_statement
@@ -76,8 +78,10 @@ set: <Key> type = {
                 (cpp2_expression_definition
                   (cpp2_left_side_of_definition
                     (cpp2_expression
-                      (cpp2_type
-                        (cpp2_type_type))))
+                      (cpp2_any_identifier
+                        (cpp2_no_namespace_identifier
+                          (cpp2_non_template_identifier
+                            (cpp2_ordinary_identifier))))))
                   (cpp2_expression
                     (cpp2_any_identifier
                       (cpp2_namespaced_identifier
@@ -136,7 +140,6 @@ set: <Key> type = {
                                         (cpp2_non_template_identifier
                                           (cpp2_ordinary_identifier
                                             (identifier)))))))))))
-                        (cpp2_arrow)
                         (cpp2_expression
                           (cpp2_type
                             (cpp2_function_type
@@ -263,7 +266,6 @@ set: <Key> type = {
                                 (cpp2_non_template_identifier
                                   (cpp2_ordinary_identifier
                                     (identifier))))))))
-                      (cpp2_arrow)
                       (cpp2_expression
                         (cpp2_binary_expression
                           (cpp2_expression
@@ -345,7 +347,6 @@ main: ()
           (cpp2_type
             (cpp2_function_type
               (cpp2_function_type_without_return_type)
-              (cpp2_arrow)
               (cpp2_expression
                 (cpp2_keyword
                   (cpp2_primitive_type
@@ -362,7 +363,6 @@ main: ()
           (cpp2_type
             (cpp2_function_type
               (cpp2_function_type_without_return_type)
-              (cpp2_arrow)
               (cpp2_expression
                 (cpp2_keyword
                   (cpp2_primitive_type
@@ -398,7 +398,6 @@ main: ()
                           (cpp2_keyword
                             (cpp2_primitive_type
                               (primitive_type)))))))))
-              (cpp2_arrow)
               (cpp2_expression
                 (cpp2_keyword
                   (cpp2_primitive_type
@@ -676,7 +675,6 @@ main: () = {
                             (cpp2_non_template_identifier
                               (cpp2_ordinary_identifier
                                 (identifier)))))))))))
-            (cpp2_arrow)
             (cpp2_expression
               (cpp2_binary_expression
                 (cpp2_expression
@@ -748,7 +746,6 @@ main: () = {
                                                         (cpp2_non_template_identifier
                                                           (cpp2_ordinary_identifier
                                                             (identifier)))))))))))
-                                        (cpp2_arrow)
                                         (cpp2_expression
                                           (cpp2_any_identifier
                                             (cpp2_namespaced_identifier
@@ -821,7 +818,6 @@ main: () = {
                                           (cpp2_non_template_identifier
                                             (cpp2_ordinary_identifier
                                               (identifier)))))))))))
-                          (cpp2_arrow)
                           (cpp2_expression
                             (cpp2_any_identifier
                               (cpp2_namespaced_identifier

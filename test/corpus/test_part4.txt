@@ -94,7 +94,6 @@ c :== {
                         (cpp2_keyword
                           (cpp2_primitive_type
                             (primitive_type)))))))))
-            (cpp2_arrow)
             (cpp2_expression
               (cpp2_binary_expression
                 (cpp2_expression

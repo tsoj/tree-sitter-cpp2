@@ -54,7 +54,6 @@ hello: (a, b) -> (a, b, c: hello) = (d, e, f);
                       (cpp2_non_template_identifier
                         (cpp2_ordinary_identifier
                           (identifier))))))))
-            (cpp2_arrow)
             (cpp2_expression
               (cpp2_binary_expression
                 (cpp2_expression
