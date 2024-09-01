@@ -11,7 +11,7 @@ To run tests:
 tree-sitter test
 ```
 
-To run more expensive tests run:
+To run more extensive tests run:
 ```bash
 # some/path could for example point to the cppfront regression tests directory
 ./test_on_cpp2_files.sh some/path
