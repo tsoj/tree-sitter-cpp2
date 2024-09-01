@@ -3004,7 +3004,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "cpp2_expression_or_comma_expressions",
@@ -3019,7 +3019,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "cpp2_comma_seperated_declarations",

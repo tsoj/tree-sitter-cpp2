@@ -244,13 +244,17 @@ module.exports = grammar(CPP1, {
     _template_close_token: ($) => alias(token(prec(1, ">")), "> template"),
 
     cpp2_template_declaration_arguments: ($) =>
-      seq("<", $.cpp2_comma_seperated_declarations, $._template_close_token),
+      seq(
+        "<",
+        optional($.cpp2_comma_seperated_declarations),
+        $._template_close_token,
+      ),
 
     cpp2_template_call_arguments: ($) =>
       prec.right(
         seq(
           "<",
-          $.cpp2_expression_or_comma_expressions,
+          optional($.cpp2_expression_or_comma_expressions),
           optional(","),
           $._template_close_token,
         ),
