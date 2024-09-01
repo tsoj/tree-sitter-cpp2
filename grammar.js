@@ -52,7 +52,7 @@ const cpp2_keyword_passing_styles = [
   "implicit",
 ];
 
-const cpp2_non_keyword_words = [...cpp2_passing_styles];
+const cpp2_non_keyword_words = [...cpp2_passing_styles, "union"];
 
 module.exports = grammar(CPP1, {
   name: "cpp2",
@@ -117,6 +117,7 @@ module.exports = grammar(CPP1, {
     ],
     [$.call_expression, $.cpp2_primitive_type],
     [$.user_defined_literal, $.cpp2_user_defined_literal],
+    [$.union_specifier, $.cpp2_ordinary_identifier],
 
     // Cpp2
     [$.cpp2_no_namespace_identifier, $.cpp2_template_identifier],
