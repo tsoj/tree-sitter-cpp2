@@ -27,6 +27,8 @@ const cpp2_binary_operators = [
   "||",
   "..<",
   "..=",
+  "is",
+  "as",
   // assignment operators
   "=",
   "*=",
@@ -144,7 +146,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_keyword, $.cpp2_expression],
   ],
 
-  extras: ($) => [/\s|\\\r?\n/, $.comment, $.macro_comment],
+  extras: ($) => [/\s|\\\r?\n/, $.comment],
 
   rules: {
     _top_level_item: ($, original) =>
@@ -172,7 +174,7 @@ module.exports = grammar(CPP1, {
         ":",
         optional($.cpp2_metafunction_arguments),
         optional($.cpp2_template_declaration_arguments),
-        $.cpp2_type,
+        optional($.cpp2_type),
         optional(seq("requires", $.cpp2_expression)),
       ),
 
@@ -458,7 +460,13 @@ module.exports = grammar(CPP1, {
 
     cpp2_expression_or_comma_expressions: ($) =>
       prec.left(
-        choice($.cpp2_type, $.cpp2_expression, $.cpp2_comma_expressions),
+        choice(
+          seq(
+            optional($.cpp2_passing_style),
+            choice($.cpp2_type, $.cpp2_expression),
+          ),
+          $.cpp2_comma_expressions,
+        ),
       ),
 
     cpp2_comma_expressions: ($) =>
@@ -503,7 +511,6 @@ module.exports = grammar(CPP1, {
       seq(
         optional($.cpp2_passing_style),
         choice(
-          "_:", // TODO: is this valid? operator(): (this, inout _:) = {}
           $.cpp2_no_block_declaration,
           $.cpp2_block_declaration,
           seq($.cpp2_any_identifier, optional("...")),
@@ -520,7 +527,13 @@ module.exports = grammar(CPP1, {
     cpp2_using_statement: ($) => seq("using", optional($.cpp2_expression)),
 
     cpp2_literal: ($) =>
-      choice($.number_literal, $._string, $.raw_string_literal, $.char_literal),
+      choice(
+        $.number_literal,
+        $._string,
+        $.raw_string_literal,
+        $.char_literal,
+        $.user_defined_literal,
+      ),
 
     cpp2_keyword: ($) => choice($.true, $.false, $.cpp2_primitive_type),
 
@@ -541,26 +554,6 @@ module.exports = grammar(CPP1, {
             ...[8, 16, 32, 64].map((n) => `u${n}`),
             ...[8, 16, 32, 64].map((n) => `f${n}`),
           ),
-        ),
-      ),
-
-    macro_comment: (_) =>
-      token(
-        seq(
-          "#",
-          choice(
-            "define",
-            "undef",
-            "if",
-            "ifdef",
-            "ifndef",
-            "else",
-            "elif",
-            "endif",
-            "error",
-            "pragma",
-          ),
-          /(\\+(.|\r?\n)|[^\\\n])*/,
         ),
       ),
   },

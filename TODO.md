@@ -2,4 +2,4 @@
 - all kinds of literals
 - requires and concepts and such
 - is this valid? operator(): (this, inout _:) = {}
-- inspect
+- inspect, as

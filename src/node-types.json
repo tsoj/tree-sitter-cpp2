@@ -2415,7 +2415,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -2424,6 +2424,10 @@
         },
         {
           "type": "cpp2_expression",
+          "named": true
+        },
+        {
+          "type": "cpp2_passing_style",
           "named": true
         },
         {
@@ -2481,7 +2485,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "cpp2_any_identifier",
@@ -2647,6 +2651,10 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "user_defined_literal",
           "named": true
         }
       ]
@@ -8569,10 +8577,6 @@
     "named": false
   },
   {
-    "type": "_:",
-    "named": false
-  },
-  {
     "type": "_Alignas",
     "named": false
   },
@@ -8706,6 +8710,10 @@
   },
   {
     "type": "and_eq",
+    "named": false
+  },
+  {
+    "type": "as",
     "named": false
   },
   {
@@ -8889,16 +8897,16 @@
     "named": false
   },
   {
+    "type": "is",
+    "named": false
+  },
+  {
     "type": "literal_suffix",
     "named": true
   },
   {
     "type": "long",
     "named": false
-  },
-  {
-    "type": "macro_comment",
-    "named": true
   },
   {
     "type": "move",
