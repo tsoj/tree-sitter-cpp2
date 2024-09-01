@@ -355,7 +355,7 @@ module.exports = grammar(CPP1, {
     cpp2_non_block_loop: ($) =>
       seq(
         optional(seq($.cpp2_non_template_identifier, ":")),
-        $.cpp2_do_while_statement,
+        choice($.cpp2_do_while_statement, $.cpp2_non_block_for_statement),
       ),
 
     cpp2_block_loop: ($) =>
@@ -388,13 +388,18 @@ module.exports = grammar(CPP1, {
       ),
 
     cpp2_for_statement: ($) =>
+      seq($._cpp2_for_statement_left_side, $.cpp2_block_statement),
+
+    cpp2_non_block_for_statement: ($) =>
+      seq($._cpp2_for_statement_left_side, $.cpp2_expression),
+
+    _cpp2_for_statement_left_side: ($) =>
       seq(
         "for",
         $.cpp2_expression,
         optional(seq("next", $.cpp2_expression)),
         "do",
         $.cpp2_function_type_without_return_type,
-        $.cpp2_block_statement,
       ),
 
     cpp2_do_statement: ($) => seq("do", $.cpp2_block_statement),

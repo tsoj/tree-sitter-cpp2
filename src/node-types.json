@@ -2799,6 +2799,25 @@
     }
   },
   {
+    "type": "cpp2_non_block_for_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cpp2_expression",
+          "named": true
+        },
+        {
+          "type": "cpp2_function_type_without_return_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "cpp2_non_block_loop",
     "named": true,
     "fields": {},
@@ -2808,6 +2827,10 @@
       "types": [
         {
           "type": "cpp2_do_while_statement",
+          "named": true
+        },
+        {
+          "type": "cpp2_non_block_for_statement",
           "named": true
         },
         {
