@@ -2678,6 +2678,14 @@
           {
             "type": "cpp2_function_type_without_return_type",
             "named": true
+          },
+          {
+            "type": "cpp2_namespace_type",
+            "named": true
+          },
+          {
+            "type": "cpp2_type_type",
+            "named": true
           }
         ]
       }
@@ -2859,6 +2867,14 @@
         "types": [
           {
             "type": "cpp2_expression",
+            "named": true
+          },
+          {
+            "type": "cpp2_namespace_type",
+            "named": true
+          },
+          {
+            "type": "cpp2_type_type",
             "named": true
           }
         ]
@@ -3185,14 +3201,6 @@
         },
         {
           "type": "cpp2_function_type",
-          "named": true
-        },
-        {
-          "type": "cpp2_namespace_type",
-          "named": true
-        },
-        {
-          "type": "cpp2_type_type",
           "named": true
         }
       ]

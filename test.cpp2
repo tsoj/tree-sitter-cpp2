@@ -1,9 +1,6 @@
 
-main: A = {
-    type: type = type;
-    while i < 10
-    next  i++ {
-        std::cout << i;
-    }
+main: Hello = {
+    type: (type) = type;
+    namespace: namespace = namespace;
 
 }

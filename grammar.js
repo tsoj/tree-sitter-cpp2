@@ -130,10 +130,9 @@ module.exports = grammar(CPP1, {
     [$.cpp2_function_declaration_argument, $.cpp2_expression],
     [$.cpp2_function_type],
     [$.cpp2_number_literal],
-    [$.cpp2_type_type, $.cpp2_passing_style],
     [$.cpp2_type],
     [$.cpp2_binary_expression, $.cpp2_function_type],
-    [$.cpp2_ordinary_identifier, $.cpp2_type_type],
+    [$._cpp2_normal_type_or_hardcode_type, $.cpp2_binary_expression],
   ],
 
   precedences: ($) => [
@@ -168,6 +167,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_function_type, $.cpp2_statement],
     [$.cpp2_left_side_of_definition, $.cpp2_binary_expression],
     [$.cpp2_binary_expression, $.cpp2_expression_definition],
+    [$.cpp2_type_type, $.cpp2_namespace_type, $.cpp2_ordinary_identifier],
   ],
 
   extras: ($) => [/\s|\\\r?\n/, $.comment, $.macro_comment],
@@ -199,7 +199,7 @@ module.exports = grammar(CPP1, {
         ":",
         optional(field("metafunctions", $.cpp2_metafunction_arguments)),
         optional(field("template", $.cpp2_template_declaration_arguments)),
-        optional(field("type", $.cpp2_expression)),
+        optional(field("type", $._cpp2_normal_type_or_hardcode_type)),
         optional(field("requires", seq("requires", $.cpp2_expression))),
       ),
 
@@ -228,7 +228,7 @@ module.exports = grammar(CPP1, {
           seq(
             optional(
               seq(
-                field("type", $.cpp2_expression),
+                field("type", $._cpp2_normal_type_or_hardcode_type),
                 optional(seq("requires", $.cpp2_expression)),
               ),
             ),
@@ -247,6 +247,12 @@ module.exports = grammar(CPP1, {
           field("type", $.cpp2_function_type_without_return_type),
         ),
       ),
+
+    _cpp2_normal_type_or_hardcode_type: ($) =>
+      choice($.cpp2_expression, $.cpp2_type_type, $.cpp2_namespace_type),
+
+    cpp2_type_type: ($) => seq(optional("final"), "type"),
+    cpp2_namespace_type: ($) => "namespace",
 
     cpp2_metafunction_arguments: ($) =>
       repeat1(seq("@", $.cpp2_any_identifier)),
@@ -366,9 +372,6 @@ module.exports = grammar(CPP1, {
         seq(optional($.cpp2_const_and_star), $.cpp2_function_type),
         // lower preference to prefer unary postfix operator
         prec.dynamic(-1, seq($.cpp2_const_and_star, $.cpp2_expression)),
-        // higher preference to prefer type as keyword instead of identifer if possible
-        prec.dynamic(1, $.cpp2_type_type),
-        $.cpp2_namespace_type,
       ),
 
     cpp2_const_and_star: ($) =>
@@ -385,9 +388,6 @@ module.exports = grammar(CPP1, {
 
     cpp2_function_type_without_return_type: ($) =>
       seq("(", optional($.cpp2_comma_seperated_declarations), ")"),
-
-    cpp2_type_type: ($) => seq(optional("final"), "type"),
-    cpp2_namespace_type: ($) => "namespace",
 
     cpp2_comma_seperated_declarations: ($) =>
       prec.right(
