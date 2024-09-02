@@ -121,10 +121,10 @@ module.exports = grammar(CPP1, {
     [$.cpp2_unary_postfix_expression, $.cpp2_binary_expression],
     [$.cpp2_unary_prefix_expression, $.cpp2_binary_expression],
     [$.cpp2_block_loop, $.cpp2_do_while_statement],
-    [$.cpp2_declaration_left_side, $.cpp2_non_block_loop, $.cpp2_block_loop],
-    [$.cpp2_declaration_left_side, $.cpp2_block_loop],
+    [$._cpp2_declaration_left_side, $.cpp2_non_block_loop, $.cpp2_block_loop],
+    [$._cpp2_declaration_left_side, $.cpp2_block_loop],
     [$.cpp2_type, $.cpp2_unary_postfix_expression, $.cpp2_binary_expression],
-    [$.cpp2_declaration_left_side, $.cpp2_no_namespace_identifier],
+    [$._cpp2_declaration_left_side, $.cpp2_no_namespace_identifier],
     [$.cpp2_ordinary_identifier, $.cpp2_passing_style],
     [$.cpp2_passing_style],
     [$.cpp2_function_declaration_argument, $.cpp2_expression],
@@ -157,7 +157,7 @@ module.exports = grammar(CPP1, {
     cpp2_binary_operators,
     [$.cpp2_type, $.cpp2_binary_expression],
     [$.cpp2_function_type_without_return_type, $.cpp2_parentheses_expression],
-    [$.cpp2_block_statement, $.cpp2_expression],
+    [$._cpp2_block_statement, $.cpp2_expression],
     [$.cpp2_const_and_star, $.type_qualifier],
     [$.cpp2_keyword, $.cpp2_expression],
     [$.cpp2_operator_keyword, $.cpp2_expression],
@@ -178,35 +178,35 @@ module.exports = grammar(CPP1, {
         original,
         ";",
         $.cpp2_block_declaration,
-        seq($.cpp2_no_block_declaration, ";"),
+        seq($._cpp2_no_block_declaration, ";"),
 
         // this is only really here to parse cases like `v := :() -> bool = true;();` at least without error
         $.cpp2_parentheses_expression,
       ),
 
-    cpp2_no_block_declaration: ($) =>
+    _cpp2_no_block_declaration: ($) =>
       choice($.cpp2_no_definition_declaration, $.cpp2_expression_declaration),
 
     cpp2_block_declaration: ($) =>
-      seq($.cpp2_declaration_left_side, $.cpp2_block_definition),
+      seq($._cpp2_declaration_left_side, $.cpp2_block_definition),
 
     cpp2_expression_declaration: ($) =>
-      seq($.cpp2_declaration_left_side, $.cpp2_expression_definition),
+      seq($._cpp2_declaration_left_side, $.cpp2_expression_definition),
 
     cpp2_no_definition_declaration: ($) =>
       seq(
-        $.cpp2_declaration_left_side,
+        $._cpp2_declaration_left_side,
         ":",
-        optional($.cpp2_metafunction_arguments),
-        optional($.cpp2_template_declaration_arguments),
-        optional($.cpp2_expression),
-        optional(seq("requires", $.cpp2_expression)),
+        optional(field("metafunctions", $.cpp2_metafunction_arguments)),
+        optional(field("template", $.cpp2_template_declaration_arguments)),
+        optional(field("type", $.cpp2_expression)),
+        optional(field("requires", seq("requires", $.cpp2_expression))),
       ),
 
-    cpp2_declaration_left_side: ($) =>
+    _cpp2_declaration_left_side: ($) =>
       seq(
         optional(choice("public", "protected", "private")),
-        $.cpp2_non_template_identifier,
+        field("name", $.cpp2_non_template_identifier),
         optional("..."),
       ),
 
@@ -222,26 +222,29 @@ module.exports = grammar(CPP1, {
     cpp2_left_side_of_definition: ($) =>
       seq(
         ":",
-        optional($.cpp2_metafunction_arguments),
-        optional($.cpp2_template_declaration_arguments),
+        optional(field("metafunctions", $.cpp2_metafunction_arguments)),
+        optional(field("template", $.cpp2_template_declaration_arguments)),
         choice(
           seq(
             optional(
               seq(
-                $.cpp2_expression,
+                field("type", $.cpp2_expression),
                 optional(seq("requires", $.cpp2_expression)),
               ),
             ),
-            repeat(
-              seq(
-                choice("pre", "post"),
-                optional($.cpp2_template_call_arguments),
-                $.cpp2_parentheses_expression,
+            field(
+              "contracts",
+              repeat(
+                seq(
+                  choice("pre", "post"),
+                  optional($.cpp2_template_call_arguments),
+                  $.cpp2_parentheses_expression,
+                ),
               ),
             ),
             choice("=", "=="),
           ),
-          $.cpp2_function_type_without_return_type,
+          field("type", $.cpp2_function_type_without_return_type),
         ),
       ),
 
@@ -252,22 +255,22 @@ module.exports = grammar(CPP1, {
 
     cpp2_statement: ($) =>
       seq(
-        optional($.cpp2_function_type_without_return_type),
+        optional(field("parameters", $.cpp2_function_type_without_return_type)),
         choice(
-          $.cpp2_block_statement,
-          seq(optional($.cpp2_non_block_statement), ";"),
+          $._cpp2_block_statement,
+          seq(optional($._cpp2_non_block_statement), ";"),
         ),
       ),
 
-    cpp2_non_block_statement: ($) =>
+    _cpp2_non_block_statement: ($) =>
       choice(
-        $.cpp2_no_block_declaration,
+        $._cpp2_no_block_declaration,
         $.cpp2_command_statement,
         $.cpp2_expression,
         $.cpp2_non_block_loop,
       ),
 
-    cpp2_block_statement: ($) =>
+    _cpp2_block_statement: ($) =>
       choice(
         $.cpp2_block_declaration,
         $.cpp2_block_definition,
@@ -278,13 +281,13 @@ module.exports = grammar(CPP1, {
 
     cpp2_non_block_loop: ($) =>
       seq(
-        optional(seq($.cpp2_non_template_identifier, ":")),
+        optional(field("name", seq($.cpp2_non_template_identifier, ":"))),
         choice($.cpp2_do_while_statement, $.cpp2_non_block_for_statement),
       ),
 
     cpp2_block_loop: ($) =>
       seq(
-        optional(seq($.cpp2_non_template_identifier, ":")),
+        optional(field("name", seq($.cpp2_non_template_identifier, ":"))),
         choice(
           $.cpp2_while_statement,
           $.cpp2_for_statement,
@@ -298,8 +301,8 @@ module.exports = grammar(CPP1, {
           "if",
           optional("constexpr"),
           $.cpp2_expression,
-          $.cpp2_block_statement,
-          optional(seq("else", $.cpp2_block_statement)),
+          $._cpp2_block_statement,
+          optional(seq("else", $._cpp2_block_statement)),
         ),
       ),
 
@@ -307,12 +310,12 @@ module.exports = grammar(CPP1, {
       seq(
         "while",
         $.cpp2_expression,
-        optional(seq("next", $.cpp2_expression)),
-        $.cpp2_block_statement,
+        optional(seq($.cpp2_next, $.cpp2_expression)),
+        $._cpp2_block_statement,
       ),
 
     cpp2_for_statement: ($) =>
-      seq($.cpp2_for_statement_left_side, $.cpp2_block_statement),
+      seq($.cpp2_for_statement_left_side, $._cpp2_block_statement),
 
     cpp2_non_block_for_statement: ($) =>
       seq($.cpp2_for_statement_left_side, $.cpp2_expression),
@@ -321,20 +324,22 @@ module.exports = grammar(CPP1, {
       seq(
         "for",
         $.cpp2_expression,
-        optional(seq("next", $.cpp2_expression)),
+        optional(seq($.cpp2_next, $.cpp2_expression)),
         "do",
         $.cpp2_function_type_without_return_type,
       ),
 
-    cpp2_do_statement: ($) => seq("do", $.cpp2_block_statement),
+    cpp2_do_statement: ($) => seq("do", $._cpp2_block_statement),
 
     cpp2_do_while_statement: ($) =>
       seq(
         $.cpp2_do_statement,
-        optional(seq("next", $.cpp2_expression)),
+        optional(seq($.cpp2_next, $.cpp2_expression)),
         "while",
         $.cpp2_expression,
       ),
+
+    cpp2_next: ($) => "next",
 
     cpp2_expression: ($) =>
       choice(
@@ -407,7 +412,7 @@ module.exports = grammar(CPP1, {
       seq(
         optional($.cpp2_passing_style),
         choice(
-          $.cpp2_no_block_declaration,
+          $._cpp2_no_block_declaration,
           $.cpp2_block_declaration,
           seq($.cpp2_any_identifier, optional("...")),
         ),

@@ -40,6 +40,19 @@
   "tree-sitter": [
     {
       "scope": "source.cpp2",
+      "file-types": [
+        "cpp2",
+        "h2"
+      ],
+      "highlights": [
+        "node_modules/tree-sitter-c/queries/highlights.scm",
+        "node_modules/tree-sitter-cpp/queries/highlights.scm",
+        "queries/highlights.scm"
+      ],
+      "injections": [
+        "node_modules/tree-sitter-cpp/queries/injections.scm",
+        "queries/injections.scm"
+      ],
       "injection-regex": "^cpp2$"
     }
   ]
