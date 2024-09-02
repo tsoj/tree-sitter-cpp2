@@ -11,22 +11,62 @@ p: const * * const i32;
         (identifier)))
     (cpp2_expression
       (cpp2_type
-        (cpp2_const_and_star)
+        (cpp2_const_and_star
+          (cpp2_const_and_star
+            (cpp2_const_and_star
+              (cpp2_const_and_star))))
         (cpp2_expression
-          (cpp2_type
-            (cpp2_const_and_star)
-            (cpp2_expression
-              (cpp2_type
-                (cpp2_const_and_star)
-                (cpp2_expression
-                  (cpp2_type
-                    (cpp2_const_and_star)
-                    (cpp2_expression
-                      (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (identifier))))))))))))))))
+          (cpp2_any_identifier
+            (cpp2_no_namespace_identifier
+              (cpp2_non_template_identifier
+                (cpp2_ordinary_identifier
+                  (identifier))))))))))
+
+===========================================================
+using type qualifiers
+===========================================================
+p: const * * const *;
+p: const * * const * = 10;
+i: const * const * = 0;
+-----------------------------------------------------------
+
+(translation_unit
+  (cpp2_no_definition_declaration
+    (cpp2_non_template_identifier
+      (cpp2_ordinary_identifier
+        (identifier)))
+    (cpp2_const_and_star
+      (cpp2_const_and_star
+        (cpp2_const_and_star
+          (cpp2_const_and_star
+            (cpp2_const_and_star))))))
+  (cpp2_expression_declaration
+    (cpp2_non_template_identifier
+      (cpp2_ordinary_identifier
+        (identifier)))
+    (cpp2_expression_definition
+      (cpp2_left_side_of_definition
+        (cpp2_const_and_star
+          (cpp2_const_and_star
+            (cpp2_const_and_star
+              (cpp2_const_and_star
+                (cpp2_const_and_star))))))
+      (cpp2_expression
+        (cpp2_literal
+          (cpp2_number_literal)))))
+  (cpp2_expression_declaration
+    (cpp2_non_template_identifier
+      (cpp2_ordinary_identifier
+        (identifier)))
+    (cpp2_expression_definition
+      (cpp2_left_side_of_definition
+        (cpp2_const_and_star
+          (cpp2_const_and_star
+            (cpp2_const_and_star
+              (cpp2_const_and_star)))))
+      (cpp2_expression
+        (cpp2_literal
+          (cpp2_number_literal))))))
 
 ===========================================================
 bracket call and member access

@@ -1,6 +1,16 @@
+main : (hello) throws -> what = {
 
-main: Hello = {
-    type: (type) = type;
-    namespace: namespace = namespace;
+    //  Continuing the previous example
+    i : const * const * = 0;
+
+    for  words
+    next i++
+    do   (word)
+    if   i % 2 == 1         // if i is odd
+    {                       // do this loop body
+        std::cout << "counter: (i)$, word: (word)$\n";
+    }
+    //  prints:
+    //      counter: 1, word: [Betty]
 
 }

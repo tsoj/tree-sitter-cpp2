@@ -2525,6 +2525,10 @@
         {
           "type": "cpp2_passing_style",
           "named": true
+        },
+        {
+          "type": "cpp2_throws",
+          "named": true
         }
       ]
     }
@@ -2671,6 +2675,10 @@
         "multiple": false,
         "required": false,
         "types": [
+          {
+            "type": "cpp2_const_and_star",
+            "named": true
+          },
           {
             "type": "cpp2_expression",
             "named": true
@@ -2865,6 +2873,10 @@
         "multiple": false,
         "required": false,
         "types": [
+          {
+            "type": "cpp2_const_and_star",
+            "named": true
+          },
           {
             "type": "cpp2_expression",
             "named": true
@@ -8983,6 +8995,10 @@
     "named": true
   },
   {
+    "type": "cpp2_throws",
+    "named": true
+  },
+  {
     "type": "decltype",
     "named": false
   },
@@ -9284,10 +9300,6 @@
   },
   {
     "type": "throw",
-    "named": false
-  },
-  {
-    "type": "throws",
     "named": false
   },
   {

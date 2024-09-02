@@ -85,3 +85,7 @@
 (cpp2_next) @keyword
 
 (cpp2_type_type) @keyword
+
+(cpp2_passing_style) @keyword
+
+(cpp2_throws) @keyword

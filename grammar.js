@@ -249,7 +249,12 @@ module.exports = grammar(CPP1, {
       ),
 
     _cpp2_normal_type_or_hardcode_type: ($) =>
-      choice($.cpp2_expression, $.cpp2_type_type, $.cpp2_namespace_type),
+      choice(
+        $.cpp2_expression,
+        $.cpp2_type_type,
+        $.cpp2_namespace_type,
+        $.cpp2_const_and_star,
+      ),
 
     cpp2_type_type: ($) => seq(optional("final"), "type"),
     cpp2_namespace_type: ($) => "namespace",
@@ -375,16 +380,18 @@ module.exports = grammar(CPP1, {
       ),
 
     cpp2_const_and_star: ($) =>
-      prec.left(seq(choice("const", "*"), optional($.cpp2_const_and_star))),
+      prec.right(seq(choice("const", "*"), optional($.cpp2_const_and_star))),
 
     cpp2_function_type: ($) =>
       seq(
         $.cpp2_function_type_without_return_type,
-        optional("throws"),
+        optional($.cpp2_throws),
         optional(
           seq($._cpp2_arrow, optional($.cpp2_passing_style), $.cpp2_expression),
         ),
       ),
+
+    cpp2_throws: ($) => "throws",
 
     cpp2_function_type_without_return_type: ($) =>
       seq("(", optional($.cpp2_comma_seperated_declarations), ")"),
