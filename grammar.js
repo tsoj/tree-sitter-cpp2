@@ -3,7 +3,8 @@
 
 const CPP1 = require("tree-sitter-cpp/grammar");
 
-const cpp2_unary_operators = ["++", "--", "*", "&", "&&", "~", "$", "..."];
+const cpp2_prefix_operators = ["-", "+", "!"];
+const cpp2_postfix_operators = ["++", "--", "*", "&", "&&", "~", "$", "..."];
 
 const cpp2_binary_operators = [
   "*",
@@ -504,11 +505,11 @@ module.exports = grammar(CPP1, {
         $.cpp2_expression,
         // the reason we have &&  additionally to & is for issues
         // with conflicting tokenization with the binary operator &&
-        choice(...cpp2_unary_operators),
+        choice(...cpp2_postfix_operators),
       ),
 
     cpp2_unary_prefix_expression: ($) =>
-      seq(choice("-", "+", "!"), $.cpp2_expression),
+      seq(choice(...cpp2_prefix_operators), $.cpp2_expression),
 
     cpp2_binary_expression: ($) => {
       return choice(
@@ -566,7 +567,7 @@ module.exports = grammar(CPP1, {
           ...[
             ...new Set([
               ...cpp2_binary_operators,
-              ...cpp2_unary_operators,
+              ...cpp2_postfix_operators,
               "co_await",
               "new",
               "delete",

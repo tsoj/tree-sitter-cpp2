@@ -1,2 +1,2 @@
-
-test: () -> Hello = {}
+set_named_group: ();
+set_named_group: () = 1;
