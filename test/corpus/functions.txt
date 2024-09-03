@@ -228,19 +228,18 @@ _main2: () -> ::std::hello::int = {
               (cpp2_function_type_without_return_type)
               (cpp2_expression
                 (cpp2_any_identifier
-                  (cpp2_namespaced_identifier
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier))))
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier))))
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier)))))))))))
+                  (cpp2_no_namespace_identifier
+                    (cpp2_non_template_identifier
+                      (cpp2_ordinary_identifier
+                        (identifier))))
+                  (cpp2_no_namespace_identifier
+                    (cpp2_non_template_identifier
+                      (cpp2_ordinary_identifier
+                        (identifier))))
+                  (cpp2_no_namespace_identifier
+                    (cpp2_non_template_identifier
+                      (cpp2_ordinary_identifier
+                        (identifier))))))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_expression_declaration
@@ -251,15 +250,14 @@ _main2: () -> ::std::hello::int = {
               (cpp2_left_side_of_definition
                 (cpp2_expression
                   (cpp2_any_identifier
-                    (cpp2_namespaced_identifier
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))))))
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier))))
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier)))))))
               (cpp2_expression
                 (cpp2_literal
                   (string_literal
@@ -299,38 +297,44 @@ _main2: () -> ::std::hello::int = {
                       (cpp2_ordinary_identifier
                         (identifier))))))
               (cpp2_expression
-                (cpp2_method_call
+                (cpp2_binary_expression
                   (cpp2_expression
                     (cpp2_any_identifier
                       (cpp2_no_namespace_identifier
                         (cpp2_non_template_identifier
                           (cpp2_ordinary_identifier
                             (identifier))))))
-                  (cpp2_any_identifier
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier)))))
-                  (cpp2_parentheses_expression
-                    (cpp2_comma_expressions
+                  (cpp2_expression
+                    (cpp2_function_call
                       (cpp2_expression
-                        (cpp2_literal
-                          (string_literal
-                            (string_content))))
-                      (cpp2_expression
-                        (cpp2_method_call
+                        (cpp2_any_identifier
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))
+                      (cpp2_parentheses_expression
+                        (cpp2_comma_expressions
                           (cpp2_expression
-                            (cpp2_any_identifier
-                              (cpp2_no_namespace_identifier
-                                (cpp2_non_template_identifier
-                                  (cpp2_ordinary_identifier
-                                    (identifier))))))
-                          (cpp2_any_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))
-                          (cpp2_parentheses_expression))))))))))
+                            (cpp2_literal
+                              (string_literal
+                                (string_content))))
+                          (cpp2_expression
+                            (cpp2_binary_expression
+                              (cpp2_expression
+                                (cpp2_any_identifier
+                                  (cpp2_no_namespace_identifier
+                                    (cpp2_non_template_identifier
+                                      (cpp2_ordinary_identifier
+                                        (identifier))))))
+                              (cpp2_expression
+                                (cpp2_function_call
+                                  (cpp2_expression
+                                    (cpp2_any_identifier
+                                      (cpp2_no_namespace_identifier
+                                        (cpp2_non_template_identifier
+                                          (cpp2_ordinary_identifier
+                                            (identifier))))))
+                                  (cpp2_parentheses_expression))))))))))))))
         (cpp2_statement
           (cpp2_expression
             (cpp2_binary_expression
@@ -346,19 +350,22 @@ _main2: () -> ::std::hello::int = {
                     (cpp2_literal
                       (cpp2_number_literal)))
                   (cpp2_expression
-                    (cpp2_method_call
+                    (cpp2_binary_expression
                       (cpp2_expression
                         (cpp2_any_identifier
                           (cpp2_no_namespace_identifier
                             (cpp2_non_template_identifier
                               (cpp2_ordinary_identifier
                                 (identifier))))))
-                      (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (identifier)))))
-                      (cpp2_parentheses_expression))))))))))))
+                      (cpp2_expression
+                        (cpp2_function_call
+                          (cpp2_expression
+                            (cpp2_any_identifier
+                              (cpp2_no_namespace_identifier
+                                (cpp2_non_template_identifier
+                                  (cpp2_ordinary_identifier
+                                    (identifier))))))
+                          (cpp2_parentheses_expression))))))))))))))
 
 ===========================================================
 global

@@ -2007,20 +2007,35 @@
   {
     "type": "cpp2_any_identifier",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "cpp2_namespaced_identifier",
-          "named": true
-        },
-        {
-          "type": "cpp2_no_namespace_identifier",
-          "named": true
-        }
-      ]
+    "fields": {
+      "last": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cpp2_no_namespace_identifier",
+            "named": true
+          }
+        ]
+      },
+      "namespaces": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": " ::",
+            "named": false
+          },
+          {
+            "type": "::",
+            "named": false
+          },
+          {
+            "type": "cpp2_no_namespace_identifier",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2139,20 +2154,35 @@
   {
     "type": "cpp2_bracket_call",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "cpp2_comma_expressions",
-          "named": true
-        },
-        {
-          "type": "cpp2_expression",
-          "named": true
-        }
-      ]
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "cpp2_comma_expressions",
+            "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cpp2_expression",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2327,14 +2357,6 @@
           "named": true
         },
         {
-          "type": "cpp2_member_access",
-          "named": true
-        },
-        {
-          "type": "cpp2_method_call",
-          "named": true
-        },
-        {
           "type": "cpp2_parentheses_expression",
           "named": true
         },
@@ -2459,20 +2481,27 @@
   {
     "type": "cpp2_function_call",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "cpp2_expression",
-          "named": true
-        },
-        {
-          "type": "cpp2_parentheses_expression",
-          "named": true
-        }
-      ]
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cpp2_parentheses_expression",
+            "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cpp2_expression",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2745,25 +2774,6 @@
     }
   },
   {
-    "type": "cpp2_member_access",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "cpp2_any_identifier",
-          "named": true
-        },
-        {
-          "type": "cpp2_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "cpp2_metafunction_arguments",
     "named": true,
     "fields": {},
@@ -2779,47 +2789,9 @@
     }
   },
   {
-    "type": "cpp2_method_call",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "cpp2_any_identifier",
-          "named": true
-        },
-        {
-          "type": "cpp2_expression",
-          "named": true
-        },
-        {
-          "type": "cpp2_parentheses_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "cpp2_namespace_type",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "cpp2_namespaced_identifier",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "cpp2_no_namespace_identifier",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "cpp2_no_definition_declaration",

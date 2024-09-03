@@ -89,3 +89,16 @@
 (cpp2_passing_style) @keyword
 
 (cpp2_throws) @keyword
+
+(cpp2_function_call
+    function: (cpp2_expression
+        (cpp2_any_identifier
+            last: (cpp2_no_namespace_identifier
+                (cpp2_non_template_identifier) @function))))
+
+(cpp2_function_call
+    function: (cpp2_expression
+        (cpp2_any_identifier
+            last: (cpp2_no_namespace_identifier
+                (cpp2_template_identifier
+                    (cpp2_non_template_identifier) @function)))))

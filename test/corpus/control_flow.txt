@@ -30,19 +30,22 @@ hello := {
             (cpp2_expression
               (cpp2_binary_expression
                 (cpp2_expression
-                  (cpp2_method_call
+                  (cpp2_binary_expression
                     (cpp2_expression
                       (cpp2_any_identifier
                         (cpp2_no_namespace_identifier
                           (cpp2_non_template_identifier
                             (cpp2_ordinary_identifier
                               (identifier))))))
-                    (cpp2_any_identifier
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier)))))
-                    (cpp2_parentheses_expression)))
+                    (cpp2_expression
+                      (cpp2_function_call
+                        (cpp2_expression
+                          (cpp2_any_identifier
+                            (cpp2_no_namespace_identifier
+                              (cpp2_non_template_identifier
+                                (cpp2_ordinary_identifier
+                                  (identifier))))))
+                        (cpp2_parentheses_expression)))))
                 (cpp2_expression
                   (cpp2_literal
                     (cpp2_number_literal)))))
@@ -192,19 +195,22 @@ hello := {
                           (cpp2_ordinary_identifier
                             (identifier))))))
                   (cpp2_expression
-                    (cpp2_method_call
+                    (cpp2_binary_expression
                       (cpp2_expression
                         (cpp2_any_identifier
                           (cpp2_no_namespace_identifier
                             (cpp2_non_template_identifier
                               (cpp2_ordinary_identifier
                                 (identifier))))))
-                      (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (identifier)))))
-                      (cpp2_parentheses_expression)))))
+                      (cpp2_expression
+                        (cpp2_function_call
+                          (cpp2_expression
+                            (cpp2_any_identifier
+                              (cpp2_no_namespace_identifier
+                                (cpp2_non_template_identifier
+                                  (cpp2_ordinary_identifier
+                                    (identifier))))))
+                          (cpp2_parentheses_expression)))))))
               (cpp2_next)
               (cpp2_expression
                 (cpp2_unary_expression
@@ -385,15 +391,14 @@ hello := {
                     (cpp2_binary_expression
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_namespaced_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))
                       (cpp2_expression
                         (cpp2_any_identifier
                           (cpp2_no_namespace_identifier

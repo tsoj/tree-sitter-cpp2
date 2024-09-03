@@ -6,6 +6,8 @@ const CPP1 = require("tree-sitter-cpp/grammar");
 const cpp2_unary_operators = ["++", "--", "*", "&", "&&", "~", "$", "..."];
 
 const cpp2_binary_operators = [
+  ".",
+  "..",
   "*",
   "/",
   "%",
@@ -142,8 +144,6 @@ module.exports = grammar(CPP1, {
 
     // Cpp2
     [
-      $.cpp2_method_call,
-      $.cpp2_member_access,
       $.cpp2_function_call,
       $.cpp2_bracket_call,
       $.cpp2_unary_postfix_expression,
@@ -359,8 +359,6 @@ module.exports = grammar(CPP1, {
         $.cpp2_primitive_type,
         $.cpp2_any_identifier,
         $.cpp2_function_call,
-        $.cpp2_method_call,
-        $.cpp2_member_access,
         $.cpp2_bracket_call,
         $.cpp2_unary_expression,
         $.cpp2_binary_expression,
@@ -450,21 +448,16 @@ module.exports = grammar(CPP1, {
       ),
 
     cpp2_function_call: ($) =>
-      seq($.cpp2_expression, $.cpp2_parentheses_expression),
-
-    cpp2_bracket_call: ($) =>
-      seq($.cpp2_expression, "[", optional($.cpp2_comma_expressions), "]"),
-
-    cpp2_method_call: ($) =>
       seq(
-        $.cpp2_expression,
-        choice(".", ".."),
-        $.cpp2_any_identifier,
-        $.cpp2_parentheses_expression,
+        field("function", $.cpp2_expression),
+        field("arguments", $.cpp2_parentheses_expression),
       ),
 
-    cpp2_member_access: ($) =>
-      seq($.cpp2_expression, choice(".", ".."), $.cpp2_any_identifier),
+    cpp2_bracket_call: ($) =>
+      seq(
+        field("function", $.cpp2_expression),
+        field("arguments", seq("[", optional($.cpp2_comma_expressions), "]")),
+      ),
 
     cpp2_inspect_expression: ($) =>
       seq(
@@ -512,15 +505,17 @@ module.exports = grammar(CPP1, {
 
     cpp2_any_identifier: ($) =>
       prec.left(
-        choice($.cpp2_no_namespace_identifier, $.cpp2_namespaced_identifier),
-      ),
-
-    cpp2_namespaced_identifier: ($) =>
-      prec.left(
         seq(
-          choice(seq($.cpp2_no_namespace_identifier, "::"), " ::"),
-          $.cpp2_no_namespace_identifier,
-          repeat(seq("::", $.cpp2_no_namespace_identifier)),
+          optional(
+            field(
+              "namespaces",
+              seq(
+                choice(seq($.cpp2_no_namespace_identifier, "::"), " ::"),
+                repeat(seq($.cpp2_no_namespace_identifier, "::")),
+              ),
+            ),
+          ),
+          field("last", $.cpp2_no_namespace_identifier),
         ),
       ),
 

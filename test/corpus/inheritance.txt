@@ -27,15 +27,14 @@ mytype: type =
                 (identifier)))
             (cpp2_expression
               (cpp2_any_identifier
-                (cpp2_namespaced_identifier
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier))))
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier)))))))))
+                (cpp2_no_namespace_identifier
+                  (cpp2_non_template_identifier
+                    (cpp2_ordinary_identifier
+                      (identifier))))
+                (cpp2_no_namespace_identifier
+                  (cpp2_non_template_identifier
+                    (cpp2_ordinary_identifier
+                      (identifier))))))))
         (cpp2_statement
           (cpp2_block_declaration
             (cpp2_non_template_identifier
@@ -135,15 +134,14 @@ derived: type
                               (identifier)))
                           (cpp2_expression
                             (cpp2_any_identifier
-                              (cpp2_namespaced_identifier
-                                (cpp2_no_namespace_identifier
-                                  (cpp2_non_template_identifier
-                                    (cpp2_ordinary_identifier
-                                      (identifier))))
-                                (cpp2_no_namespace_identifier
-                                  (cpp2_non_template_identifier
-                                    (cpp2_ordinary_identifier
-                                      (identifier)))))))))))))))))))
+                              (cpp2_no_namespace_identifier
+                                (cpp2_non_template_identifier
+                                  (cpp2_ordinary_identifier
+                                    (identifier))))
+                              (cpp2_no_namespace_identifier
+                                (cpp2_non_template_identifier
+                                  (cpp2_ordinary_identifier
+                                    (identifier))))))))))))))))))
   (cpp2_block_declaration
     (cpp2_non_template_identifier
       (cpp2_ordinary_identifier
@@ -189,13 +187,12 @@ derived: type
                                   (identifier)))
                               (cpp2_expression
                                 (cpp2_any_identifier
-                                  (cpp2_namespaced_identifier
-                                    (cpp2_no_namespace_identifier
-                                      (cpp2_non_template_identifier
-                                        (cpp2_ordinary_identifier
-                                          (identifier))))
-                                    (cpp2_no_namespace_identifier
-                                      (cpp2_non_template_identifier
-                                        (cpp2_ordinary_identifier
-                                          (identifier)))))))))))))))
+                                  (cpp2_no_namespace_identifier
+                                    (cpp2_non_template_identifier
+                                      (cpp2_ordinary_identifier
+                                        (identifier))))
+                                  (cpp2_no_namespace_identifier
+                                    (cpp2_non_template_identifier
+                                      (cpp2_ordinary_identifier
+                                        (identifier))))))))))))))
               (cpp2_block))))))))

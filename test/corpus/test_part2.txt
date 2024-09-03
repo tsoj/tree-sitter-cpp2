@@ -35,15 +35,14 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                           (identifier)))
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_namespaced_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))))
                   (cpp2_function_declaration_argument
                     (cpp2_passing_style)
                     (cpp2_no_definition_declaration
@@ -52,15 +51,14 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                           (identifier)))
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_namespaced_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))))
                   (cpp2_function_declaration_argument
                     (cpp2_passing_style)
                     (cpp2_no_definition_declaration
@@ -69,30 +67,28 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                           (identifier)))
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_namespaced_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))))))))))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))))))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_expression
             (cpp2_binary_expression
               (cpp2_expression
                 (cpp2_any_identifier
-                  (cpp2_namespaced_identifier
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier))))
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier)))))))
+                  (cpp2_no_namespace_identifier
+                    (cpp2_non_template_identifier
+                      (cpp2_ordinary_identifier
+                        (identifier))))
+                  (cpp2_no_namespace_identifier
+                    (cpp2_non_template_identifier
+                      (cpp2_ordinary_identifier
+                        (identifier))))))
               (cpp2_expression
                 (cpp2_binary_expression
                   (cpp2_expression
@@ -119,15 +115,14 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                                     (identifier))))))
                           (cpp2_expression
                             (cpp2_any_identifier
-                              (cpp2_namespaced_identifier
-                                (cpp2_no_namespace_identifier
-                                  (cpp2_non_template_identifier
-                                    (cpp2_ordinary_identifier
-                                      (identifier))))
-                                (cpp2_no_namespace_identifier
-                                  (cpp2_non_template_identifier
-                                    (cpp2_ordinary_identifier
-                                      (identifier)))))))))))))))))))
+                              (cpp2_no_namespace_identifier
+                                (cpp2_non_template_identifier
+                                  (cpp2_ordinary_identifier
+                                    (identifier))))
+                              (cpp2_no_namespace_identifier
+                                (cpp2_non_template_identifier
+                                  (cpp2_ordinary_identifier
+                                    (identifier))))))))))))))))))
   (cpp2_block_declaration
     (cpp2_non_template_identifier
       (cpp2_ordinary_identifier
@@ -187,15 +182,14 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
               (cpp2_left_side_of_definition
                 (cpp2_expression
                   (cpp2_any_identifier
-                    (cpp2_namespaced_identifier
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))))))
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier))))
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier)))))))
               (cpp2_expression
                 (cpp2_literal
                   (string_literal
@@ -209,15 +203,14 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
               (cpp2_left_side_of_definition
                 (cpp2_expression
                   (cpp2_any_identifier
-                    (cpp2_namespaced_identifier
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))))))
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier))))
+                    (cpp2_no_namespace_identifier
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier)))))))
               (cpp2_expression
                 (cpp2_literal
                   (string_literal
@@ -237,15 +230,14 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                     (cpp2_function_call
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_namespaced_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))
                       (cpp2_parentheses_expression
                         (cpp2_comma_expressions
                           (cpp2_expression
@@ -306,15 +298,14 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
         (cpp2_binary_expression
           (cpp2_expression
             (cpp2_any_identifier
-              (cpp2_namespaced_identifier
-                (cpp2_no_namespace_identifier
-                  (cpp2_non_template_identifier
-                    (cpp2_ordinary_identifier
-                      (identifier))))
-                (cpp2_no_namespace_identifier
-                  (cpp2_non_template_identifier
-                    (cpp2_ordinary_identifier
-                      (identifier)))))))
+              (cpp2_no_namespace_identifier
+                (cpp2_non_template_identifier
+                  (cpp2_ordinary_identifier
+                    (identifier))))
+              (cpp2_no_namespace_identifier
+                (cpp2_non_template_identifier
+                  (cpp2_ordinary_identifier
+                    (identifier))))))
           (cpp2_expression
             (cpp2_literal
               (string_literal
@@ -338,28 +329,26 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                           (identifier)))
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_namespaced_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))))))))))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))))))))))
       (cpp2_expression
         (cpp2_binary_expression
           (cpp2_expression
             (cpp2_any_identifier
-              (cpp2_namespaced_identifier
-                (cpp2_no_namespace_identifier
-                  (cpp2_non_template_identifier
-                    (cpp2_ordinary_identifier
-                      (identifier))))
-                (cpp2_no_namespace_identifier
-                  (cpp2_non_template_identifier
-                    (cpp2_ordinary_identifier
-                      (identifier)))))))
+              (cpp2_no_namespace_identifier
+                (cpp2_non_template_identifier
+                  (cpp2_ordinary_identifier
+                    (identifier))))
+              (cpp2_no_namespace_identifier
+                (cpp2_non_template_identifier
+                  (cpp2_ordinary_identifier
+                    (identifier))))))
           (cpp2_expression
             (cpp2_literal
               (string_literal
@@ -384,28 +373,26 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                           (identifier)))
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_namespaced_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))))))))))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))))))))))
       (cpp2_expression
         (cpp2_binary_expression
           (cpp2_expression
             (cpp2_any_identifier
-              (cpp2_namespaced_identifier
-                (cpp2_no_namespace_identifier
-                  (cpp2_non_template_identifier
-                    (cpp2_ordinary_identifier
-                      (identifier))))
-                (cpp2_no_namespace_identifier
-                  (cpp2_non_template_identifier
-                    (cpp2_ordinary_identifier
-                      (identifier)))))))
+              (cpp2_no_namespace_identifier
+                (cpp2_non_template_identifier
+                  (cpp2_ordinary_identifier
+                    (identifier))))
+              (cpp2_no_namespace_identifier
+                (cpp2_non_template_identifier
+                  (cpp2_ordinary_identifier
+                    (identifier))))))
           (cpp2_expression
             (cpp2_literal
               (string_literal
@@ -430,15 +417,14 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                           (identifier)))
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_namespaced_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))))))))))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))))))))))
       (cpp2_expression
         (cpp2_binary_expression
           (cpp2_expression
@@ -470,28 +456,26 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                           (identifier)))
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_namespaced_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))))))))))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))))))))))
       (cpp2_expression
         (cpp2_binary_expression
           (cpp2_expression
             (cpp2_any_identifier
-              (cpp2_namespaced_identifier
-                (cpp2_no_namespace_identifier
-                  (cpp2_non_template_identifier
-                    (cpp2_ordinary_identifier
-                      (identifier))))
-                (cpp2_no_namespace_identifier
-                  (cpp2_non_template_identifier
-                    (cpp2_ordinary_identifier
-                      (identifier)))))))
+              (cpp2_no_namespace_identifier
+                (cpp2_non_template_identifier
+                  (cpp2_ordinary_identifier
+                    (identifier))))
+              (cpp2_no_namespace_identifier
+                (cpp2_non_template_identifier
+                  (cpp2_ordinary_identifier
+                    (identifier))))))
           (cpp2_expression
             (cpp2_literal
               (string_literal
@@ -516,42 +500,39 @@ h_forward: (inout s: std::string) -> forward std::string = { std::cout << "Inout
                           (identifier)))
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_namespaced_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))))))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))))))
               (cpp2_passing_style)
               (cpp2_expression
                 (cpp2_any_identifier
-                  (cpp2_namespaced_identifier
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier))))
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier)))))))))))
+                  (cpp2_no_namespace_identifier
+                    (cpp2_non_template_identifier
+                      (cpp2_ordinary_identifier
+                        (identifier))))
+                  (cpp2_no_namespace_identifier
+                    (cpp2_non_template_identifier
+                      (cpp2_ordinary_identifier
+                        (identifier))))))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_expression
             (cpp2_binary_expression
               (cpp2_expression
                 (cpp2_any_identifier
-                  (cpp2_namespaced_identifier
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier))))
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier)))))))
+                  (cpp2_no_namespace_identifier
+                    (cpp2_non_template_identifier
+                      (cpp2_ordinary_identifier
+                        (identifier))))
+                  (cpp2_no_namespace_identifier
+                    (cpp2_non_template_identifier
+                      (cpp2_ordinary_identifier
+                        (identifier))))))
               (cpp2_expression
                 (cpp2_literal
                   (string_literal
@@ -629,15 +610,14 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
             (cpp2_binary_expression
               (cpp2_expression
                 (cpp2_any_identifier
-                  (cpp2_namespaced_identifier
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier))))
-                    (cpp2_no_namespace_identifier
-                      (cpp2_non_template_identifier
-                        (cpp2_ordinary_identifier
-                          (identifier)))))))
+                  (cpp2_no_namespace_identifier
+                    (cpp2_non_template_identifier
+                      (cpp2_ordinary_identifier
+                        (identifier))))
+                  (cpp2_no_namespace_identifier
+                    (cpp2_non_template_identifier
+                      (cpp2_ordinary_identifier
+                        (identifier))))))
               (cpp2_expression
                 (cpp2_binary_expression
                   (cpp2_expression
@@ -656,15 +636,14 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                                 (identifier))))))
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_namespaced_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier)))))))))))))))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))
+                          (cpp2_no_namespace_identifier
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier))))))))))))))))
   (cpp2_block_declaration
     (cpp2_non_template_identifier
       (cpp2_ordinary_identifier
@@ -697,15 +676,14 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                 (identifier)))
             (cpp2_expression
               (cpp2_any_identifier
-                (cpp2_namespaced_identifier
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier))))
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier))))))))))))
+                (cpp2_no_namespace_identifier
+                  (cpp2_non_template_identifier
+                    (cpp2_ordinary_identifier
+                      (identifier))))
+                (cpp2_no_namespace_identifier
+                  (cpp2_non_template_identifier
+                    (cpp2_ordinary_identifier
+                      (identifier)))))))))))
   (cpp2_block_declaration
     (cpp2_non_template_identifier
       (cpp2_ordinary_identifier
@@ -719,19 +697,18 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                 (cpp2_ordinary_identifier
                   (identifier)))))
           (cpp2_any_identifier
-            (cpp2_namespaced_identifier
-              (cpp2_no_namespace_identifier
-                (cpp2_non_template_identifier
-                  (cpp2_ordinary_identifier
-                    (identifier))))
-              (cpp2_no_namespace_identifier
-                (cpp2_non_template_identifier
-                  (cpp2_ordinary_identifier
-                    (identifier))))
-              (cpp2_no_namespace_identifier
-                (cpp2_non_template_identifier
-                  (cpp2_ordinary_identifier
-                    (identifier))))))
+            (cpp2_no_namespace_identifier
+              (cpp2_non_template_identifier
+                (cpp2_ordinary_identifier
+                  (identifier))))
+            (cpp2_no_namespace_identifier
+              (cpp2_non_template_identifier
+                (cpp2_ordinary_identifier
+                  (identifier))))
+            (cpp2_no_namespace_identifier
+              (cpp2_non_template_identifier
+                (cpp2_ordinary_identifier
+                  (identifier)))))
           (cpp2_any_identifier
             (cpp2_no_namespace_identifier
               (cpp2_non_template_identifier
@@ -763,15 +740,14 @@ TypeStuff: @hello1 @cpp::is::cool@and_this <a: int, A: type> type = {
                 (identifier)))
             (cpp2_expression
               (cpp2_any_identifier
-                (cpp2_namespaced_identifier
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier))))
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier)))))))))))))
+                (cpp2_no_namespace_identifier
+                  (cpp2_non_template_identifier
+                    (cpp2_ordinary_identifier
+                      (identifier))))
+                (cpp2_no_namespace_identifier
+                  (cpp2_non_template_identifier
+                    (cpp2_ordinary_identifier
+                      (identifier))))))))))))
 
 ===========================================================
 calling templates
