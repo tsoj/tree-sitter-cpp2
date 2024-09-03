@@ -2578,19 +2578,32 @@
   {
     "type": "cpp2_function_type",
     "named": true,
-    "fields": {},
+    "fields": {
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cpp2_function_type_without_return_type",
+            "named": true
+          }
+        ]
+      },
+      "return": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "cpp2_expression",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
-        {
-          "type": "cpp2_expression",
-          "named": true
-        },
-        {
-          "type": "cpp2_function_type_without_return_type",
-          "named": true
-        },
         {
           "type": "cpp2_passing_style",
           "named": true
@@ -9309,6 +9322,10 @@
   },
   {
     "type": "template",
+    "named": false
+  },
+  {
+    "type": "template <",
     "named": false
   },
   {

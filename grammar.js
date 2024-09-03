@@ -390,10 +390,14 @@ module.exports = grammar(CPP1, {
 
     cpp2_function_type: ($) =>
       seq(
-        $.cpp2_function_type_without_return_type,
+        field("parameters", $.cpp2_function_type_without_return_type),
         optional($.cpp2_throws),
         optional(
-          seq($._cpp2_arrow, optional($.cpp2_passing_style), $.cpp2_expression),
+          seq(
+            $._cpp2_arrow,
+            optional($.cpp2_passing_style),
+            field("return", $.cpp2_expression),
+          ),
         ),
       ),
 
@@ -416,7 +420,7 @@ module.exports = grammar(CPP1, {
 
     cpp2_template_declaration_arguments: ($) =>
       seq(
-        "<",
+        alias("<", "template <"),
         optional($.cpp2_comma_seperated_declarations),
         $._cpp2_template_close_token,
       ),
@@ -437,7 +441,7 @@ module.exports = grammar(CPP1, {
     cpp2_template_call_arguments: ($) =>
       prec.right(
         seq(
-          "<",
+          alias("<", "template <"),
           optional($.cpp2_comma_expressions),
           $._cpp2_template_close_token,
         ),

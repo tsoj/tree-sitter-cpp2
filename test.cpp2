@@ -1,6 +1,2 @@
 
-test:= {
-    a.e;
-    a.e();
-    a.e::a();
-}
+test: () -> Hello = {}

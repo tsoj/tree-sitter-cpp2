@@ -17,7 +17,6 @@
 "<=>" @operator
 "<" @operator
 ">" @operator
-"> template" @operator
 "<=" @operator
 ">=" @operator
 "==" @operator
@@ -64,6 +63,15 @@
 
 "->" @function
 
+"template <" @punctuation.bracket
+"> template" @punctuation.bracket
+"(" @punctuation.bracket
+")" @punctuation.bracket
+"[" @punctuation.bracket
+"]" @punctuation.bracket
+"{" @punctuation.bracket
+"}" @punctuation.bracket
+
 (cpp2_primitive_type) @type
 
 (cpp2_number_literal) @number
@@ -85,6 +93,10 @@
 
 (cpp2_left_side_of_definition
     type: (cpp2_expression
+        (cpp2_any_identifier) @type))
+
+(cpp2_function_type
+    return: (cpp2_expression
         (cpp2_any_identifier) @type))
 
 (cpp2_next) @keyword

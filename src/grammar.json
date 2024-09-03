@@ -17755,8 +17755,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "cpp2_function_type_without_return_type"
+          "type": "FIELD",
+          "name": "parameters",
+          "content": {
+            "type": "SYMBOL",
+            "name": "cpp2_function_type_without_return_type"
+          }
         },
         {
           "type": "CHOICE",
@@ -17793,8 +17797,12 @@
                   ]
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "cpp2_expression"
+                  "type": "FIELD",
+                  "name": "return",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "cpp2_expression"
+                  }
                 }
               ]
             },
@@ -17895,8 +17903,13 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "<"
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "<"
+          },
+          "named": false,
+          "value": "template <"
         },
         {
           "type": "CHOICE",
@@ -18022,8 +18035,13 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "STRING",
-            "value": "<"
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "<"
+            },
+            "named": false,
+            "value": "template <"
           },
           {
             "type": "CHOICE",
