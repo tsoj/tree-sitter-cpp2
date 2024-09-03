@@ -54,7 +54,12 @@ const cpp2_keyword_passing_styles = [
   "implicit",
 ];
 
-const cpp2_non_keyword_words = [...cpp2_passing_styles, "union", "type"];
+const cpp2_non_keyword_words = [
+  ...cpp2_passing_styles,
+  "union",
+  "type",
+  "inspect",
+];
 
 module.exports = grammar(CPP1, {
   name: "cpp2",
@@ -168,6 +173,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_left_side_of_definition, $.cpp2_binary_expression],
     [$.cpp2_binary_expression, $.cpp2_expression_definition],
     [$.cpp2_type_type, $.cpp2_namespace_type, $.cpp2_ordinary_identifier],
+    [$.cpp2_inspect, $.cpp2_ordinary_identifier],
   ],
 
   extras: ($) => [/\s|\\\r?\n/, $.comment, $.macro_comment],
@@ -461,7 +467,7 @@ module.exports = grammar(CPP1, {
 
     cpp2_inspect_expression: ($) =>
       seq(
-        "inspect",
+        $.cpp2_inspect,
         $.cpp2_expression,
         $._cpp2_arrow,
         $.cpp2_expression,
@@ -469,6 +475,8 @@ module.exports = grammar(CPP1, {
         repeat(seq("is", $.cpp2_expression, "=", $.cpp2_statement)),
         "}",
       ),
+
+    cpp2_inspect: ($) => "inspect",
 
     cpp2_expansion_dots: ($) => "...",
 

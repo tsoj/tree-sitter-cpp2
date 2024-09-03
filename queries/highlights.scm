@@ -90,6 +90,8 @@
 
 (cpp2_throws) @keyword
 
+(cpp2_inspect) @keyword
+
 (cpp2_function_call
     function: (cpp2_expression
         (cpp2_any_identifier

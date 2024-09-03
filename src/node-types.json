@@ -2613,6 +2613,11 @@
     }
   },
   {
+    "type": "cpp2_inspect",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "cpp2_inspect_expression",
     "named": true,
     "fields": {},
@@ -2622,6 +2627,10 @@
       "types": [
         {
           "type": "cpp2_expression",
+          "named": true
+        },
+        {
+          "type": "cpp2_inspect",
           "named": true
         },
         {
