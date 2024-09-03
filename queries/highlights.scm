@@ -62,8 +62,13 @@
 "final" @keyword
 "implicit" @keyword
 
+"->" @function
 
-(macro_comment) @comment
+(cpp2_primitive_type) @type
+
+(cpp2_number_literal) @number
+
+(macro_comment) @property
 
 (cpp2_no_definition_declaration
     name: (cpp2_non_template_identifier) @constant.builtin )
@@ -104,3 +109,8 @@
             last: (cpp2_no_namespace_identifier
                 (cpp2_template_identifier
                     (cpp2_non_template_identifier) @function)))))
+
+
+(cpp2_dot_access
+    field: (cpp2_any_identifier
+        last: (cpp2_no_namespace_identifier) @property))

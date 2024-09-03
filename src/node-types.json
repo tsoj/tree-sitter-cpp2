@@ -2304,6 +2304,42 @@
     }
   },
   {
+    "type": "cpp2_dot_access",
+    "named": true,
+    "fields": {
+      "field": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "cpp2_any_identifier",
+            "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "cpp2_function_call",
+            "named": true
+          }
+        ]
+      },
+      "object": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cpp2_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "cpp2_expansion_dots",
     "named": true,
     "fields": {}
@@ -2330,6 +2366,10 @@
         },
         {
           "type": "cpp2_bracket_call",
+          "named": true
+        },
+        {
+          "type": "cpp2_dot_access",
           "named": true
         },
         {

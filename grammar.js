@@ -6,8 +6,6 @@ const CPP1 = require("tree-sitter-cpp/grammar");
 const cpp2_unary_operators = ["++", "--", "*", "&", "&&", "~", "$", "..."];
 
 const cpp2_binary_operators = [
-  ".",
-  "..",
   "*",
   "/",
   "%",
@@ -140,6 +138,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_type],
     [$.cpp2_binary_expression, $.cpp2_function_type],
     [$._cpp2_normal_type_or_hardcode_type, $.cpp2_binary_expression],
+    [$.cpp2_expression, $.cpp2_dot_access],
   ],
 
   precedences: ($) => [
@@ -151,6 +150,7 @@ module.exports = grammar(CPP1, {
     [
       $.cpp2_function_call,
       $.cpp2_bracket_call,
+      $.cpp2_dot_access,
       $.cpp2_unary_postfix_expression,
       $.cpp2_unary_prefix_expression,
       $.cpp2_operator_keyword,
@@ -174,6 +174,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_binary_expression, $.cpp2_expression_definition],
     [$.cpp2_type_type, $.cpp2_namespace_type, $.cpp2_ordinary_identifier],
     [$.cpp2_inspect, $.cpp2_ordinary_identifier],
+    // [$.cpp2_expression, $.cpp2_dot_access],
   ],
 
   extras: ($) => [/\s|\\\r?\n/, $.comment, $.macro_comment],
@@ -364,6 +365,7 @@ module.exports = grammar(CPP1, {
         $.cpp2_keyword,
         $.cpp2_primitive_type,
         $.cpp2_any_identifier,
+        $.cpp2_dot_access,
         $.cpp2_function_call,
         $.cpp2_bracket_call,
         $.cpp2_unary_expression,
@@ -463,6 +465,16 @@ module.exports = grammar(CPP1, {
       seq(
         field("function", $.cpp2_expression),
         field("arguments", seq("[", optional($.cpp2_comma_expressions), "]")),
+      ),
+
+    cpp2_dot_access: ($) =>
+      seq(
+        field("object", $.cpp2_expression),
+        choice("..", "."),
+        choice(
+          prec.dynamic(10, field("function", $.cpp2_function_call)),
+          field("field", $.cpp2_any_identifier),
+        ),
       ),
 
     cpp2_inspect_expression: ($) =>
