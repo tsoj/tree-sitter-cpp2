@@ -81,13 +81,13 @@
 (macro_comment) @property
 
 (cpp2_block_declaration
-    name: (cpp2_non_template_identifier) @emphasis.strong );strong
+    name: (cpp2_non_template_identifier) @emphasis.strong )
 
 (cpp2_expression_declaration
-    name: (cpp2_non_template_identifier) @emphasis.strong );strong
+    name: (cpp2_non_template_identifier) @emphasis.strong )
 
 (cpp2_no_definition_declaration
-    name: (cpp2_non_template_identifier)  @emphasis.strong);strong
+    name: (cpp2_non_template_identifier)  @emphasis.strong)
 
 (cpp2_function_declaration_argument
   (cpp2_any_identifier
