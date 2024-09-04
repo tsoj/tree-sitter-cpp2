@@ -554,7 +554,7 @@ module.exports = grammar(CPP1, {
 
     cpp2_ordinary_identifier: ($) =>
       // dynamic precedence for preferring cpp2 grammar to labeled_statement
-      prec.dynamic(1, choice(...cpp2_non_keyword_words, $.identifier)),
+      prec.dynamic(1, choice(...cpp2_non_keyword_words, $.identifier, $.this)),
 
     cpp2_operator_keyword: ($) =>
       seq(

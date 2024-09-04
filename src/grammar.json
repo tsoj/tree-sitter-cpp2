@@ -19338,6 +19338,10 @@
           {
             "type": "SYMBOL",
             "name": "identifier"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "this"
           }
         ]
       }
