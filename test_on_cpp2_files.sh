@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-echo "Generating parser ..."
-tree-sitter generate
-echo "Done"
-
 # Directory to search
 search_dir="$1"
 echo "Looking for files in \"${search_dir}\""
@@ -25,9 +21,21 @@ for pattern in "${exclude_patterns[@]}"; do
     find_command+=" ! -name \"$pattern\""
 done
 
-find_command="$find_command -exec sh -c 'tree-sitter parse -q "\$1" || exit 255' _ {} \;"
+if [ -f cpp2_files.txt ]; then
+    echo "Aborting: 'cpp2_files.txt' already exists"
+    exit 1
+fi
+
+# find_command="$find_command -exec sh -c 'tree-sitter parse -q "\$1" || exit 255' _ {} \;"
 echo "Command: " $find_command
-eval $find_command
+eval $find_command > cpp2_files.txt
+
+while IFS= read -r file; do
+    echo "Parsing '$file'"
+    tree-sitter parse -q "$file"
+done < cpp2_files.txt
+
+rm cpp2_files.txt
 
 echo "Done"
 

@@ -1,6 +1,0 @@
-- rename rules
-- make some rules invisible
-- clean up tests and reorganize
-- syntax highlighting
-- locals.scm
-- template (and other) brackets highlighting
