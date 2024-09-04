@@ -159,19 +159,19 @@ main: (in a := 10, copy c: _, out b : int = 0.001) = {
                                 (identifier))))))))
                   (cpp2_function_declaration_argument
                     (cpp2_passing_style)
-                    (cpp2_no_definition_declaration
+                    (cpp2_expression_declaration
                       (cpp2_non_template_identifier
                         (cpp2_ordinary_identifier
                           (identifier)))
-                      (cpp2_expression
-                        (cpp2_binary_expression
+                      (cpp2_expression_definition
+                        (cpp2_left_side_of_definition
                           (cpp2_expression
                             (cpp2_keyword
                               (cpp2_primitive_type
-                                (primitive_type))))
-                          (cpp2_expression
-                            (cpp2_literal
-                              (cpp2_number_literal)))))))))))))
+                                (primitive_type)))))
+                        (cpp2_expression
+                          (cpp2_literal
+                            (cpp2_number_literal))))))))))))
       (cpp2_block
         (cpp2_statement
           (cpp2_expression_declaration
