@@ -12,7 +12,7 @@ exclude_patterns=(
     "pure2-statement-parse-error.cpp2"
     "msvc-msstl-e.cpp2"
     "gcc-10-libstdc++-e.cpp2"
-    "clang-12-libstdc++-e.cpp2"
+    # "clang-12-libstdc++-e.cpp2"
 )
 
 find_command="find \"$search_dir\" -type f \( -name \"*.cpp2\" -o -name \"*.h2\" \)"
