@@ -708,18 +708,21 @@ module.exports = grammar(CPP1, {
       choice(
         $.primitive_type,
         token(
-          choice(
-            "ushort",
-            "uint",
-            "ulong",
-            "longlong",
-            "ulonglong",
-            "longdouble",
-            "_schar",
-            "_uchar",
-            ...[8, 16, 32, 64].map((n) => `i${n}`),
-            ...[8, 16, 32, 64].map((n) => `u${n}`),
-            ...[8, 16, 32, 64].map((n) => `f${n}`),
+          prec(
+            10,
+            choice(
+              "ushort",
+              "uint",
+              "ulong",
+              "longlong",
+              "ulonglong",
+              "longdouble",
+              "_schar",
+              "_uchar",
+              ...[8, 16, 32, 64].map((n) => `i${n}`),
+              ...[8, 16, 32, 64].map((n) => `u${n}`),
+              ...[8, 16, 32, 64].map((n) => `f${n}`),
+            ),
           ),
         ),
       ),

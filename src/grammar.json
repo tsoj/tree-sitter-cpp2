@@ -20659,89 +20659,93 @@
         {
           "type": "TOKEN",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "ushort"
-              },
-              {
-                "type": "STRING",
-                "value": "uint"
-              },
-              {
-                "type": "STRING",
-                "value": "ulong"
-              },
-              {
-                "type": "STRING",
-                "value": "longlong"
-              },
-              {
-                "type": "STRING",
-                "value": "ulonglong"
-              },
-              {
-                "type": "STRING",
-                "value": "longdouble"
-              },
-              {
-                "type": "STRING",
-                "value": "_schar"
-              },
-              {
-                "type": "STRING",
-                "value": "_uchar"
-              },
-              {
-                "type": "STRING",
-                "value": "i8"
-              },
-              {
-                "type": "STRING",
-                "value": "i16"
-              },
-              {
-                "type": "STRING",
-                "value": "i32"
-              },
-              {
-                "type": "STRING",
-                "value": "i64"
-              },
-              {
-                "type": "STRING",
-                "value": "u8"
-              },
-              {
-                "type": "STRING",
-                "value": "u16"
-              },
-              {
-                "type": "STRING",
-                "value": "u32"
-              },
-              {
-                "type": "STRING",
-                "value": "u64"
-              },
-              {
-                "type": "STRING",
-                "value": "f8"
-              },
-              {
-                "type": "STRING",
-                "value": "f16"
-              },
-              {
-                "type": "STRING",
-                "value": "f32"
-              },
-              {
-                "type": "STRING",
-                "value": "f64"
-              }
-            ]
+            "type": "PREC",
+            "value": 10,
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "ushort"
+                },
+                {
+                  "type": "STRING",
+                  "value": "uint"
+                },
+                {
+                  "type": "STRING",
+                  "value": "ulong"
+                },
+                {
+                  "type": "STRING",
+                  "value": "longlong"
+                },
+                {
+                  "type": "STRING",
+                  "value": "ulonglong"
+                },
+                {
+                  "type": "STRING",
+                  "value": "longdouble"
+                },
+                {
+                  "type": "STRING",
+                  "value": "_schar"
+                },
+                {
+                  "type": "STRING",
+                  "value": "_uchar"
+                },
+                {
+                  "type": "STRING",
+                  "value": "i8"
+                },
+                {
+                  "type": "STRING",
+                  "value": "i16"
+                },
+                {
+                  "type": "STRING",
+                  "value": "i32"
+                },
+                {
+                  "type": "STRING",
+                  "value": "i64"
+                },
+                {
+                  "type": "STRING",
+                  "value": "u8"
+                },
+                {
+                  "type": "STRING",
+                  "value": "u16"
+                },
+                {
+                  "type": "STRING",
+                  "value": "u32"
+                },
+                {
+                  "type": "STRING",
+                  "value": "u64"
+                },
+                {
+                  "type": "STRING",
+                  "value": "f8"
+                },
+                {
+                  "type": "STRING",
+                  "value": "f16"
+                },
+                {
+                  "type": "STRING",
+                  "value": "f32"
+                },
+                {
+                  "type": "STRING",
+                  "value": "f64"
+                }
+              ]
+            }
           }
         }
       ]

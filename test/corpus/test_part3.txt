@@ -16,11 +16,8 @@ p: const * * const i32;
             (cpp2_const_and_star
               (cpp2_const_and_star))))
         (cpp2_expression
-          (cpp2_any_identifier
-            (cpp2_no_namespace_identifier
-              (cpp2_non_template_identifier
-                (cpp2_ordinary_identifier
-                  (identifier))))))))))
+          (cpp2_keyword
+            (cpp2_primitive_type)))))))
 
 ===========================================================
 using type qualifiers
