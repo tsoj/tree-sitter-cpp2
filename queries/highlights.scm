@@ -138,6 +138,12 @@
                 (cpp2_template_identifier
                     (cpp2_non_template_identifier) @type)))))
 
+(cpp2_function_type
+    return: (cpp2_expression
+        (cpp2_any_identifier
+            last: (cpp2_no_namespace_identifier
+                (cpp2_non_template_identifier) @type))))
+
 (cpp2_next) @keyword
 
 (cpp2_type_type) @keyword
