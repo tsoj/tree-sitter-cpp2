@@ -43,3 +43,4 @@ example-file.txt
 log.html
 cppfront
 cpp2_files.txt
+__pycache__/
