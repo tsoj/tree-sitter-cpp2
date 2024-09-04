@@ -48,7 +48,7 @@ mytype: type
                               (cpp2_no_namespace_identifier
                                 (cpp2_non_template_identifier
                                   (cpp2_ordinary_identifier
-                                    (identifier))))))
+                                    (this))))))
                           (cpp2_function_declaration_argument
                             (cpp2_no_definition_declaration
                               (cpp2_non_template_identifier
@@ -92,7 +92,7 @@ mytype: type
                               (cpp2_no_namespace_identifier
                                 (cpp2_non_template_identifier
                                   (cpp2_ordinary_identifier
-                                    (identifier))))))
+                                    (this))))))
                           (cpp2_function_declaration_argument
                             (cpp2_any_identifier
                               (cpp2_no_namespace_identifier
@@ -124,7 +124,7 @@ mytype: type
                           (cpp2_no_namespace_identifier
                             (cpp2_non_template_identifier
                               (cpp2_ordinary_identifier
-                                (identifier))))))
+                                (this))))))
                       (cpp2_function_declaration_argument
                         (cpp2_any_identifier
                           (cpp2_no_namespace_identifier
@@ -169,7 +169,7 @@ mytype: type
                           (cpp2_no_namespace_identifier
                             (cpp2_non_template_identifier
                               (cpp2_ordinary_identifier
-                                (identifier))))))
+                                (this))))))
                       (cpp2_function_declaration_argument
                         (cpp2_any_identifier
                           (cpp2_no_namespace_identifier

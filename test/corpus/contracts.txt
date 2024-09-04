@@ -239,7 +239,7 @@ function_declaration: @copyable type =
                               (cpp2_no_namespace_identifier
                                 (cpp2_non_template_identifier
                                   (cpp2_ordinary_identifier
-                                    (identifier))))))
+                                    (this))))))
                           (cpp2_function_declaration_argument
                             (cpp2_no_definition_declaration
                               (cpp2_non_template_identifier
@@ -262,7 +262,7 @@ function_declaration: @copyable type =
                         (cpp2_no_namespace_identifier
                           (cpp2_non_template_identifier
                             (cpp2_ordinary_identifier
-                              (identifier))))))))
+                              (this))))))))
                 (cpp2_parentheses_expression
                   (cpp2_comma_expressions
                     (cpp2_expression
@@ -288,7 +288,7 @@ function_declaration: @copyable type =
                         (cpp2_no_namespace_identifier
                           (cpp2_non_template_identifier
                             (cpp2_ordinary_identifier
-                              (identifier))))))))
+                              (this))))))))
                 (cpp2_parentheses_expression
                   (cpp2_comma_expressions
                     (cpp2_expression
