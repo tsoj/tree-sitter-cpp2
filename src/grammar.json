@@ -19205,7 +19205,7 @@
                           "members": [
                             {
                               "type": "SYMBOL",
-                              "name": "cpp2_no_namespace_identifier"
+                              "name": "_cpp2_no_namespace_identifier"
                             },
                             {
                               "type": "STRING",
@@ -19226,7 +19226,7 @@
                         "members": [
                           {
                             "type": "SYMBOL",
-                            "name": "cpp2_no_namespace_identifier"
+                            "name": "_cpp2_no_namespace_identifier"
                           },
                           {
                             "type": "STRING",
@@ -19248,13 +19248,13 @@
             "name": "last",
             "content": {
               "type": "SYMBOL",
-              "name": "cpp2_no_namespace_identifier"
+              "name": "_cpp2_no_namespace_identifier"
             }
           }
         ]
       }
     },
-    "cpp2_no_namespace_identifier": {
+    "_cpp2_no_namespace_identifier": {
       "type": "CHOICE",
       "members": [
         {
@@ -19263,11 +19263,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "cpp2_template_identifier"
+          "name": "_cpp2_template_identifier"
         }
       ]
     },
-    "cpp2_template_identifier": {
+    "_cpp2_template_identifier": {
       "type": "SEQ",
       "members": [
         {
@@ -21028,8 +21028,8 @@
       "cpp2_raw_string_literal"
     ],
     [
-      "cpp2_no_namespace_identifier",
-      "cpp2_template_identifier"
+      "_cpp2_no_namespace_identifier",
+      "_cpp2_template_identifier"
     ],
     [
       "cpp2_unary_postfix_expression",
@@ -21059,7 +21059,7 @@
     ],
     [
       "_cpp2_declaration_left_side",
-      "cpp2_no_namespace_identifier"
+      "_cpp2_no_namespace_identifier"
     ],
     [
       "cpp2_ordinary_identifier",

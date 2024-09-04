@@ -91,8 +91,7 @@
 
 (cpp2_function_declaration_argument
   (cpp2_any_identifier
-    last: (cpp2_no_namespace_identifier
-        (cpp2_non_template_identifier) @emphasis)))
+    last: (cpp2_non_template_identifier) @emphasis))
 
 (cpp2_function_declaration_argument
     (cpp2_expression_declaration
@@ -109,40 +108,17 @@
 (cpp2_no_definition_declaration
     type: (cpp2_expression
         (cpp2_any_identifier
-            last: (cpp2_no_namespace_identifier
-                (cpp2_template_identifier
-                    (cpp2_non_template_identifier) @type)))))
-
-(cpp2_no_definition_declaration
-    type: (cpp2_expression
-        (cpp2_any_identifier
-            last: (cpp2_no_namespace_identifier) @type)))
+            last: (cpp2_non_template_identifier) @type)))
 
 (cpp2_left_side_of_definition
     type: (cpp2_expression
         (cpp2_any_identifier
-            last: (cpp2_no_namespace_identifier
-                (cpp2_template_identifier
-                    (cpp2_non_template_identifier) @type)))))
-
-(cpp2_left_side_of_definition
-    type: (cpp2_expression
-        (cpp2_any_identifier
-            last: (cpp2_no_namespace_identifier
-                (cpp2_non_template_identifier) @type))))
+            last: (cpp2_non_template_identifier) @type)))
 
 (cpp2_function_type
     return: (cpp2_expression
         (cpp2_any_identifier
-            last: (cpp2_no_namespace_identifier
-                (cpp2_template_identifier
-                    (cpp2_non_template_identifier) @type)))))
-
-(cpp2_function_type
-    return: (cpp2_expression
-        (cpp2_any_identifier
-            last: (cpp2_no_namespace_identifier
-                (cpp2_non_template_identifier) @type))))
+            last: (cpp2_non_template_identifier) @type)))
 
 (cpp2_next) @keyword
 
@@ -157,16 +133,8 @@
 (cpp2_function_call
     function: (cpp2_expression
         (cpp2_any_identifier
-            last: (cpp2_no_namespace_identifier
-                (cpp2_non_template_identifier) @function))))
-
-(cpp2_function_call
-    function: (cpp2_expression
-        (cpp2_any_identifier
-            last: (cpp2_no_namespace_identifier
-                (cpp2_template_identifier
-                    (cpp2_non_template_identifier) @function)))))
+            last: (cpp2_non_template_identifier) @function)))
 
 (cpp2_dot_access
     field: (cpp2_any_identifier
-        last: (cpp2_no_namespace_identifier) @property))
+        last: (cpp2_non_template_identifier) @property))

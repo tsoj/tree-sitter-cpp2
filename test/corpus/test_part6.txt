@@ -31,10 +31,9 @@ main := {
         (cpp2_statement
           (cpp2_expression
             (cpp2_any_identifier
-              (cpp2_no_namespace_identifier
-                (cpp2_non_template_identifier
-                  (cpp2_ordinary_identifier
-                    (identifier)))))))
+              (cpp2_non_template_identifier
+                (cpp2_ordinary_identifier
+                  (identifier))))))
         (cpp2_statement
           (cpp2_function_type_without_return_type
             (cpp2_comma_seperated_declarations
@@ -51,10 +50,9 @@ main := {
                             (primitive_type)))))
                     (cpp2_expression
                       (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (identifier)))))))))))
+                        (cpp2_non_template_identifier
+                          (cpp2_ordinary_identifier
+                            (identifier))))))))))
           (cpp2_block))
         (cpp2_statement
           (cpp2_function_type_without_return_type
@@ -72,16 +70,14 @@ main := {
                             (primitive_type)))))
                     (cpp2_expression
                       (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (identifier)))))))))))
+                        (cpp2_non_template_identifier
+                          (cpp2_ordinary_identifier
+                            (identifier))))))))))
           (cpp2_expression
             (cpp2_any_identifier
-              (cpp2_no_namespace_identifier
-                (cpp2_non_template_identifier
-                  (cpp2_ordinary_identifier
-                    (identifier)))))))
+              (cpp2_non_template_identifier
+                (cpp2_ordinary_identifier
+                  (identifier))))))
         (cpp2_statement
           (cpp2_block_definition
             (cpp2_left_side_of_definition
@@ -103,10 +99,9 @@ main := {
                                       (primitive_type)))))
                               (cpp2_expression
                                 (cpp2_any_identifier
-                                  (cpp2_no_namespace_identifier
-                                    (cpp2_non_template_identifier
-                                      (cpp2_ordinary_identifier
-                                        (identifier)))))))))))))))
+                                  (cpp2_non_template_identifier
+                                    (cpp2_ordinary_identifier
+                                      (identifier))))))))))))))
             (cpp2_block)))
         (cpp2_statement
           (cpp2_expression
@@ -130,16 +125,14 @@ main := {
                                         (primitive_type)))))
                                 (cpp2_expression
                                   (cpp2_any_identifier
-                                    (cpp2_no_namespace_identifier
-                                      (cpp2_non_template_identifier
-                                        (cpp2_ordinary_identifier
-                                          (identifier)))))))))))))))
+                                    (cpp2_non_template_identifier
+                                      (cpp2_ordinary_identifier
+                                        (identifier))))))))))))))
               (cpp2_expression
                 (cpp2_any_identifier
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier)))))))))
+                  (cpp2_non_template_identifier
+                    (cpp2_ordinary_identifier
+                      (identifier))))))))
         (cpp2_statement
           (cpp2_block_declaration
             (cpp2_non_template_identifier
@@ -165,10 +158,9 @@ main := {
                                         (primitive_type)))))
                                 (cpp2_expression
                                   (cpp2_any_identifier
-                                    (cpp2_no_namespace_identifier
-                                      (cpp2_non_template_identifier
-                                        (cpp2_ordinary_identifier
-                                          (identifier)))))))))))))))
+                                    (cpp2_non_template_identifier
+                                      (cpp2_ordinary_identifier
+                                        (identifier))))))))))))))
               (cpp2_block))))
         (cpp2_statement
           (cpp2_expression_declaration
@@ -195,13 +187,11 @@ main := {
                                         (primitive_type)))))
                                 (cpp2_expression
                                   (cpp2_any_identifier
-                                    (cpp2_no_namespace_identifier
-                                      (cpp2_non_template_identifier
-                                        (cpp2_ordinary_identifier
-                                          (identifier)))))))))))))))
+                                    (cpp2_non_template_identifier
+                                      (cpp2_ordinary_identifier
+                                        (identifier))))))))))))))
               (cpp2_expression
                 (cpp2_any_identifier
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier)))))))))))))
+                  (cpp2_non_template_identifier
+                    (cpp2_ordinary_identifier
+                      (identifier))))))))))))

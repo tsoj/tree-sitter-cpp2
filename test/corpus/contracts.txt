@@ -25,10 +25,9 @@ insert_at: (container, where: int, val: int)
                 (cpp2_comma_seperated_declarations
                   (cpp2_function_declaration_argument
                     (cpp2_any_identifier
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))))
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier)))))
                   (cpp2_function_declaration_argument
                     (cpp2_no_definition_declaration
                       (cpp2_non_template_identifier
@@ -51,10 +50,9 @@ insert_at: (container, where: int, val: int)
           (cpp2_comma_expressions
             (cpp2_expression
               (cpp2_any_identifier
-                (cpp2_no_namespace_identifier
-                  (cpp2_non_template_identifier
-                    (cpp2_ordinary_identifier
-                      (identifier))))))))
+                (cpp2_non_template_identifier
+                  (cpp2_ordinary_identifier
+                    (identifier)))))))
         (cpp2_parentheses_expression
           (cpp2_comma_expressions
             (cpp2_expression
@@ -66,25 +64,22 @@ insert_at: (container, where: int, val: int)
                   (cpp2_binary_expression
                     (cpp2_expression
                       (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (identifier))))))
+                        (cpp2_non_template_identifier
+                          (cpp2_ordinary_identifier
+                            (identifier)))))
                     (cpp2_expression
                       (cpp2_dot_access
                         (cpp2_expression
                           (cpp2_any_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))))
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier)))))
                         (cpp2_function_call
                           (cpp2_expression
                             (cpp2_any_identifier
-                              (cpp2_no_namespace_identifier
-                                (cpp2_non_template_identifier
-                                  (cpp2_ordinary_identifier
-                                    (identifier))))))
+                              (cpp2_non_template_identifier
+                                (cpp2_ordinary_identifier
+                                  (identifier)))))
                           (cpp2_parentheses_expression))))))))
             (cpp2_expression
               (cpp2_literal
@@ -98,17 +93,15 @@ insert_at: (container, where: int, val: int)
                   (cpp2_dot_access
                     (cpp2_expression
                       (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (identifier))))))
+                        (cpp2_non_template_identifier
+                          (cpp2_ordinary_identifier
+                            (identifier)))))
                     (cpp2_function_call
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_no_namespace_identifier
-                            (cpp2_non_template_identifier
-                              (cpp2_ordinary_identifier
-                                (identifier))))))
+                          (cpp2_non_template_identifier
+                            (cpp2_ordinary_identifier
+                              (identifier)))))
                       (cpp2_parentheses_expression))))
                 (cpp2_expression
                   (cpp2_binary_expression
@@ -119,17 +112,15 @@ insert_at: (container, where: int, val: int)
                             (cpp2_dot_access
                               (cpp2_expression
                                 (cpp2_any_identifier
-                                  (cpp2_no_namespace_identifier
-                                    (cpp2_non_template_identifier
-                                      (cpp2_ordinary_identifier
-                                        (identifier))))))
+                                  (cpp2_non_template_identifier
+                                    (cpp2_ordinary_identifier
+                                      (identifier)))))
                               (cpp2_function_call
                                 (cpp2_expression
                                   (cpp2_any_identifier
-                                    (cpp2_no_namespace_identifier
-                                      (cpp2_non_template_identifier
-                                        (cpp2_ordinary_identifier
-                                          (identifier))))))
+                                    (cpp2_non_template_identifier
+                                      (cpp2_ordinary_identifier
+                                        (identifier)))))
                                 (cpp2_parentheses_expression)))))))
                     (cpp2_expression
                       (cpp2_literal
@@ -140,25 +131,22 @@ insert_at: (container, where: int, val: int)
             (cpp2_binary_expression
               (cpp2_expression
                 (cpp2_any_identifier
-                  (cpp2_no_namespace_identifier
-                    (cpp2_non_template_identifier
-                      (cpp2_ordinary_identifier
-                        (identifier))))))
+                  (cpp2_non_template_identifier
+                    (cpp2_ordinary_identifier
+                      (identifier)))))
               (cpp2_expression
                 (cpp2_dot_access
                   (cpp2_expression
                     (cpp2_any_identifier
-                      (cpp2_no_namespace_identifier
-                        (cpp2_non_template_identifier
-                          (cpp2_ordinary_identifier
-                            (identifier))))))
+                      (cpp2_non_template_identifier
+                        (cpp2_ordinary_identifier
+                          (identifier)))))
                   (cpp2_function_call
                     (cpp2_expression
                       (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (identifier))))))
+                        (cpp2_non_template_identifier
+                          (cpp2_ordinary_identifier
+                            (identifier)))))
                     (cpp2_parentheses_expression
                       (cpp2_comma_expressions
                         (cpp2_expression
@@ -167,30 +155,26 @@ insert_at: (container, where: int, val: int)
                               (cpp2_dot_access
                                 (cpp2_expression
                                   (cpp2_any_identifier
-                                    (cpp2_no_namespace_identifier
-                                      (cpp2_non_template_identifier
-                                        (cpp2_ordinary_identifier
-                                          (identifier))))))
+                                    (cpp2_non_template_identifier
+                                      (cpp2_ordinary_identifier
+                                        (identifier)))))
                                 (cpp2_function_call
                                   (cpp2_expression
                                     (cpp2_any_identifier
-                                      (cpp2_no_namespace_identifier
-                                        (cpp2_non_template_identifier
-                                          (cpp2_ordinary_identifier
-                                            (identifier))))))
+                                      (cpp2_non_template_identifier
+                                        (cpp2_ordinary_identifier
+                                          (identifier)))))
                                   (cpp2_parentheses_expression))))
                             (cpp2_expression
                               (cpp2_any_identifier
-                                (cpp2_no_namespace_identifier
-                                  (cpp2_non_template_identifier
-                                    (cpp2_ordinary_identifier
-                                      (identifier))))))))
+                                (cpp2_non_template_identifier
+                                  (cpp2_ordinary_identifier
+                                    (identifier)))))))
                         (cpp2_expression
                           (cpp2_any_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))))))))))))))))
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier)))))))))))))))))
 
 ===========================================================
 Example of using 'this' as a contract group
@@ -215,10 +199,9 @@ function_declaration: @copyable type =
       (cpp2_left_side_of_definition
         (cpp2_metafunction_arguments
           (cpp2_any_identifier
-            (cpp2_no_namespace_identifier
-              (cpp2_non_template_identifier
-                (cpp2_ordinary_identifier
-                  (identifier))))))
+            (cpp2_non_template_identifier
+              (cpp2_ordinary_identifier
+                (identifier)))))
         (cpp2_type_type))
       (cpp2_block
         (cpp2_statement
@@ -236,10 +219,9 @@ function_declaration: @copyable type =
                           (cpp2_function_declaration_argument
                             (cpp2_passing_style)
                             (cpp2_any_identifier
-                              (cpp2_no_namespace_identifier
-                                (cpp2_non_template_identifier
-                                  (cpp2_ordinary_identifier
-                                    (this))))))
+                              (cpp2_non_template_identifier
+                                (cpp2_ordinary_identifier
+                                  (this)))))
                           (cpp2_function_declaration_argument
                             (cpp2_no_definition_declaration
                               (cpp2_non_template_identifier
@@ -247,22 +229,19 @@ function_declaration: @copyable type =
                                   (identifier)))
                               (cpp2_expression
                                 (cpp2_any_identifier
-                                  (cpp2_no_namespace_identifier
-                                    (cpp2_non_template_identifier
-                                      (cpp2_ordinary_identifier
-                                        (identifier))))
-                                  (cpp2_no_namespace_identifier
-                                    (cpp2_non_template_identifier
-                                      (cpp2_ordinary_identifier
-                                        (identifier)))))))))))))
+                                  (cpp2_non_template_identifier
+                                    (cpp2_ordinary_identifier
+                                      (identifier)))
+                                  (cpp2_non_template_identifier
+                                    (cpp2_ordinary_identifier
+                                      (identifier))))))))))))
                 (cpp2_template_call_arguments
                   (cpp2_comma_expressions
                     (cpp2_expression
                       (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (this))))))))
+                        (cpp2_non_template_identifier
+                          (cpp2_ordinary_identifier
+                            (this)))))))
                 (cpp2_parentheses_expression
                   (cpp2_comma_expressions
                     (cpp2_expression
@@ -272,10 +251,9 @@ function_declaration: @copyable type =
                             (cpp2_function_call
                               (cpp2_expression
                                 (cpp2_any_identifier
-                                  (cpp2_no_namespace_identifier
-                                    (cpp2_non_template_identifier
-                                      (cpp2_ordinary_identifier
-                                        (identifier))))))
+                                  (cpp2_non_template_identifier
+                                    (cpp2_ordinary_identifier
+                                      (identifier)))))
                               (cpp2_parentheses_expression))))))
                     (cpp2_expression
                       (cpp2_literal
@@ -285,20 +263,18 @@ function_declaration: @copyable type =
                   (cpp2_comma_expressions
                     (cpp2_expression
                       (cpp2_any_identifier
-                        (cpp2_no_namespace_identifier
-                          (cpp2_non_template_identifier
-                            (cpp2_ordinary_identifier
-                              (this))))))))
+                        (cpp2_non_template_identifier
+                          (cpp2_ordinary_identifier
+                            (this)))))))
                 (cpp2_parentheses_expression
                   (cpp2_comma_expressions
                     (cpp2_expression
                       (cpp2_function_call
                         (cpp2_expression
                           (cpp2_any_identifier
-                            (cpp2_no_namespace_identifier
-                              (cpp2_non_template_identifier
-                                (cpp2_ordinary_identifier
-                                  (identifier))))))
+                            (cpp2_non_template_identifier
+                              (cpp2_ordinary_identifier
+                                (identifier)))))
                         (cpp2_parentheses_expression)))
                     (cpp2_expression
                       (cpp2_literal
@@ -310,10 +286,9 @@ function_declaration: @copyable type =
                     (cpp2_function_call
                       (cpp2_expression
                         (cpp2_any_identifier
-                          (cpp2_no_namespace_identifier
-                            (cpp2_non_template_identifier
-                              (cpp2_ordinary_identifier
-                                (identifier))))))
+                          (cpp2_non_template_identifier
+                            (cpp2_ordinary_identifier
+                              (identifier)))))
                       (cpp2_parentheses_expression
                         (cpp2_comma_expressions
                           (cpp2_expression

@@ -2009,11 +2009,15 @@
     "named": true,
     "fields": {
       "last": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "cpp2_no_namespace_identifier",
+            "type": "cpp2_non_template_identifier",
+            "named": true
+          },
+          {
+            "type": "cpp2_template_call_arguments",
             "named": true
           }
         ]
@@ -2031,7 +2035,11 @@
             "named": false
           },
           {
-            "type": "cpp2_no_namespace_identifier",
+            "type": "cpp2_non_template_identifier",
+            "named": true
+          },
+          {
+            "type": "cpp2_template_call_arguments",
             "named": true
           }
         ]
@@ -2928,25 +2936,6 @@
     }
   },
   {
-    "type": "cpp2_no_namespace_identifier",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "cpp2_non_template_identifier",
-          "named": true
-        },
-        {
-          "type": "cpp2_template_identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "cpp2_non_block_for_statement",
     "named": true,
     "fields": {},
@@ -3209,25 +3198,6 @@
       "types": [
         {
           "type": "cpp2_comma_seperated_declarations",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "cpp2_template_identifier",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "cpp2_non_template_identifier",
-          "named": true
-        },
-        {
-          "type": "cpp2_template_call_arguments",
           "named": true
         }
       ]

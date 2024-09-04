@@ -123,14 +123,14 @@ module.exports = grammar(CPP1, {
     [$.raw_string_literal, $.cpp2_raw_string_literal],
 
     // Cpp2
-    [$.cpp2_no_namespace_identifier, $.cpp2_template_identifier],
+    [$._cpp2_no_namespace_identifier, $._cpp2_template_identifier],
     [$.cpp2_unary_postfix_expression, $.cpp2_binary_expression],
     [$.cpp2_unary_prefix_expression, $.cpp2_binary_expression],
     [$.cpp2_block_loop, $.cpp2_do_while_statement],
     [$._cpp2_declaration_left_side, $.cpp2_non_block_loop, $.cpp2_block_loop],
     [$._cpp2_declaration_left_side, $.cpp2_block_loop],
     [$.cpp2_type, $.cpp2_unary_postfix_expression, $.cpp2_binary_expression],
-    [$._cpp2_declaration_left_side, $.cpp2_no_namespace_identifier],
+    [$._cpp2_declaration_left_side, $._cpp2_no_namespace_identifier],
     [$.cpp2_ordinary_identifier, $.cpp2_passing_style],
     [$.cpp2_passing_style],
     [$.cpp2_function_declaration_argument, $.cpp2_expression],
@@ -534,19 +534,19 @@ module.exports = grammar(CPP1, {
             field(
               "namespaces",
               seq(
-                choice(seq($.cpp2_no_namespace_identifier, "::"), " ::"),
-                repeat(seq($.cpp2_no_namespace_identifier, "::")),
+                choice(seq($._cpp2_no_namespace_identifier, "::"), " ::"),
+                repeat(seq($._cpp2_no_namespace_identifier, "::")),
               ),
             ),
           ),
-          field("last", $.cpp2_no_namespace_identifier),
+          field("last", $._cpp2_no_namespace_identifier),
         ),
       ),
 
-    cpp2_no_namespace_identifier: ($) =>
-      choice($.cpp2_non_template_identifier, $.cpp2_template_identifier),
+    _cpp2_no_namespace_identifier: ($) =>
+      choice($.cpp2_non_template_identifier, $._cpp2_template_identifier),
 
-    cpp2_template_identifier: ($) =>
+    _cpp2_template_identifier: ($) =>
       seq($.cpp2_non_template_identifier, $.cpp2_template_call_arguments),
 
     cpp2_non_template_identifier: ($) =>
