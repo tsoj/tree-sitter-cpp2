@@ -21078,10 +21078,6 @@
       "cpp2_function_type"
     ],
     [
-      "_cpp2_normal_type_or_hardcode_type",
-      "cpp2_binary_expression"
-    ],
-    [
       "cpp2_expression",
       "cpp2_dot_access"
     ]
@@ -21435,6 +21431,16 @@
       {
         "type": "SYMBOL",
         "name": "cpp2_ordinary_identifier"
+      }
+    ],
+    [
+      {
+        "type": "SYMBOL",
+        "name": "_cpp2_normal_type_or_hardcode_type"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "cpp2_binary_expression"
       }
     ]
   ],

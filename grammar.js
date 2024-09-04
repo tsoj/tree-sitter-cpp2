@@ -138,7 +138,6 @@ module.exports = grammar(CPP1, {
     [$.cpp2_number_literal],
     [$.cpp2_type],
     [$.cpp2_binary_expression, $.cpp2_function_type],
-    [$._cpp2_normal_type_or_hardcode_type, $.cpp2_binary_expression],
     [$.cpp2_expression, $.cpp2_dot_access],
   ],
 
@@ -175,7 +174,7 @@ module.exports = grammar(CPP1, {
     [$.cpp2_binary_expression, $.cpp2_expression_definition],
     [$.cpp2_type_type, $.cpp2_namespace_type, $.cpp2_ordinary_identifier],
     [$.cpp2_inspect, $.cpp2_ordinary_identifier],
-    // [$.cpp2_expression, $.cpp2_dot_access],
+    [$._cpp2_normal_type_or_hardcode_type, $.cpp2_binary_expression],
   ],
 
   extras: ($) => [/\s|\\\r?\n/, $.comment, $.macro_comment],
