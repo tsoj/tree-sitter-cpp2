@@ -6,6 +6,11 @@ To develop first run:
 npm install
 ```
 
+To build the parser:
+```bash
+tree-sitter generate
+```
+
 To run tests:
 ```bash
 tree-sitter test

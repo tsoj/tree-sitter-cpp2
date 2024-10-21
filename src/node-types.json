@@ -9067,6 +9067,10 @@
     "named": false
   },
   {
+    "type": "forward_ref",
+    "named": false
+  },
+  {
     "type": "friend",
     "named": false
   },
@@ -9088,6 +9092,10 @@
   },
   {
     "type": "in",
+    "named": false
+  },
+  {
+    "type": "in_ref",
     "named": false
   },
   {

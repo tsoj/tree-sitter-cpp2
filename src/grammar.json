@@ -18011,6 +18011,14 @@
           },
           {
             "type": "STRING",
+            "value": "forward_ref"
+          },
+          {
+            "type": "STRING",
+            "value": "in_ref"
+          },
+          {
+            "type": "STRING",
             "value": "virtual"
           },
           {
@@ -19322,6 +19330,14 @@
           {
             "type": "STRING",
             "value": "forward"
+          },
+          {
+            "type": "STRING",
+            "value": "forward_ref"
+          },
+          {
+            "type": "STRING",
+            "value": "in_ref"
           },
           {
             "type": "STRING",

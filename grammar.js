@@ -44,7 +44,7 @@ const cpp2_binary_operators = [
   "|=",
 ];
 
-const cpp2_passing_styles = ["in", "copy", "inout", "out", "move", "forward"];
+const cpp2_passing_styles = ["in", "copy", "inout", "out", "move", "forward", "forward_ref", "in_ref"];
 
 const cpp2_keyword_passing_styles = [
   "virtual",
