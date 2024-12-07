@@ -19276,17 +19276,21 @@
       ]
     },
     "_cpp2_template_identifier": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "cpp2_non_template_identifier"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "cpp2_template_call_arguments"
-        }
-      ]
+      "type": "PREC_DYNAMIC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "cpp2_non_template_identifier"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "cpp2_template_call_arguments"
+          }
+        ]
+      }
     },
     "cpp2_non_template_identifier": {
       "type": "CHOICE",

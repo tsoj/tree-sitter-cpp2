@@ -547,7 +547,8 @@ module.exports = grammar(CPP1, {
       choice($.cpp2_non_template_identifier, $._cpp2_template_identifier),
 
     _cpp2_template_identifier: ($) =>
-      seq($.cpp2_non_template_identifier, $.cpp2_template_call_arguments),
+      // dynamic precedence for preferring this to _cpp2_no_namespace_identifier
+      prec.dynamic(1, seq($.cpp2_non_template_identifier, $.cpp2_template_call_arguments)),
 
     cpp2_non_template_identifier: ($) =>
       choice($.cpp2_operator_keyword, $.cpp2_ordinary_identifier),
