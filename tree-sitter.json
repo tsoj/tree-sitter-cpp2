@@ -1,0 +1,40 @@
+{
+  "grammars": [
+    {
+      "name": "cpp2",
+      "camelcase": "Cpp2",
+      "scope": "source.cpp2",
+      "path": ".",
+      "file-types": [
+        "cpp2",
+        "h2"
+      ],
+      "highlights": [
+        "node_modules/tree-sitter-c/queries/highlights.scm",
+        "node_modules/tree-sitter-cpp/queries/highlights.scm",
+        "queries/highlights.scm"
+      ],
+      "injections": [
+        "node_modules/tree-sitter-cpp/queries/injections.scm",
+        "queries/injections.scm"
+      ],
+      "injection-regex": "^cpp2$"
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "license": "ISC",
+    "description": "",
+    "links": {
+      "repository": "https://github.com/tree-sitter/tree-sitter-cpp2"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
