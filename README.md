@@ -1,6 +1,5 @@
 # tree-sitter-cpp2
 
-
 To develop first run:
 ```bash
 npm install
