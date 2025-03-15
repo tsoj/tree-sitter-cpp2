@@ -51,7 +51,7 @@ jobs:
       - name: Set up tree-sitter
         uses: tree-sitter/setup-action/cli@v1
       - name: Run tests
-        uses: tree-sitter/parser-test-action@v2
+        uses: tree-sitter/parser-test-action@89f9071ad0c75902919524e56059c6898825343b # v2
         with:
           test-rust: ${{runner.os == 'Linux'}}
           test-node: true
