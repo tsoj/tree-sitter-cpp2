@@ -10,6 +10,7 @@ on:
       - bindings/**
       - binding.gyp
       - test_on_cpp2_files.sh
+      - .github/workflows/*
   pull_request:
     paths:
       - grammar.js
@@ -18,6 +19,7 @@ on:
       - bindings/**
       - binding.gyp
       - test_on_cpp2_files.sh
+      - .github/workflows/*
 
 concurrency:
   group: ${{github.workflow}}-${{github.ref}}
@@ -49,7 +51,7 @@ jobs:
           sparse-checkout: queries/
           ref: v0.22.3
       - name: Set up tree-sitter
-        uses: tree-sitter/setup-action/cli@v1
+        uses: tree-sitter/setup-action/cli@82b255ba7408ae2a2ec3f3a697ec211bff912f2a # v1
       - name: Run tests
         uses: tree-sitter/parser-test-action@89f9071ad0c75902919524e56059c6898825343b # v2
         with:
